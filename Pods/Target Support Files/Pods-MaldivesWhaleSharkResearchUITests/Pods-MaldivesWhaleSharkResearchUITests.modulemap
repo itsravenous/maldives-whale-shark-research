@@ -1,0 +1,6 @@
+framework module Pods_MaldivesWhaleSharkResearchUITests {
+  umbrella header "Pods-MaldivesWhaleSharkResearchUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
