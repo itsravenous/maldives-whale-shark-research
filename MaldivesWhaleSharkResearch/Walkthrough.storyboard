@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Walkthrough View Controller-->
+        <scene sceneID="FeD-8h-dDW">
+            <objects>
+                <viewController storyboardIdentifier="container" id="CD9-dM-EH0" customClass="BWWalkthroughViewController" customModule="BWWalkthrough" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="iDi-Hn-qid"/>
+                        <viewControllerLayoutGuide type="bottom" id="xGT-cp-sNh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="IxK-hk-out">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zM6-E6-wXR">
+                                <rect key="frame" x="0.0" y="597" width="375" height="70"/>
+                                <state key="normal" image="finish-button"/>
+                                <connections>
+                                    <action selector="close:" destination="CD9-dM-EH0" eventType="touchUpInside" id="SvX-rS-S9W"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YCq-C4-Ovb">
+                                <rect key="frame" x="0.0" y="597" width="375" height="70"/>
+                                <state key="normal" image="next-button"/>
+                                <connections>
+                                    <action selector="nextPage" destination="CD9-dM-EH0" eventType="touchUpInside" id="aFT-p9-GDe"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xGT-cp-sNh" firstAttribute="top" secondItem="zM6-E6-wXR" secondAttribute="bottom" id="23b-QR-Qmy"/>
+                            <constraint firstItem="xGT-cp-sNh" firstAttribute="top" secondItem="YCq-C4-Ovb" secondAttribute="bottom" id="27m-g3-3fF"/>
+                            <constraint firstAttribute="trailing" secondItem="zM6-E6-wXR" secondAttribute="trailing" id="DDU-al-JJA"/>
+                            <constraint firstItem="zM6-E6-wXR" firstAttribute="leading" secondItem="IxK-hk-out" secondAttribute="leading" id="GAv-00-m5E"/>
+                            <constraint firstItem="YCq-C4-Ovb" firstAttribute="leading" secondItem="IxK-hk-out" secondAttribute="leading" id="kHO-eC-YLV"/>
+                            <constraint firstAttribute="trailing" secondItem="YCq-C4-Ovb" secondAttribute="trailing" id="kVI-rK-OEv"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="closeButton" destination="zM6-E6-wXR" id="hgu-gu-QRA"/>
+                        <outlet property="nextButton" destination="YCq-C4-Ovb" id="zQf-Ow-tah"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y5E-St-75o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="78" y="31"/>
+        </scene>
+        <!--Walkthrough Page View Controller-->
+        <scene sceneID="dxF-Yv-5ib">
+            <objects>
+                <viewController storyboardIdentifier="page_1" id="ZPD-Ki-N2Q" customClass="BWWalkthroughPageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QAY-Na-raC"/>
+                        <viewControllerLayoutGuide type="bottom" id="npx-VQ-BdY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PLT-lI-wdB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="walkthrough-1" translatesAutoresizingMaskIntoConstraints="NO" id="U3O-3q-7W3">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="npx-VQ-BdY" firstAttribute="top" secondItem="U3O-3q-7W3" secondAttribute="bottom" id="DcY-U9-S8d"/>
+                            <constraint firstItem="U3O-3q-7W3" firstAttribute="top" secondItem="QAY-Na-raC" secondAttribute="bottom" constant="-20" id="nGX-Ow-HqO"/>
+                            <constraint firstAttribute="trailing" secondItem="U3O-3q-7W3" secondAttribute="trailing" id="sbH-zG-fZH"/>
+                            <constraint firstItem="U3O-3q-7W3" firstAttribute="leading" secondItem="PLT-lI-wdB" secondAttribute="leading" id="vrd-Bz-Tpi"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xUV-hG-nyf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="852" y="30"/>
+        </scene>
+        <!--Walkthrough Page View Controller-->
+        <scene sceneID="LDO-9B-v39">
+            <objects>
+                <viewController storyboardIdentifier="page_2" id="e4x-aj-zwt" customClass="BWWalkthroughPageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="u1J-4v-zhy"/>
+                        <viewControllerLayoutGuide type="bottom" id="cNZ-zz-E8s"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="B5i-W8-guM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="walkthrough-2" translatesAutoresizingMaskIntoConstraints="NO" id="FKR-aI-k2w">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cNZ-zz-E8s" firstAttribute="top" secondItem="FKR-aI-k2w" secondAttribute="bottom" id="BRB-Ak-8Uf"/>
+                            <constraint firstItem="FKR-aI-k2w" firstAttribute="top" secondItem="u1J-4v-zhy" secondAttribute="bottom" constant="-20" id="WKq-xR-T3J"/>
+                            <constraint firstAttribute="trailing" secondItem="FKR-aI-k2w" secondAttribute="trailing" id="YLq-RR-DPv"/>
+                            <constraint firstItem="FKR-aI-k2w" firstAttribute="leading" secondItem="B5i-W8-guM" secondAttribute="leading" id="oia-2o-0tu"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ken-Jn-WVd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1566" y="29"/>
+        </scene>
+        <!--Walkthrough Page View Controller-->
+        <scene sceneID="TIM-GY-2BT">
+            <objects>
+                <viewController storyboardIdentifier="page_3" id="uaO-KG-Fr1" customClass="BWWalkthroughPageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uwy-kN-ngo"/>
+                        <viewControllerLayoutGuide type="bottom" id="SJ4-bR-4GH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="x4o-aI-hj8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="walkthrough-3" translatesAutoresizingMaskIntoConstraints="NO" id="5KE-39-Esv">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5KE-39-Esv" firstAttribute="top" secondItem="uwy-kN-ngo" secondAttribute="bottom" constant="-20" id="3xc-JQ-uP7"/>
+                            <constraint firstItem="SJ4-bR-4GH" firstAttribute="top" secondItem="5KE-39-Esv" secondAttribute="bottom" id="Hyr-42-JUT"/>
+                            <constraint firstItem="5KE-39-Esv" firstAttribute="leading" secondItem="x4o-aI-hj8" secondAttribute="leading" id="if1-lk-RXb"/>
+                            <constraint firstAttribute="trailing" secondItem="5KE-39-Esv" secondAttribute="trailing" id="nu8-4M-sJT"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q4o-f1-P3R" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2281" y="28"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="finish-button" width="375" height="70"/>
+        <image name="next-button" width="375" height="70"/>
+        <image name="walkthrough-1" width="375" height="667"/>
+        <image name="walkthrough-2" width="375" height="667"/>
+        <image name="walkthrough-3" width="375" height="667"/>
+    </resources>
+</document>

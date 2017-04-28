@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04AFC9491EB33513001C738F /* Walkthrough.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04AFC9481EB33513001C738F /* Walkthrough.storyboard */; };
 		04CEF2F51EAB19550057A119 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEF2F41EAB19550057A119 /* AppDelegate.swift */; };
 		04CEF2F71EAB19550057A119 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEF2F61EAB19550057A119 /* ViewController.swift */; };
 		04CEF2FA1EAB19550057A119 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04CEF2F81EAB19550057A119 /* Main.storyboard */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04AFC9481EB33513001C738F /* Walkthrough.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Walkthrough.storyboard; sourceTree = "<group>"; };
 		04CEF2F11EAB19550057A119 /* MaldivesWhaleSharkResearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MaldivesWhaleSharkResearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04CEF2F41EAB19550057A119 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04CEF2F61EAB19550057A119 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				04CEF2F81EAB19550057A119 /* Main.storyboard */,
 				04CEF2FE1EAB19550057A119 /* Assets.xcassets */,
 				04CEF3001EAB19550057A119 /* LaunchScreen.storyboard */,
+				04AFC9481EB33513001C738F /* Walkthrough.storyboard */,
 				04CEF3031EAB19550057A119 /* Info.plist */,
 				04CEF3251EAB198F0057A119 /* GoogleService-Info.plist */,
 				04CEF2FB1EAB19550057A119 /* MaldivesWhaleSharkResearch.xcdatamodeld */,
@@ -294,6 +297,7 @@
 			files = (
 				04CEF3021EAB19550057A119 /* LaunchScreen.storyboard in Resources */,
 				04CEF3261EAB198F0057A119 /* GoogleService-Info.plist in Resources */,
+				04AFC9491EB33513001C738F /* Walkthrough.storyboard in Resources */,
 				04CEF2FF1EAB19550057A119 /* Assets.xcassets in Resources */,
 				04CEF2FA1EAB19550057A119 /* Main.storyboard in Resources */,
 			);
@@ -721,6 +725,7 @@
 				04CEF31E1EAB19550057A119 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		04CEF31F1EAB19550057A119 /* Build configuration list for PBXNativeTarget "MaldivesWhaleSharkResearchTests" */ = {
 			isa = XCConfigurationList;
@@ -729,6 +734,7 @@
 				04CEF3211EAB19550057A119 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		04CEF3221EAB19550057A119 /* Build configuration list for PBXNativeTarget "MaldivesWhaleSharkResearchUITests" */ = {
 			isa = XCConfigurationList;
@@ -737,6 +743,7 @@
 				04CEF3241EAB19550057A119 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
