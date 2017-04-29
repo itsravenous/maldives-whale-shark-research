@@ -8,12 +8,36 @@
 
 import UIKit
 import BWWalkthrough
+import BTNavigationDropdownMenu
 
 class EncountersTableViewController: UITableViewController, BWWalkthroughViewControllerDelegate {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        let items = ["All Encounters", "Liked Encounters", "My Encounters"]
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.0/255.0, green:180/255.0, blue:220/255.0, alpha: 1.0)
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        
+        let menuView = BTNavigationDropdownMenu(title: items[0], items: items as [AnyObject])
+        menuView.navigationBarTitleFont = UIFont(name: "MuseoSans-500", size: 19)
+        menuView.cellHeight = 65
+        menuView.cellBackgroundColor = UIColor(red: 66.0/255.0, green: 66.0/255.0, blue: 66.0/255.0, alpha: 1.0)
+        menuView.cellSelectionColor = UIColor(red: 66.0/255.0, green:66.0/255.0, blue:66.0/255.0, alpha: 1.0)
+        menuView.cellTextLabelColor = UIColor.white
+        menuView.cellTextLabelFont = UIFont(name: "MuseoSans-500", size: 16)
+        menuView.cellSeparatorColor = UIColor(red: 102.0/255.0, green: 102.0/255.0, blue: 102.0/255.0, alpha: 1.0)
+        menuView.cellTextLabelAlignment = .center // .center // .right // .left
+        menuView.selectedCellTextLabelColor = UIColor.white
+        menuView.arrowPadding = 15
+        menuView.animationDuration = 0.5
+        menuView.maskBackgroundColor = UIColor.black
+        menuView.maskBackgroundOpacity = 0.3
+        menuView.didSelectItemAtIndexHandler = {(indexPath: Int) -> () in
+            print("Did select item at index: \(indexPath)")
+        }
+        self.navigationItem.titleView = menuView
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 

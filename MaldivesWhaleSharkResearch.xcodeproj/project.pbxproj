@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		041A467E1EB4750B00DF749C /* MuseoSans_500.otf in Resources */ = {isa = PBXBuildFile; fileRef = 041A467D1EB4750B00DF749C /* MuseoSans_500.otf */; };
+		041A46801EB4752600DF749C /* Museo300-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 041A467F1EB4752600DF749C /* Museo300-Regular.otf */; };
 		043C342E1EB44BA500D52BB8 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C342D1EB44BA500D52BB8 /* TabBarViewController.swift */; };
 		043C34301EB46A1F00D52BB8 /* EncountersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C342F1EB46A1F00D52BB8 /* EncountersTableViewController.swift */; };
 		04AFC9491EB33513001C738F /* Walkthrough.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04AFC9481EB33513001C738F /* Walkthrough.storyboard */; };
@@ -43,6 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		041A467D1EB4750B00DF749C /* MuseoSans_500.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MuseoSans_500.otf; sourceTree = "<group>"; };
+		041A467F1EB4752600DF749C /* Museo300-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Museo300-Regular.otf"; sourceTree = "<group>"; };
 		043C342D1EB44BA500D52BB8 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		043C342F1EB46A1F00D52BB8 /* EncountersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncountersTableViewController.swift; sourceTree = "<group>"; };
 		04AFC9481EB33513001C738F /* Walkthrough.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Walkthrough.storyboard; sourceTree = "<group>"; };
@@ -99,6 +103,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		041A467C1EB474F300DF749C /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				041A467F1EB4752600DF749C /* Museo300-Regular.otf */,
+				041A467D1EB4750B00DF749C /* MuseoSans_500.otf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 		04CEF2E81EAB19550057A119 = {
 			isa = PBXGroup;
 			children = (
@@ -134,6 +147,7 @@
 				04CEF3031EAB19550057A119 /* Info.plist */,
 				04CEF3251EAB198F0057A119 /* GoogleService-Info.plist */,
 				04CEF2FB1EAB19550057A119 /* MaldivesWhaleSharkResearch.xcdatamodeld */,
+				041A467C1EB474F300DF749C /* Fonts */,
 			);
 			path = MaldivesWhaleSharkResearch;
 			sourceTree = "<group>";
@@ -298,6 +312,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				041A467E1EB4750B00DF749C /* MuseoSans_500.otf in Resources */,
+				041A46801EB4752600DF749C /* Museo300-Regular.otf in Resources */,
 				04CEF3021EAB19550057A119 /* LaunchScreen.storyboard in Resources */,
 				04CEF3261EAB198F0057A119 /* GoogleService-Info.plist in Resources */,
 				04AFC9491EB33513001C738F /* Walkthrough.storyboard in Resources */,
