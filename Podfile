@@ -6,6 +6,7 @@ target 'MaldivesWhaleSharkResearch' do
   use_frameworks!
   pod 'Firebase/Core'
   pod 'BWWalkthrough'
+  pod 'BTNavigationDropdownMenu'
 
   # Pods for MaldivesWhaleSharkResearch
 

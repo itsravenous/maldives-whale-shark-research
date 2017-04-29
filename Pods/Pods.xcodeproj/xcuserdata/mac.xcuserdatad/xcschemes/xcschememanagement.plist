@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>BTNavigationDropdownMenu.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>BWWalkthrough.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,6 +42,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>47A4B4FDE541DF73503694C3D383CFE9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>74C784CAB62BB289ACCC2DD0E138820F</key>
 		<dict>
 			<key>primary</key>
@@ -47,12 +57,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C4EE1EC8846D031051E5DB28880DE399</key>
+		<key>A52524E727A97710A55D0EDA55BB7CFE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F9BF5AAB541EE6E9EE63BAF151DD8BD8</key>
+		<key>C4EE1EC8846D031051E5DB28880DE399</key>
 		<dict>
 			<key>primary</key>
 			<true/>

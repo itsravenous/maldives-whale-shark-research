@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		043C342E1EB44BA500D52BB8 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C342D1EB44BA500D52BB8 /* TabBarViewController.swift */; };
+		043C34301EB46A1F00D52BB8 /* EncountersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C342F1EB46A1F00D52BB8 /* EncountersTableViewController.swift */; };
 		04AFC9491EB33513001C738F /* Walkthrough.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04AFC9481EB33513001C738F /* Walkthrough.storyboard */; };
 		04CEF2F51EAB19550057A119 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEF2F41EAB19550057A119 /* AppDelegate.swift */; };
-		04CEF2F71EAB19550057A119 /* EncounterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEF2F61EAB19550057A119 /* EncounterViewController.swift */; };
 		04CEF2FA1EAB19550057A119 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04CEF2F81EAB19550057A119 /* Main.storyboard */; };
 		04CEF2FD1EAB19550057A119 /* MaldivesWhaleSharkResearch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04CEF2FB1EAB19550057A119 /* MaldivesWhaleSharkResearch.xcdatamodeld */; };
 		04CEF2FF1EAB19550057A119 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04CEF2FE1EAB19550057A119 /* Assets.xcassets */; };
@@ -44,10 +44,10 @@
 
 /* Begin PBXFileReference section */
 		043C342D1EB44BA500D52BB8 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		043C342F1EB46A1F00D52BB8 /* EncountersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncountersTableViewController.swift; sourceTree = "<group>"; };
 		04AFC9481EB33513001C738F /* Walkthrough.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Walkthrough.storyboard; sourceTree = "<group>"; };
 		04CEF2F11EAB19550057A119 /* MaldivesWhaleSharkResearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MaldivesWhaleSharkResearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04CEF2F41EAB19550057A119 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		04CEF2F61EAB19550057A119 /* EncounterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncounterViewController.swift; sourceTree = "<group>"; };
 		04CEF2F91EAB19550057A119 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		04CEF2FC1EAB19550057A119 /* MaldivesWhaleSharkResearch.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MaldivesWhaleSharkResearch.xcdatamodel; sourceTree = "<group>"; };
 		04CEF2FE1EAB19550057A119 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -126,7 +126,7 @@
 			children = (
 				04CEF2F41EAB19550057A119 /* AppDelegate.swift */,
 				043C342D1EB44BA500D52BB8 /* TabBarViewController.swift */,
-				04CEF2F61EAB19550057A119 /* EncounterViewController.swift */,
+				043C342F1EB46A1F00D52BB8 /* EncountersTableViewController.swift */,
 				04CEF2F81EAB19550057A119 /* Main.storyboard */,
 				04CEF2FE1EAB19550057A119 /* Assets.xcassets */,
 				04CEF3001EAB19550057A119 /* LaunchScreen.storyboard */,
@@ -468,8 +468,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				043C342E1EB44BA500D52BB8 /* TabBarViewController.swift in Sources */,
+				043C34301EB46A1F00D52BB8 /* EncountersTableViewController.swift in Sources */,
 				04CEF2FD1EAB19550057A119 /* MaldivesWhaleSharkResearch.xcdatamodeld in Sources */,
-				04CEF2F71EAB19550057A119 /* EncounterViewController.swift in Sources */,
 				04CEF2F51EAB19550057A119 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

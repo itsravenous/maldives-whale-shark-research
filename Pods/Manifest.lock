@@ -1,4 +1,5 @@
 PODS:
+  - BTNavigationDropdownMenu (0.4.1)
   - BWWalkthrough (2.1.0)
   - Firebase/Core (3.16.0):
     - FirebaseAnalytics (= 3.8.0)
@@ -16,10 +17,12 @@ PODS:
     - GoogleToolboxForMac/Defines (= 2.1.1)
 
 DEPENDENCIES:
+  - BTNavigationDropdownMenu
   - BWWalkthrough
   - Firebase/Core
 
 SPEC CHECKSUMS:
+  BTNavigationDropdownMenu: 093f3cbfad1572f2c222bdf8d17584d1e13380d4
   BWWalkthrough: 188408f55b951725ccfd4faa8dab5c577b57c7a9
   Firebase: 21bf4a89d3f01bfbe11adc3a5d934a4a3d3a5fd6
   FirebaseAnalytics: 920e46455f27b0a52a80907a6d9b73ee4bd1c635
@@ -27,6 +30,6 @@ SPEC CHECKSUMS:
   FirebaseInstanceID: b9eedd6846fb5e1f0f7279e1deaa7a7e4cf8392e
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
 
-PODFILE CHECKSUM: 5157e9ed6fee11d20539c91c93bacd08cbc54bd8
+PODFILE CHECKSUM: e818520502fc936f143942aad2442b109fb385ee
 
 COCOAPODS: 1.2.1
