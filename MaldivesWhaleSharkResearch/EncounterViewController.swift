@@ -9,11 +9,12 @@
 import UIKit
 import BWWalkthrough
 
-class ViewController: UIViewController, BWWalkthroughViewControllerDelegate {
+class EncounterViewController: UIViewController, BWWalkthroughViewControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -36,7 +37,6 @@ class ViewController: UIViewController, BWWalkthroughViewControllerDelegate {
     }
     
     // MARK: - Actions
-    
     @IBAction func showWalkthroughButtonPressed(_ sender: UIButton) {
         showWalkthrough()
     }
