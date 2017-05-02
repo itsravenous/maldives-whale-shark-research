@@ -12,13 +12,15 @@ import BTNavigationDropdownMenu
 
 class EncountersTableViewController: UITableViewController, BWWalkthroughViewControllerDelegate {
     
+    // MARK: - View Did load
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let items = ["All Encounters", "Liked Encounters", "My Encounters"]
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.0/255.0, green:180/255.0, blue:220/255.0, alpha: 1.0)
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         
+        // Create the menuview
+        let items = ["All Encounters", "Liked Encounters", "My Encounters"]
         let menuView = BTNavigationDropdownMenu(title: items[0], items: items as [AnyObject])
         menuView.navigationBarTitleFont = UIFont(name: "MuseoSans-500", size: 19)
         menuView.cellHeight = 65
@@ -33,16 +35,25 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
         menuView.animationDuration = 0.5
         menuView.maskBackgroundColor = UIColor.black
         menuView.maskBackgroundOpacity = 0.3
-        menuView.didSelectItemAtIndexHandler = {(indexPath: Int) -> () in
-            print("Did select item at index: \(indexPath)")
+        menuView.didSelectItemAtIndexHandler = {(menuPath: Int) -> () in
+            print("Did select item at index: \(menuPath)")
+//            if menuPath == 0 {
+//                self.showAllEncounters()
+//                print("all")
+//            } else if menuPath == 1 {
+//                self.showLikedEncounters()
+//                print("liked")
+//            } else if menuPath == 2 {
+//                self.showMyEncounter()
+//                print("my")
+//            } else {
+//                self.showAllEncounters()
+//                print("all-default")
+//            }
         }
+        
         self.navigationItem.titleView = menuView
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -58,6 +69,12 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
             userDefaults.synchronize()
         }
     }
+    
+    // MARK: - IBActions
+    @IBAction func uploadImageButtonPressed(_ sender: UIBarButtonItem) {
+        print("Upload Image Button Pressed")
+    }
+    
     
     // MARK: - Functions
     
@@ -79,6 +96,21 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
         self.present(walkthrough, animated: true, completion: nil)
     }
     
+    func showAllEncounters() {
+
+        self.tableView.reloadData()
+    }
+    
+    func showLikedEncounters() {
+        
+        self.tableView.reloadData()
+    }
+    
+    func showMyEncounter() {
+        
+        self.tableView.reloadData()
+    }
+    
     // MARK: - Walkthrough delegate -
     
     func walkthroughPageDidChange(_ pageNumber: Int) {
@@ -93,68 +125,35 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return model.encounter.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "encounterCell", for: indexPath) as! EncounterTableViewCell
+        cell.sharkImageView.image = UIImage(named: model.encounter[indexPath.row]["sharkImage"]!)
+        cell.sharkNameLabel.text = model.encounter[indexPath.row]["name"]
+        cell.dateSeenLabel.text = "Spotted " + model.encounter[indexPath.row]["lastSeen"]! + " days ago"
+        cell.contributorImageView.image = UIImage(named: model.encounter[indexPath.row]["contributorImage"]!)
 
         return cell
     }
-    */
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "segueToEncounterCard" {
+            let destination = segue.destination as! EncounterViewController
+            destination.selectedIndexPath = tableView.indexPathForSelectedRow!
+        }
     }
-    */
 
 }

@@ -9,8 +9,12 @@
 /* Begin PBXBuildFile section */
 		041A467E1EB4750B00DF749C /* MuseoSans_500.otf in Resources */ = {isa = PBXBuildFile; fileRef = 041A467D1EB4750B00DF749C /* MuseoSans_500.otf */; };
 		041A46801EB4752600DF749C /* Museo300-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 041A467F1EB4752600DF749C /* Museo300-Regular.otf */; };
+		041A46821EB4858E00DF749C /* EncounterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041A46811EB4858E00DF749C /* EncounterTableViewCell.swift */; };
+		041A46861EB5CB7100DF749C /* EncounterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041A46851EB5CB7100DF749C /* EncounterViewController.swift */; };
+		041A46881EB5CC5F00DF749C /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041A46871EB5CC5F00DF749C /* Model.swift */; };
 		043C342E1EB44BA500D52BB8 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C342D1EB44BA500D52BB8 /* TabBarViewController.swift */; };
 		043C34301EB46A1F00D52BB8 /* EncountersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C342F1EB46A1F00D52BB8 /* EncountersTableViewController.swift */; };
+		04A0D8A91EB882FE00B8EC63 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A0D8A81EB882FE00B8EC63 /* SignInViewController.swift */; };
 		04AFC9491EB33513001C738F /* Walkthrough.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04AFC9481EB33513001C738F /* Walkthrough.storyboard */; };
 		04CEF2F51EAB19550057A119 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEF2F41EAB19550057A119 /* AppDelegate.swift */; };
 		04CEF2FA1EAB19550057A119 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04CEF2F81EAB19550057A119 /* Main.storyboard */; };
@@ -22,6 +26,7 @@
 		04CEF3261EAB198F0057A119 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04CEF3251EAB198F0057A119 /* GoogleService-Info.plist */; };
 		04CEF3271EAB198F0057A119 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04CEF3251EAB198F0057A119 /* GoogleService-Info.plist */; };
 		04CEF3281EAB198F0057A119 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04CEF3251EAB198F0057A119 /* GoogleService-Info.plist */; };
+		04EBB5611EB88A6A008D5B4C /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EBB5601EB88A6A008D5B4C /* AboutViewController.swift */; };
 		3E56C2B650CE78E75CF9C916 /* Pods_MaldivesWhaleSharkResearchUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3813DF1825C1F3F972FDC2F /* Pods_MaldivesWhaleSharkResearchUITests.framework */; };
 		4B567D847252AC37A414B93F /* Pods_MaldivesWhaleSharkResearchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21708BB94A1E1599C3046E70 /* Pods_MaldivesWhaleSharkResearchTests.framework */; };
 		DBA7A76AD185789770831CC2 /* Pods_MaldivesWhaleSharkResearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05069E331F56640F8E911B8D /* Pods_MaldivesWhaleSharkResearch.framework */; };
@@ -47,8 +52,12 @@
 /* Begin PBXFileReference section */
 		041A467D1EB4750B00DF749C /* MuseoSans_500.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MuseoSans_500.otf; sourceTree = "<group>"; };
 		041A467F1EB4752600DF749C /* Museo300-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Museo300-Regular.otf"; sourceTree = "<group>"; };
+		041A46811EB4858E00DF749C /* EncounterTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncounterTableViewCell.swift; sourceTree = "<group>"; };
+		041A46851EB5CB7100DF749C /* EncounterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncounterViewController.swift; sourceTree = "<group>"; };
+		041A46871EB5CC5F00DF749C /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		043C342D1EB44BA500D52BB8 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		043C342F1EB46A1F00D52BB8 /* EncountersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncountersTableViewController.swift; sourceTree = "<group>"; };
+		04A0D8A81EB882FE00B8EC63 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		04AFC9481EB33513001C738F /* Walkthrough.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Walkthrough.storyboard; sourceTree = "<group>"; };
 		04CEF2F11EAB19550057A119 /* MaldivesWhaleSharkResearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MaldivesWhaleSharkResearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04CEF2F41EAB19550057A119 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -64,6 +73,7 @@
 		04CEF3171EAB19550057A119 /* MaldivesWhaleSharkResearchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaldivesWhaleSharkResearchUITests.swift; sourceTree = "<group>"; };
 		04CEF3191EAB19550057A119 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04CEF3251EAB198F0057A119 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		04EBB5601EB88A6A008D5B4C /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		05069E331F56640F8E911B8D /* Pods_MaldivesWhaleSharkResearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MaldivesWhaleSharkResearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E3ED0F2E41A9A04FA2C636F /* Pods-MaldivesWhaleSharkResearch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MaldivesWhaleSharkResearch.release.xcconfig"; path = "Pods/Target Support Files/Pods-MaldivesWhaleSharkResearch/Pods-MaldivesWhaleSharkResearch.release.xcconfig"; sourceTree = "<group>"; };
 		21708BB94A1E1599C3046E70 /* Pods_MaldivesWhaleSharkResearchTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MaldivesWhaleSharkResearchTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -137,9 +147,14 @@
 		04CEF2F31EAB19550057A119 /* MaldivesWhaleSharkResearch */ = {
 			isa = PBXGroup;
 			children = (
+				041A46871EB5CC5F00DF749C /* Model.swift */,
 				04CEF2F41EAB19550057A119 /* AppDelegate.swift */,
+				04A0D8A81EB882FE00B8EC63 /* SignInViewController.swift */,
 				043C342D1EB44BA500D52BB8 /* TabBarViewController.swift */,
 				043C342F1EB46A1F00D52BB8 /* EncountersTableViewController.swift */,
+				041A46811EB4858E00DF749C /* EncounterTableViewCell.swift */,
+				041A46851EB5CB7100DF749C /* EncounterViewController.swift */,
+				04EBB5601EB88A6A008D5B4C /* AboutViewController.swift */,
 				04CEF2F81EAB19550057A119 /* Main.storyboard */,
 				04CEF2FE1EAB19550057A119 /* Assets.xcassets */,
 				04CEF3001EAB19550057A119 /* LaunchScreen.storyboard */,
@@ -483,7 +498,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				041A46881EB5CC5F00DF749C /* Model.swift in Sources */,
+				041A46861EB5CB7100DF749C /* EncounterViewController.swift in Sources */,
+				041A46821EB4858E00DF749C /* EncounterTableViewCell.swift in Sources */,
+				04EBB5611EB88A6A008D5B4C /* AboutViewController.swift in Sources */,
 				043C342E1EB44BA500D52BB8 /* TabBarViewController.swift in Sources */,
+				04A0D8A91EB882FE00B8EC63 /* SignInViewController.swift in Sources */,
 				043C34301EB46A1F00D52BB8 /* EncountersTableViewController.swift in Sources */,
 				04CEF2FD1EAB19550057A119 /* MaldivesWhaleSharkResearch.xcdatamodeld in Sources */,
 				04CEF2F51EAB19550057A119 /* AppDelegate.swift in Sources */,
