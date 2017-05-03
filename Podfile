@@ -10,8 +10,8 @@ target 'MaldivesWhaleSharkResearch' do
   pod 'Firebase/Storage'
   pod 'BWWalkthrough'
   pod 'BTNavigationDropdownMenu', :git => 'https://github.com/PhamBaTho/BTNavigationDropdownMenu.git', :branch => 'swift-3.0'
-  pod 'SMInstagramPhotoPicker'
-
+  pod 'SDWebImage'
+  
   # Pods for MaldivesWhaleSharkResearch
 
   target 'MaldivesWhaleSharkResearchTests' do

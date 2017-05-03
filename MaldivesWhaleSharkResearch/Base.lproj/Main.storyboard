@@ -148,24 +148,6 @@
             </objects>
             <point key="canvasLocation" x="2044" y="2185.4572713643179"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="0Vx-IB-5h1">
-            <objects>
-                <viewController id="hQJ-Ti-bs3" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="vgv-gZ-Lrc"/>
-                        <viewControllerLayoutGuide type="bottom" id="yEs-i7-xry"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ap1-Rp-rDY">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="A6t-Jy-wGB" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3065" y="-1280"/>
-        </scene>
         <!--Encounters Table View Controller-->
         <scene sceneID="tTS-8L-thK">
             <objects>
@@ -260,7 +242,6 @@
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="uploadImageButtonPressed:" destination="Vkg-bg-yMU" id="4nY-MJ-49n"/>
-                                <segue destination="hQJ-Ti-bs3" kind="presentation" id="SGa-NM-t0f"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -383,7 +364,7 @@
                                 <rect key="frame" x="0.0" y="385" width="375" height="233"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contributor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Gc-iD-ls4">
-                                        <rect key="frame" x="145" y="15" width="86" height="19.5"/>
+                                        <rect key="frame" x="144.5" y="15" width="86" height="19.5"/>
                                         <fontDescription key="fontDescription" name="Museo-300" family="Museo" pointSize="16"/>
                                         <color key="textColor" red="0.31372549020000001" green="0.74901960779999999" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -540,7 +521,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CDo-mz-Va5" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Encounters" image="encounters-icon-dark" selectedImage="encounters-icon-dark" id="sX2-Ko-BH4"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="yOP-qb-nCa">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yOP-qb-nCa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -564,7 +545,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rJw-p4-9PT" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="About" image="about-icon-dark" selectedImage="about-icon-dark" id="ZdX-Mh-6oV"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="YnA-Kg-Jci">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="YnA-Kg-Jci">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

@@ -9,7 +9,7 @@
 import UIKit
 
 class EncounterViewController: UIViewController {
-
+    
     // MARK: - View did load
     override func viewDidLoad() {
         super.viewDidLoad()
