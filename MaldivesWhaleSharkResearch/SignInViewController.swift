@@ -7,44 +7,43 @@
 //
 
 import UIKit
-import Firebase
-import FirebaseAuth
-import FirebaseDatabase
+import ILLoginKit
+import FBSDKCoreKit
+import FBSDKLoginKit
 
 class SignInViewController: UIViewController {
+
+    lazy var loginCoordinator: LoginCoordinator = {
+        return LoginCoordinator(rootViewController: self)
+    }()
     
-    // MARK: - outlets
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
     
     // MARK: - View did load
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    // MARK: - View Did Appear
+    override func viewDidAppear(_ animated: Bool) {
+       
+        let userDefaults = UserDefaults.standard
+        
+        if !userDefaults.bool(forKey: "signedIn") {
+            showLogin()
+        } else if (FBSDKAccessToken.current() != nil) {
+            print("User has a FB login token - SIGN IN")
+            performSegue(withIdentifier: "signInSegue", sender: nil)
+        } else {
+            print("SIGN IN")
+            performSegue(withIdentifier: "signInSegue", sender: nil)
+        }
         
     }
     
-    @IBAction func signInButtonPressed(_ sender: UIButton) {
-        FIRAuth.auth()?.signIn(withEmail: emailTextField.text!, password: passwordTextField.text!, completion: { (user, error) in
-            print("Sign in attempted...")
-            if error != nil {
-                print("HOLA UN ERROR:\(error)")
-                FIRAuth.auth()?.createUser(withEmail: self.emailTextField.text!, password: self.passwordTextField.text!, completion: { (user, error) in
-                    print("Tried to create a user...")
-                    if error != nil {
-                        print("HOLA UN ERROR:\(error)")
-                    } else {
-                        print("Created user successfully")
-                        FIRDatabase.database().reference().child("users").child(user!.uid).child("email").setValue(user!.email!)
-                        
-                        self.performSegue(withIdentifier: "signInSegue", sender: nil)
-                    }
-                })
-            } else {
-                print("Signed in successfully")
-                self.performSegue(withIdentifier: "signInSegue", sender: nil)
-            }
-        })
+    func showLogin() {
+        loginCoordinator.start()
     }
+    
     
     /*
      // MARK: - Navigation

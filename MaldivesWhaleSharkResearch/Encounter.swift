@@ -11,7 +11,7 @@ import Foundation
 class Encounter {
     var sharkID = ""
     var sharkName = ""
-    var image1 = ""
+    var mainImage = ""
     var contributorID = ""
     var date = ""
     var length = Double()

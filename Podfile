@@ -11,6 +11,8 @@ target 'MaldivesWhaleSharkResearch' do
   pod 'BWWalkthrough'
   pod 'BTNavigationDropdownMenu', :git => 'https://github.com/PhamBaTho/BTNavigationDropdownMenu.git', :branch => 'swift-3.0'
   pod 'SDWebImage'
+  pod 'BetterSegmentedControl'
+  pod 'ILLoginKit'
   
   # Pods for MaldivesWhaleSharkResearch
 

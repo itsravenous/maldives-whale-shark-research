@@ -20,29 +20,27 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.0/255.0, green:180/255.0, blue:220/255.0, alpha: 1.0)
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
-        
         // Firebase info tableview
+        
         FIRDatabase.database().reference().child("encounters").observe(FIRDataEventType.childAdded, with: {(snapshot) in
             
             let snapshotValue = snapshot.value as? NSDictionary
-            print(snapshotValue)
+            
             let encounter = Encounter()
             encounter.sharkName = (snapshotValue?["sharkName"] as? String)!
             encounter.date = (snapshotValue?["date"] as? String)!
-//            encounter.image1 = (snapshotValue?["photos"]["imageURL1"] as? String)!
-            //            encounter.sharkName = snapshotValue["sharkName"] as? String
-            //            encounter.encounterImage = snapshot.value!["imageURL1"] as! String
-            //            encounter.sharkName = snapshot.value!["sharkName"] as! String
+            encounter.contributorID = (snapshotValue?["contributorID"] as? String)!
+            
+            let photoValue = (snapshotValue?["photos"] as? NSDictionary)
+            encounter.mainImage = (photoValue?["imageURL1"] as? String)!
             
             self.encounters.append(encounter)
             
             self.tableView.reloadData()
         })
-        
-        
+
         // Create the menuview
+        
         let items = ["All Encounters", "Liked Encounters", "My Encounters"]
         let menuView = BTNavigationDropdownMenu(title: items[0], items: items as [AnyObject])
         menuView.navigationBarTitleFont = UIFont(name: "MuseoSans-500", size: 19)
@@ -91,6 +89,7 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
     }
     
     // MARK: - IBActions
+    
     @IBAction func uploadImageButtonPressed(_ sender: UIBarButtonItem) {
         print("Upload Image Button Pressed")
         
@@ -116,8 +115,42 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
         self.present(walkthrough, animated: true, completion: nil)
     }
     
+    // Convert date from date string and subtract from current date
     
-    // Encounter filter functions
+    func convertDate(encounterDate: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let date = dateFormatter.date(from: encounterDate)
+        
+        let currentDate = Date()
+        let calendar = NSCalendar.current
+        let dayOfEncounter = calendar.startOfDay(for: date!)
+        let today = calendar.startOfDay(for: currentDate)
+        
+        let components = calendar.dateComponents([.day], from: dayOfEncounter, to: today)
+        
+        return String(describing: components.day!)
+    }
+    
+    // Get user id info and find their contributorImage
+    
+    func getContributorImage(contributorID: String) -> String {
+        
+        var contributorImage = ""
+        
+        FIRDatabase.database().reference().child("users").observe(FIRDataEventType.childAdded, with: {(snapshot) in
+            
+            let userSnapshotValue = snapshot.value as? NSDictionary
+//            contributorImage = (userSnapshotValue?["contributorImage"] as? String)!
+            
+        })
+        
+        return contributorImage
+        
+    }
+    
+    
+    // MARK: - Encounter filters
     
     func showAllEncounters() {
 
@@ -145,22 +178,6 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
         self.dismiss(animated: true, completion: nil)
     }
     
-    // Convert date from date string and subtract from current date
-    func convertDate(encounterDate: String) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        let date = dateFormatter.date(from: encounterDate)
-        
-        let currentDate = Date()
-        let calendar = NSCalendar.current
-        let dayOfEncounter = calendar.startOfDay(for: date!)
-        let today = calendar.startOfDay(for: currentDate)
-        
-        let components = calendar.dateComponents([.day], from: dayOfEncounter, to: today)
-        
-        return String(describing: components.day!)
-    }
-
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -177,11 +194,13 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
         let encounter = encounters[indexPath.row]
         cell.sharkNameLabel.text = encounter.sharkName
         cell.dateSeenLabel.text = "Spotted " + convertDate(encounterDate: encounter.date) + " days ago"
-
-//        cell.sharkImageView.sd_setImage(with: URL(string: encounter.photos[0]))
-//        cell.contributorImageView.image = UIImage(named: model.encounter[indexPath.row]["contributorImage"]!)
-
+        cell.sharkImageView.sd_setImage(with: URL(string: encounter.mainImage))
+        cell.contributorImageView.sd_setImage(with: URL(string: getContributorImage(contributorID: encounter.contributorID)))
+// below works, firebase urls don't
+//        cell.contributorImageView.sd_setImage(with: URL(string: "https://image.flaticon.com/teams/new/1-freepik.jpg"))
+        
         return cell
+        
     }
 
 

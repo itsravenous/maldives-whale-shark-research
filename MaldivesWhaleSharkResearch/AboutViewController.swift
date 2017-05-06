@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class AboutViewController: UIViewController {
 
@@ -22,6 +24,20 @@ class AboutViewController: UIViewController {
     }
     
     @IBAction func logoutButtonPressed(_ sender: UIBarButtonItem) {
+        
+        let userDefaults = UserDefaults.standard
+        
+        if userDefaults.bool(forKey: "signedIn") == true {
+            userDefaults.set(false, forKey: "signedIn")
+            userDefaults.synchronize()
+            let firebaseAuth = FIRAuth.auth()
+            do {
+                try firebaseAuth?.signOut()
+            } catch let signOutError as NSError {
+                print ("Error signing out: %@", signOutError)
+            }
+        }
+
         dismiss(animated: true, completion: nil)
     }
 

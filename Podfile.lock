@@ -1,6 +1,17 @@
 PODS:
+  - BetterSegmentedControl (0.7)
+  - Bolts (1.8.4):
+    - Bolts/AppLinks (= 1.8.4)
+    - Bolts/Tasks (= 1.8.4)
+  - Bolts/AppLinks (1.8.4):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.8.4)
   - BTNavigationDropdownMenu (0.4.1)
   - BWWalkthrough (2.1.0)
+  - FBSDKCoreKit (4.22.0):
+    - Bolts (~> 1.7)
+  - FBSDKLoginKit (4.18.0):
+    - FBSDKCoreKit
   - Firebase/Auth (3.16.0):
     - Firebase/Core
     - FirebaseAuth (= 3.1.1)
@@ -41,17 +52,23 @@ PODS:
     - GoogleToolboxForMac/NSString+URLArguments (= 2.1.1)
   - GoogleToolboxForMac/NSString+URLArguments (2.1.1)
   - GTMSessionFetcher/Core (1.1.9)
+  - ILLoginKit (0.1.0):
+    - FBSDKLoginKit (= 4.18.0)
+    - Validator (~> 2.1.1)
   - SDWebImage (4.0.0):
     - SDWebImage/Core (= 4.0.0)
   - SDWebImage/Core (4.0.0)
+  - Validator (2.1.1)
 
 DEPENDENCIES:
+  - BetterSegmentedControl
   - BTNavigationDropdownMenu (from `https://github.com/PhamBaTho/BTNavigationDropdownMenu.git`, branch `swift-3.0`)
   - BWWalkthrough
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
   - Firebase/Storage
+  - ILLoginKit
   - SDWebImage
 
 EXTERNAL SOURCES:
@@ -65,8 +82,12 @@ CHECKOUT OPTIONS:
     :git: https://github.com/PhamBaTho/BTNavigationDropdownMenu.git
 
 SPEC CHECKSUMS:
+  BetterSegmentedControl: 0b4dde1caac22de345820858a5e2789132378c1c
+  Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   BTNavigationDropdownMenu: 093f3cbfad1572f2c222bdf8d17584d1e13380d4
   BWWalkthrough: 188408f55b951725ccfd4faa8dab5c577b57c7a9
+  FBSDKCoreKit: c693bad19feb225469eeff14452ba364522ee48b
+  FBSDKLoginKit: 6773073e970b2b15fb12e451ce7f11da0532b880
   Firebase: 21bf4a89d3f01bfbe11adc3a5d934a4a3d3a5fd6
   FirebaseAnalytics: 920e46455f27b0a52a80907a6d9b73ee4bd1c635
   FirebaseAuth: cc8a1824170adbd351edb7f994490a3fb5c18be6
@@ -76,8 +97,10 @@ SPEC CHECKSUMS:
   FirebaseStorage: a5c55b23741a49a72af8f30f95b3bb5ddbeda12d
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMSessionFetcher: 5c046c76a1f859bc9c187e918f18e4fc7bb57b5e
+  ILLoginKit: ff473712662d92448553967d412ba201e61fbad0
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
+  Validator: b1793fbfd0046097551d0edd18e2c30792d69ef5
 
-PODFILE CHECKSUM: bdbfacd0dd09c8fe19f62c1dfafc2f14eb79ad36
+PODFILE CHECKSUM: d70edce4f58c18bf9707b8e43afe6729db6ac570
 
 COCOAPODS: 1.2.1

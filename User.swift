@@ -11,6 +11,7 @@ import Foundation
 class User {
     var email = ""
     var uid = ""
+    var contributorImage = ""
     var encounters = [Array<Any>]()
     var likedEncounters = [Array<Any>]()
 }
