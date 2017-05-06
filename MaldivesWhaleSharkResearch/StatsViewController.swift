@@ -12,6 +12,9 @@ import BetterSegmentedControl
 class StatsViewController: UIViewController {
     
     @IBOutlet weak var segmentedControl: BetterSegmentedControl!
+    @IBOutlet weak var weekView: UIView!
+    @IBOutlet weak var monthView: UIView!
+    @IBOutlet weak var allTimeView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,21 +36,31 @@ class StatsViewController: UIViewController {
         segmentedControl.addSubviewToIndicator(customSubview)
 //        view.addSubview(indicatorControl)
         
+        // Hide the 2 other segmeneted views
+        monthView.isHidden = true
+        allTimeView.isHidden = true
 
     }
 
     // MARK: - Action handlers
     func navigationSegmentedControlValueChanged(_ sender: BetterSegmentedControl) {
+        
         if sender.index == 0 {
             print("Week")
-            view.backgroundColor = .white
+            weekView.isHidden = false
+            monthView.isHidden = true
+            allTimeView.isHidden = true
         }
         else if sender.index == 1 {
             print("Month")
-            view.backgroundColor = .darkGray
+            weekView.isHidden = true
+            monthView.isHidden = false
+            allTimeView.isHidden = true
         } else {
             print("All-time")
-            view.backgroundColor = .blue
+            weekView.isHidden = true
+            monthView.isHidden = true
+            allTimeView.isHidden = false
         }
     }
     

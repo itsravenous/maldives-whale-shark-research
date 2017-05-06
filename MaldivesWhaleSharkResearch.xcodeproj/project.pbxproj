@@ -15,6 +15,9 @@
 		042776B11EB8B1C900D505C5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042776B01EB8B1C900D505C5 /* User.swift */; };
 		042776B51EB8B71100D505C5 /* WhaleShark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042776B41EB8B71100D505C5 /* WhaleShark.swift */; };
 		042776B71EB8B9FC00D505C5 /* Encounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042776B61EB8B9FC00D505C5 /* Encounter.swift */; };
+		042DBBD41EBE08AE00DA93B6 /* WeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042DBBD31EBE08AE00DA93B6 /* WeekViewController.swift */; };
+		042DBBD61EBE08BB00DA93B6 /* MonthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042DBBD51EBE08BB00DA93B6 /* MonthViewController.swift */; };
+		042DBBD81EBE08C700DA93B6 /* AllTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042DBBD71EBE08C700DA93B6 /* AllTimeViewController.swift */; };
 		042FF0691EB9E2EE00C7E390 /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FF0681EB9E2EE00C7E390 /* StatsViewController.swift */; };
 		043C342E1EB44BA500D52BB8 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C342D1EB44BA500D52BB8 /* TabBarViewController.swift */; };
 		043C34301EB46A1F00D52BB8 /* EncountersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C342F1EB46A1F00D52BB8 /* EncountersTableViewController.swift */; };
@@ -62,6 +65,9 @@
 		042776B01EB8B1C900D505C5 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = ../User.swift; sourceTree = "<group>"; };
 		042776B41EB8B71100D505C5 /* WhaleShark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhaleShark.swift; sourceTree = "<group>"; };
 		042776B61EB8B9FC00D505C5 /* Encounter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Encounter.swift; sourceTree = "<group>"; };
+		042DBBD31EBE08AE00DA93B6 /* WeekViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekViewController.swift; sourceTree = "<group>"; };
+		042DBBD51EBE08BB00DA93B6 /* MonthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthViewController.swift; sourceTree = "<group>"; };
+		042DBBD71EBE08C700DA93B6 /* AllTimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllTimeViewController.swift; sourceTree = "<group>"; };
 		042FF0681EB9E2EE00C7E390 /* StatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
 		043C342D1EB44BA500D52BB8 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		043C342F1EB46A1F00D52BB8 /* EncountersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncountersTableViewController.swift; sourceTree = "<group>"; };
@@ -130,18 +136,13 @@
 			name = SupportingFiles;
 			sourceTree = "<group>";
 		};
-		042776B21EB8B27900D505C5 /* ViewControllers */ = {
+		042776B21EB8B27900D505C5 /* Login */ = {
 			isa = PBXGroup;
 			children = (
 				04A0D8A81EB882FE00B8EC63 /* SignInViewController.swift */,
-				043C342D1EB44BA500D52BB8 /* TabBarViewController.swift */,
-				041A46851EB5CB7100DF749C /* EncounterViewController.swift */,
-				041A46811EB4858E00DF749C /* EncounterTableViewCell.swift */,
-				043C342F1EB46A1F00D52BB8 /* EncountersTableViewController.swift */,
-				042FF0681EB9E2EE00C7E390 /* StatsViewController.swift */,
-				04EBB5601EB88A6A008D5B4C /* AboutViewController.swift */,
+				042454241EBA0FCF009584B2 /* LoginCoordinator.swift */,
 			);
-			name = ViewControllers;
+			name = Login;
 			sourceTree = "<group>";
 		};
 		042776B31EB8B29A00D505C5 /* Models */ = {
@@ -162,6 +163,42 @@
 				04CEF3001EAB19550057A119 /* LaunchScreen.storyboard */,
 			);
 			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		042DBBD01EBE084800DA93B6 /* Stats */ = {
+			isa = PBXGroup;
+			children = (
+				042FF0681EB9E2EE00C7E390 /* StatsViewController.swift */,
+				042DBBD31EBE08AE00DA93B6 /* WeekViewController.swift */,
+				042DBBD51EBE08BB00DA93B6 /* MonthViewController.swift */,
+				042DBBD71EBE08C700DA93B6 /* AllTimeViewController.swift */,
+			);
+			name = Stats;
+			sourceTree = "<group>";
+		};
+		042DBBD11EBE085900DA93B6 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				04EBB5601EB88A6A008D5B4C /* AboutViewController.swift */,
+			);
+			name = About;
+			sourceTree = "<group>";
+		};
+		042DBBD21EBE086700DA93B6 /* Encounter */ = {
+			isa = PBXGroup;
+			children = (
+				041A46851EB5CB7100DF749C /* EncounterViewController.swift */,
+				041A46811EB4858E00DF749C /* EncounterTableViewCell.swift */,
+				043C342F1EB46A1F00D52BB8 /* EncountersTableViewController.swift */,
+			);
+			name = Encounter;
+			sourceTree = "<group>";
+		};
+		042DBBD91EBE108F00DA93B6 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Map;
 			sourceTree = "<group>";
 		};
 		04CEF2E81EAB19550057A119 = {
@@ -190,8 +227,12 @@
 			isa = PBXGroup;
 			children = (
 				04CEF2F41EAB19550057A119 /* AppDelegate.swift */,
-				042454241EBA0FCF009584B2 /* LoginCoordinator.swift */,
-				042776B21EB8B27900D505C5 /* ViewControllers */,
+				043C342D1EB44BA500D52BB8 /* TabBarViewController.swift */,
+				042776B21EB8B27900D505C5 /* Login */,
+				042DBBD21EBE086700DA93B6 /* Encounter */,
+				042DBBD01EBE084800DA93B6 /* Stats */,
+				042DBBD91EBE108F00DA93B6 /* Map */,
+				042DBBD11EBE085900DA93B6 /* About */,
 				042776B31EB8B29A00D505C5 /* Models */,
 				042DBBCF1EBC3BAB00DA93B6 /* Storyboards */,
 				04CEF2FE1EAB19550057A119 /* Assets.xcassets */,
@@ -534,6 +575,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				042DBBD41EBE08AE00DA93B6 /* WeekViewController.swift in Sources */,
 				042776B71EB8B9FC00D505C5 /* Encounter.swift in Sources */,
 				041A46861EB5CB7100DF749C /* EncounterViewController.swift in Sources */,
 				041A46821EB4858E00DF749C /* EncounterTableViewCell.swift in Sources */,
@@ -544,7 +586,9 @@
 				043C34301EB46A1F00D52BB8 /* EncountersTableViewController.swift in Sources */,
 				042776B51EB8B71100D505C5 /* WhaleShark.swift in Sources */,
 				04CEF2FD1EAB19550057A119 /* MaldivesWhaleSharkResearch.xcdatamodeld in Sources */,
+				042DBBD61EBE08BB00DA93B6 /* MonthViewController.swift in Sources */,
 				042776B11EB8B1C900D505C5 /* User.swift in Sources */,
+				042DBBD81EBE08C700DA93B6 /* AllTimeViewController.swift in Sources */,
 				042FF0691EB9E2EE00C7E390 /* StatsViewController.swift in Sources */,
 				04CEF2F51EAB19550057A119 /* AppDelegate.swift in Sources */,
 			);

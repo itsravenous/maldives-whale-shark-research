@@ -54,17 +54,53 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Epk-ho-dpO">
+                                <rect key="frame" x="0.0" y="110" width="375" height="508"/>
+                                <color key="backgroundColor" red="0.25882352941176467" green="0.25882352941176467" blue="0.25882352941176467" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <segue destination="j3Y-Sg-eal" kind="embed" id="twL-pK-XnZ"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Cc-0G-Zq1">
+                                <rect key="frame" x="0.0" y="110" width="375" height="508"/>
+                                <color key="backgroundColor" red="0.25882352941176467" green="0.25882352941176467" blue="0.25882352941176467" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <segue destination="rGB-AV-3tL" kind="embed" id="fxF-jA-Emz"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BJ4-IR-qAQ">
+                                <rect key="frame" x="0.0" y="110" width="375" height="508"/>
+                                <color key="backgroundColor" red="0.25882352941176467" green="0.25882352941176467" blue="0.25882352941176467" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <segue destination="RbK-th-MtO" kind="embed" id="sUZ-Et-glK"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="BJ4-IR-qAQ" secondAttribute="trailing" id="1qM-gE-jLU"/>
+                            <constraint firstAttribute="trailing" secondItem="Epk-ho-dpO" secondAttribute="trailing" id="3bK-mS-XZg"/>
+                            <constraint firstItem="0Cc-0G-Zq1" firstAttribute="top" secondItem="X2b-Fs-sOM" secondAttribute="bottom" id="4iN-nS-4hB"/>
                             <constraint firstAttribute="trailing" secondItem="X2b-Fs-sOM" secondAttribute="trailing" id="EVp-hz-MLh"/>
+                            <constraint firstAttribute="trailing" secondItem="0Cc-0G-Zq1" secondAttribute="trailing" id="FWi-pK-9Rj"/>
+                            <constraint firstItem="c89-R2-z8c" firstAttribute="top" secondItem="BJ4-IR-qAQ" secondAttribute="bottom" id="Fm3-6e-ZQo"/>
+                            <constraint firstItem="c89-R2-z8c" firstAttribute="top" secondItem="Epk-ho-dpO" secondAttribute="bottom" id="ID8-7Q-GnZ"/>
                             <constraint firstItem="X2b-Fs-sOM" firstAttribute="top" secondItem="hWi-tM-efK" secondAttribute="bottom" id="TGj-E8-63Z"/>
+                            <constraint firstItem="BJ4-IR-qAQ" firstAttribute="leading" secondItem="AKN-1n-AVe" secondAttribute="leading" id="Tn3-lM-nzn"/>
                             <constraint firstItem="X2b-Fs-sOM" firstAttribute="leading" secondItem="AKN-1n-AVe" secondAttribute="leading" id="VBC-zX-Ygc"/>
+                            <constraint firstItem="0Cc-0G-Zq1" firstAttribute="leading" secondItem="AKN-1n-AVe" secondAttribute="leading" id="bZi-pT-Rhi"/>
+                            <constraint firstItem="BJ4-IR-qAQ" firstAttribute="top" secondItem="X2b-Fs-sOM" secondAttribute="bottom" id="gxZ-BB-nxw"/>
+                            <constraint firstItem="Epk-ho-dpO" firstAttribute="leading" secondItem="AKN-1n-AVe" secondAttribute="leading" id="oOi-mr-n3K"/>
+                            <constraint firstItem="Epk-ho-dpO" firstAttribute="top" secondItem="X2b-Fs-sOM" secondAttribute="bottom" id="t8c-rC-VBZ"/>
+                            <constraint firstItem="c89-R2-z8c" firstAttribute="top" secondItem="0Cc-0G-Zq1" secondAttribute="bottom" id="vdr-KZ-AP2"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Stats" id="uhL-Vs-cui"/>
                     <connections>
+                        <outlet property="allTimeView" destination="BJ4-IR-qAQ" id="38M-nv-BR8"/>
+                        <outlet property="monthView" destination="0Cc-0G-Zq1" id="NYx-Ea-FKm"/>
                         <outlet property="segmentedControl" destination="X2b-Fs-sOM" id="4dh-BP-s6A"/>
+                        <outlet property="weekView" destination="Epk-ho-dpO" id="DyJ-Zz-2mz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y34-hU-7X3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -431,7 +467,9 @@
                             <constraint firstAttribute="trailing" secondItem="5nh-6j-8UB" secondAttribute="trailing" id="hVK-oW-C9h"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="8se-WS-0pl"/>
+                    <navigationItem key="navigationItem" title="Title" id="8se-WS-0pl">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="KPR-z2-JyQ"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="contributorImageView" destination="rLm-tv-lTC" id="4J2-xa-a4O"/>
                         <outlet property="contributorNameLabel" destination="vDy-Bm-NHV" id="FHS-Gf-qSp"/>
@@ -609,6 +647,151 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g0h-tl-bsu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1104.8" y="1503.5982008995504"/>
+        </scene>
+        <!--Week View Controller-->
+        <scene sceneID="S8o-A8-iOn">
+            <objects>
+                <viewController id="j3Y-Sg-eal" customClass="WeekViewController" customModule="MaldivesWhaleSharkResearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mN5-Pm-q9e">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="508"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="nMP-Ji-5JK">
+                                <rect key="frame" x="73" y="30" width="229" height="136"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Whale Shark Encounters" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AeX-XV-30G">
+                                        <rect key="frame" x="13" y="0.0" width="203" height="22"/>
+                                        <fontDescription key="fontDescription" name="MuseoSans-500" family="Museo Sans" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VRA-dV-2hW">
+                                        <rect key="frame" x="82.5" y="32" width="64" height="72"/>
+                                        <fontDescription key="fontDescription" name="MuseoSans-500" family="Museo Sans" pointSize="60"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z7c-Wm-pRC">
+                                        <rect key="frame" x="0.0" y="114" width="229" height="22"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-4 (-12.25%)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iGk-fI-glO">
+                                                <rect key="frame" x="0.0" y="0.0" width="101.5" height="22"/>
+                                                <fontDescription key="fontDescription" name="MuseoSans-500" family="Museo Sans" pointSize="18"/>
+                                                <color key="textColor" red="0.31372549020000001" green="0.74901960779999999" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" from last week" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VCp-OA-Vvb">
+                                                <rect key="frame" x="101.5" y="0.0" width="127.5" height="22"/>
+                                                <fontDescription key="fontDescription" name="MuseoSans-500" family="Museo Sans" pointSize="18"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="nMP-Ji-5JK" firstAttribute="top" secondItem="mN5-Pm-q9e" secondAttribute="topMargin" constant="30" id="l1a-dN-ahq"/>
+                            <constraint firstItem="nMP-Ji-5JK" firstAttribute="centerX" secondItem="mN5-Pm-q9e" secondAttribute="centerX" id="rAR-AC-JRx"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yqy-Zm-5aZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2764" y="26"/>
+        </scene>
+        <!--Month View Controller-->
+        <scene sceneID="vQS-6g-Bjn">
+            <objects>
+                <viewController id="rGB-AV-3tL" customClass="MonthViewController" customModule="MaldivesWhaleSharkResearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PeP-0H-RAN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="508"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Zxs-Jh-cgB">
+                                <rect key="frame" x="73" y="30" width="229" height="136"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Sharks Added" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sKe-Bq-oF4">
+                                        <rect key="frame" x="36.5" y="0.0" width="156" height="22"/>
+                                        <fontDescription key="fontDescription" name="MuseoSans-500" family="Museo Sans" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wP4-Tc-byf">
+                                        <rect key="frame" x="97.5" y="32" width="34.5" height="72"/>
+                                        <fontDescription key="fontDescription" name="MuseoSans-500" family="Museo Sans" pointSize="60"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kcu-8f-l68">
+                                        <rect key="frame" x="0.0" y="114" width="229" height="22"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-4 (-12.25%)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YsH-H5-F1i">
+                                                <rect key="frame" x="0.0" y="0.0" width="101.5" height="22"/>
+                                                <fontDescription key="fontDescription" name="MuseoSans-500" family="Museo Sans" pointSize="18"/>
+                                                <color key="textColor" red="0.31372549020000001" green="0.74901960779999999" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" from last week" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H10-St-YqU">
+                                                <rect key="frame" x="101.5" y="0.0" width="127.5" height="22"/>
+                                                <fontDescription key="fontDescription" name="MuseoSans-500" family="Museo Sans" pointSize="18"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Zxs-Jh-cgB" firstAttribute="centerX" secondItem="PeP-0H-RAN" secondAttribute="centerX" id="TJP-CO-gje"/>
+                            <constraint firstItem="Zxs-Jh-cgB" firstAttribute="top" secondItem="PeP-0H-RAN" secondAttribute="topMargin" constant="30" id="aMZ-wW-SFk"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4M7-bx-Tn3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3430" y="161"/>
+        </scene>
+        <!--All Time View Controller-->
+        <scene sceneID="OVQ-yO-ZRk">
+            <objects>
+                <viewController id="RbK-th-MtO" customClass="AllTimeViewController" customModule="MaldivesWhaleSharkResearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4R8-S3-xSI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="508"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="gTm-j0-RbL">
+                                <rect key="frame" x="101.5" y="30" width="172.5" height="104"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of Members" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cgX-Dp-BU1">
+                                        <rect key="frame" x="0.0" y="0.0" width="172.5" height="22"/>
+                                        <fontDescription key="fontDescription" name="MuseoSans-500" family="Museo Sans" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="62" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eW4-yc-tWW">
+                                        <rect key="frame" x="51" y="32" width="70.5" height="72"/>
+                                        <fontDescription key="fontDescription" name="MuseoSans-500" family="Museo Sans" pointSize="60"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="gTm-j0-RbL" firstAttribute="centerX" secondItem="4R8-S3-xSI" secondAttribute="centerX" id="gsU-YU-dcO"/>
+                            <constraint firstItem="gTm-j0-RbL" firstAttribute="top" secondItem="4R8-S3-xSI" secondAttribute="topMargin" constant="30" id="tvM-FP-6Yx"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hz3-fC-gqd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4103" y="233"/>
         </scene>
     </scenes>
     <resources>
