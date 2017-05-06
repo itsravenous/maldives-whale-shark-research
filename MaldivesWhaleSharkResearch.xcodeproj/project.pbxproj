@@ -18,6 +18,7 @@
 		042DBBD41EBE08AE00DA93B6 /* WeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042DBBD31EBE08AE00DA93B6 /* WeekViewController.swift */; };
 		042DBBD61EBE08BB00DA93B6 /* MonthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042DBBD51EBE08BB00DA93B6 /* MonthViewController.swift */; };
 		042DBBD81EBE08C700DA93B6 /* AllTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042DBBD71EBE08C700DA93B6 /* AllTimeViewController.swift */; };
+		042DBBDB1EBE11C600DA93B6 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042DBBDA1EBE11C600DA93B6 /* MapViewController.swift */; };
 		042FF0691EB9E2EE00C7E390 /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FF0681EB9E2EE00C7E390 /* StatsViewController.swift */; };
 		043C342E1EB44BA500D52BB8 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C342D1EB44BA500D52BB8 /* TabBarViewController.swift */; };
 		043C34301EB46A1F00D52BB8 /* EncountersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C342F1EB46A1F00D52BB8 /* EncountersTableViewController.swift */; };
@@ -68,6 +69,7 @@
 		042DBBD31EBE08AE00DA93B6 /* WeekViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekViewController.swift; sourceTree = "<group>"; };
 		042DBBD51EBE08BB00DA93B6 /* MonthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthViewController.swift; sourceTree = "<group>"; };
 		042DBBD71EBE08C700DA93B6 /* AllTimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllTimeViewController.swift; sourceTree = "<group>"; };
+		042DBBDA1EBE11C600DA93B6 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		042FF0681EB9E2EE00C7E390 /* StatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
 		043C342D1EB44BA500D52BB8 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		043C342F1EB46A1F00D52BB8 /* EncountersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncountersTableViewController.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 		042DBBD91EBE108F00DA93B6 /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				042DBBDA1EBE11C600DA93B6 /* MapViewController.swift */,
 			);
 			name = Map;
 			sourceTree = "<group>";
@@ -591,6 +594,7 @@
 				042DBBD81EBE08C700DA93B6 /* AllTimeViewController.swift in Sources */,
 				042FF0691EB9E2EE00C7E390 /* StatsViewController.swift in Sources */,
 				04CEF2F51EAB19550057A119 /* AppDelegate.swift in Sources */,
+				042DBBDB1EBE11C600DA93B6 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

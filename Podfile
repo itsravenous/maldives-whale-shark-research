@@ -13,6 +13,8 @@ target 'MaldivesWhaleSharkResearch' do
   pod 'SDWebImage'
   pod 'BetterSegmentedControl'
   pod 'ILLoginKit'
+  pod 'GoogleMaps'
+  pod 'GooglePlaces'
   
   # Pods for MaldivesWhaleSharkResearch
 

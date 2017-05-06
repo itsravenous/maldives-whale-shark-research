@@ -110,7 +110,7 @@
         <!--Map-->
         <scene sceneID="lSP-Z9-Llx">
             <objects>
-                <viewController id="PsF-bC-lQ5" sceneMemberID="viewController">
+                <viewController id="PsF-bC-lQ5" customClass="MapViewController" customModule="MaldivesWhaleSharkResearch" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="42e-3I-db5"/>
                         <viewControllerLayoutGuide type="bottom" id="fUp-ZT-zlI"/>
@@ -118,19 +118,7 @@
                     <view key="view" contentMode="scaleToFill" id="vUQ-hM-qDX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Map" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dFS-aT-C7Q">
-                                <rect key="frame" x="171" y="323" width="33.5" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="dFS-aT-C7Q" firstAttribute="centerX" secondItem="vUQ-hM-qDX" secondAttribute="centerX" id="dNt-Vv-lND"/>
-                            <constraint firstItem="dFS-aT-C7Q" firstAttribute="centerY" secondItem="vUQ-hM-qDX" secondAttribute="centerY" id="jkG-o8-75l"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Map" id="y4S-US-fk3"/>
                 </viewController>
@@ -422,7 +410,7 @@
                                 <rect key="frame" x="0.0" y="385" width="375" height="233"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contributor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Gc-iD-ls4">
-                                        <rect key="frame" x="145" y="15" width="86" height="19.5"/>
+                                        <rect key="frame" x="145.5" y="15" width="86" height="19.5"/>
                                         <fontDescription key="fontDescription" name="Museo-300" family="Museo" pointSize="16"/>
                                         <color key="textColor" red="0.31372549020000001" green="0.74901960779999999" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -652,6 +640,10 @@
         <scene sceneID="S8o-A8-iOn">
             <objects>
                 <viewController id="j3Y-Sg-eal" customClass="WeekViewController" customModule="MaldivesWhaleSharkResearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ym0-Gt-lZ5"/>
+                        <viewControllerLayoutGuide type="bottom" id="8I7-zF-Ioy"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="mN5-Pm-q9e">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="508"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -706,6 +698,10 @@
         <scene sceneID="vQS-6g-Bjn">
             <objects>
                 <viewController id="rGB-AV-3tL" customClass="MonthViewController" customModule="MaldivesWhaleSharkResearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sDm-PD-ymn"/>
+                        <viewControllerLayoutGuide type="bottom" id="gLh-Ex-wwA"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="PeP-0H-RAN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="508"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -760,6 +756,10 @@
         <scene sceneID="OVQ-yO-ZRk">
             <objects>
                 <viewController id="RbK-th-MtO" customClass="AllTimeViewController" customModule="MaldivesWhaleSharkResearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="l89-Da-UfY"/>
+                        <viewControllerLayoutGuide type="bottom" id="6Sj-EP-yOE"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="4R8-S3-xSI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="508"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
