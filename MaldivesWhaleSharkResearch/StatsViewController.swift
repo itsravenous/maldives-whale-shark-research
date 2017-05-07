@@ -42,7 +42,7 @@ class StatsViewController: UIViewController {
 
     }
 
-    // MARK: - Action handlers
+    // MARK: - Segmented Control Action handlers
     func navigationSegmentedControlValueChanged(_ sender: BetterSegmentedControl) {
         
         if sender.index == 0 {
