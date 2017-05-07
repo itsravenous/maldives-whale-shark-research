@@ -55,21 +55,21 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Epk-ho-dpO">
-                                <rect key="frame" x="0.0" y="110" width="375" height="508"/>
+                                <rect key="frame" x="0.0" y="110" width="375" height="513"/>
                                 <color key="backgroundColor" red="0.25882352941176467" green="0.25882352941176467" blue="0.25882352941176467" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <segue destination="j3Y-Sg-eal" kind="embed" id="twL-pK-XnZ"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Cc-0G-Zq1">
-                                <rect key="frame" x="0.0" y="110" width="375" height="508"/>
+                                <rect key="frame" x="0.0" y="110" width="375" height="513"/>
                                 <color key="backgroundColor" red="0.25882352941176467" green="0.25882352941176467" blue="0.25882352941176467" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <segue destination="rGB-AV-3tL" kind="embed" id="fxF-jA-Emz"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BJ4-IR-qAQ">
-                                <rect key="frame" x="0.0" y="110" width="375" height="508"/>
+                                <rect key="frame" x="0.0" y="110" width="375" height="513"/>
                                 <color key="backgroundColor" red="0.25882352941176467" green="0.25882352941176467" blue="0.25882352941176467" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <segue destination="RbK-th-MtO" kind="embed" id="sUZ-Et-glK"/>
@@ -95,7 +95,13 @@
                             <constraint firstItem="c89-R2-z8c" firstAttribute="top" secondItem="0Cc-0G-Zq1" secondAttribute="bottom" id="vdr-KZ-AP2"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Stats" id="uhL-Vs-cui"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Stats" id="uhL-Vs-cui">
+                        <barButtonItem key="rightBarButtonItem" image="upload-image-icon" id="goc-N1-gN4">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="allTimeView" destination="BJ4-IR-qAQ" id="38M-nv-BR8"/>
                         <outlet property="monthView" destination="0Cc-0G-Zq1" id="NYx-Ea-FKm"/>
@@ -120,7 +126,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Map" id="y4S-US-fk3"/>
+                    <navigationItem key="navigationItem" title="Map" id="y4S-US-fk3">
+                        <barButtonItem key="rightBarButtonItem" image="upload-image-icon" id="Cgo-oc-OtG">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZYu-fj-53b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -137,21 +147,13 @@
                     <view key="view" contentMode="scaleToFill" id="tMu-XG-66j">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sharks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mry-Tk-Qs2">
-                                <rect key="frame" x="161.5" y="323" width="52.5" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="Mry-Tk-Qs2" firstAttribute="centerX" secondItem="tMu-XG-66j" secondAttribute="centerX" id="4CR-WB-wnF"/>
-                            <constraint firstItem="Mry-Tk-Qs2" firstAttribute="centerY" secondItem="tMu-XG-66j" secondAttribute="centerY" id="b5E-yO-PzU"/>
-                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Sharks" id="8xM-ms-iGy"/>
+                    <navigationItem key="navigationItem" title="Sharks" id="8xM-ms-iGy">
+                        <barButtonItem key="rightBarButtonItem" image="upload-image-icon" id="0w1-bT-lh6">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="470-vh-9pH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -703,7 +705,7 @@
                         <viewControllerLayoutGuide type="bottom" id="8I7-zF-Ioy"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="mN5-Pm-q9e">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="508"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="513"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="nMP-Ji-5JK">
@@ -761,7 +763,7 @@
                         <viewControllerLayoutGuide type="bottom" id="gLh-Ex-wwA"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="PeP-0H-RAN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="508"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="513"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Zxs-Jh-cgB">
@@ -819,7 +821,7 @@
                         <viewControllerLayoutGuide type="bottom" id="6Sj-EP-yOE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="4R8-S3-xSI">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="508"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="513"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="gTm-j0-RbL">
