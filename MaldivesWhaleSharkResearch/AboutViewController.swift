@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import Firebase
-import FirebaseAuth
 import BetterSegmentedControl
 
 class AboutViewController: UIViewController {
@@ -43,26 +41,6 @@ class AboutViewController: UIViewController {
         bfnView.isHidden = true
         critterView.isHidden = true
 
-    }
-    
-    // MARK: - IBActions
-    
-    @IBAction func logoutButtonPressed(_ sender: UIBarButtonItem) {
-        
-        let userDefaults = UserDefaults.standard
-        
-        if userDefaults.bool(forKey: "signedIn") == true {
-            userDefaults.set(false, forKey: "signedIn")
-            userDefaults.synchronize()
-            let firebaseAuth = FIRAuth.auth()
-            do {
-                try firebaseAuth?.signOut()
-            } catch let signOutError as NSError {
-                print ("Error signing out: %@", signOutError)
-            }
-        }
-
-        dismiss(animated: true, completion: nil)
     }
     
     // MARK: - Segmented Control Action handlers

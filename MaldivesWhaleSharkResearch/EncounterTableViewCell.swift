@@ -19,6 +19,7 @@ class EncounterTableViewCell: UITableViewCell {
     
     // MARK: - IBActions
     @IBAction func likeButtonPressed(_ sender: UIButton) {
+        
     }
     
     // MARK: - When Cell Loads

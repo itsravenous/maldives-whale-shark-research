@@ -137,27 +137,118 @@
             <point key="canvasLocation" x="2044" y="815.44227886056979"/>
         </scene>
         <!--Sharks-->
-        <scene sceneID="2GR-1I-1cI">
+        <scene sceneID="VGW-Nt-tsN">
             <objects>
-                <viewController id="poW-Xf-luV" sceneMemberID="viewController">
+                <tableViewController id="wXt-nx-U52" customClass="SharksTableViewController" customModule="MaldivesWhaleSharkResearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="CAo-WO-t7p">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="sharkCell" rowHeight="140" id="0JG-gl-htb" customClass="SharkTableViewCell" customModule="MaldivesWhaleSharkResearch" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="140"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0JG-gl-htb" id="6Lz-Jp-sDQ">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="139.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ocD-5m-RNp">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="139"/>
+                                        </imageView>
+                                        <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mGW-GR-Go3">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="139.5"/>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </view>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="mWP-xD-GbJ">
+                                            <rect key="frame" x="87" y="39.5" width="201.5" height="60.5"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shark Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oJw-Bg-RhS">
+                                                    <rect key="frame" x="0.0" y="0.0" width="201.5" height="43.5"/>
+                                                    <fontDescription key="fontDescription" name="MuseoSans-500" family="Museo Sans" pointSize="36"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WS____" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z7X-bA-3v1">
+                                                    <rect key="frame" x="76" y="43.5" width="50" height="17"/>
+                                                    <fontDescription key="fontDescription" name="Museo-300" family="Museo" pointSize="14"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="mGW-GR-Go3" secondAttribute="bottom" id="0hH-yP-wHk"/>
+                                        <constraint firstAttribute="bottom" secondItem="ocD-5m-RNp" secondAttribute="bottom" id="67e-2G-gss"/>
+                                        <constraint firstItem="mGW-GR-Go3" firstAttribute="top" secondItem="6Lz-Jp-sDQ" secondAttribute="top" id="9Lw-05-ou0"/>
+                                        <constraint firstItem="mGW-GR-Go3" firstAttribute="leading" secondItem="6Lz-Jp-sDQ" secondAttribute="leading" id="Az5-WY-abc"/>
+                                        <constraint firstAttribute="trailing" secondItem="ocD-5m-RNp" secondAttribute="trailing" id="I0n-GB-Log"/>
+                                        <constraint firstItem="ocD-5m-RNp" firstAttribute="top" secondItem="6Lz-Jp-sDQ" secondAttribute="top" id="L04-J8-qdV"/>
+                                        <constraint firstItem="ocD-5m-RNp" firstAttribute="leading" secondItem="6Lz-Jp-sDQ" secondAttribute="leading" id="VTn-0J-lzY"/>
+                                        <constraint firstAttribute="trailing" secondItem="mGW-GR-Go3" secondAttribute="trailing" id="aEa-W6-OJz"/>
+                                        <constraint firstItem="mWP-xD-GbJ" firstAttribute="centerX" secondItem="ocD-5m-RNp" secondAttribute="centerX" id="dme-fO-VVG"/>
+                                        <constraint firstItem="mWP-xD-GbJ" firstAttribute="centerY" secondItem="ocD-5m-RNp" secondAttribute="centerY" id="gbO-4g-gAL"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="sharkIDLabel" destination="z7X-bA-3v1" id="Ahm-iO-l1S"/>
+                                    <outlet property="sharkImageView" destination="ocD-5m-RNp" id="hjR-Ic-hCn"/>
+                                    <outlet property="sharkNameLabel" destination="oJw-Bg-RhS" id="BwX-4L-aVd"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="wXt-nx-U52" id="hOe-61-Ma5"/>
+                            <outlet property="delegate" destination="wXt-nx-U52" id="OD6-a1-ZhO"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Sharks" id="deJ-Vt-feA">
+                        <barButtonItem key="rightBarButtonItem" image="upload-image-icon" id="38G-sI-oh7">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lDR-Hs-c5m" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2764" y="1504"/>
+        </scene>
+        <!--Sharks-->
+        <scene sceneID="ISp-eL-j34">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="4cy-76-yYD" customClass="SharksViewController" customModule="MaldivesWhaleSharkResearch" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Zr9-fw-oPK"/>
-                        <viewControllerLayoutGuide type="bottom" id="rd0-wl-C9X"/>
+                        <viewControllerLayoutGuide type="top" id="FwV-nY-43P"/>
+                        <viewControllerLayoutGuide type="bottom" id="FtJ-4i-Ddk"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="tMu-XG-66j">
+                    <view key="view" contentMode="scaleToFill" id="sS3-XB-ALO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oQN-a4-d9g">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <connections>
+                                    <segue destination="wXt-nx-U52" kind="embed" id="ecT-Xg-zlY"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="oQN-a4-d9g" secondAttribute="trailing" id="BjE-yd-p0f"/>
+                            <constraint firstItem="oQN-a4-d9g" firstAttribute="top" secondItem="FwV-nY-43P" secondAttribute="bottom" id="J35-3Y-Xte"/>
+                            <constraint firstItem="FtJ-4i-Ddk" firstAttribute="top" secondItem="oQN-a4-d9g" secondAttribute="bottom" id="Lkp-qJ-tiu"/>
+                            <constraint firstItem="oQN-a4-d9g" firstAttribute="leading" secondItem="sS3-XB-ALO" secondAttribute="leading" id="tn2-NC-JIC"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Sharks" id="8xM-ms-iGy">
-                        <barButtonItem key="rightBarButtonItem" image="upload-image-icon" id="0w1-bT-lh6">
+                    <navigationItem key="navigationItem" title="Sharks" id="ej9-4m-uZV">
+                        <barButtonItem key="rightBarButtonItem" image="upload-image-icon" id="cez-OE-l8h">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="470-vh-9pH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JRd-mx-zdK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2044" y="1503.5982008995504"/>
+            <point key="canvasLocation" x="2044" y="1504"/>
         </scene>
         <!--About-->
         <scene sceneID="if1-9Y-4Br">
@@ -237,9 +328,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="About" id="mXy-Sj-86Z">
-                        <barButtonItem key="rightBarButtonItem" title="Logout" id="VV7-8z-9XG">
+                        <barButtonItem key="rightBarButtonItem" image="settings-icon" id="VV7-8z-9XG">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <action selector="logoutButtonPressed:" destination="rzg-vU-jgL" id="rn9-kn-qQt"/>
+                                <segue destination="sUX-rT-nVZ" kind="show" id="ecN-BJ-8QB"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -253,6 +345,61 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Ze-yS-vX0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2044" y="2185.4572713643179"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="E0I-Y4-ny0">
+            <objects>
+                <viewController id="sUX-rT-nVZ" customClass="SettingsViewController" customModule="MaldivesWhaleSharkResearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9eF-E7-AbY"/>
+                        <viewControllerLayoutGuide type="bottom" id="ofc-M7-IGn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BnR-MB-sYR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6BS-xu-x0i">
+                                <rect key="frame" x="0.0" y="64" width="375" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="7Yh-8N-2D7"/>
+                                    <constraint firstAttribute="width" constant="375" id="j3l-kg-CpE"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ig9-Ll-eq2">
+                                <rect key="frame" x="20" y="384" width="72" height="32"/>
+                                <fontDescription key="fontDescription" name="MuseoSans-500" family="Museo Sans" pointSize="26"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j0z-Kf-cvO">
+                                <rect key="frame" x="20" y="528" width="335" height="60"/>
+                                <state key="normal" image="logout-button"/>
+                                <connections>
+                                    <action selector="logoutButtonPressed:" destination="sUX-rT-nVZ" eventType="touchUpInside" id="Qp6-gK-OGk"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="6BS-xu-x0i" firstAttribute="leading" secondItem="BnR-MB-sYR" secondAttribute="leading" id="G6T-r8-ciD"/>
+                            <constraint firstAttribute="trailing" secondItem="j0z-Kf-cvO" secondAttribute="trailing" constant="20" id="IuE-Pe-rZC"/>
+                            <constraint firstItem="6BS-xu-x0i" firstAttribute="top" secondItem="9eF-E7-AbY" secondAttribute="bottom" id="QN4-f8-0yD"/>
+                            <constraint firstItem="ofc-M7-IGn" firstAttribute="top" secondItem="j0z-Kf-cvO" secondAttribute="bottom" constant="30" id="RxS-9W-puB"/>
+                            <constraint firstItem="j0z-Kf-cvO" firstAttribute="leading" secondItem="BnR-MB-sYR" secondAttribute="leading" constant="20" id="Y5j-Ec-J5l"/>
+                            <constraint firstAttribute="trailing" secondItem="6BS-xu-x0i" secondAttribute="trailing" id="qMd-yg-L34"/>
+                            <constraint firstItem="ig9-Ll-eq2" firstAttribute="leading" secondItem="BnR-MB-sYR" secondAttribute="leading" constant="20" id="rf6-kE-Zzx"/>
+                            <constraint firstItem="ig9-Ll-eq2" firstAttribute="top" secondItem="6BS-xu-x0i" secondAttribute="bottom" constant="20" id="uEd-DY-eC9"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Profile" id="JHY-P8-jNc"/>
+                    <connections>
+                        <outlet property="imageView" destination="6BS-xu-x0i" id="5WR-wU-tDp"/>
+                        <outlet property="nameLabel" destination="ig9-Ll-eq2" id="Z6d-iv-ObD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gU1-qQ-Qtt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2764" y="3618"/>
         </scene>
         <!--Encounters Table View Controller-->
         <scene sceneID="tTS-8L-thK">
@@ -689,7 +836,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="poW-Xf-luV" kind="relationship" relationship="rootViewController" id="DJr-Sq-tpG"/>
+                        <segue destination="4cy-76-yYD" kind="relationship" relationship="rootViewController" id="CCI-a0-mXR"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g0h-tl-bsu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -857,6 +1004,10 @@
         <scene sceneID="Ldc-ex-wnP">
             <objects>
                 <viewController id="fBM-YR-qon" customClass="MWSRPViewController" customModule="MaldivesWhaleSharkResearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cmh-YJ-rYW"/>
+                        <viewControllerLayoutGuide type="bottom" id="goQ-GJ-ZRZ"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="yx0-4I-oIr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -865,7 +1016,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="1500"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wB5-2e-CoH">
-                                        <rect key="frame" x="0.0" y="999" width="375" height="185"/>
+                                        <rect key="frame" x="0.0" y="998" width="375" height="185"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="185" id="hMW-qR-BDd"/>
                                         </constraints>
@@ -875,20 +1026,20 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Best Practices" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Kt-8m-Nap">
-                                        <rect key="frame" x="20" y="952" width="169" height="32"/>
+                                        <rect key="frame" x="20" y="951.5" width="169" height="31.5"/>
                                         <fontDescription key="fontDescription" name="MuseoSans-500" family="Museo Sans" pointSize="26"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="335" translatesAutoresizingMaskIntoConstraints="NO" id="gpi-mS-0R0">
-                                        <rect key="frame" x="20" y="288" width="335" height="649"/>
-                                        <mutableString key="text">The Maldives Whale Shark Research Programme (MWSRP) is a research-based conservation charity dedicated to studying the whale shark and fostering community-focused conservation initiatives in the Maldives and the greater Indian Ocean.
+                                        <rect key="frame" x="20" y="288" width="335" height="648.5"/>
+                                        <string key="text">The Maldives Whale Shark Research Programme (MWSRP) is a research-based conservation charity dedicated to studying the whale shark and fostering community-focused conservation initiatives in the Maldives and the greater Indian Ocean.
 
 What initially began as a scientific expedition in 2006, the MWSRP has grown to become the only long-term organisation dedicated to study the whale shark, an iconic, yet vulnerable species in the Maldives.
 
 Our goal is simple: we seek to advance the field of whale shark knowledge and to advocate for sound conservation policy in the Maldives.  We see this app and the Big Fish Network as a great way to encourage community and industry stakeholder participation.  With the extra data we are able to leverage the scientific research to safeguard the rich biodiversity and fragile marine ecosystems that are the basis for not only whale sharks, but also life, livelihood and culture in the Maldives.
 
-You can find out more on our website.</mutableString>
+You can find out more on our website.</string>
                                         <fontDescription key="fontDescription" name="Museo-300" family="Museo" pointSize="18"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -932,12 +1083,16 @@ You can find out more on our website.</mutableString>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D4E-JT-fGa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2764" y="2055"/>
+            <point key="canvasLocation" x="2764" y="2560"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="VdT-bn-3W0">
             <objects>
                 <viewController id="Yq8-tm-Z9l" customClass="BFNViewController" customModule="MaldivesWhaleSharkResearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jfc-bQ-r9c"/>
+                        <viewControllerLayoutGuide type="bottom" id="bsV-5j-esX"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8M9-8U-80E">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -947,11 +1102,11 @@ You can find out more on our website.</mutableString>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="335" translatesAutoresizingMaskIntoConstraints="NO" id="5m6-GJ-cP2">
                                         <rect key="frame" x="20" y="188" width="335" height="497"/>
-                                        <mutableString key="text">“Increasing Awareness and Stewardship through Citizen Science”
+                                        <string key="text">“Increasing Awareness and Stewardship through Citizen Science”
 
 The Big Fish Network is an online netowrk utilising citizen science to increase knowledge, awareness and stewardship of marine life.
 
-Established by the founders of the MWSRP in assocation with IUCN Marine Programme the BFN provides an online platform for the wildlife tour guides to identify and monitor the wildlife they encounter.  This enables them to share information about their excursions easily with their clients but also with researchers, governing bodies and the wider community.  The BFN aims to help foster a sense of stewardship and community among tour operators and in doing so, help build the industries capacity for self-regulation and sustainability.</mutableString>
+Established by the founders of the MWSRP in assocation with IUCN Marine Programme the BFN provides an online platform for the wildlife tour guides to identify and monitor the wildlife they encounter.  This enables them to share information about their excursions easily with their clients but also with researchers, governing bodies and the wider community.  The BFN aims to help foster a sense of stewardship and community among tour operators and in doing so, help build the industries capacity for self-regulation and sustainability.</string>
                                         <fontDescription key="fontDescription" name="Museo-300" family="Museo" pointSize="18"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -1020,12 +1175,16 @@ Established by the founders of the MWSRP in assocation with IUCN Marine Programm
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NOJ-9d-pK8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3524" y="2184.1079460269866"/>
+            <point key="canvasLocation" x="3430" y="2335"/>
         </scene>
         <!--Critter View Controller-->
         <scene sceneID="1Ow-r5-UfI">
             <objects>
                 <viewController id="oSh-Dw-PtM" customClass="CritterViewController" customModule="MaldivesWhaleSharkResearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nt8-Of-3bg"/>
+                        <viewControllerLayoutGuide type="bottom" id="GBA-y1-f3y"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tNC-AL-jEa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="508"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1034,7 +1193,7 @@ Established by the founders of the MWSRP in assocation with IUCN Marine Programm
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ITa-Xg-BFj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4247" y="2257"/>
+            <point key="canvasLocation" x="4102" y="2114"/>
         </scene>
     </scenes>
     <resources>
@@ -1045,8 +1204,10 @@ Established by the founders of the MWSRP in assocation with IUCN Marine Programm
         <image name="encounters-icon-dark" width="26" height="22"/>
         <image name="globalBlueLogo" width="70" height="72"/>
         <image name="heart-icon" width="36" height="33"/>
+        <image name="logout-button" width="335" height="60"/>
         <image name="map-icon-dark" width="18" height="26"/>
         <image name="mwsrpAboutLogo" width="209" height="228"/>
+        <image name="settings-icon" width="24" height="25"/>
         <image name="shark-icon-dark" width="25" height="22"/>
         <image name="stats-icon-dark" width="21" height="18"/>
         <image name="upload-image-icon" width="25" height="20"/>

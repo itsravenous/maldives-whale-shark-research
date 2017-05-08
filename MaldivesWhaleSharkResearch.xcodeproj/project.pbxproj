@@ -25,6 +25,11 @@
 		042DBBE31EBF434200DA93B6 /* whalesharkvideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 042DBBE21EBF434200DA93B6 /* whalesharkvideo.mp4 */; };
 		042DBBE51EBF436600DA93B6 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 042DBBE41EBF436600DA93B6 /* AVFoundation.framework */; };
 		042DBBE71EBF436D00DA93B6 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 042DBBE61EBF436D00DA93B6 /* AVKit.framework */; };
+		042DBBE91EC0B7FA00DA93B6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042DBBE81EC0B7FA00DA93B6 /* SettingsViewController.swift */; };
+		042DBBEB1EC0C7AA00DA93B6 /* SharksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042DBBEA1EC0C7AA00DA93B6 /* SharksTableViewController.swift */; };
+		042DBBED1EC0C86A00DA93B6 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042DBBEC1EC0C86A00DA93B6 /* Model.swift */; };
+		042DBBF01EC0C9C300DA93B6 /* SharkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042DBBEF1EC0C9C300DA93B6 /* SharkTableViewCell.swift */; };
+		042DBBF21EC0D04000DA93B6 /* SharksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042DBBF11EC0D04000DA93B6 /* SharksViewController.swift */; };
 		042FF0691EB9E2EE00C7E390 /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FF0681EB9E2EE00C7E390 /* StatsViewController.swift */; };
 		043C342E1EB44BA500D52BB8 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C342D1EB44BA500D52BB8 /* TabBarViewController.swift */; };
 		043C34301EB46A1F00D52BB8 /* EncountersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C342F1EB46A1F00D52BB8 /* EncountersTableViewController.swift */; };
@@ -82,6 +87,11 @@
 		042DBBE21EBF434200DA93B6 /* whalesharkvideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = whalesharkvideo.mp4; sourceTree = "<group>"; };
 		042DBBE41EBF436600DA93B6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		042DBBE61EBF436D00DA93B6 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		042DBBE81EC0B7FA00DA93B6 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		042DBBEA1EC0C7AA00DA93B6 /* SharksTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SharksTableViewController.swift; path = MaldivesWhaleSharkResearch/SharksTableViewController.swift; sourceTree = "<group>"; };
+		042DBBEC1EC0C86A00DA93B6 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		042DBBEF1EC0C9C300DA93B6 /* SharkTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharkTableViewCell.swift; sourceTree = "<group>"; };
+		042DBBF11EC0D04000DA93B6 /* SharksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharksViewController.swift; sourceTree = "<group>"; };
 		042FF0681EB9E2EE00C7E390 /* StatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
 		043C342D1EB44BA500D52BB8 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		043C342F1EB46A1F00D52BB8 /* EncountersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncountersTableViewController.swift; sourceTree = "<group>"; };
@@ -164,6 +174,7 @@
 		042776B31EB8B29A00D505C5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				042DBBEC1EC0C86A00DA93B6 /* Model.swift */,
 				042776B61EB8B9FC00D505C5 /* Encounter.swift */,
 				042776B01EB8B1C900D505C5 /* User.swift */,
 				042776B41EB8B71100D505C5 /* WhaleShark.swift */,
@@ -199,6 +210,7 @@
 				042DBBDC1EBE9E4800DA93B6 /* MWSRPViewController.swift */,
 				042DBBDE1EBE9E9400DA93B6 /* BFNViewController.swift */,
 				042DBBE01EBE9ED000DA93B6 /* CritterViewController.swift */,
+				042DBBE81EC0B7FA00DA93B6 /* SettingsViewController.swift */,
 			);
 			name = About;
 			sourceTree = "<group>";
@@ -206,9 +218,9 @@
 		042DBBD21EBE086700DA93B6 /* Encounter */ = {
 			isa = PBXGroup;
 			children = (
-				041A46851EB5CB7100DF749C /* EncounterViewController.swift */,
-				041A46811EB4858E00DF749C /* EncounterTableViewCell.swift */,
 				043C342F1EB46A1F00D52BB8 /* EncountersTableViewController.swift */,
+				041A46811EB4858E00DF749C /* EncounterTableViewCell.swift */,
+				041A46851EB5CB7100DF749C /* EncounterViewController.swift */,
 			);
 			name = Encounter;
 			sourceTree = "<group>";
@@ -219,6 +231,17 @@
 				042DBBDA1EBE11C600DA93B6 /* MapViewController.swift */,
 			);
 			name = Map;
+			sourceTree = "<group>";
+		};
+		042DBBEE1EC0C96000DA93B6 /* Sharks */ = {
+			isa = PBXGroup;
+			children = (
+				042DBBF11EC0D04000DA93B6 /* SharksViewController.swift */,
+				042DBBEA1EC0C7AA00DA93B6 /* SharksTableViewController.swift */,
+				042DBBEF1EC0C9C300DA93B6 /* SharkTableViewCell.swift */,
+			);
+			name = Sharks;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		04CEF2E81EAB19550057A119 = {
@@ -253,6 +276,7 @@
 				042DBBD21EBE086700DA93B6 /* Encounter */,
 				042DBBD01EBE084800DA93B6 /* Stats */,
 				042DBBD91EBE108F00DA93B6 /* Map */,
+				042DBBEE1EC0C96000DA93B6 /* Sharks */,
 				042DBBD11EBE085900DA93B6 /* About */,
 				042776B31EB8B29A00D505C5 /* Models */,
 				04CEF2FE1EAB19550057A119 /* Assets.xcassets */,
@@ -601,8 +625,10 @@
 			files = (
 				042DBBD41EBE08AE00DA93B6 /* WeekViewController.swift in Sources */,
 				042776B71EB8B9FC00D505C5 /* Encounter.swift in Sources */,
+				042DBBE91EC0B7FA00DA93B6 /* SettingsViewController.swift in Sources */,
 				041A46861EB5CB7100DF749C /* EncounterViewController.swift in Sources */,
 				041A46821EB4858E00DF749C /* EncounterTableViewCell.swift in Sources */,
+				042DBBEB1EC0C7AA00DA93B6 /* SharksTableViewController.swift in Sources */,
 				04EBB5611EB88A6A008D5B4C /* AboutViewController.swift in Sources */,
 				042454251EBA0FCF009584B2 /* LoginCoordinator.swift in Sources */,
 				042DBBE11EBE9ED000DA93B6 /* CritterViewController.swift in Sources */,
@@ -611,6 +637,7 @@
 				043C34301EB46A1F00D52BB8 /* EncountersTableViewController.swift in Sources */,
 				042776B51EB8B71100D505C5 /* WhaleShark.swift in Sources */,
 				04CEF2FD1EAB19550057A119 /* MaldivesWhaleSharkResearch.xcdatamodeld in Sources */,
+				042DBBED1EC0C86A00DA93B6 /* Model.swift in Sources */,
 				042DBBDF1EBE9E9400DA93B6 /* BFNViewController.swift in Sources */,
 				042DBBD61EBE08BB00DA93B6 /* MonthViewController.swift in Sources */,
 				042DBBDD1EBE9E4800DA93B6 /* MWSRPViewController.swift in Sources */,
@@ -619,6 +646,8 @@
 				042FF0691EB9E2EE00C7E390 /* StatsViewController.swift in Sources */,
 				04CEF2F51EAB19550057A119 /* AppDelegate.swift in Sources */,
 				042DBBDB1EBE11C600DA93B6 /* MapViewController.swift in Sources */,
+				042DBBF01EC0C9C300DA93B6 /* SharkTableViewCell.swift in Sources */,
+				042DBBF21EC0D04000DA93B6 /* SharksViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
