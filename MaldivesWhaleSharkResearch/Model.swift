@@ -11,6 +11,13 @@ import Foundation
 let model = Model()
 
 class Model {
+    let sharkImages = [
+        ["image":"shark1"],
+        ["image":"shark2"],
+        ["image":"shark3"]
+    ]
+    
+    
     let sharks = [
         [
             "image": "shark1",

@@ -124,7 +124,7 @@
                     <view key="view" contentMode="scaleToFill" id="vUQ-hM-qDX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Map" id="y4S-US-fk3">
                         <barButtonItem key="rightBarButtonItem" image="upload-image-icon" id="Cgo-oc-OtG">
@@ -140,8 +140,8 @@
         <scene sceneID="VGW-Nt-tsN">
             <objects>
                 <tableViewController id="wXt-nx-U52" customClass="SharksTableViewController" customModule="MaldivesWhaleSharkResearch" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="CAo-WO-t7p">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="CAo-WO-t7p">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -195,6 +195,7 @@
                                     <outlet property="sharkIDLabel" destination="z7X-bA-3v1" id="Ahm-iO-l1S"/>
                                     <outlet property="sharkImageView" destination="ocD-5m-RNp" id="hjR-Ic-hCn"/>
                                     <outlet property="sharkNameLabel" destination="oJw-Bg-RhS" id="BwX-4L-aVd"/>
+                                    <segue destination="qgc-u5-srd" kind="show" identifier="segueToSharkProfile" id="iPv-J6-jaD"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -211,44 +212,117 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lDR-Hs-c5m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2764" y="1504"/>
+            <point key="canvasLocation" x="2044" y="1504"/>
         </scene>
-        <!--Sharks-->
-        <scene sceneID="ISp-eL-j34">
+        <!--Shark Profile Table View Controller-->
+        <scene sceneID="MaF-BS-Ypr">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="4cy-76-yYD" customClass="SharksViewController" customModule="MaldivesWhaleSharkResearch" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="FwV-nY-43P"/>
-                        <viewControllerLayoutGuide type="bottom" id="FtJ-4i-Ddk"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="sS3-XB-ALO">
+                <tableViewController id="qgc-u5-srd" customClass="SharkProfileTableViewController" customModule="MaldivesWhaleSharkResearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="iBa-Hh-Kuf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oQN-a4-d9g">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
-                                <connections>
-                                    <segue destination="wXt-nx-U52" kind="embed" id="ecT-Xg-zlY"/>
-                                </connections>
-                            </containerView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="oQN-a4-d9g" secondAttribute="trailing" id="BjE-yd-p0f"/>
-                            <constraint firstItem="oQN-a4-d9g" firstAttribute="top" secondItem="FwV-nY-43P" secondAttribute="bottom" id="J35-3Y-Xte"/>
-                            <constraint firstItem="FtJ-4i-Ddk" firstAttribute="top" secondItem="oQN-a4-d9g" secondAttribute="bottom" id="Lkp-qJ-tiu"/>
-                            <constraint firstItem="oQN-a4-d9g" firstAttribute="leading" secondItem="sS3-XB-ALO" secondAttribute="leading" id="tn2-NC-JIC"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Sharks" id="ej9-4m-uZV">
-                        <barButtonItem key="rightBarButtonItem" image="upload-image-icon" id="cez-OE-l8h">
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="imagesCell" rowHeight="375" id="8bC-eO-qhF" customClass="SharkImagesTableViewCell" customModule="MaldivesWhaleSharkResearch" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="375"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8bC-eO-qhF" id="J02-U4-zVM">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="374.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6Hx-R6-giE">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="kcS-EN-vva">
+                                                <size key="itemSize" width="375" height="375"/>
+                                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            </collectionViewFlowLayout>
+                                            <cells>
+                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="sharkPictureCell" id="3lf-JC-OOl" customClass="SharkImageCollectionViewCell" customModule="MaldivesWhaleSharkResearch" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <subviews>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gt2-4j-zEA">
+                                                                <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+                                                            </imageView>
+                                                        </subviews>
+                                                    </view>
+                                                    <constraints>
+                                                        <constraint firstItem="gt2-4j-zEA" firstAttribute="top" secondItem="3lf-JC-OOl" secondAttribute="top" id="4dz-zN-071"/>
+                                                        <constraint firstAttribute="trailing" secondItem="gt2-4j-zEA" secondAttribute="trailing" id="Flw-i1-JKp"/>
+                                                        <constraint firstItem="gt2-4j-zEA" firstAttribute="leading" secondItem="3lf-JC-OOl" secondAttribute="leading" id="WJi-jH-vUD"/>
+                                                        <constraint firstAttribute="bottom" secondItem="gt2-4j-zEA" secondAttribute="bottom" id="kmS-Qy-Ape"/>
+                                                    </constraints>
+                                                    <size key="customSize" width="375" height="375"/>
+                                                    <connections>
+                                                        <outlet property="imageView" destination="gt2-4j-zEA" id="bbh-0P-ZAp"/>
+                                                        <outlet property="imageViewTopConstraint" destination="4dz-zN-071" id="wwn-cO-lOC"/>
+                                                    </connections>
+                                                </collectionViewCell>
+                                            </cells>
+                                            <connections>
+                                                <outlet property="dataSource" destination="qgc-u5-srd" id="Xao-Ur-Xna"/>
+                                                <outlet property="delegate" destination="qgc-u5-srd" id="ewj-R7-PKd"/>
+                                            </connections>
+                                        </collectionView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="6Hx-R6-giE" secondAttribute="bottom" id="A99-gb-jS3"/>
+                                        <constraint firstAttribute="trailing" secondItem="6Hx-R6-giE" secondAttribute="trailing" id="G9h-pl-3lt"/>
+                                        <constraint firstItem="6Hx-R6-giE" firstAttribute="top" secondItem="J02-U4-zVM" secondAttribute="top" id="Q9O-DT-mqv"/>
+                                        <constraint firstItem="6Hx-R6-giE" firstAttribute="leading" secondItem="J02-U4-zVM" secondAttribute="leading" id="sSd-1c-7wj"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="descriptionCell" id="gO4-es-z55" customClass="SharkDescriptionTableViewCell" customModule="MaldivesWhaleSharkResearch" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="403" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gO4-es-z55" id="BeT-Vl-kvi">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="firstEncounterCell" id="uta-vc-vZ3" customClass="SharkFirstEncounterTableViewCell" customModule="MaldivesWhaleSharkResearch" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="447" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uta-vc-vZ3" id="PqK-XC-aTy">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="lastEncounterCell" id="Gai-oD-2qU" customClass="SharkLastEncounterTableViewCell" customModule="MaldivesWhaleSharkResearch" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="491" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Gai-oD-2qU" id="h1C-Gr-7ps">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="qgc-u5-srd" id="6q5-bh-eiy"/>
+                            <outlet property="delegate" destination="qgc-u5-srd" id="06o-fG-5oU"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="7x4-VM-g4H">
+                        <barButtonItem key="leftBarButtonItem" image="back-button" id="3a4-lQ-0OW">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="ccz-JQ-jQ8">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </barButtonItem>
                     </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JRd-mx-zdK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hiz-SW-JDo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2044" y="1504"/>
+            <point key="canvasLocation" x="2839" y="1504"/>
         </scene>
         <!--About-->
         <scene sceneID="if1-9Y-4Br">
@@ -408,7 +482,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="250" sectionHeaderHeight="28" sectionFooterHeight="28" id="clf-bO-0MF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.12549019610000001" green="0.60784313729999995" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="encounterCell" rowHeight="250" id="fMk-Oj-0tR" customClass="EncounterTableViewCell" customModule="MaldivesWhaleSharkResearch" customModuleProvider="target">
@@ -836,7 +910,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="4cy-76-yYD" kind="relationship" relationship="rootViewController" id="CCI-a0-mXR"/>
+                        <segue destination="wXt-nx-U52" kind="relationship" relationship="rootViewController" id="WZ4-Va-myO"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g0h-tl-bsu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1201,6 +1275,7 @@ Established by the founders of the MWSRP in assocation with IUCN Marine Programm
         <image name="BestPracticeVideoImage" width="375" height="185"/>
         <image name="LoginScreen" width="375" height="667"/>
         <image name="about-icon-dark" width="26" height="25"/>
+        <image name="back-button" width="25" height="19"/>
         <image name="encounters-icon-dark" width="26" height="22"/>
         <image name="globalBlueLogo" width="70" height="72"/>
         <image name="heart-icon" width="36" height="33"/>

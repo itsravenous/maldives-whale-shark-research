@@ -1,22 +1,15 @@
 //
-//  SharkTableViewCell.swift
+//  SharkImagesTableViewCell.swift
 //  MaldivesWhaleSharkResearch
 //
-//  Created by mac on 5/8/17.
+//  Created by mac on 5/9/17.
 //  Copyright © 2017 dooddevelopments. All rights reserved.
 //
 
 import UIKit
 
-class SharkTableViewCell: UITableViewCell {
+class SharkImagesTableViewCell: UITableViewCell {
 
-    // MARK: - Outlets
-    
-    @IBOutlet weak var sharkImageView: UIImageView!
-    @IBOutlet weak var sharkNameLabel: UILabel!
-    @IBOutlet weak var sharkIDLabel: UILabel!
-
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -27,6 +20,5 @@ class SharkTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
 
 }
