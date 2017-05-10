@@ -25,6 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             NSFontAttributeName: UIFont(name: "MuseoSans-500", size: 19)!,
             NSForegroundColorAttributeName: UIColor.white
         ]
+        UINavigationBar.appearance().tintColor = UIColor.white
+        UINavigationBar.appearance().backIndicatorImage = UIImage(named: "back-button")
+        UINavigationBar.appearance().backIndicatorTransitionMaskImage = UIImage(named: "back-button")
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         FIRApp.configure()
         GMSServices.provideAPIKey("AIzaSyAwm4GLvSETQBvQqGXF3sy6WofyWbgC7ZU")

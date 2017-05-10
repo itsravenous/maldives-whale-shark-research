@@ -13,8 +13,15 @@ class SharksTableViewController: UITableViewController, UISearchResultsUpdating 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         loadSearchBar()
         
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        navigationController?.navigationBar.setBackgroundImage(UIImage(named: "nav-bar"), for: .default)
     }
 
     // MARK: - Table view data source

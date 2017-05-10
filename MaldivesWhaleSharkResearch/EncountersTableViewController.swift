@@ -20,6 +20,8 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        
         // Firebase info tableview
         
         FIRDatabase.database().reference().child("encounters").observe(FIRDataEventType.childAdded, with: {(snapshot) in

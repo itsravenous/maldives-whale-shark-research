@@ -13,6 +13,7 @@ class EncounterViewController: UIViewController {
     // MARK: - View did load
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 //        self.navigationItem.title = model.encounter[selectedIndexPath.row]["name"]
 //        self.navigationController?.navigationBar.titleTextAttributes = [
 //            NSFontAttributeName: UIFont(name: "MuseoSans-500", size: 19)!,
