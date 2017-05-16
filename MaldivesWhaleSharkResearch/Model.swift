@@ -22,17 +22,20 @@ class Model {
         [
             "image": "shark1",
             "name": "Mahi",
-            "id": "WS234"
+            "id": "WS234",
+            "liked": "Y"
         ],
         [
             "image": "shark2",
             "name": "Mohammed Ali",
-            "id": "WS532"
+            "id": "WS532",
+            "liked": "N"
         ],
         [
             "image": "shark3",
             "name": "Dodo",
-            "id": "WS993"
+            "id": "WS993",
+            "liked": "Y"
         ]
     
     ]

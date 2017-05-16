@@ -29,6 +29,24 @@ class SharkProfileTableViewController: UITableViewController, UICollectionViewDe
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
+    
+    // MARK: - IBActions
+    
+    @IBAction func shareButtonPressed(_ sender: UIBarButtonItem) {
+        // image to share
+        let image = UIImage(named: "shark1")
+        
+        // set up activity view controller
+        let imageToShare = [ image! ]
+        let activityViewController = UIActivityViewController(activityItems: imageToShare, applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
+        
+        // exclude some activity types from the list (optional)
+//        activityViewController.excludedActivityTypes = [ UIActivityType.postToFacebook ]
+        
+        // present the view controller
+        self.present(activityViewController, animated: true, completion: nil)
+    }
 
     // MARK: - Table view data source
 

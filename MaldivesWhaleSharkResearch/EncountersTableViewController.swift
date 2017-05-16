@@ -38,7 +38,7 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
             
             self.encounters.append(encounter)
             
-            self.tableView.reloadData()
+            self.showAllEncounters()
         })
 
         // Create the menuview
@@ -67,7 +67,7 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
                 self.showLikedEncounters()
                 print("liked")
             } else if menuPath == 2 {
-                self.showMyEncounter()
+                self.showMyEncounters()
                 print("my")
             }
         }
@@ -93,7 +93,16 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
     // MARK: - IBActions
     
     @IBAction func uploadImageButtonPressed(_ sender: UIBarButtonItem) {
-        print("Upload Image Button Pressed")
+        
+        let userDefaults = UserDefaults.standard
+        
+        if !userDefaults.bool(forKey: "uploadInstructions") {
+            
+            showInstructions()
+            
+            userDefaults.set(true, forKey: "uploadInstructions")
+            userDefaults.synchronize()
+        }
         
     }
     
@@ -115,6 +124,10 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
         walkthrough.add(viewController:page_three)
         
         self.present(walkthrough, animated: true, completion: nil)
+    }
+    
+    func showInstructions() {
+        // show instruction flow
     }
     
     // Convert date from date string and subtract from current date
@@ -151,20 +164,51 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
         
     }
     
+    // MARK: - Name
+    
+    var tabResults = [AnyObject]()
+    
     
     // MARK: - Encounter filters
     
     func showAllEncounters() {
-
-        self.tableView.reloadData()
-    }
-    
-    func showLikedEncounters() {
+        // get data as nsarray
+        // filter data
+        // return search results
+//        let predicate = NSPredicate(format: "name contains[cd] %@", searchController.searchBar.text!)
+//        
+//        let filteredResults = (model.sharks as NSArray).filtered(using: predicate)
+//        
+//        tabResults = filteredResults as [AnyObject]
         
         self.tableView.reloadData()
     }
     
-    func showMyEncounter() {
+    func showLikedEncounters() {
+        // get data as nsarray
+        // filter data
+        // return search results
+        let liked = "Y"
+        let predicate = NSPredicate(format: "likedEncounters == %@", liked)
+        
+        let filteredResults = (encounters as NSArray).filtered(using: predicate)
+        
+        tabResults = filteredResults as [AnyObject]
+        
+        
+        
+        self.tableView.reloadData()
+    }
+    
+    func showMyEncounters() {
+        // get data as nsarray
+        // filter data
+        // return search results
+//        let predicate = NSPredicate(format: "name contains[cd] %@", searchController.searchBar.text!)
+//        
+//        let filteredResults = (model.sharks as NSArray).filtered(using: predicate)
+//        
+//        tabResults = filteredResults as [AnyObject]
         
         self.tableView.reloadData()
     }
@@ -196,8 +240,17 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
         let encounter = encounters[indexPath.row]
         cell.sharkNameLabel.text = encounter.sharkName
         cell.dateSeenLabel.text = "Spotted " + convertDate(encounterDate: encounter.date) + " days ago"
-        cell.sharkImageView.sd_setImage(with: URL(string: encounter.mainImage))
+//        cell.sharkImageView.sd_setImage(with: URL(string: encounter.mainImage))
+        cell.sharkImageView.sd_setImage(with: URL(string:"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Whale_shark_Georgia_aquarium.jpg/1200px-Whale_shark_Georgia_aquarium.jpg"))
         cell.contributorImageView.sd_setImage(with: URL(string: getContributorImage(contributorID: encounter.contributorID)))
+        
+        // If user has liked ID number of encounter -> set heart icon
+        if encounter.liked == "Y" {
+            cell.likeButton.imageView?.image = UIImage(named: "heart-icon-active")
+        } else {
+            cell.likeButton.imageView?.image = UIImage(named: "heart-icon")
+        }
+        
 // below works, firebase urls don't
 //        cell.contributorImageView.sd_setImage(with: URL(string: "https://image.flaticon.com/teams/new/1-freepik.jpg"))
         

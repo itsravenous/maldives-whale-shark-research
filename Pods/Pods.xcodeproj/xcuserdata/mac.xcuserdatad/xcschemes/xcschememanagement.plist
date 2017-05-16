@@ -34,6 +34,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Fusuma.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>GTMSessionFetcher.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -69,6 +74,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Spring.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Validator.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -82,12 +92,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2CACA60AC1A67BBFB2B76CD166C4AB45</key>
+		<key>2E13B5BED48305DAFCA2C71A8E98913B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2E13B5BED48305DAFCA2C71A8E98913B</key>
+		<key>3E0D8640A124012AB6F0A9F775A38285</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -107,7 +117,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>90C08E241DDB1364B9423ECF15ECE21A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>9889562781163BF5CB84E06A985BCE44</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A217A61AF1479C8962A08CAEE9577B6C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -142,7 +162,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F818F4F2051D6D1995CBB1640271F76C</key>
+		<key>F28A89CE742F4274CC35F4BDC5B3A491</key>
 		<dict>
 			<key>primary</key>
 			<true/>

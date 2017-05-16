@@ -42,6 +42,8 @@
 	<true/>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Help tag Whale Sharks by uploading your photos.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Use your camera to take pictures of Whale Sharks</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Museo300-Regular.otf</string>

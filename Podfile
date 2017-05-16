@@ -15,6 +15,8 @@ target 'MaldivesWhaleSharkResearch' do
   pod 'ILLoginKit'
   pod 'GoogleMaps'
   pod 'GooglePlaces'
+  pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift3'
+  pod 'Fusuma'
   
   # Pods for MaldivesWhaleSharkResearch
 

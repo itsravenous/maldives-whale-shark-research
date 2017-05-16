@@ -22,7 +22,7 @@ class EncounterViewController: UIViewController {
 //        self.contributorImageView.image = UIImage(named: model.encounter[selectedIndexPath.row]["contributorImage"]!)
     }
     
-    // MARK: - Properties
+    // MARK: - Outlets
     @IBOutlet weak var sharkImageView: UIImageView!
     @IBOutlet weak var encounterDateLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
@@ -30,6 +30,24 @@ class EncounterViewController: UIViewController {
     @IBOutlet weak var contributorNameLabel: UILabel!
     @IBOutlet weak var contributorImageView: UIImageView!
     var selectedIndexPath = IndexPath()
+    
+    // MARK: - IBActions
+    @IBAction func shareButtonPressed(_ sender: UIBarButtonItem) {
+        // image to share
+        let image = UIImage(named: "shark1")
+        
+        // set up activity view controller
+        let imageToShare = [ image! ]
+        let activityViewController = UIActivityViewController(activityItems: imageToShare, applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
+        
+        // exclude some activity types from the list (optional)
+        //        activityViewController.excludedActivityTypes = [ UIActivityType.postToFacebook ]
+        
+        // present the view controller
+        self.present(activityViewController, animated: true, completion: nil)
+    }
+    
 
     /*
     // MARK: - Navigation

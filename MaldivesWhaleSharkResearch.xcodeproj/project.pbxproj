@@ -35,6 +35,8 @@
 		042DBBFC1EC1957400DA93B6 /* SharkFirstEncounterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042DBBFB1EC1957400DA93B6 /* SharkFirstEncounterTableViewCell.swift */; };
 		042DBBFE1EC1958000DA93B6 /* SharkLastEncounterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042DBBFD1EC1958000DA93B6 /* SharkLastEncounterTableViewCell.swift */; };
 		042DBC001EC1A0AD00DA93B6 /* SharkImagesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042DBBFF1EC1A0AD00DA93B6 /* SharkImagesTableViewCell.swift */; };
+		042DBC021EC81DF200DA93B6 /* UploadWalkthrough.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 042DBC011EC81DF200DA93B6 /* UploadWalkthrough.storyboard */; };
+		042DBC061EC84FBF00DA93B6 /* UploadPicture.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 042DBC051EC84FBF00DA93B6 /* UploadPicture.storyboard */; };
 		042FF0691EB9E2EE00C7E390 /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FF0681EB9E2EE00C7E390 /* StatsViewController.swift */; };
 		043C342E1EB44BA500D52BB8 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C342D1EB44BA500D52BB8 /* TabBarViewController.swift */; };
 		043C34301EB46A1F00D52BB8 /* EncountersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C342F1EB46A1F00D52BB8 /* EncountersTableViewController.swift */; };
@@ -102,6 +104,8 @@
 		042DBBFB1EC1957400DA93B6 /* SharkFirstEncounterTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharkFirstEncounterTableViewCell.swift; sourceTree = "<group>"; };
 		042DBBFD1EC1958000DA93B6 /* SharkLastEncounterTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharkLastEncounterTableViewCell.swift; sourceTree = "<group>"; };
 		042DBBFF1EC1A0AD00DA93B6 /* SharkImagesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharkImagesTableViewCell.swift; sourceTree = "<group>"; };
+		042DBC011EC81DF200DA93B6 /* UploadWalkthrough.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UploadWalkthrough.storyboard; sourceTree = "<group>"; };
+		042DBC051EC84FBF00DA93B6 /* UploadPicture.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UploadPicture.storyboard; sourceTree = "<group>"; };
 		042FF0681EB9E2EE00C7E390 /* StatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
 		043C342D1EB44BA500D52BB8 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		043C342F1EB46A1F00D52BB8 /* EncountersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncountersTableViewController.swift; sourceTree = "<group>"; };
@@ -197,6 +201,8 @@
 			children = (
 				04CEF2F81EAB19550057A119 /* Main.storyboard */,
 				04AFC9481EB33513001C738F /* Walkthrough.storyboard */,
+				042DBC011EC81DF200DA93B6 /* UploadWalkthrough.storyboard */,
+				042DBC051EC84FBF00DA93B6 /* UploadPicture.storyboard */,
 				04CEF3001EAB19550057A119 /* LaunchScreen.storyboard */,
 			);
 			name = Storyboards;
@@ -470,9 +476,11 @@
 				041A46801EB4752600DF749C /* Museo300-Regular.otf in Resources */,
 				04CEF3021EAB19550057A119 /* LaunchScreen.storyboard in Resources */,
 				042DBBE31EBF434200DA93B6 /* whalesharkvideo.mp4 in Resources */,
+				042DBC061EC84FBF00DA93B6 /* UploadPicture.storyboard in Resources */,
 				04CEF3261EAB198F0057A119 /* GoogleService-Info.plist in Resources */,
 				04AFC9491EB33513001C738F /* Walkthrough.storyboard in Resources */,
 				04CEF2FF1EAB19550057A119 /* Assets.xcassets in Resources */,
+				042DBC021EC81DF200DA93B6 /* UploadWalkthrough.storyboard in Resources */,
 				04CEF2FA1EAB19550057A119 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

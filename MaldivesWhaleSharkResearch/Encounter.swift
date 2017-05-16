@@ -17,5 +17,6 @@ class Encounter {
     var length = Double()
     var latitude = ""
     var longitude = ""
+    var liked = ""
     
 }

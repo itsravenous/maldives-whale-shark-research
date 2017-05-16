@@ -13,5 +13,5 @@ class User {
     var uid = ""
     var contributorImage = ""
     var encounters = [Array<Any>]()
-    var likedEncounters = [Array<Any>]()
+    var likedEncounters = [String]()
 }

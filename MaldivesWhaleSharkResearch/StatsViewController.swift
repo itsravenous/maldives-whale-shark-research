@@ -8,14 +8,38 @@
 
 import UIKit
 import BetterSegmentedControl
+import BWWalkthrough
+import Fusuma
 
-class StatsViewController: UIViewController {
+class StatsViewController: UIViewController, BWWalkthroughViewControllerDelegate, FusumaDelegate {
     
+    // MARK: - Outlets
     @IBOutlet weak var segmentedControl: BetterSegmentedControl!
     @IBOutlet weak var weekView: UIView!
     @IBOutlet weak var monthView: UIView!
     @IBOutlet weak var allTimeView: UIView!
     
+    // MARK: - Properties
+    var uploadWalkthrough:BWWalkthroughViewController!
+    
+    // MARK: - Actions
+    @IBAction func uploadImageButtonPressed(_ sender: UIBarButtonItem) {
+        
+        let userDefaults = UserDefaults.standard
+        
+        if !userDefaults.bool(forKey: "uploadInstructions") {
+            
+            showInstructions()
+            
+            userDefaults.set(true, forKey: "uploadInstructions")
+            userDefaults.synchronize()
+        } else {
+            showUploadPicture()
+        }
+        
+    }
+    
+    // MARK: - View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,6 +64,83 @@ class StatsViewController: UIViewController {
         monthView.isHidden = true
         allTimeView.isHidden = true
 
+    }
+    
+    // MARK: - Functions
+
+    func showInstructions() {
+        
+        let stb = UIStoryboard(name: "UploadWalkthrough", bundle: nil)
+        uploadWalkthrough = stb.instantiateViewController(withIdentifier: "container") as! BWWalkthroughViewController
+        
+        // Get view controllers and build the walkthrough
+        let page_one = stb.instantiateViewController(withIdentifier: "page_1")
+        let page_two = stb.instantiateViewController(withIdentifier: "page_2")
+        let page_three = stb.instantiateViewController(withIdentifier: "page_3")
+        let page_four = stb.instantiateViewController(withIdentifier: "page_4")
+        
+        // Attach the pages to the master
+        uploadWalkthrough.delegate = self
+        uploadWalkthrough.add(viewController:page_one)
+        uploadWalkthrough.add(viewController:page_two)
+        uploadWalkthrough.add(viewController:page_three)
+        uploadWalkthrough.add(viewController:page_four)
+        
+        self.present(uploadWalkthrough, animated: true, completion: nil)
+        
+    }
+    
+    func showUploadPicture() {
+        print("Upload Picture Bro")
+        let fusuma = FusumaViewController()
+        
+//        fusumaCropImage = false
+        fusuma.delegate = self
+        fusuma.cropHeightRatio = 1
+        fusuma.hasVideo = false
+//        fusumaTintColor = UIColor.black
+//        fusumaBackgroundColor = UIColor.black
+        self.present(fusuma, animated: true, completion: nil)
+    }
+    
+    // MARK: - Walkthrough delegate -
+    
+    func walkthroughCloseButtonPressed() {
+        self.dismiss(animated: false, completion: nil)
+    }
+    
+    func walkthroughPageDidChange(_ pageNumber: Int) {
+        print("Current Page \(pageNumber)")
+        if (self.uploadWalkthrough.numberOfPages - 1) == pageNumber {
+            self.uploadWalkthrough.closeButton?.isHidden = false
+        } else {
+            self.uploadWalkthrough.closeButton?.isHidden = true
+        }
+    }
+    
+    // MARK: FusumaDelegate Protocol
+    
+    // Return the image which is selected from camera roll or is taken via the camera.
+    func fusumaImageSelected(_ image: UIImage, source: FusumaMode) {
+        
+        print("Image selected")
+    }
+    
+    // Return the image but called after is dismissed.
+    func fusumaDismissedWithImage(image: UIImage) {
+        
+        print("Called just after FusumaViewController is dismissed.")
+    }
+    
+    func fusumaVideoCompleted(withFileURL fileURL: URL) {
+        
+        print("Called just after a video has been selected.")
+    }
+    
+    // When camera roll is not authorized, this method is called.
+    func fusumaCameraRollUnauthorized() {
+        
+        print("Camera roll unauthorized")
     }
 
     // MARK: - Segmented Control Action handlers
