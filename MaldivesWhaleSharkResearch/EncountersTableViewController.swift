@@ -24,22 +24,22 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
         
         // Firebase info tableview
         
-        FIRDatabase.database().reference().child("encounters").observe(FIRDataEventType.childAdded, with: {(snapshot) in
-            
-            let snapshotValue = snapshot.value as? NSDictionary
-            
-            let encounter = Encounter()
-            encounter.sharkName = (snapshotValue?["sharkName"] as? String)!
-            encounter.date = (snapshotValue?["date"] as? String)!
-            encounter.contributorID = (snapshotValue?["contributorID"] as? String)!
-            
-            let photoValue = (snapshotValue?["photos"] as? NSDictionary)
-            encounter.mainImage = (photoValue?["imageURL1"] as? String)!
-            
-            self.encounters.append(encounter)
-            
-            self.showAllEncounters()
-        })
+//        FIRDatabase.database().reference().child("encounters").observe(FIRDataEventType.childAdded, with: {(snapshot) in
+//            
+//            let snapshotValue = snapshot.value as? NSDictionary
+//            
+//            let encounter = Encounter()
+//            encounter.sharkName = (snapshotValue?["sharkName"] as? String)!
+//            encounter.date = (snapshotValue?["date"] as? String)!
+//            encounter.contributorID = (snapshotValue?["contributorID"] as? String)!
+//            
+//            let photoValue = (snapshotValue?["photos"] as? NSDictionary)
+//            encounter.mainImage = (photoValue?["imageURL1"] as? String)!
+//            
+//            self.encounters.append(encounter)
+//            
+//            self.showAllEncounters()
+//        })
 
         // Create the menuview
         

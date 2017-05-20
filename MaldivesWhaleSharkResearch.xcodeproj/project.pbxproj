@@ -42,6 +42,7 @@
 		043C34301EB46A1F00D52BB8 /* EncountersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C342F1EB46A1F00D52BB8 /* EncountersTableViewController.swift */; };
 		04A0D8A91EB882FE00B8EC63 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A0D8A81EB882FE00B8EC63 /* SignInViewController.swift */; };
 		04AFC9491EB33513001C738F /* Walkthrough.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04AFC9481EB33513001C738F /* Walkthrough.storyboard */; };
+		04B95E9D1ED0987C00217DE4 /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B95E9C1ED0987C00217DE4 /* Stats.swift */; };
 		04CEF2F51EAB19550057A119 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEF2F41EAB19550057A119 /* AppDelegate.swift */; };
 		04CEF2FA1EAB19550057A119 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04CEF2F81EAB19550057A119 /* Main.storyboard */; };
 		04CEF2FD1EAB19550057A119 /* MaldivesWhaleSharkResearch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04CEF2FB1EAB19550057A119 /* MaldivesWhaleSharkResearch.xcdatamodeld */; };
@@ -111,6 +112,7 @@
 		043C342F1EB46A1F00D52BB8 /* EncountersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncountersTableViewController.swift; sourceTree = "<group>"; };
 		04A0D8A81EB882FE00B8EC63 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		04AFC9481EB33513001C738F /* Walkthrough.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Walkthrough.storyboard; sourceTree = "<group>"; };
+		04B95E9C1ED0987C00217DE4 /* Stats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stats.swift; sourceTree = "<group>"; };
 		04CEF2F11EAB19550057A119 /* MaldivesWhaleSharkResearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MaldivesWhaleSharkResearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04CEF2F41EAB19550057A119 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04CEF2F91EAB19550057A119 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				042DBBEC1EC0C86A00DA93B6 /* Model.swift */,
+				04B95E9C1ED0987C00217DE4 /* Stats.swift */,
 				042776B61EB8B9FC00D505C5 /* Encounter.swift */,
 				042776B01EB8B1C900D505C5 /* User.swift */,
 				042776B41EB8B71100D505C5 /* WhaleShark.swift */,
@@ -664,6 +667,7 @@
 				043C34301EB46A1F00D52BB8 /* EncountersTableViewController.swift in Sources */,
 				042DBBFE1EC1958000DA93B6 /* SharkLastEncounterTableViewCell.swift in Sources */,
 				042776B51EB8B71100D505C5 /* WhaleShark.swift in Sources */,
+				04B95E9D1ED0987C00217DE4 /* Stats.swift in Sources */,
 				04CEF2FD1EAB19550057A119 /* MaldivesWhaleSharkResearch.xcdatamodeld in Sources */,
 				042DBBED1EC0C86A00DA93B6 /* Model.swift in Sources */,
 				042DBBFA1EC1956600DA93B6 /* SharkDescriptionTableViewCell.swift in Sources */,

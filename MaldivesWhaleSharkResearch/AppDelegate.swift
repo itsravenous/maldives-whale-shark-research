@@ -30,6 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().backIndicatorTransitionMaskImage = UIImage(named: "back-button")
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         FIRApp.configure()
+        FIRDatabase.database().persistenceEnabled = true
         GMSServices.provideAPIKey("AIzaSyAwm4GLvSETQBvQqGXF3sy6WofyWbgC7ZU")
         return true
     }
