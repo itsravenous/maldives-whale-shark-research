@@ -19,7 +19,9 @@ class AboutViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
+        
+        // Add the segmented control
         segmentedControl.titles = ["MWSRP","BFN","CRITTER"]
         segmentedControl.titleFont = UIFont(name: "MuseoSans-500", size: 16.0)!
         segmentedControl.selectedTitleFont = UIFont(name: "MuseoSans-500", size: 16.0)!

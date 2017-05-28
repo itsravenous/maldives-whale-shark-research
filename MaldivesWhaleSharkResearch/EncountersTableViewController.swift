@@ -15,31 +15,36 @@ import SDWebImage
 class EncountersTableViewController: UITableViewController, BWWalkthroughViewControllerDelegate  {
     
     var encounters : [Encounter] = []
-
+    
     // MARK: - View Did load
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
-        // Firebase info tableview
-        
-//        FIRDatabase.database().reference().child("encounters").observe(FIRDataEventType.childAdded, with: {(snapshot) in
-//            
-//            let snapshotValue = snapshot.value as? NSDictionary
-//            
-//            let encounter = Encounter()
-//            encounter.sharkName = (snapshotValue?["sharkName"] as? String)!
-//            encounter.date = (snapshotValue?["date"] as? String)!
-//            encounter.contributorID = (snapshotValue?["contributorID"] as? String)!
-//            
-//            let photoValue = (snapshotValue?["photos"] as? NSDictionary)
-//            encounter.mainImage = (photoValue?["imageURL1"] as? String)!
-//            
-//            self.encounters.append(encounter)
-//            
-//            self.showAllEncounters()
-//        })
+        // Firebase tableview data
+        FIRDatabase.database().reference().child("encounters").observeSingleEvent(of: .value, with: { (snapshot) in
+            for rest in snapshot.children.allObjects as! [FIRDataSnapshot] {
+                
+                guard let restDict = rest.value as? [String: Any] else { continue }
+                
+                let encounter = Encounter()
+                encounter.sharkName = (restDict["shark_name"] as? String)!
+                encounter.date = (restDict["trip_date"] as? String)!
+                encounter.contributorName = (restDict["contributor"] as? String)!
+                encounter.contributorImage = (restDict["contributor_image"] as? String)!
+                
+
+                let mediaDict = (restDict["media"] as? NSArray)
+                let firstImage = mediaDict![0] as! NSDictionary
+                encounter.mainImage = firstImage["thumb_url"] as! String
+
+                self.encounters.append(encounter)
+                
+                self.showAllEncounters()
+                
+            }
+        })
 
         // Create the menuview
         
@@ -134,7 +139,8 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
     
     func convertDate(encounterDate: String) -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+//        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let date = dateFormatter.date(from: encounterDate)
         
         let currentDate = Date()
@@ -147,22 +153,6 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
         return String(describing: components.day!)
     }
     
-    // Get user id info and find their contributorImage
-    
-    func getContributorImage(contributorID: String) -> String {
-        
-        var contributorImage = ""
-        
-        FIRDatabase.database().reference().child("users").observe(FIRDataEventType.childAdded, with: {(snapshot) in
-            
-            let userSnapshotValue = snapshot.value as? NSDictionary
-//            contributorImage = (userSnapshotValue?["contributorImage"] as? String)!
-            
-        })
-        
-        return contributorImage
-        
-    }
     
     // MARK: - Name
     
@@ -194,8 +184,6 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
         let filteredResults = (encounters as NSArray).filtered(using: predicate)
         
         tabResults = filteredResults as [AnyObject]
-        
-        
         
         self.tableView.reloadData()
     }
@@ -240,9 +228,8 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
         let encounter = encounters[indexPath.row]
         cell.sharkNameLabel.text = encounter.sharkName
         cell.dateSeenLabel.text = "Spotted " + convertDate(encounterDate: encounter.date) + " days ago"
-//        cell.sharkImageView.sd_setImage(with: URL(string: encounter.mainImage))
-        cell.sharkImageView.sd_setImage(with: URL(string:"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Whale_shark_Georgia_aquarium.jpg/1200px-Whale_shark_Georgia_aquarium.jpg"))
-        cell.contributorImageView.sd_setImage(with: URL(string: getContributorImage(contributorID: encounter.contributorID)))
+        cell.sharkImageView.sd_setImage(with: URL(string: encounter.mainImage))
+        cell.contributorImageView.sd_setImage(with: URL(string: encounter.contributorImage))
         
         // If user has liked ID number of encounter -> set heart icon
         if encounter.liked == "Y" {
@@ -251,13 +238,9 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
             cell.likeButton.imageView?.image = UIImage(named: "heart-icon")
         }
         
-// below works, firebase urls don't
-//        cell.contributorImageView.sd_setImage(with: URL(string: "https://image.flaticon.com/teams/new/1-freepik.jpg"))
-        
         return cell
         
     }
-
 
     // MARK: - Navigation
 
@@ -267,7 +250,7 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
         // Pass the selected object to the new view controller.
         if segue.identifier == "segueToEncounterCard" {
             let destination = segue.destination as! EncounterViewController
-            destination.selectedIndexPath = tableView.indexPathForSelectedRow!
+            destination.navigationItem.title = ""
         }
     }
 

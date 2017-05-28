@@ -1,4 +1,20 @@
 PODS:
+  - AFNetworking (3.1.0):
+    - AFNetworking/NSURLSession (= 3.1.0)
+    - AFNetworking/Reachability (= 3.1.0)
+    - AFNetworking/Security (= 3.1.0)
+    - AFNetworking/Serialization (= 3.1.0)
+    - AFNetworking/UIKit (= 3.1.0)
+  - AFNetworking/NSURLSession (3.1.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.1.0)
+  - AFNetworking/Security (3.1.0)
+  - AFNetworking/Serialization (3.1.0)
+  - AFNetworking/UIKit (3.1.0):
+    - AFNetworking/NSURLSession
+  - AlgoliaSearch-Client-Swift (4.8.1)
   - BetterSegmentedControl (0.7)
   - Bolts (1.8.4):
     - Bolts/AppLinks (= 1.8.4)
@@ -42,13 +58,6 @@ PODS:
     - FirebaseAnalytics (~> 3.7)
     - GTMSessionFetcher/Core (~> 1.1)
   - Fusuma (1.0.3)
-  - GoogleMaps (2.2.0):
-    - GoogleMaps/Maps (= 2.2.0)
-  - GoogleMaps/Base (2.2.0)
-  - GoogleMaps/Maps (2.2.0):
-    - GoogleMaps/Base
-  - GooglePlaces (2.2.0):
-    - GoogleMaps/Base (= 2.2.0)
   - GoogleToolboxForMac/DebugUtils (2.1.1):
     - GoogleToolboxForMac/Defines (= 2.1.1)
   - GoogleToolboxForMac/Defines (2.1.1)
@@ -63,13 +72,18 @@ PODS:
   - ILLoginKit (0.1.0):
     - FBSDKLoginKit (= 4.18.0)
     - Validator (~> 2.1.1)
+  - InstantSearch-Core-Swift (1.0.1):
+    - AlgoliaSearch-Client-Swift (~> 4.0)
   - SDWebImage (4.0.0):
     - SDWebImage/Core (= 4.0.0)
   - SDWebImage/Core (4.0.0)
   - Spring (1.0.3)
+  - SwiftyJSON (3.1.4)
   - Validator (2.1.1)
 
 DEPENDENCIES:
+  - AFNetworking
+  - AlgoliaSearch-Client-Swift (~> 4.0)
   - BetterSegmentedControl
   - BTNavigationDropdownMenu (from `https://github.com/PhamBaTho/BTNavigationDropdownMenu.git`, branch `swift-3.0`)
   - BWWalkthrough
@@ -78,11 +92,11 @@ DEPENDENCIES:
   - Firebase/Database
   - Firebase/Storage
   - Fusuma
-  - GoogleMaps
-  - GooglePlaces
   - ILLoginKit
+  - InstantSearch-Core-Swift (~> 1.0)
   - SDWebImage
   - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift3`)
+  - SwiftyJSON
 
 EXTERNAL SOURCES:
   BTNavigationDropdownMenu:
@@ -101,6 +115,8 @@ CHECKOUT OPTIONS:
     :git: https://github.com/MengTo/Spring.git
 
 SPEC CHECKSUMS:
+  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  AlgoliaSearch-Client-Swift: 5bdfbc8727f203773245e2410edd7a9c8e831637
   BetterSegmentedControl: 0b4dde1caac22de345820858a5e2789132378c1c
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   BTNavigationDropdownMenu: 093f3cbfad1572f2c222bdf8d17584d1e13380d4
@@ -115,15 +131,15 @@ SPEC CHECKSUMS:
   FirebaseInstanceID: b9eedd6846fb5e1f0f7279e1deaa7a7e4cf8392e
   FirebaseStorage: a5c55b23741a49a72af8f30f95b3bb5ddbeda12d
   Fusuma: 60ed1dd51a3b3610960219df9862c83f03304ce1
-  GoogleMaps: 104c418d61ab8a05dff06ed0784c25ea9d37da45
-  GooglePlaces: bca867d5e9da15384c794b945e4226848bc6e9d9
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMSessionFetcher: 5c046c76a1f859bc9c187e918f18e4fc7bb57b5e
   ILLoginKit: ff473712662d92448553967d412ba201e61fbad0
+  InstantSearch-Core-Swift: 0cc37cfd832ab67c47907eafc2f9b2a96451ef70
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   Validator: b1793fbfd0046097551d0edd18e2c30792d69ef5
 
-PODFILE CHECKSUM: b831108578508e642217e953ea21ee80b2f52d42
+PODFILE CHECKSUM: 438f8020a4e7c586c2ee23b8011a34765d0c29c3
 
 COCOAPODS: 1.2.1

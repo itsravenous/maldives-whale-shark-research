@@ -6,9 +6,30 @@
 //  Copyright © 2017 dooddevelopments. All rights reserved.
 //
 
+import AlgoliaSearch
+import InstantSearchCore
 import Foundation
 
-class WhaleShark {
-    var id = ""
-    var name = ""
+struct WhaleShark {
+    private let json: JSONObject
+    
+    init(json: JSONObject) {
+        self.json = json
+    }
+    
+    var id: String? {
+        return json["id"] as? String
+    }
+    
+    var name: String? {
+        return json["name"] as? String
+    }
+    
+    var mainImage: URL? {
+        guard let urlString = json["mainImage"] as? String else {
+            return nil
+        }
+        return URL(string: urlString)
+    }
+    
 }

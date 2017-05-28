@@ -11,10 +11,11 @@ import CoreData
 import Firebase
 import FBSDKCoreKit
 import FBSDKLoginKit
-import GoogleMaps
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    static let colorForLocalOrigin = UIColor(red: 0.9, green: 0.97, blue: 1.0, alpha: 1.0)
 
     var window: UIWindow?
 
@@ -31,7 +32,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         FIRApp.configure()
         FIRDatabase.database().persistenceEnabled = true
-        GMSServices.provideAPIKey("AIzaSyAwm4GLvSETQBvQqGXF3sy6WofyWbgC7ZU")
         return true
     }
     

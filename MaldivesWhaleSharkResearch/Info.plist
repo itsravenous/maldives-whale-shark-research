@@ -38,6 +38,8 @@
 		<string>fbauth2</string>
 		<string>fbshareextension</string>
 	</array>
+	<key>AlgoliaApiKey</key>
+	<string>db721e8c40670ece6c6e4e2f7fc6e427</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSPhotoLibraryUsageDescription</key>

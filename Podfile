@@ -13,10 +13,12 @@ target 'MaldivesWhaleSharkResearch' do
   pod 'SDWebImage'
   pod 'BetterSegmentedControl'
   pod 'ILLoginKit'
-  pod 'GoogleMaps'
-  pod 'GooglePlaces'
   pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift3'
   pod 'Fusuma'
+  pod 'AlgoliaSearch-Client-Swift', '~> 4.0'
+  pod 'InstantSearch-Core-Swift', '~> 1.0'
+  pod 'SwiftyJSON'
+  pod 'AFNetworking'
   
   # Pods for MaldivesWhaleSharkResearch
 

@@ -53,6 +53,7 @@
 		04CEF3261EAB198F0057A119 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04CEF3251EAB198F0057A119 /* GoogleService-Info.plist */; };
 		04CEF3271EAB198F0057A119 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04CEF3251EAB198F0057A119 /* GoogleService-Info.plist */; };
 		04CEF3281EAB198F0057A119 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04CEF3251EAB198F0057A119 /* GoogleService-Info.plist */; };
+		04E19F191EDA9A4600E4BB22 /* AlgoliaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E19F181EDA9A4600E4BB22 /* AlgoliaManager.swift */; };
 		04EBB5611EB88A6A008D5B4C /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EBB5601EB88A6A008D5B4C /* AboutViewController.swift */; };
 		3E56C2B650CE78E75CF9C916 /* Pods_MaldivesWhaleSharkResearchUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3813DF1825C1F3F972FDC2F /* Pods_MaldivesWhaleSharkResearchUITests.framework */; };
 		4B567D847252AC37A414B93F /* Pods_MaldivesWhaleSharkResearchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21708BB94A1E1599C3046E70 /* Pods_MaldivesWhaleSharkResearchTests.framework */; };
@@ -127,6 +128,7 @@
 		04CEF3171EAB19550057A119 /* MaldivesWhaleSharkResearchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaldivesWhaleSharkResearchUITests.swift; sourceTree = "<group>"; };
 		04CEF3191EAB19550057A119 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04CEF3251EAB198F0057A119 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		04E19F181EDA9A4600E4BB22 /* AlgoliaManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlgoliaManager.swift; sourceTree = "<group>"; };
 		04EBB5601EB88A6A008D5B4C /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		05069E331F56640F8E911B8D /* Pods_MaldivesWhaleSharkResearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MaldivesWhaleSharkResearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E3ED0F2E41A9A04FA2C636F /* Pods-MaldivesWhaleSharkResearch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MaldivesWhaleSharkResearch.release.xcconfig"; path = "Pods/Target Support Files/Pods-MaldivesWhaleSharkResearch/Pods-MaldivesWhaleSharkResearch.release.xcconfig"; sourceTree = "<group>"; };
@@ -303,6 +305,7 @@
 				042DBBEE1EC0C96000DA93B6 /* Sharks */,
 				042DBBD11EBE085900DA93B6 /* About */,
 				042776B31EB8B29A00D505C5 /* Models */,
+				04E19F171EDA7F5900E4BB22 /* Helpers */,
 				04CEF2FE1EAB19550057A119 /* Assets.xcassets */,
 				04CEF3031EAB19550057A119 /* Info.plist */,
 				04CEF3251EAB198F0057A119 /* GoogleService-Info.plist */,
@@ -329,6 +332,14 @@
 				04CEF3191EAB19550057A119 /* Info.plist */,
 			);
 			path = MaldivesWhaleSharkResearchUITests;
+			sourceTree = "<group>";
+		};
+		04E19F171EDA7F5900E4BB22 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				04E19F181EDA9A4600E4BB22 /* AlgoliaManager.swift */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 		389622A6A72E6AC192BCF5B6 /* Frameworks */ = {
@@ -652,6 +663,7 @@
 				042DBBD41EBE08AE00DA93B6 /* WeekViewController.swift in Sources */,
 				042776B71EB8B9FC00D505C5 /* Encounter.swift in Sources */,
 				042DBBF81EC1939600DA93B6 /* SharkImageCollectionViewCell.swift in Sources */,
+				04E19F191EDA9A4600E4BB22 /* AlgoliaManager.swift in Sources */,
 				042DBBE91EC0B7FA00DA93B6 /* SettingsViewController.swift in Sources */,
 				041A46861EB5CB7100DF749C /* EncounterViewController.swift in Sources */,
 				041A46821EB4858E00DF749C /* EncounterTableViewCell.swift in Sources */,

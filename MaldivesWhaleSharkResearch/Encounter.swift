@@ -12,7 +12,8 @@ class Encounter {
     var sharkID = ""
     var sharkName = ""
     var mainImage = ""
-    var contributorID = ""
+    var contributorName = ""
+    var contributorImage = ""
     var date = ""
     var length = Double()
     var latitude = ""

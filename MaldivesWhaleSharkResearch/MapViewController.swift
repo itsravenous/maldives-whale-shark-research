@@ -7,29 +7,26 @@
 //
 
 import UIKit
-import GoogleMaps
+import MapKit
 
-class MapViewController: UIViewController {
-
+class MapViewController: UIViewController, MKMapViewDelegate {
+    
+    @IBOutlet weak var mapView: MKMapView!
+    
+    let regionRadius: CLLocationDistance = 1000
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // set initial location in Dhigurah
+        let initialLocation = CLLocation(latitude: 3.531172, longitude: 72.926768)
+        centerMapOnLocation(location: initialLocation)
+
     }
     
-    override func loadView() {
-        // Create a GMSCameraPosition that tells the map to display the
-        // coordinate -33.86,151.20 at zoom level 6.
-        let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: 6.0)
-        let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
-        view = mapView
-        
-        // Creates a marker in the center of the map.
-        let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2D(latitude: -33.86, longitude: 151.20)
-        marker.title = "Sydney"
-        marker.snippet = "Sorry no whale sharks here 😏"
-        marker.map = mapView
+    func centerMapOnLocation(location: CLLocation) {
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,regionRadius * 10.0, regionRadius * 10.0)
+        mapView.setRegion(coordinateRegion, animated: true)
     }
     
 
