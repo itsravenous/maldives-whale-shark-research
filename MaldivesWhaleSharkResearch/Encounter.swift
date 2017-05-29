@@ -11,13 +11,12 @@ import Foundation
 class Encounter {
     var sharkID = ""
     var sharkName = ""
-    var mainImage = ""
+    var images: [String] = []
     var contributorName = ""
     var contributorImage = ""
     var date = ""
-    var length = Double()
+    var length = ""
     var latitude = ""
     var longitude = ""
-    var liked = ""
-    
+    var locationName = ""
 }

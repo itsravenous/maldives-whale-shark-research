@@ -118,12 +118,12 @@ class SharkProfileTableViewController: UITableViewController, UICollectionViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return model.sharkImages.count
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "sharkPictureCell", for: indexPath) as! SharkImageCollectionViewCell
-        cell.imageView.image = UIImage(named: model.sharkImages[indexPath.row]["image"]!)
+        cell.imageView.image = UIImage(named: "shark1")
         return cell
     }
     

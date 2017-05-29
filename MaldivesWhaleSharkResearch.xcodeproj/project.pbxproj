@@ -10,7 +10,7 @@
 		041A467E1EB4750B00DF749C /* MuseoSans_500.otf in Resources */ = {isa = PBXBuildFile; fileRef = 041A467D1EB4750B00DF749C /* MuseoSans_500.otf */; };
 		041A46801EB4752600DF749C /* Museo300-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 041A467F1EB4752600DF749C /* Museo300-Regular.otf */; };
 		041A46821EB4858E00DF749C /* EncounterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041A46811EB4858E00DF749C /* EncounterTableViewCell.swift */; };
-		041A46861EB5CB7100DF749C /* EncounterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041A46851EB5CB7100DF749C /* EncounterViewController.swift */; };
+		041A46861EB5CB7100DF749C /* EncounterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041A46851EB5CB7100DF749C /* EncounterDetailViewController.swift */; };
 		042454251EBA0FCF009584B2 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042454241EBA0FCF009584B2 /* LoginCoordinator.swift */; };
 		042776B11EB8B1C900D505C5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042776B01EB8B1C900D505C5 /* User.swift */; };
 		042776B51EB8B71100D505C5 /* WhaleShark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042776B41EB8B71100D505C5 /* WhaleShark.swift */; };
@@ -27,7 +27,6 @@
 		042DBBE71EBF436D00DA93B6 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 042DBBE61EBF436D00DA93B6 /* AVKit.framework */; };
 		042DBBE91EC0B7FA00DA93B6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042DBBE81EC0B7FA00DA93B6 /* SettingsViewController.swift */; };
 		042DBBEB1EC0C7AA00DA93B6 /* SharksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042DBBEA1EC0C7AA00DA93B6 /* SharksTableViewController.swift */; };
-		042DBBED1EC0C86A00DA93B6 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042DBBEC1EC0C86A00DA93B6 /* Model.swift */; };
 		042DBBF01EC0C9C300DA93B6 /* SharkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042DBBEF1EC0C9C300DA93B6 /* SharkTableViewCell.swift */; };
 		042DBBF61EC1886600DA93B6 /* SharkProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042DBBF51EC1886600DA93B6 /* SharkProfileTableViewController.swift */; };
 		042DBBF81EC1939600DA93B6 /* SharkImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042DBBF71EC1939600DA93B6 /* SharkImageCollectionViewCell.swift */; };
@@ -54,6 +53,7 @@
 		04CEF3271EAB198F0057A119 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04CEF3251EAB198F0057A119 /* GoogleService-Info.plist */; };
 		04CEF3281EAB198F0057A119 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04CEF3251EAB198F0057A119 /* GoogleService-Info.plist */; };
 		04E19F191EDA9A4600E4BB22 /* AlgoliaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E19F181EDA9A4600E4BB22 /* AlgoliaManager.swift */; };
+		04E19F1B1EDBF6C600E4BB22 /* EncounterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E19F1A1EDBF6C600E4BB22 /* EncounterCollectionViewCell.swift */; };
 		04EBB5611EB88A6A008D5B4C /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EBB5601EB88A6A008D5B4C /* AboutViewController.swift */; };
 		3E56C2B650CE78E75CF9C916 /* Pods_MaldivesWhaleSharkResearchUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3813DF1825C1F3F972FDC2F /* Pods_MaldivesWhaleSharkResearchUITests.framework */; };
 		4B567D847252AC37A414B93F /* Pods_MaldivesWhaleSharkResearchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21708BB94A1E1599C3046E70 /* Pods_MaldivesWhaleSharkResearchTests.framework */; };
@@ -81,7 +81,7 @@
 		041A467D1EB4750B00DF749C /* MuseoSans_500.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MuseoSans_500.otf; sourceTree = "<group>"; };
 		041A467F1EB4752600DF749C /* Museo300-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Museo300-Regular.otf"; sourceTree = "<group>"; };
 		041A46811EB4858E00DF749C /* EncounterTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncounterTableViewCell.swift; sourceTree = "<group>"; };
-		041A46851EB5CB7100DF749C /* EncounterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncounterViewController.swift; sourceTree = "<group>"; };
+		041A46851EB5CB7100DF749C /* EncounterDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncounterDetailViewController.swift; sourceTree = "<group>"; };
 		042454241EBA0FCF009584B2 /* LoginCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
 		042776B01EB8B1C900D505C5 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = ../User.swift; sourceTree = "<group>"; };
 		042776B41EB8B71100D505C5 /* WhaleShark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhaleShark.swift; sourceTree = "<group>"; };
@@ -98,7 +98,6 @@
 		042DBBE61EBF436D00DA93B6 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		042DBBE81EC0B7FA00DA93B6 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		042DBBEA1EC0C7AA00DA93B6 /* SharksTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SharksTableViewController.swift; path = MaldivesWhaleSharkResearch/SharksTableViewController.swift; sourceTree = "<group>"; };
-		042DBBEC1EC0C86A00DA93B6 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		042DBBEF1EC0C9C300DA93B6 /* SharkTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharkTableViewCell.swift; sourceTree = "<group>"; };
 		042DBBF51EC1886600DA93B6 /* SharkProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharkProfileTableViewController.swift; sourceTree = "<group>"; };
 		042DBBF71EC1939600DA93B6 /* SharkImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharkImageCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -129,6 +128,7 @@
 		04CEF3191EAB19550057A119 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04CEF3251EAB198F0057A119 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		04E19F181EDA9A4600E4BB22 /* AlgoliaManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlgoliaManager.swift; sourceTree = "<group>"; };
+		04E19F1A1EDBF6C600E4BB22 /* EncounterCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncounterCollectionViewCell.swift; sourceTree = "<group>"; };
 		04EBB5601EB88A6A008D5B4C /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		05069E331F56640F8E911B8D /* Pods_MaldivesWhaleSharkResearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MaldivesWhaleSharkResearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E3ED0F2E41A9A04FA2C636F /* Pods-MaldivesWhaleSharkResearch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MaldivesWhaleSharkResearch.release.xcconfig"; path = "Pods/Target Support Files/Pods-MaldivesWhaleSharkResearch/Pods-MaldivesWhaleSharkResearch.release.xcconfig"; sourceTree = "<group>"; };
@@ -192,7 +192,6 @@
 		042776B31EB8B29A00D505C5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				042DBBEC1EC0C86A00DA93B6 /* Model.swift */,
 				04B95E9C1ED0987C00217DE4 /* Stats.swift */,
 				042776B61EB8B9FC00D505C5 /* Encounter.swift */,
 				042776B01EB8B1C900D505C5 /* User.swift */,
@@ -241,7 +240,8 @@
 			children = (
 				043C342F1EB46A1F00D52BB8 /* EncountersTableViewController.swift */,
 				041A46811EB4858E00DF749C /* EncounterTableViewCell.swift */,
-				041A46851EB5CB7100DF749C /* EncounterViewController.swift */,
+				041A46851EB5CB7100DF749C /* EncounterDetailViewController.swift */,
+				04E19F1A1EDBF6C600E4BB22 /* EncounterCollectionViewCell.swift */,
 			);
 			name = Encounter;
 			sourceTree = "<group>";
@@ -665,13 +665,14 @@
 				042DBBF81EC1939600DA93B6 /* SharkImageCollectionViewCell.swift in Sources */,
 				04E19F191EDA9A4600E4BB22 /* AlgoliaManager.swift in Sources */,
 				042DBBE91EC0B7FA00DA93B6 /* SettingsViewController.swift in Sources */,
-				041A46861EB5CB7100DF749C /* EncounterViewController.swift in Sources */,
+				041A46861EB5CB7100DF749C /* EncounterDetailViewController.swift in Sources */,
 				041A46821EB4858E00DF749C /* EncounterTableViewCell.swift in Sources */,
 				042DBBEB1EC0C7AA00DA93B6 /* SharksTableViewController.swift in Sources */,
 				04EBB5611EB88A6A008D5B4C /* AboutViewController.swift in Sources */,
 				042DBBF61EC1886600DA93B6 /* SharkProfileTableViewController.swift in Sources */,
 				042454251EBA0FCF009584B2 /* LoginCoordinator.swift in Sources */,
 				042DBBE11EBE9ED000DA93B6 /* CritterViewController.swift in Sources */,
+				04E19F1B1EDBF6C600E4BB22 /* EncounterCollectionViewCell.swift in Sources */,
 				043C342E1EB44BA500D52BB8 /* TabBarViewController.swift in Sources */,
 				042DBBFC1EC1957400DA93B6 /* SharkFirstEncounterTableViewCell.swift in Sources */,
 				042DBC001EC1A0AD00DA93B6 /* SharkImagesTableViewCell.swift in Sources */,
@@ -681,7 +682,6 @@
 				042776B51EB8B71100D505C5 /* WhaleShark.swift in Sources */,
 				04B95E9D1ED0987C00217DE4 /* Stats.swift in Sources */,
 				04CEF2FD1EAB19550057A119 /* MaldivesWhaleSharkResearch.xcdatamodeld in Sources */,
-				042DBBED1EC0C86A00DA93B6 /* Model.swift in Sources */,
 				042DBBFA1EC1956600DA93B6 /* SharkDescriptionTableViewCell.swift in Sources */,
 				042DBBDF1EBE9E9400DA93B6 /* BFNViewController.swift in Sources */,
 				042DBBD61EBE08BB00DA93B6 /* MonthViewController.swift in Sources */,

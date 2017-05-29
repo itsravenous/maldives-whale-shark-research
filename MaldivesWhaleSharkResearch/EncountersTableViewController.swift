@@ -22,32 +22,12 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
-        // Firebase tableview data
-        FIRDatabase.database().reference().child("encounters").observeSingleEvent(of: .value, with: { (snapshot) in
-            for rest in snapshot.children.allObjects as! [FIRDataSnapshot] {
-                
-                guard let restDict = rest.value as? [String: Any] else { continue }
-                
-                let encounter = Encounter()
-                encounter.sharkName = (restDict["shark_name"] as? String)!
-                encounter.date = (restDict["trip_date"] as? String)!
-                encounter.contributorName = (restDict["contributor"] as? String)!
-                encounter.contributorImage = (restDict["contributor_image"] as? String)!
-                
-
-                let mediaDict = (restDict["media"] as? NSArray)
-                let firstImage = mediaDict![0] as! NSDictionary
-                encounter.mainImage = firstImage["thumb_url"] as! String
-
-                self.encounters.append(encounter)
-                
-                self.showAllEncounters()
-                
-            }
-        })
+        let user = User()
+        user.likedEncounters = [String](repeating: "like", count: 10)
+        
+        showAllEncounters()
 
         // Create the menuview
-        
         let items = ["All Encounters", "Liked Encounters", "My Encounters"]
         let menuView = BTNavigationDropdownMenu(title: items[0], items: items as [AnyObject])
         menuView.navigationBarTitleFont = UIFont(name: "MuseoSans-500", size: 19)
@@ -76,9 +56,7 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
                 print("my")
             }
         }
-        
         self.navigationItem.titleView = menuView
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -96,7 +74,6 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
     }
     
     // MARK: - IBActions
-    
     @IBAction func uploadImageButtonPressed(_ sender: UIBarButtonItem) {
         
         let userDefaults = UserDefaults.standard
@@ -112,7 +89,6 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
     }
     
     // MARK: - Functions
-    
     func showWalkthrough() {
         let stb = UIStoryboard(name: "Walkthrough", bundle: nil)
         let walkthrough = stb.instantiateViewController(withIdentifier: "container") as! BWWalkthroughViewController
@@ -136,7 +112,6 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
     }
     
     // Convert date from date string and subtract from current date
-    
     func convertDate(encounterDate: String) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
@@ -155,65 +130,66 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
     
     
     // MARK: - Name
-    
     var tabResults = [AnyObject]()
     
-    
     // MARK: - Encounter filters
-    
     func showAllEncounters() {
-        // get data as nsarray
-        // filter data
-        // return search results
-//        let predicate = NSPredicate(format: "name contains[cd] %@", searchController.searchBar.text!)
-//        
-//        let filteredResults = (model.sharks as NSArray).filtered(using: predicate)
-//        
-//        tabResults = filteredResults as [AnyObject]
-        
-        self.tableView.reloadData()
+        // Firebase tableview data
+        FIRDatabase.database().reference().child("encounters").observeSingleEvent(of: .value, with: { (snapshot) in
+            for rest in snapshot.children.allObjects as! [FIRDataSnapshot] {
+                guard let restDict = rest.value as? [String: Any] else { continue }
+                
+                let encounter = Encounter()
+                encounter.sharkName = (restDict["shark_name"] as? String)!
+                encounter.date = (restDict["trip_date"] as? String)!
+                encounter.length = (restDict["length_est"] as? String)!
+                encounter.locationName = (restDict["location_name"] as? String)!
+                encounter.contributorName = (restDict["contributor"] as? String)!
+                encounter.contributorImage = (restDict["contributor_image"] as? String)!
+                
+                let mediaDict = restDict["media"] as! [[String:Any]]
+                encounter.images = mediaDict.flatMap { $0["thumb_url"] as? String }
+//                
+//                encounter.images = [mediaDict[0]["thumb_url"] as! String]
+//                print(encounter.images)
+                
+                
+                
+//                let mediaDict = (restDict["media"] as? NSArray)
+//                let firstImage = mediaDict![0] as! NSDictionary
+//                let secondImage = mediaDict![1] as! NSDictionary
+//                let thirdImage = mediaDict![2] as! NSDictionary
+//                
+//                
+//                encounter.mainImage = firstImage["thumb_url"] as! String
+//                encounter.secondImage = secondImage["thumb_url"] as! String
+//                encounter.thirdImage = thirdImage["thumb_url"] as! String
+                
+                self.encounters.append(encounter)
+                
+                self.tableView.reloadData()
+            }
+        })
     }
     
     func showLikedEncounters() {
-        // get data as nsarray
-        // filter data
-        // return search results
-        let liked = "Y"
-        let predicate = NSPredicate(format: "likedEncounters == %@", liked)
-        
-        let filteredResults = (encounters as NSArray).filtered(using: predicate)
-        
-        tabResults = filteredResults as [AnyObject]
-        
         self.tableView.reloadData()
     }
     
     func showMyEncounters() {
-        // get data as nsarray
-        // filter data
-        // return search results
-//        let predicate = NSPredicate(format: "name contains[cd] %@", searchController.searchBar.text!)
-//        
-//        let filteredResults = (model.sharks as NSArray).filtered(using: predicate)
-//        
-//        tabResults = filteredResults as [AnyObject]
-        
         self.tableView.reloadData()
     }
     
     // MARK: - Walkthrough delegate -
-    
     func walkthroughPageDidChange(_ pageNumber: Int) {
         print("Current Page \(pageNumber)")
     }
-    
     
     func walkthroughCloseButtonPressed() {
         self.dismiss(animated: true, completion: nil)
     }
     
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -228,29 +204,19 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
         let encounter = encounters[indexPath.row]
         cell.sharkNameLabel.text = encounter.sharkName
         cell.dateSeenLabel.text = "Spotted " + convertDate(encounterDate: encounter.date) + " days ago"
-        cell.sharkImageView.sd_setImage(with: URL(string: encounter.mainImage))
+        cell.sharkImageView.sd_setImage(with: URL(string: encounter.images.first!))
         cell.contributorImageView.sd_setImage(with: URL(string: encounter.contributorImage))
         
-        // If user has liked ID number of encounter -> set heart icon
-        if encounter.liked == "Y" {
-            cell.likeButton.imageView?.image = UIImage(named: "heart-icon-active")
-        } else {
-            cell.likeButton.imageView?.image = UIImage(named: "heart-icon")
-        }
-        
         return cell
-        
     }
 
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
         if segue.identifier == "segueToEncounterCard" {
-            let destination = segue.destination as! EncounterViewController
-            destination.navigationItem.title = ""
+            let destination = segue.destination as! EncounterDetailViewController
+            if let indexPath = self.tableView.indexPathForSelectedRow {
+                destination.selectedEncounter = self.encounters[indexPath.row]
+            }
         }
     }
 
