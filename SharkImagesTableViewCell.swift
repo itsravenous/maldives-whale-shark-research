@@ -9,6 +9,9 @@
 import UIKit
 
 class SharkImagesTableViewCell: UITableViewCell {
+    
+    // MARK: - Outlets
+    @IBOutlet weak var collectionView: UICollectionView!
 
     override func awakeFromNib() {
         super.awakeFromNib()

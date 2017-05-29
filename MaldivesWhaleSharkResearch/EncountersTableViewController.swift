@@ -149,21 +149,6 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
                 
                 let mediaDict = restDict["media"] as! [[String:Any]]
                 encounter.images = mediaDict.flatMap { $0["thumb_url"] as? String }
-//                
-//                encounter.images = [mediaDict[0]["thumb_url"] as! String]
-//                print(encounter.images)
-                
-                
-                
-//                let mediaDict = (restDict["media"] as? NSArray)
-//                let firstImage = mediaDict![0] as! NSDictionary
-//                let secondImage = mediaDict![1] as! NSDictionary
-//                let thirdImage = mediaDict![2] as! NSDictionary
-//                
-//                
-//                encounter.mainImage = firstImage["thumb_url"] as! String
-//                encounter.secondImage = secondImage["thumb_url"] as! String
-//                encounter.thirdImage = thirdImage["thumb_url"] as! String
                 
                 self.encounters.append(encounter)
                 

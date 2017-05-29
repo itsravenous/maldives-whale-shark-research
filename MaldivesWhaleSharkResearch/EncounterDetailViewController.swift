@@ -72,9 +72,6 @@ class EncounterDetailViewController: UIViewController, UICollectionViewDataSourc
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCell", for: indexPath) as! EncounterCollectionViewCell
         
         cell.imageView.sd_setImage(with: URL(string: (selectedEncounter?.images[indexPath.row])!))
-//        cell.pageControl.numberOfPages = (selectedEncounter?.images.count)!
-//        cell.pageControl.currentPage = currentPage
-//        print(currentPage)
         
         return cell
     }

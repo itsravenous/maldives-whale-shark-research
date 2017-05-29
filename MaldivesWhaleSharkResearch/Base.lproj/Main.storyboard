@@ -306,6 +306,9 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="collectionView" destination="6Hx-R6-giE" id="zeY-Lk-sni"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="descriptionCell" rowHeight="270" id="gO4-es-z55" customClass="SharkDescriptionTableViewCell" customModule="MaldivesWhaleSharkResearch" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="403" width="375" height="270"/>
@@ -375,6 +378,13 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="sharkIdLabel" destination="C6l-Ia-MTg" id="3hj-fS-1EA"/>
+                                    <outlet property="sharkNameLabel" destination="WFL-M5-tKJ" id="zRe-ay-xgM"/>
+                                    <outlet property="sharkSexImageView" destination="Z4y-eT-nTJ" id="2Sx-Vz-F9j"/>
+                                    <outlet property="sharkSexLineImageView" destination="u05-k2-dMG" id="18u-Q8-xIf"/>
+                                    <outlet property="sharkTotalEncountersLabel" destination="qRg-I0-3Cy" id="2o5-Dm-rCC"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="firstEncounterCell" rowHeight="573" id="uta-vc-vZ3" customClass="SharkFirstEncounterTableViewCell" customModule="MaldivesWhaleSharkResearch" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="673" width="375" height="573"/>
@@ -454,10 +464,9 @@
                                                 </stackView>
                                             </subviews>
                                         </stackView>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pSB-8T-E4s" customClass="GMSMapView">
+                                        <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="satellite" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y7o-jW-aUe">
                                             <rect key="frame" x="0.0" y="310" width="375" height="231"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </view>
+                                        </mapView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="jhc-fy-d3L" secondAttribute="bottom" id="5Yn-Kt-8L2"/>
@@ -465,16 +474,22 @@
                                         <constraint firstItem="dZD-rf-j7B" firstAttribute="leading" secondItem="PqK-XC-aTy" secondAttribute="leading" constant="30" id="F7u-7r-ENe"/>
                                         <constraint firstItem="uGg-DH-8f8" firstAttribute="top" secondItem="dZD-rf-j7B" secondAttribute="bottom" constant="19" id="JRN-LE-ZUo"/>
                                         <constraint firstItem="Zvj-NM-4n2" firstAttribute="top" secondItem="PqK-XC-aTy" secondAttribute="top" constant="30" id="OGI-gq-IEt"/>
-                                        <constraint firstItem="pSB-8T-E4s" firstAttribute="leading" secondItem="PqK-XC-aTy" secondAttribute="leading" id="Vps-Qd-Ufh"/>
-                                        <constraint firstItem="jhc-fy-d3L" firstAttribute="top" secondItem="pSB-8T-E4s" secondAttribute="bottom" constant="30" id="W7P-TH-n9s"/>
-                                        <constraint firstItem="pSB-8T-E4s" firstAttribute="top" secondItem="uGg-DH-8f8" secondAttribute="bottom" constant="5" id="f44-Wy-a4Y"/>
+                                        <constraint firstItem="y7o-jW-aUe" firstAttribute="top" secondItem="uGg-DH-8f8" secondAttribute="bottom" constant="5" id="T8V-Z0-Jsf"/>
+                                        <constraint firstItem="y7o-jW-aUe" firstAttribute="leading" secondItem="PqK-XC-aTy" secondAttribute="leading" id="UC6-Q6-ywZ"/>
+                                        <constraint firstItem="jhc-fy-d3L" firstAttribute="top" secondItem="y7o-jW-aUe" secondAttribute="bottom" constant="30" id="cv9-Ss-7Wr"/>
+                                        <constraint firstAttribute="trailing" secondItem="y7o-jW-aUe" secondAttribute="trailing" id="czW-ju-0SI"/>
                                         <constraint firstItem="Zvj-NM-4n2" firstAttribute="leading" secondItem="PqK-XC-aTy" secondAttribute="leading" constant="30" id="jk6-Qd-Z5M"/>
                                         <constraint firstItem="jhc-fy-d3L" firstAttribute="centerX" secondItem="PqK-XC-aTy" secondAttribute="centerX" id="lg8-Tc-deu"/>
-                                        <constraint firstAttribute="trailing" secondItem="pSB-8T-E4s" secondAttribute="trailing" id="pxA-Fu-DlN"/>
                                         <constraint firstItem="uGg-DH-8f8" firstAttribute="leading" secondItem="PqK-XC-aTy" secondAttribute="leading" constant="30" id="vf5-QS-MCL"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="firstEncounterDateLabel" destination="7jG-ad-Xsm" id="skr-pj-Tdu"/>
+                                    <outlet property="firstEncounterLengthLabel" destination="4YK-LC-3Uv" id="19F-wL-u0P"/>
+                                    <outlet property="firstEncounterMapView" destination="y7o-jW-aUe" id="AcO-xd-jyG"/>
+                                    <outlet property="firstEncounterSeenByLabel" destination="TC6-rt-E2D" id="1hC-KW-cIc"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="lastEncounterCell" rowHeight="573" id="Gai-oD-2qU" customClass="SharkLastEncounterTableViewCell" customModule="MaldivesWhaleSharkResearch" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="1246" width="375" height="573"/>
@@ -554,27 +569,32 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xFN-DD-bSI" customClass="GMSMapView">
+                                        <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="satellite" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b75-Mx-fbO">
                                             <rect key="frame" x="0.0" y="309.5" width="375" height="231.5"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </view>
+                                        </mapView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="xFN-DD-bSI" firstAttribute="top" secondItem="XRO-bo-kFb" secondAttribute="bottom" constant="5" id="1Jw-xx-1AN"/>
                                         <constraint firstItem="KhB-TH-KC2" firstAttribute="leading" secondItem="h1C-Gr-7ps" secondAttribute="leading" constant="30" id="2cI-kY-XgU"/>
                                         <constraint firstItem="KhB-TH-KC2" firstAttribute="top" secondItem="h1C-Gr-7ps" secondAttribute="top" constant="30" id="Giy-RF-VrS"/>
-                                        <constraint firstAttribute="trailing" secondItem="xFN-DD-bSI" secondAttribute="trailing" id="Gm7-H9-5fw"/>
                                         <constraint firstItem="drG-Y9-Wk5" firstAttribute="centerX" secondItem="h1C-Gr-7ps" secondAttribute="centerX" id="HXC-D8-c5E"/>
-                                        <constraint firstItem="drG-Y9-Wk5" firstAttribute="top" secondItem="xFN-DD-bSI" secondAttribute="bottom" constant="30" id="KJu-iD-ZPX"/>
                                         <constraint firstItem="XRO-bo-kFb" firstAttribute="top" secondItem="izH-MV-QPS" secondAttribute="bottom" constant="19" id="Lsk-dg-T0H"/>
+                                        <constraint firstItem="b75-Mx-fbO" firstAttribute="top" secondItem="XRO-bo-kFb" secondAttribute="bottom" constant="5" id="Rg4-v4-VCJ"/>
                                         <constraint firstItem="izH-MV-QPS" firstAttribute="leading" secondItem="h1C-Gr-7ps" secondAttribute="leading" constant="30" id="au2-75-jtF"/>
                                         <constraint firstAttribute="bottom" secondItem="drG-Y9-Wk5" secondAttribute="bottom" id="cJ8-sh-nOB"/>
                                         <constraint firstItem="XRO-bo-kFb" firstAttribute="leading" secondItem="h1C-Gr-7ps" secondAttribute="leading" constant="30" id="ckd-vS-seK"/>
-                                        <constraint firstItem="xFN-DD-bSI" firstAttribute="leading" secondItem="h1C-Gr-7ps" secondAttribute="leading" id="hgo-Zs-Tdp"/>
+                                        <constraint firstItem="b75-Mx-fbO" firstAttribute="leading" secondItem="h1C-Gr-7ps" secondAttribute="leading" id="ikQ-MA-MG2"/>
+                                        <constraint firstItem="drG-Y9-Wk5" firstAttribute="top" secondItem="b75-Mx-fbO" secondAttribute="bottom" constant="30" id="lnE-2h-snk"/>
                                         <constraint firstItem="izH-MV-QPS" firstAttribute="top" secondItem="KhB-TH-KC2" secondAttribute="bottom" constant="20" id="wbg-CL-grQ"/>
+                                        <constraint firstAttribute="trailing" secondItem="b75-Mx-fbO" secondAttribute="trailing" id="yKt-pB-m5Y"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="lastEncounterDateLabel" destination="2rK-ZB-BMp" id="g7A-dJ-kdf"/>
+                                    <outlet property="lastEncounterLengthLabel" destination="Bdx-Q5-Zda" id="lvH-DA-AeR"/>
+                                    <outlet property="lastEncounterMapView" destination="b75-Mx-fbO" id="m5h-yN-jYI"/>
+                                    <outlet property="lastEncounterSeenByLabel" destination="sBw-eA-Ibi" id="Nl3-AN-uuO"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -1114,7 +1134,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CDo-mz-Va5" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Encounters" image="encounters-icon-dark" selectedImage="encounters-icon-dark" id="sX2-Ko-BH4"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="yOP-qb-nCa">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yOP-qb-nCa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1138,7 +1158,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rJw-p4-9PT" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="About" image="about-icon-dark" selectedImage="about-icon-dark" id="ZdX-Mh-6oV"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="YnA-Kg-Jci">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="YnA-Kg-Jci">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.31372549020000001" green="0.74901960779999999" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -1158,7 +1178,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9g5-a1-Xwp" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Stats" image="stats-icon-dark" selectedImage="stats-icon-dark" id="tLV-0a-XKU"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="cbO-y0-jUa">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cbO-y0-jUa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.31372549020000001" green="0.74901960779999999" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -1181,7 +1201,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wU9-SE-NW1" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Map" image="map-icon-dark" selectedImage="map-icon-dark" id="7eV-Iw-PZ9"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="UvV-Z2-8e6">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="UvV-Z2-8e6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.31372549020000001" green="0.74901960779999999" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -1201,7 +1221,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Sei-cW-EKm" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Sharks" image="shark-icon-dark" selectedImage="shark-icon-dark" id="5Dk-Pe-bP2"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Wbw-jc-d0A">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Wbw-jc-d0A">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.31372549020000001" green="0.74901960779999999" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>

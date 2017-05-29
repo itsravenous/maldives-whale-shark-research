@@ -9,7 +9,15 @@
 import UIKit
 
 class SharkDescriptionTableViewCell: UITableViewCell {
+    
+    // MARK: - Outlets
+    @IBOutlet weak var sharkNameLabel: UILabel!
+    @IBOutlet weak var sharkSexImageView: UIImageView!
+    @IBOutlet weak var sharkIdLabel: UILabel!
+    @IBOutlet weak var sharkSexLineImageView: UIImageView!
+    @IBOutlet weak var sharkTotalEncountersLabel: UILabel!
 
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

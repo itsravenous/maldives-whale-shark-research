@@ -7,8 +7,15 @@
 //
 
 import UIKit
+import MapKit
 
 class SharkFirstEncounterTableViewCell: UITableViewCell {
+    
+    // MARK: - Outlets
+    @IBOutlet weak var firstEncounterDateLabel: UILabel!
+    @IBOutlet weak var firstEncounterLengthLabel: UILabel!
+    @IBOutlet weak var firstEncounterSeenByLabel: UILabel!
+    @IBOutlet weak var firstEncounterMapView: MKMapView!
 
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -7,9 +7,16 @@
 //
 
 import UIKit
+import MapKit
 
 class SharkLastEncounterTableViewCell: UITableViewCell {
-
+    
+    // MARK: - Outlets
+    @IBOutlet weak var lastEncounterDateLabel: UILabel!
+    @IBOutlet weak var lastEncounterLengthLabel: UILabel!
+    @IBOutlet weak var lastEncounterSeenByLabel: UILabel!
+    @IBOutlet weak var lastEncounterMapView: MKMapView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

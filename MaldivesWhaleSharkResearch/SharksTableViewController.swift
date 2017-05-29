@@ -28,7 +28,7 @@ class SharksTableViewController: UITableViewController, UISearchResultsUpdating,
         // Algolia Search
         sharkSearcher = Searcher(index: AlgoliaManager.sharedInstance.sharksIndex, resultHandler: self.handleSearchResults)
         sharkSearcher.params.hitsPerPage = 10
-        sharkSearcher.params.attributesToRetrieve = ["name", "id", "mainImage"]
+        sharkSearcher.params.attributesToRetrieve = ["name", "id", "mainImage", "sex", "sighting_count", "first_datetime", "first_length", "first_contributor", "first_location", "last_datetime", "last_length", "last_contributor", "last_location"]
         
         // Search Controller
         loadSearchBar()
@@ -39,6 +39,7 @@ class SharksTableViewController: UITableViewController, UISearchResultsUpdating,
         
         // First load
         updateSearchResults(for: searchController)
+        
     }
     
     deinit {
@@ -63,7 +64,6 @@ class SharksTableViewController: UITableViewController, UISearchResultsUpdating,
         }
         originIsLocal = results.content["origin"] as? String == "local"
         self.tableView.reloadData()
-        print(sharkHits)
     }
 
     // MARK: - Table view data source
@@ -90,7 +90,6 @@ class SharksTableViewController: UITableViewController, UISearchResultsUpdating,
         cell.sharkImageView.sd_setImage(with: shark.mainImage)
         
         cell.backgroundColor = originIsLocal ? AppDelegate.colorForLocalOrigin : UIColor.white
-
 
         return cell
     }
@@ -140,16 +139,13 @@ class SharksTableViewController: UITableViewController, UISearchResultsUpdating,
 
     }
     
-    
     // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
         if segue.identifier == "segueToSharkProfile" {
             let destination = segue.destination as! SharkProfileTableViewController
-            destination.selectedIndexPath = tableView.indexPathForSelectedRow!
+            if let indexPath = self.tableView.indexPathForSelectedRow {
+                destination.selectedShark = self.sharkHits[indexPath.row]
+            }
         }
     }
 

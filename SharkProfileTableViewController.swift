@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import AlgoliaSearch
+import MapKit
 
 class SharkProfileTableViewController: UITableViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-
+    
     // MARK: - Properties
-    var selectedIndexPath = IndexPath()
+    var selectedShark: JSONObject?
+    let regionRadius: CLLocationDistance = 1000
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,11 +26,6 @@ class SharkProfileTableViewController: UITableViewController, UICollectionViewDe
         // Close navigation gap
         tableView.contentInset = UIEdgeInsets(top: -64, left: 0, bottom: 0, right: 0)
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
     // MARK: - IBActions
@@ -41,26 +39,22 @@ class SharkProfileTableViewController: UITableViewController, UICollectionViewDe
         let activityViewController = UIActivityViewController(activityItems: imageToShare, applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
         
-        // exclude some activity types from the list (optional)
-//        activityViewController.excludedActivityTypes = [ UIActivityType.postToFacebook ]
-        
         // present the view controller
         self.present(activityViewController, animated: true, completion: nil)
     }
 
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 4
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return 1
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let shark = WhaleShark(json: selectedShark!)
         
         switch indexPath.section {
         case 0:
@@ -69,12 +63,33 @@ class SharkProfileTableViewController: UITableViewController, UICollectionViewDe
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "descriptionCell", for: indexPath) as! SharkDescriptionTableViewCell
+            cell.sharkNameLabel.text = shark.name
+            cell.sharkIdLabel.text = shark.id
+            if shark.sex == "M" {
+                cell.sharkSexImageView.image = UIImage(named: "male-icon")
+                cell.sharkSexLineImageView.image = UIImage(named: "male-rectangle")
+            } else if shark.sex == "F" {
+                cell.sharkSexImageView.image = UIImage(named: "female-icon")
+                cell.sharkSexLineImageView.image = UIImage(named: "female-rectangle")
+            } else {
+                cell.sharkSexImageView.image = UIImage(named: "unknown-icon")
+                cell.sharkSexLineImageView.image = UIImage(named: "unknown-rectangle")
+            }
+            cell.sharkTotalEncountersLabel.text = shark.totalEncounters
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "firstEncounterCell", for: indexPath) as! SharkFirstEncounterTableViewCell
+            cell.firstEncounterDateLabel.text = convertDate(encounterDate: shark.firstDate!)
+            cell.firstEncounterLengthLabel.text = shark.firstLength! + " meters"
+            cell.firstEncounterSeenByLabel.text = shark.firstContributor
+            cell.firstEncounterMapView.setRegion(setLocation(encounterLocation: shark.firstLocation!), animated: false)
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "lastEncounterCell", for: indexPath) as! SharkLastEncounterTableViewCell
+            cell.lastEncounterDateLabel.text = convertDate(encounterDate: shark.lastDate!)
+            cell.lastEncounterLengthLabel.text = shark.lastLength! + " meters"
+            cell.lastEncounterSeenByLabel.text = shark.lastContributor
+            cell.lastEncounterMapView.setRegion(setLocation(encounterLocation: shark.lastLocation!), animated: false)
             return cell
         }
 
@@ -93,15 +108,41 @@ class SharkProfileTableViewController: UITableViewController, UICollectionViewDe
     override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 375
     }
+    
+    // MARK: - Functions
+    
+    // Split location string
+    // Separate into latitude and longitude variables
+    // Set Location
+    func setLocation(encounterLocation: String) -> MKCoordinateRegion {
+        let locationArray = encounterLocation.components(separatedBy: ", ")
+        let latitude = Double(locationArray[0])
+        let longitude = Double(locationArray[1])
+        
+        let initialLocation = CLLocation(latitude: latitude!, longitude: longitude!)
+        
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(initialLocation.coordinate, regionRadius * 2.0, regionRadius * 2.0)
+        
+        return coordinateRegion
+    }
+    
+    // Convert date from date string and subtract from current date
+    func convertDate(encounterDate: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let date = dateFormatter.date(from: encounterDate)
+        dateFormatter.dateStyle = .long
+        let newDate = dateFormatter.string(from: date!)
+        
+        return String(describing: newDate)
+    }
 
     // MARK: - Did Detect Scrolling
-    
     var sharkImagesCell: SharkImagesTableViewCell?
     var sharkCollectionViewCell: SharkImageCollectionViewCell?
     
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
 
-        
         if let cell = sharkImagesCell {
             if scrollView.contentOffset.y < 0 {
                 
@@ -112,7 +153,6 @@ class SharkProfileTableViewController: UITableViewController, UICollectionViewDe
     }
     
     // MARK: - Collection View Data Source
-    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -127,49 +167,5 @@ class SharkProfileTableViewController: UITableViewController, UICollectionViewDe
         return cell
     }
     
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
