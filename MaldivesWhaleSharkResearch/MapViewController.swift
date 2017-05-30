@@ -8,11 +8,15 @@
 
 import UIKit
 import MapKit
+import Cluster
 
 class MapViewController: UIViewController, MKMapViewDelegate {
     
+    // MARK: - Outlets
     @IBOutlet weak var mapView: MKMapView!
     
+    // MARK: - Properties
+    let manager = ClusterManager()
     let regionRadius: CLLocationDistance = 1000
     
     override func viewDidLoad() {

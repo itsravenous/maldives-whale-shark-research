@@ -24,6 +24,7 @@ PODS:
   - Bolts/Tasks (1.8.4)
   - BTNavigationDropdownMenu (0.4.1)
   - BWWalkthrough (2.1.0)
+  - Cluster (1.0.2)
   - FBSDKCoreKit (4.22.0):
     - Bolts (~> 1.7)
   - FBSDKLoginKit (4.18.0):
@@ -87,6 +88,7 @@ DEPENDENCIES:
   - BetterSegmentedControl
   - BTNavigationDropdownMenu (from `https://github.com/PhamBaTho/BTNavigationDropdownMenu.git`, branch `swift-3.0`)
   - BWWalkthrough
+  - Cluster
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
@@ -121,6 +123,7 @@ SPEC CHECKSUMS:
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   BTNavigationDropdownMenu: 093f3cbfad1572f2c222bdf8d17584d1e13380d4
   BWWalkthrough: 188408f55b951725ccfd4faa8dab5c577b57c7a9
+  Cluster: ae2937d28ff65bd4fcac16ac6e56d627b3b83a8a
   FBSDKCoreKit: c693bad19feb225469eeff14452ba364522ee48b
   FBSDKLoginKit: 6773073e970b2b15fb12e451ce7f11da0532b880
   Firebase: 21bf4a89d3f01bfbe11adc3a5d934a4a3d3a5fd6
@@ -140,6 +143,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   Validator: b1793fbfd0046097551d0edd18e2c30792d69ef5
 
-PODFILE CHECKSUM: 438f8020a4e7c586c2ee23b8011a34765d0c29c3
+PODFILE CHECKSUM: 6f34d41c41484e046782e72d2278b0b24177bf12
 
 COCOAPODS: 1.2.1

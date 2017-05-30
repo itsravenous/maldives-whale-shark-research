@@ -46,7 +46,6 @@ class SharkProfileTableViewController: UITableViewController, UICollectionViewDe
     }
     
     // MARK: - Functions
-    
     // Split location string
     // Separate into latitude and longitude variables
     // Set Location

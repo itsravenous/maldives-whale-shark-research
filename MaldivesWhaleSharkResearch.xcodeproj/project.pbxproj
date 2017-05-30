@@ -259,12 +259,7 @@
 			children = (
 				042DBBEA1EC0C7AA00DA93B6 /* SharksTableViewController.swift */,
 				042DBBEF1EC0C9C300DA93B6 /* SharkTableViewCell.swift */,
-				042DBBF51EC1886600DA93B6 /* SharkProfileTableViewController.swift */,
-				042DBBFF1EC1A0AD00DA93B6 /* SharkImagesTableViewCell.swift */,
-				042DBBF71EC1939600DA93B6 /* SharkImageCollectionViewCell.swift */,
-				042DBBF91EC1956600DA93B6 /* SharkDescriptionTableViewCell.swift */,
-				042DBBFB1EC1957400DA93B6 /* SharkFirstEncounterTableViewCell.swift */,
-				042DBBFD1EC1958000DA93B6 /* SharkLastEncounterTableViewCell.swift */,
+				04E19F1C1EDD519300E4BB22 /* SharkProfile */,
 			);
 			name = Sharks;
 			path = ..;
@@ -340,6 +335,19 @@
 				04E19F181EDA9A4600E4BB22 /* AlgoliaManager.swift */,
 			);
 			name = Helpers;
+			sourceTree = "<group>";
+		};
+		04E19F1C1EDD519300E4BB22 /* SharkProfile */ = {
+			isa = PBXGroup;
+			children = (
+				042DBBF51EC1886600DA93B6 /* SharkProfileTableViewController.swift */,
+				042DBBFF1EC1A0AD00DA93B6 /* SharkImagesTableViewCell.swift */,
+				042DBBF71EC1939600DA93B6 /* SharkImageCollectionViewCell.swift */,
+				042DBBF91EC1956600DA93B6 /* SharkDescriptionTableViewCell.swift */,
+				042DBBFB1EC1957400DA93B6 /* SharkFirstEncounterTableViewCell.swift */,
+				042DBBFD1EC1958000DA93B6 /* SharkLastEncounterTableViewCell.swift */,
+			);
+			name = SharkProfile;
 			sourceTree = "<group>";
 		};
 		389622A6A72E6AC192BCF5B6 /* Frameworks */ = {
