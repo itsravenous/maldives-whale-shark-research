@@ -15,21 +15,23 @@ class SharkProfileTableViewController: UITableViewController, UICollectionViewDe
     // MARK: - Properties
     var selectedShark: JSONObject?
     let regionRadius: CLLocationDistance = 1000
+    var currentPage = 0
+    var sharkImagesCell: SharkImagesTableViewCell?
+    var sharkCollectionViewCell: SharkImageCollectionViewCell?
     
+    // MARK: - View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Transparent navigation bar
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
         
         // Close navigation gap
         tableView.contentInset = UIEdgeInsets(top: -64, left: 0, bottom: 0, right: 0)
-
     }
     
     // MARK: - IBActions
-    
     @IBAction func shareButtonPressed(_ sender: UIBarButtonItem) {
         // image to share
         let image = UIImage(named: "shark1")
@@ -42,6 +44,35 @@ class SharkProfileTableViewController: UITableViewController, UICollectionViewDe
         // present the view controller
         self.present(activityViewController, animated: true, completion: nil)
     }
+    
+    // MARK: - Functions
+    
+    // Split location string
+    // Separate into latitude and longitude variables
+    // Set Location
+    func setLocation(encounterLocation: String) -> MKCoordinateRegion {
+        let locationArray = encounterLocation.components(separatedBy: ", ")
+        let latitude = Double(locationArray[0])
+        let longitude = Double(locationArray[1])
+        
+        let initialLocation = CLLocation(latitude: latitude!, longitude: longitude!)
+        
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(initialLocation.coordinate, regionRadius * 2.0, regionRadius * 2.0)
+        
+        return coordinateRegion
+    }
+    
+    // Convert date from date string and subtract from current date
+    func convertDate(encounterDate: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let date = dateFormatter.date(from: encounterDate)
+        dateFormatter.dateStyle = .long
+        let newDate = dateFormatter.string(from: date!)
+        
+        return String(describing: newDate)
+    }
+
 
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -60,6 +91,7 @@ class SharkProfileTableViewController: UITableViewController, UICollectionViewDe
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "imagesCell", for: indexPath) as! SharkImagesTableViewCell
             sharkImagesCell = cell
+            cell.pageControl.numberOfPages = (shark.media?.count)!
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "descriptionCell", for: indexPath) as! SharkDescriptionTableViewCell
@@ -109,63 +141,34 @@ class SharkProfileTableViewController: UITableViewController, UICollectionViewDe
         return 375
     }
     
-    // MARK: - Functions
-    
-    // Split location string
-    // Separate into latitude and longitude variables
-    // Set Location
-    func setLocation(encounterLocation: String) -> MKCoordinateRegion {
-        let locationArray = encounterLocation.components(separatedBy: ", ")
-        let latitude = Double(locationArray[0])
-        let longitude = Double(locationArray[1])
-        
-        let initialLocation = CLLocation(latitude: latitude!, longitude: longitude!)
-        
-        let coordinateRegion = MKCoordinateRegionMakeWithDistance(initialLocation.coordinate, regionRadius * 2.0, regionRadius * 2.0)
-        
-        return coordinateRegion
-    }
-    
-    // Convert date from date string and subtract from current date
-    func convertDate(encounterDate: String) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        let date = dateFormatter.date(from: encounterDate)
-        dateFormatter.dateStyle = .long
-        let newDate = dateFormatter.string(from: date!)
-        
-        return String(describing: newDate)
-    }
-
-    // MARK: - Did Detect Scrolling
-    var sharkImagesCell: SharkImagesTableViewCell?
-    var sharkCollectionViewCell: SharkImageCollectionViewCell?
-    
-    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-
-        if let cell = sharkImagesCell {
-            if scrollView.contentOffset.y < 0 {
-                
-                print(scrollView.contentOffset.y)
-//                cell.imageViewTopConstraint.constant = scrollView.contentOffset.y
-            }
-        }
-    }
-    
     // MARK: - Collection View Data Source
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "sharkPictureCell", for: indexPath) as! SharkImageCollectionViewCell
+        
+        let shark = WhaleShark(json: selectedShark!)
+        
+        cell.imageView.sd_setImage(with: URL(string: (shark.media![indexPath.row])))
+        print(shark.media![indexPath.row])
+
+        return cell
+    }
+    
+    // MARK: - UICollectionViewDataSource
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        let shark = WhaleShark(json: selectedShark!)
+        return (shark.media!.count)
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "sharkPictureCell", for: indexPath) as! SharkImageCollectionViewCell
-        cell.imageView.image = UIImage(named: "shark1")
-        return cell
+    // MARK: - ScrollView Delegate Method
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if let cell = sharkImagesCell {
+            let pageWidth = scrollView.frame.width
+            self.currentPage = Int((scrollView.contentOffset.x + pageWidth / 2) / pageWidth)
+            cell.pageControl.currentPage = self.currentPage
+        }
     }
-    
-
 }

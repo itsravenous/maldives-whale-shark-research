@@ -65,11 +65,14 @@ struct WhaleShark {
         return json["last_location"] as? String
     }
     
-    var mainImage: URL? {
-        guard let urlString = json["mainImage"] as? String else {
-            return nil
+    var media: [String]? {
+        var dict = [String]()
+        for image in (json["media"] as? [[String:Any]])! {
+            if let url = image["thumb_url"] as? String {
+                dict.append(url)
+            }
         }
-        return URL(string: urlString)
+        return dict
     }
     
 }

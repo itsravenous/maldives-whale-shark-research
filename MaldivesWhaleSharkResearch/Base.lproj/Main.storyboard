@@ -235,7 +235,7 @@
         <scene sceneID="MaF-BS-Ypr">
             <objects>
                 <tableViewController id="qgc-u5-srd" customClass="SharkProfileTableViewController" customModule="MaldivesWhaleSharkResearch" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="iBa-Hh-Kuf">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="iBa-Hh-Kuf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="2000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -296,18 +296,26 @@
                                                 <outlet property="delegate" destination="qgc-u5-srd" id="ewj-R7-PKd"/>
                                             </connections>
                                         </collectionView>
+                                        <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="OxS-WL-7mg">
+                                            <rect key="frame" x="168" y="318" width="39" height="37"/>
+                                            <color key="pageIndicatorTintColor" red="0.86666666670000003" green="0.87450980389999999" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="currentPageIndicatorTintColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        </pageControl>
                                     </subviews>
                                     <color key="backgroundColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="6Hx-R6-giE" secondAttribute="bottom" id="A99-gb-jS3"/>
                                         <constraint firstAttribute="trailing" secondItem="6Hx-R6-giE" secondAttribute="trailing" id="G9h-pl-3lt"/>
                                         <constraint firstItem="6Hx-R6-giE" firstAttribute="top" secondItem="J02-U4-zVM" secondAttribute="top" id="Q9O-DT-mqv"/>
+                                        <constraint firstItem="OxS-WL-7mg" firstAttribute="centerX" secondItem="J02-U4-zVM" secondAttribute="centerX" id="Qbh-V9-PJh"/>
+                                        <constraint firstAttribute="bottom" secondItem="OxS-WL-7mg" secondAttribute="bottom" constant="20" id="jrS-nO-ndr"/>
                                         <constraint firstItem="6Hx-R6-giE" firstAttribute="leading" secondItem="J02-U4-zVM" secondAttribute="leading" id="sSd-1c-7wj"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="collectionView" destination="6Hx-R6-giE" id="zeY-Lk-sni"/>
+                                    <outlet property="pageControl" destination="OxS-WL-7mg" id="YEd-Q7-L8c"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="descriptionCell" rowHeight="270" id="gO4-es-z55" customClass="SharkDescriptionTableViewCell" customModule="MaldivesWhaleSharkResearch" customModuleProvider="target">
@@ -1134,7 +1142,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CDo-mz-Va5" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Encounters" image="encounters-icon-dark" selectedImage="encounters-icon-dark" id="sX2-Ko-BH4"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yOP-qb-nCa">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="yOP-qb-nCa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1158,7 +1166,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rJw-p4-9PT" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="About" image="about-icon-dark" selectedImage="about-icon-dark" id="ZdX-Mh-6oV"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="YnA-Kg-Jci">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="YnA-Kg-Jci">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.31372549020000001" green="0.74901960779999999" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -1178,7 +1186,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9g5-a1-Xwp" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Stats" image="stats-icon-dark" selectedImage="stats-icon-dark" id="tLV-0a-XKU"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cbO-y0-jUa">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="cbO-y0-jUa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.31372549020000001" green="0.74901960779999999" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -1201,7 +1209,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wU9-SE-NW1" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Map" image="map-icon-dark" selectedImage="map-icon-dark" id="7eV-Iw-PZ9"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="UvV-Z2-8e6">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="UvV-Z2-8e6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.31372549020000001" green="0.74901960779999999" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -1221,7 +1229,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Sei-cW-EKm" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Sharks" image="shark-icon-dark" selectedImage="shark-icon-dark" id="5Dk-Pe-bP2"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Wbw-jc-d0A">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Wbw-jc-d0A">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.31372549020000001" green="0.74901960779999999" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>

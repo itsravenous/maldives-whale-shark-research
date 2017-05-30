@@ -28,7 +28,7 @@ class SharksTableViewController: UITableViewController, UISearchResultsUpdating,
         // Algolia Search
         sharkSearcher = Searcher(index: AlgoliaManager.sharedInstance.sharksIndex, resultHandler: self.handleSearchResults)
         sharkSearcher.params.hitsPerPage = 10
-        sharkSearcher.params.attributesToRetrieve = ["name", "id", "mainImage", "sex", "sighting_count", "first_datetime", "first_length", "first_contributor", "first_location", "last_datetime", "last_length", "last_contributor", "last_location"]
+        sharkSearcher.params.attributesToRetrieve = ["name", "id", "sex", "sighting_count", "first_datetime", "first_length", "first_contributor", "first_location", "last_datetime", "last_length", "last_contributor", "last_location", "media"]
         
         // Search Controller
         loadSearchBar()
@@ -87,7 +87,7 @@ class SharksTableViewController: UITableViewController, UISearchResultsUpdating,
         let shark = WhaleShark(json: sharkHits[indexPath.row])
         cell.sharkNameLabel.text = shark.name
         cell.sharkIDLabel.text = shark.id
-        cell.sharkImageView.sd_setImage(with: shark.mainImage)
+        cell.sharkImageView.sd_setImage(with: URL(string: (shark.media?[0])!))
         
         cell.backgroundColor = originIsLocal ? AppDelegate.colorForLocalOrigin : UIColor.white
 
