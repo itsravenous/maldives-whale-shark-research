@@ -8,7 +8,6 @@
 
 import UIKit
 import MapKit
-import Cluster
 import Firebase
 
 class MapViewController: UIViewController {
@@ -30,15 +29,21 @@ class MapViewController: UIViewController {
         // Set the delegate
         mapView.delegate = self
         
+        // Set the back bar title to blank after segue
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        
         // When zoom level is quite close to the pins, disable clustering in order to show individual pins and allow the user to interact with them via callouts.
         manager.zoomLevel = 17
         
         // set initial location in Dhigurah
         let initialLocation = CLLocation(latitude: 3.531172, longitude: 72.926768)
         centerMapOnLocation(location: initialLocation)
-
+        
         // Firebase tableview data
         Database.database().reference().child("encounters").observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            // Get the last year's worth of encounters
+            
             for rest in snapshot.children.allObjects as! [DataSnapshot] {
                 guard let restDict = rest.value as? [String: Any] else { continue }
                 
@@ -51,6 +56,7 @@ class MapViewController: UIViewController {
                 encounter.contributorImage = (restDict["contributor_image"] as? String)!
                 encounter.latitude = (restDict["northing"] as? String)!
                 encounter.longitude = (restDict["easting"] as? String)!
+                encounter.sharkID = (restDict["shark_id"] as? String)!
                 
                 let mediaDict = restDict["media"] as! [[String:Any]]
                 encounter.images = mediaDict.flatMap { $0["thumb_url"] as? String }
@@ -84,18 +90,17 @@ class MapViewController: UIViewController {
             annotation.coordinate = CLLocationCoordinate2D(latitude: lat!, longitude: long!)
             let color = UIColor(red: 255/255, green: 149/255, blue: 0/255, alpha: 1)
             annotation.type = .color(color, radius: 25)
+            annotation.ID = encounter.sharkID
             return annotation
         }
         manager.add(annotations)
-        print(self.annotations)
     }
 
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "mapToEncounterSegue" {
             let destination = segue.destination as! EncounterDetailViewController
-            // send data to selectedIndexPath?
-
+            destination.selectedEncounter = sender as! Encounter?
         }
     }
     
@@ -161,7 +166,15 @@ extension MapViewController: MKMapViewDelegate {
             mapView.setVisibleMapRect(zoomRect, animated: true)
         } else {
             // pass the encounter data
-            // performSegue(withIdentifier: "mapToEncounterSegue", sender: self)
+            let annotate = annotation as! Annotation
+            if let sharkID = annotate.ID {
+                for encounter in self.encounters {
+                    if encounter.sharkID == sharkID {
+                        performSegue(withIdentifier: "mapToEncounterSegue", sender: encounter)
+                        break
+                    }
+                }
+            }
         }
     }
     

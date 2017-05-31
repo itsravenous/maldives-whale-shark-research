@@ -19,7 +19,6 @@ target 'MaldivesWhaleSharkResearch' do
   pod 'InstantSearch-Core-Swift', '~> 1.0'
   pod 'SwiftyJSON'
   pod 'AFNetworking'
-  pod 'Cluster'
   
   # Pods for MaldivesWhaleSharkResearch
 

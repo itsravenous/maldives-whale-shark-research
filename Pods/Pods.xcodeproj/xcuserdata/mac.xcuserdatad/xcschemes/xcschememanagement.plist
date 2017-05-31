@@ -34,11 +34,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Cluster.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>FBSDKCoreKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -117,12 +112,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2567902D931D92C91E93A9C859324FF3</key>
+		<key>10E1F227F115B43593EF454ABDCF0536</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>2E13B5BED48305DAFCA2C71A8E98913B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>380D00E9FCCF8ADCCB4C49E87FCCA3DB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -137,11 +137,6 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>46B4ABE4DCCA9224A49C8AECD8E5EC56</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>4CEB8410E2246D10FAD8AD85F4CDA3DF</key>
 		<dict>
 			<key>primary</key>
@@ -152,7 +147,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8CF763AF743225C5812E7F495B76A06A</key>
+		<key>85E761742F1B42FBC7D78D03C9C1DC50</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -192,17 +187,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DB107CAC2210A79EE180286F9266A872</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>DBEF467E4712E81925F735D9215E572B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E04FDC62692ED085C6742D1868BE07D7</key>
+		<key>E067C00E94138E7CAD621D67A967EB39</key>
 		<dict>
 			<key>primary</key>
 			<true/>

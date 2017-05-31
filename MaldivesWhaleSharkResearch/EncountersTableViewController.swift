@@ -21,10 +21,8 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Make back bar title blank after segue
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        
-        let user = User()
-        user.likedEncounters = [String](repeating: "like", count: 10)
         
         showAllEncounters()
 
@@ -60,6 +58,7 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
         self.navigationItem.titleView = menuView
     }
     
+    // MARK: - View Did Appear
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         

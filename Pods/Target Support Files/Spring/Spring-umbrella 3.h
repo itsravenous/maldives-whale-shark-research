@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double ClusterVersionNumber;
-FOUNDATION_EXPORT const unsigned char ClusterVersionString[];
+FOUNDATION_EXPORT double SpringVersionNumber;
+FOUNDATION_EXPORT const unsigned char SpringVersionString[];
 

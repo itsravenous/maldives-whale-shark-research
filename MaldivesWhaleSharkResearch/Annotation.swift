@@ -12,6 +12,7 @@ open class Annotation: NSObject, MKAnnotation {
     open var coordinate = CLLocationCoordinate2D()
     open var title: String?
     open var subtitle: String?
+    open var ID: String?
     open var type: ClusterAnnotationType?
 }
 

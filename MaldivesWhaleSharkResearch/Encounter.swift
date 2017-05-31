@@ -19,4 +19,5 @@ class Encounter {
     var latitude = ""
     var longitude = ""
     var locationName = ""
+    var coordinate = ""
 }
