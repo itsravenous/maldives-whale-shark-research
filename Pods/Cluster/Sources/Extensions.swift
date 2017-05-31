@@ -28,3 +28,39 @@ extension MKMapRect {
         return MKMapRectContainsPoint(self, MKMapPointForCoordinate(coordinate))
     }
 }
+
+extension CLLocationCoordinate2D: Hashable, Equatable {
+    public var hashValue: Int {
+        return latitude.hashValue ^ longitude.hashValue
+    }
+    public static func ==(lhs: CLLocationCoordinate2D, rhs: CLLocationCoordinate2D) -> Bool {
+        return lhs.latitude == rhs.latitude && lhs.longitude == rhs.longitude
+    }
+}
+
+typealias ZoomScale = Double
+extension ZoomScale {
+    func zoomLevel() -> Double {
+        let totalTilesAtMaxZoom = MKMapSizeWorld.width / 256
+        let zoomLevelAtMaxZoom = log2(totalTilesAtMaxZoom)
+        return max(0, zoomLevelAtMaxZoom + floor(log2(self) + 0.5))
+    }
+    func cellSize() -> Double {
+        switch self {
+        case 13...15:
+            return 64
+        case 16...18:
+            return 32
+        case 19:
+            return 16
+        default:
+            return 88
+        }
+    }
+}
+
+extension Comparable {
+    func clamped(to limits: ClosedRange<Self>) -> Self {
+        return min(max(self, limits.lowerBound), limits.upperBound)
+    }
+}

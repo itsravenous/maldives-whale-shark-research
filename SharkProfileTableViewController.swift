@@ -13,12 +13,11 @@ import MapKit
 class SharkProfileTableViewController: UITableViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     // MARK: - Properties
+    var sharkImagesCell: SharkImagesTableViewCell?
     var selectedShark: JSONObject?
     let regionRadius: CLLocationDistance = 1000
     var currentPage = 0
-    var sharkImagesCell: SharkImagesTableViewCell?
-    var sharkCollectionViewCell: SharkImageCollectionViewCell?
-    
+
     // MARK: - View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -146,9 +145,9 @@ class SharkProfileTableViewController: UITableViewController, UICollectionViewDe
         
         let shark = WhaleShark(json: selectedShark!)
         
-        cell.imageView.sd_setImage(with: URL(string: (shark.media![indexPath.row])))
-        print(shark.media![indexPath.row])
+        cell.imageView.sd_setImage(with: URL(string: (shark.media![indexPath.row]).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!))
 
+        print(shark.media?[indexPath.row].addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed))
         return cell
     }
     

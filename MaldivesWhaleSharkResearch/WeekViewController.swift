@@ -28,7 +28,7 @@ class WeekViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        FIRDatabase.database().reference().child("stats").child("weekly").observe(.value, with: {(snapshot) in
+        Database.database().reference().child("stats").child("weekly").observe(.value, with: {(snapshot) in
             
             let snapshotValue = snapshot.value as? NSDictionary
             

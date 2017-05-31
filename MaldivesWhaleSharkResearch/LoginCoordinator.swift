@@ -59,7 +59,7 @@ class LoginCoordinator: ILLoginKit.LoginCoordinator {
         // Handle login via your API
         print("Login with: email =\(email) password = \(password)")
         
-        FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
+        Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
             print("Sign in attempted...")
             if error != nil {
                 print("HOLA UN ERROR:\(error)")
@@ -81,13 +81,13 @@ class LoginCoordinator: ILLoginKit.LoginCoordinator {
         // Handle signup via your API
         print("Signup with: name = \(name) email =\(email) password = \(password)")
         
-        FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user, error) in
+        Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
             print("Tried to create a user...")
             if error != nil {
                 print("HOLA UN ERROR:\(error)")
             } else {
                 print("Created user successfully")
-                FIRDatabase.database().reference().child("users").child(user!.uid).child("email").setValue(user!.email!)
+                Database.database().reference().child("users").child(user!.uid).child("email").setValue(user!.email!)
                 
                 let userDefaults = UserDefaults.standard
                 
@@ -116,10 +116,10 @@ class LoginCoordinator: ILLoginKit.LoginCoordinator {
                 return
             }
             
-            let credential = FIRFacebookAuthProvider.credential(withAccessToken: accessToken.tokenString)
+            let credential = FacebookAuthProvider.credential(withAccessToken: accessToken.tokenString)
             
             // Perform login by calling Firebase APIs
-            FIRAuth.auth()?.signIn(with: credential, completion: { (user, error) in
+            Auth.auth().signIn(with: credential, completion: { (user, error) in
                 if let error = error {
                     print("Login error: \(error.localizedDescription)")
                     let alertController = UIAlertController(title: "Login Error", message: error.localizedDescription, preferredStyle: .alert)
@@ -137,7 +137,7 @@ class LoginCoordinator: ILLoginKit.LoginCoordinator {
     override func recoverPassword(email: String) {
         // Handle password recovery via your API
         print("Recover password with: email =\(email)")
-        FIRAuth.auth()?.sendPasswordReset(withEmail: email, completion: { (error) in
+        Auth.auth().sendPasswordReset(withEmail: email, completion: { (error) in
             if error == nil {
                 print("An email with information on how to reset your password has been sent")
                 super.finish()

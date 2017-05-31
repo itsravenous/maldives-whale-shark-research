@@ -25,7 +25,7 @@ class SettingsViewController: UIViewController {
         
         // Get the current user and set up their image and namelabel
         
-        let user = FIRAuth.auth()?.currentUser
+        let user = Auth.auth().currentUser
         if let user = user {
             let name = user.displayName
             let photoURL = user.photoURL
@@ -51,9 +51,9 @@ class SettingsViewController: UIViewController {
             if userDefaults.bool(forKey: "signedIn") == true {
                 userDefaults.set(false, forKey: "signedIn")
                 userDefaults.synchronize()
-                let firebaseAuth = FIRAuth.auth()
+                let firebaseAuth = Auth.auth()
                 do {
-                    try firebaseAuth?.signOut()
+                    try firebaseAuth.signOut()
                 } catch let signOutError as NSError {
                     print ("Error signing out: %@", signOutError)
                 }

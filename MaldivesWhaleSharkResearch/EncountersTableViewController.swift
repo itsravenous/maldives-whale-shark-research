@@ -14,6 +14,7 @@ import SDWebImage
 
 class EncountersTableViewController: UITableViewController, BWWalkthroughViewControllerDelegate  {
     
+    // MARK: - Properties
     var encounters : [Encounter] = []
     
     // MARK: - View Did load
@@ -135,8 +136,8 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
     // MARK: - Encounter filters
     func showAllEncounters() {
         // Firebase tableview data
-        FIRDatabase.database().reference().child("encounters").observeSingleEvent(of: .value, with: { (snapshot) in
-            for rest in snapshot.children.allObjects as! [FIRDataSnapshot] {
+        Database.database().reference().child("encounters").observeSingleEvent(of: .value, with: { (snapshot) in
+            for rest in snapshot.children.allObjects as! [DataSnapshot] {
                 guard let restDict = rest.value as? [String: Any] else { continue }
                 
                 let encounter = Encounter()
