@@ -1,7 +1,639 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <scenes/>
+    <customFonts key="customFonts">
+        <array key="Museo300-Regular.otf">
+            <string>Museo-300</string>
+        </array>
+        <array key="MuseoSans_500.otf">
+            <string>MuseoSans-500</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Photo Information View Controller-->
+        <scene sceneID="cqR-VM-Rac">
+            <objects>
+                <viewController storyboardIdentifier="photoInfo" id="FgC-ZI-17A" customClass="PhotoInformationViewController" customModule="MaldivesWhaleSharkResearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cMs-Gd-mF0"/>
+                        <viewControllerLayoutGuide type="bottom" id="I0E-dE-BTO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="CU8-t1-6ng">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VLL-74-w3k">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j5p-sE-OYE">
+                                        <rect key="frame" x="13" y="6" width="55" height="33"/>
+                                        <fontDescription key="fontDescription" name="MuseoSans-500" family="Museo Sans" pointSize="17"/>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="closeButtonPressed:" destination="FgC-ZI-17A" eventType="touchUpInside" id="74I-PL-Xuh"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F6u-hf-LMg">
+                                        <rect key="frame" x="331" y="6" width="31" height="33"/>
+                                        <fontDescription key="fontDescription" name="MuseoSans-500" family="Museo Sans" pointSize="17"/>
+                                        <state key="normal" title="Edit">
+                                            <color key="titleColor" red="0.34509803921568627" green="0.65490196078431373" blue="0.92941176470588238" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="editButtonPressed:" destination="FgC-ZI-17A" eventType="touchUpInside" id="pl9-9a-QGA"/>
+                                            <segue destination="ook-8l-Qvp" kind="custom" identifier="infoToEditSegue" customClass="SegueFromRight" customModule="MaldivesWhaleSharkResearch" customModuleProvider="target" id="sna-A4-scF"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="F6u-hf-LMg" secondAttribute="trailing" constant="13" id="3xM-85-cMi"/>
+                                    <constraint firstItem="F6u-hf-LMg" firstAttribute="top" secondItem="VLL-74-w3k" secondAttribute="top" constant="6" id="Duo-Fq-7Vt"/>
+                                    <constraint firstItem="j5p-sE-OYE" firstAttribute="top" secondItem="VLL-74-w3k" secondAttribute="top" constant="6" id="M6o-Mb-qv6"/>
+                                    <constraint firstItem="j5p-sE-OYE" firstAttribute="leading" secondItem="VLL-74-w3k" secondAttribute="leading" constant="13" id="UXa-Zr-NIl"/>
+                                    <constraint firstAttribute="height" constant="44" id="vSO-DR-mg1"/>
+                                </constraints>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shark1" translatesAutoresizingMaskIntoConstraints="NO" id="cpl-EX-qT5">
+                                <rect key="frame" x="0.0" y="44" width="375" height="375"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="375" id="RXF-co-gaC"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="s9w-V3-zNc">
+                                <rect key="frame" x="18" y="449" width="339" height="141.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Verify Time &amp; Place" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nbG-ea-OQg">
+                                        <rect key="frame" x="80.5" y="0.0" width="178.5" height="24"/>
+                                        <fontDescription key="fontDescription" name="MuseoSans-500" family="Museo Sans" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The photo you added suggests the encounter occured at the time and location below:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="362" translatesAutoresizingMaskIntoConstraints="NO" id="jMf-4j-yQc">
+                                        <rect key="frame" x="0.0" y="39" width="339" height="38.5"/>
+                                        <fontDescription key="fontDescription" name="Museo-300" family="Museo" pointSize="16"/>
+                                        <color key="textColor" red="0.8666666666666667" green="0.87450980392156863" blue="0.87450980392156863" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="arK-yl-wB4">
+                                        <rect key="frame" x="32.5" y="92.5" width="274.5" height="49"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="R89-kJ-uMp">
+                                                <rect key="frame" x="0.0" y="0.0" width="274.5" height="22"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date taken:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Vy-av-u7z">
+                                                        <rect key="frame" x="0.0" y="0.0" width="95.5" height="22"/>
+                                                        <fontDescription key="fontDescription" name="MuseoSans-500" family="Museo Sans" pointSize="18"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1999:00:00, 11:11:11" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tjl-7o-cE0">
+                                                        <rect key="frame" x="105.5" y="0.0" width="169" height="22"/>
+                                                        <fontDescription key="fontDescription" name="MuseoSans-500" family="Museo Sans" pointSize="18"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ssm-e1-Uad">
+                                                <rect key="frame" x="30" y="27" width="214.5" height="22"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z8k-nE-g3T">
+                                                        <rect key="frame" x="0.0" y="0.0" width="78.5" height="22"/>
+                                                        <fontDescription key="fontDescription" name="MuseoSans-500" family="Museo Sans" pointSize="18"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E72,1,60 N3,7,2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jtZ-t9-h9j">
+                                                        <rect key="frame" x="88.5" y="0.0" width="126" height="22"/>
+                                                        <fontDescription key="fontDescription" name="MuseoSans-500" family="Museo Sans" pointSize="18"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iBM-cu-o9O">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <color key="backgroundColor" red="0.31372549019607843" green="0.74901960784313726" blue="0.76470588235294112" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Dah-Xr-tTh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MuseoSans-500" family="Museo Sans" pointSize="17"/>
+                                <state key="normal" title="Report Encounter">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="reportEncounterButtonPressed:" destination="FgC-ZI-17A" eventType="touchUpInside" id="YL0-X7-pD0"/>
+                                    <segue destination="i2U-ok-jmi" kind="show" identifier="infoToReportSegue" id="iPv-TW-YNm"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="cpl-EX-qT5" secondAttribute="trailing" id="1CS-d1-m1x"/>
+                            <constraint firstAttribute="trailing" secondItem="iBM-cu-o9O" secondAttribute="trailing" id="EWD-Ft-3vX"/>
+                            <constraint firstItem="VLL-74-w3k" firstAttribute="leading" secondItem="CU8-t1-6ng" secondAttribute="leading" id="HT2-Op-Oxs"/>
+                            <constraint firstItem="I0E-dE-BTO" firstAttribute="top" secondItem="iBM-cu-o9O" secondAttribute="bottom" id="QsJ-rc-kTs"/>
+                            <constraint firstItem="cpl-EX-qT5" firstAttribute="top" secondItem="VLL-74-w3k" secondAttribute="bottom" id="Zqv-4u-E4h"/>
+                            <constraint firstItem="iBM-cu-o9O" firstAttribute="leading" secondItem="CU8-t1-6ng" secondAttribute="leading" id="f22-6d-ksS"/>
+                            <constraint firstAttribute="trailing" secondItem="VLL-74-w3k" secondAttribute="trailing" id="fEa-kZ-2qX"/>
+                            <constraint firstItem="cpl-EX-qT5" firstAttribute="leading" secondItem="CU8-t1-6ng" secondAttribute="leading" id="jm5-eW-ZzN"/>
+                            <constraint firstItem="VLL-74-w3k" firstAttribute="top" secondItem="CU8-t1-6ng" secondAttribute="top" id="uVj-WA-3EV"/>
+                            <constraint firstItem="s9w-V3-zNc" firstAttribute="centerX" secondItem="CU8-t1-6ng" secondAttribute="centerX" id="v1W-6Z-Dxq"/>
+                            <constraint firstItem="s9w-V3-zNc" firstAttribute="top" secondItem="cpl-EX-qT5" secondAttribute="bottom" constant="30" id="zIC-ce-yYN"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="cpl-EX-qT5" id="PWg-DG-RuI"/>
+                        <outlet property="locationLabel" destination="jtZ-t9-h9j" id="0uh-Jr-Mr7"/>
+                        <outlet property="timestampLabel" destination="Tjl-7o-cE0" id="EDy-ic-TvK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cms-rG-VpM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-272.80000000000001" y="-368.36581709145429"/>
+        </scene>
+        <!--Edit Photo Information View Controller-->
+        <scene sceneID="oOT-wb-g8J">
+            <objects>
+                <viewController id="ook-8l-Qvp" customClass="EditPhotoInformationViewController" customModule="MaldivesWhaleSharkResearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="897-TE-Dbg"/>
+                        <viewControllerLayoutGuide type="bottom" id="dFf-Zg-3nK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DBn-91-aOw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U2K-Bu-1CE">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NmL-qo-8aR">
+                                        <rect key="frame" x="13" y="13" width="25" height="22"/>
+                                        <state key="normal" image="back-button"/>
+                                        <connections>
+                                            <segue destination="hD5-En-ogt" kind="unwind" identifier="cancelToPhotoSegue" customClass="UnwindSegueFromRight" customModule="MaldivesWhaleSharkResearch" customModuleProvider="target" unwindAction="cancelToPhotoInfoViewControllerWithSegue:" id="Mel-ye-PMd"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K1S-Lq-BLf">
+                                        <rect key="frame" x="325" y="6" width="37" height="33"/>
+                                        <fontDescription key="fontDescription" name="MuseoSans-500" family="Museo Sans" pointSize="17"/>
+                                        <state key="normal" title="Save">
+                                            <color key="titleColor" red="0.34509803919999998" green="0.65490196079999996" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="hD5-En-ogt" kind="unwind" identifier="savePhotoInfoSegue" customClass="UnwindSegueFromRight" customModule="MaldivesWhaleSharkResearch" customModuleProvider="target" unwindAction="savePhotoInfoWithSegue:" id="LJU-Tj-HcN"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="NmL-qo-8aR" firstAttribute="leading" secondItem="U2K-Bu-1CE" secondAttribute="leading" constant="13" id="Ep3-wa-x0J"/>
+                                    <constraint firstItem="K1S-Lq-BLf" firstAttribute="top" secondItem="U2K-Bu-1CE" secondAttribute="top" constant="6" id="Ztx-bL-mv5"/>
+                                    <constraint firstItem="NmL-qo-8aR" firstAttribute="top" secondItem="U2K-Bu-1CE" secondAttribute="top" constant="13" id="hXI-1m-pnl"/>
+                                    <constraint firstAttribute="height" constant="44" id="tw9-pl-GWC"/>
+                                    <constraint firstAttribute="trailing" secondItem="K1S-Lq-BLf" secondAttribute="trailing" constant="13" id="xbb-h7-8dv"/>
+                                </constraints>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shark1" translatesAutoresizingMaskIntoConstraints="NO" id="Mqr-70-9RH">
+                                <rect key="frame" x="0.0" y="44" width="375" height="375"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="375" id="8a5-e1-fgZ"/>
+                                </constraints>
+                            </imageView>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Fce-Bd-f6s">
+                                <rect key="frame" x="27.5" y="414" width="320" height="216"/>
+                                <date key="date" timeIntervalSinceReferenceDate="518344079.76028502">
+                                    <!--2017-06-05 08:27:59 +0000-->
+                                </date>
+                            </datePicker>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xle-Mo-6Gh">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oVs-6a-NfT">
+                                        <rect key="frame" x="0.0" y="0.0" width="187.5" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="187.5" id="Ve9-ba-KNV"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="MuseoSans-500" family="Museo Sans" pointSize="18"/>
+                                        <state key="normal" title="Date">
+                                            <color key="titleColor" red="0.67450980390000004" green="0.67450980390000004" blue="0.67450980390000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.31372549020000001" green="0.74901960779999999" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="dateButtonPressed:" destination="ook-8l-Qvp" eventType="touchUpInside" id="Rea-t9-t3Z"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wgD-wX-pTC">
+                                        <rect key="frame" x="187.5" y="0.0" width="187.5" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="187.5" id="lN5-Vs-YVA"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="MuseoSans-500" family="Museo Sans" pointSize="18"/>
+                                        <state key="normal" title="Location">
+                                            <color key="titleColor" red="0.67450980392156867" green="0.67450980392156867" blue="0.67450980392156867" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.31372549020000001" green="0.74901960779999999" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="locationButtonPressed:" destination="ook-8l-Qvp" eventType="touchUpInside" id="3a5-JF-h3b"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.1647058824" green="0.17254901959999999" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="oVs-6a-NfT" secondAttribute="bottom" id="3HK-Fg-Ntl"/>
+                                    <constraint firstAttribute="bottom" secondItem="wgD-wX-pTC" secondAttribute="bottom" id="6g9-mm-QJ9"/>
+                                    <constraint firstAttribute="height" constant="44" id="SQ1-DV-1AW"/>
+                                    <constraint firstAttribute="trailing" secondItem="wgD-wX-pTC" secondAttribute="trailing" id="XCY-xY-quc"/>
+                                    <constraint firstItem="wgD-wX-pTC" firstAttribute="top" secondItem="xle-Mo-6Gh" secondAttribute="top" id="fVF-so-8Uf"/>
+                                    <constraint firstItem="oVs-6a-NfT" firstAttribute="leading" secondItem="xle-Mo-6Gh" secondAttribute="leading" id="jAL-bA-AaJ"/>
+                                    <constraint firstItem="oVs-6a-NfT" firstAttribute="top" secondItem="xle-Mo-6Gh" secondAttribute="top" id="tNi-6v-Ay2"/>
+                                </constraints>
+                            </view>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="NhQ-NV-cq0">
+                                <rect key="frame" x="0.0" y="419" width="375" height="204"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="xle-Mo-6Gh" firstAttribute="top" secondItem="NhQ-NV-cq0" secondAttribute="bottom" id="1o2-i4-srs"/>
+                            <constraint firstItem="U2K-Bu-1CE" firstAttribute="leading" secondItem="DBn-91-aOw" secondAttribute="leading" id="4kT-Fn-suX"/>
+                            <constraint firstItem="NhQ-NV-cq0" firstAttribute="leading" secondItem="DBn-91-aOw" secondAttribute="leading" id="6H9-34-jOo"/>
+                            <constraint firstAttribute="trailing" secondItem="NhQ-NV-cq0" secondAttribute="trailing" id="942-sE-WiW"/>
+                            <constraint firstAttribute="trailing" secondItem="xle-Mo-6Gh" secondAttribute="trailing" id="9GD-dZ-sWA"/>
+                            <constraint firstItem="dFf-Zg-3nK" firstAttribute="top" secondItem="xle-Mo-6Gh" secondAttribute="bottom" id="Bwb-Zw-hpo"/>
+                            <constraint firstItem="U2K-Bu-1CE" firstAttribute="top" secondItem="DBn-91-aOw" secondAttribute="top" id="Cxj-nz-bAc"/>
+                            <constraint firstItem="Fce-Bd-f6s" firstAttribute="centerX" secondItem="DBn-91-aOw" secondAttribute="centerX" id="GND-Yk-qUx"/>
+                            <constraint firstAttribute="trailing" secondItem="Mqr-70-9RH" secondAttribute="trailing" id="JvA-vf-i5m"/>
+                            <constraint firstItem="Fce-Bd-f6s" firstAttribute="top" secondItem="Mqr-70-9RH" secondAttribute="bottom" constant="-5" id="Mjm-wv-zdS"/>
+                            <constraint firstItem="NhQ-NV-cq0" firstAttribute="top" secondItem="Mqr-70-9RH" secondAttribute="bottom" id="Ogs-2x-Nwo"/>
+                            <constraint firstItem="Mqr-70-9RH" firstAttribute="top" secondItem="U2K-Bu-1CE" secondAttribute="bottom" id="oob-pD-Tir"/>
+                            <constraint firstItem="Mqr-70-9RH" firstAttribute="leading" secondItem="DBn-91-aOw" secondAttribute="leading" id="pKs-La-Jak"/>
+                            <constraint firstItem="xle-Mo-6Gh" firstAttribute="leading" secondItem="DBn-91-aOw" secondAttribute="leading" id="tGt-XQ-AUa"/>
+                            <constraint firstAttribute="trailing" secondItem="U2K-Bu-1CE" secondAttribute="trailing" id="zkV-Vc-wOO"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="dateButton" destination="oVs-6a-NfT" id="b7q-bM-7fU"/>
+                        <outlet property="datePicker" destination="Fce-Bd-f6s" id="fGX-k2-BHC"/>
+                        <outlet property="imageView" destination="Mqr-70-9RH" id="1Yr-Tu-mDJ"/>
+                        <outlet property="locationButton" destination="wgD-wX-pTC" id="Prz-1f-owH"/>
+                        <outlet property="mapView" destination="NhQ-NV-cq0" id="olb-5h-oMC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6yt-XY-tcO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="hD5-En-ogt" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-273" y="376"/>
+        </scene>
+        <!--Report Encounter View Controller-->
+        <scene sceneID="YDH-md-urA">
+            <objects>
+                <viewController id="i2U-ok-jmi" customClass="ReportEncounterViewController" customModule="MaldivesWhaleSharkResearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lpp-Ui-q7Z"/>
+                        <viewControllerLayoutGuide type="bottom" id="LwR-4o-8rN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cDx-Ha-7zC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gX0-Un-BXz">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <color key="barTintColor" red="0.31372549020000001" green="0.74901960779999999" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <items>
+                                    <navigationItem title="Report Encounter" id="RRd-XV-6jT">
+                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="Hwe-Re-Duy">
+                                            <connections>
+                                                <segue destination="ctD-k0-W7d" kind="unwind" unwindAction="cancelToPhotoInfoViewControllerWithSegue:" id="TcX-Xb-ytF"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="done" id="1aH-qd-0UK"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shark1" translatesAutoresizingMaskIntoConstraints="NO" id="T8q-0J-x70">
+                                <rect key="frame" x="0.0" y="44" width="375" height="375"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="375" id="G7U-JS-ohG"/>
+                                </constraints>
+                            </imageView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="OkE-ve-tyx">
+                                <rect key="frame" x="160" y="615" width="55" height="37"/>
+                                <color key="pageIndicatorTintColor" red="0.67450980390000004" green="0.67450980390000004" blue="0.67450980390000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="currentPageIndicatorTintColor" red="0.31372549020000001" green="0.74901960779999999" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
+                            </pageControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Reference Point" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uqT-qO-zqS">
+                                <rect key="frame" x="15" y="434" width="193" height="24"/>
+                                <fontDescription key="fontDescription" name="MuseoSans-500" family="Museo Sans" pointSize="20"/>
+                                <color key="textColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="174" translatesAutoresizingMaskIntoConstraints="NO" id="BFF-ij-SMP">
+                                <rect key="frame" x="15" y="488" width="154" height="87"/>
+                                <string key="text">Add the 1st reference point
+(top of the 5th gill slit)</string>
+                                <fontDescription key="fontDescription" name="MuseoSans-500" family="Museo Sans" pointSize="18"/>
+                                <color key="textColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="firstRefPoint" translatesAutoresizingMaskIntoConstraints="NO" id="KTu-T8-TQV">
+                                <rect key="frame" x="204" y="474" width="156" height="135"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="156" id="apI-pC-SkY"/>
+                                    <constraint firstAttribute="height" constant="135" id="ptR-xg-dSj"/>
+                                </constraints>
+                            </imageView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UjP-mi-0yy">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <connections>
+                                    <segue destination="CHT-TN-lry" kind="embed" id="0NP-OR-ZlM"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="UjP-mi-0yy" firstAttribute="top" secondItem="cDx-Ha-7zC" secondAttribute="top" id="03q-Ar-Qfv"/>
+                            <constraint firstItem="OkE-ve-tyx" firstAttribute="centerX" secondItem="cDx-Ha-7zC" secondAttribute="centerX" id="4VD-we-KHl"/>
+                            <constraint firstItem="LwR-4o-8rN" firstAttribute="top" secondItem="KTu-T8-TQV" secondAttribute="bottom" constant="58" id="5At-4x-EPR"/>
+                            <constraint firstItem="uqT-qO-zqS" firstAttribute="top" secondItem="T8q-0J-x70" secondAttribute="bottom" constant="15" id="8Xs-qB-Vy3"/>
+                            <constraint firstItem="BFF-ij-SMP" firstAttribute="leading" secondItem="cDx-Ha-7zC" secondAttribute="leading" constant="15" id="BjR-f6-hUB"/>
+                            <constraint firstAttribute="trailing" secondItem="UjP-mi-0yy" secondAttribute="trailing" id="J4j-6a-F4P"/>
+                            <constraint firstItem="T8q-0J-x70" firstAttribute="leading" secondItem="cDx-Ha-7zC" secondAttribute="leading" id="J8H-1h-RPq"/>
+                            <constraint firstItem="LwR-4o-8rN" firstAttribute="top" secondItem="OkE-ve-tyx" secondAttribute="bottom" constant="15" id="N6l-4L-WSO"/>
+                            <constraint firstAttribute="trailing" secondItem="KTu-T8-TQV" secondAttribute="trailing" constant="15" id="R6r-8c-rbQ"/>
+                            <constraint firstAttribute="trailing" secondItem="T8q-0J-x70" secondAttribute="trailing" id="XbD-Gx-FhF"/>
+                            <constraint firstAttribute="trailing" secondItem="gX0-Un-BXz" secondAttribute="trailing" id="ahE-ud-Q0V"/>
+                            <constraint firstItem="uqT-qO-zqS" firstAttribute="leading" secondItem="cDx-Ha-7zC" secondAttribute="leading" constant="15" id="dyF-jk-4U8"/>
+                            <constraint firstItem="LwR-4o-8rN" firstAttribute="top" secondItem="UjP-mi-0yy" secondAttribute="bottom" id="lN0-7F-887"/>
+                            <constraint firstItem="gX0-Un-BXz" firstAttribute="leading" secondItem="cDx-Ha-7zC" secondAttribute="leading" id="nnq-X7-WQN"/>
+                            <constraint firstItem="T8q-0J-x70" firstAttribute="top" secondItem="gX0-Un-BXz" secondAttribute="bottom" id="nrF-ts-HkQ"/>
+                            <constraint firstItem="gX0-Un-BXz" firstAttribute="top" secondItem="cDx-Ha-7zC" secondAttribute="top" id="qgb-mv-Dlf"/>
+                            <constraint firstItem="UjP-mi-0yy" firstAttribute="leading" secondItem="cDx-Ha-7zC" secondAttribute="leading" id="r1d-gs-9wZ"/>
+                            <constraint firstItem="BFF-ij-SMP" firstAttribute="top" secondItem="uqT-qO-zqS" secondAttribute="bottom" constant="30" id="zaN-Xr-cFw"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="containerView" destination="UjP-mi-0yy" id="UAv-7O-gvt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xBF-zi-aG9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="ctD-k0-W7d" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="556" y="-368"/>
+        </scene>
+        <!--Comparison Progress View Controller-->
+        <scene sceneID="egT-Sr-Tvm">
+            <objects>
+                <viewController id="CHT-TN-lry" customClass="ComparisonProgressViewController" customModule="MaldivesWhaleSharkResearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VjR-00-CI2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="id1-92-zet">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Zuz-0u-pbP">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yCa-p3-iDY" customClass="DesignableView" customModule="Spring">
+                                            <rect key="frame" x="37" y="179" width="300" height="310"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shark1" translatesAutoresizingMaskIntoConstraints="NO" id="yjg-Iu-2Yg">
+                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="210"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="210" id="UU0-2J-uDL"/>
+                                                        <constraint firstAttribute="width" constant="300" id="yi7-Kp-OHi"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Running Comparison" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eLn-ja-9Sl">
+                                                    <rect key="frame" x="52" y="225" width="197" height="24"/>
+                                                    <fontDescription key="fontDescription" name="MuseoSans-500" family="Museo Sans" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="cI3-3a-G6A">
+                                                    <rect key="frame" x="25.5" y="270" width="249" height="2"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="249" id="j4i-wH-ic0"/>
+                                                    </constraints>
+                                                    <color key="progressTintColor" red="0.31372549020000001" green="0.74901960779999999" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="trackTintColor" red="0.67450980390000004" green="0.67450980390000004" blue="0.67450980390000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                </progressView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="310" id="ENv-0t-htK"/>
+                                                <constraint firstAttribute="trailing" secondItem="yjg-Iu-2Yg" secondAttribute="trailing" id="StC-DQ-167"/>
+                                                <constraint firstAttribute="width" constant="300" id="XLe-4d-tec"/>
+                                                <constraint firstItem="yjg-Iu-2Yg" firstAttribute="leading" secondItem="yCa-p3-iDY" secondAttribute="leading" id="XcO-N5-lYb"/>
+                                                <constraint firstItem="cI3-3a-G6A" firstAttribute="top" secondItem="eLn-ja-9Sl" secondAttribute="bottom" constant="21" id="fkF-nK-VGK"/>
+                                                <constraint firstItem="cI3-3a-G6A" firstAttribute="centerX" secondItem="yCa-p3-iDY" secondAttribute="centerX" id="fsi-pw-ft6"/>
+                                                <constraint firstItem="yjg-Iu-2Yg" firstAttribute="top" secondItem="yCa-p3-iDY" secondAttribute="top" id="jxZ-HF-yBq"/>
+                                                <constraint firstItem="eLn-ja-9Sl" firstAttribute="centerX" secondItem="yCa-p3-iDY" secondAttribute="centerX" id="kiV-cw-cE5"/>
+                                                <constraint firstItem="eLn-ja-9Sl" firstAttribute="top" secondItem="yjg-Iu-2Yg" secondAttribute="bottom" constant="15" id="xvZ-Qn-9VQ"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="8"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Kn-bX-rtV">
+                                            <rect key="frame" x="20" y="20" width="22" height="22"/>
+                                            <state key="normal" image="cancel-button"/>
+                                            <connections>
+                                                <action selector="cancelButtonPressed:" destination="CHT-TN-lry" eventType="touchUpInside" id="RIM-yh-qM6"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="9Kn-bX-rtV" firstAttribute="leading" secondItem="Zuz-0u-pbP" secondAttribute="leading" constant="20" id="cTe-Zw-uiv"/>
+                                        <constraint firstItem="9Kn-bX-rtV" firstAttribute="top" secondItem="Zuz-0u-pbP" secondAttribute="top" constant="20" id="isV-wJ-fI7"/>
+                                        <constraint firstItem="yCa-p3-iDY" firstAttribute="centerX" secondItem="Zuz-0u-pbP" secondAttribute="centerX" id="qjt-Ss-qBX"/>
+                                        <constraint firstItem="yCa-p3-iDY" firstAttribute="centerY" secondItem="Zuz-0u-pbP" secondAttribute="centerY" id="rQA-aQ-bDm"/>
+                                    </constraints>
+                                </view>
+                                <blurEffect style="dark"/>
+                            </visualEffectView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="id1-92-zet" secondAttribute="trailing" id="YMO-tb-e9H"/>
+                            <constraint firstItem="id1-92-zet" firstAttribute="top" secondItem="VjR-00-CI2" secondAttribute="top" id="YUF-cC-lew"/>
+                            <constraint firstAttribute="bottom" secondItem="id1-92-zet" secondAttribute="bottom" id="k6u-bG-86q"/>
+                            <constraint firstItem="id1-92-zet" firstAttribute="leading" secondItem="VjR-00-CI2" secondAttribute="leading" id="mlA-Ei-0ok"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="blurView" destination="id1-92-zet" id="RUG-sy-i6V"/>
+                        <outlet property="comparisonProgressBar" destination="cI3-3a-G6A" id="z2a-H4-s46"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JE3-4M-6JV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1382" y="-368"/>
+        </scene>
+        <!--Comparison Results View Controller-->
+        <scene sceneID="dsL-Kd-xHt">
+            <objects>
+                <viewController id="ILo-a1-6fC" customClass="ComparisonResultsViewController" customModule="MaldivesWhaleSharkResearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yWy-Vc-Rqt"/>
+                        <viewControllerLayoutGuide type="bottom" id="7B2-jY-SLI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ftl-jj-DBu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shark1" translatesAutoresizingMaskIntoConstraints="NO" id="X7f-uQ-lcf">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="375" id="NCp-ge-atB"/>
+                                    <constraint firstAttribute="width" constant="375" id="Uar-a7-Q4b"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J1K-kr-bWU">
+                                <rect key="frame" x="20" y="20" width="22" height="22"/>
+                                <state key="normal" image="cancel-button"/>
+                                <connections>
+                                    <action selector="cancelButtonPressed:" destination="ILo-a1-6fC" eventType="touchUpInside" id="i6H-UN-Der"/>
+                                </connections>
+                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cFu-1X-Ra3">
+                                <rect key="frame" x="0.0" y="375" width="375" height="62"/>
+                                <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="62" id="cJT-Es-2Mr"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ckh-EK-vE0">
+                                    <size key="itemSize" width="120" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="bk3-aD-tjx">
+                                        <rect key="frame" x="0.0" y="6" width="120" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="120" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="cMJ-ca-OjI">
+                                                    <rect key="frame" x="4" y="9" width="105" height="81"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unknown" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5mp-Cq-wew">
+                                                            <rect key="frame" x="0.0" y="0.0" width="81" height="22"/>
+                                                            <fontDescription key="fontDescription" name="MuseoSans-500" family="Museo Sans" pointSize="18"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WS000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OIX-S5-Sta">
+                                                            <rect key="frame" x="0.0" y="22" width="81" height="14.5"/>
+                                                            <fontDescription key="fontDescription" name="MuseoSans-500" family="Museo Sans" pointSize="12"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                        </view>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="cMJ-ca-OjI" firstAttribute="centerY" secondItem="bk3-aD-tjx" secondAttribute="centerY" id="ZZn-lM-lT6"/>
+                                            <constraint firstItem="cMJ-ca-OjI" firstAttribute="centerX" secondItem="bk3-aD-tjx" secondAttribute="centerX" id="xg2-1p-Xn1"/>
+                                        </constraints>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cQC-NL-uI3">
+                                <rect key="frame" x="0.0" y="437" width="375" height="230"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IMu-S7-REF">
+                                <rect key="frame" x="0.0" y="623" width="59" height="44"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5.5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zfo-kh-bX6">
+                                        <rect key="frame" x="12.5" y="8" width="33" height="29"/>
+                                        <fontDescription key="fontDescription" name="MuseoSans-500" family="Museo Sans" pointSize="24"/>
+                                        <color key="textColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.25882352941176467" green="0.25882352941176467" blue="0.25882352941176467" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="59" id="3qP-jU-Yjd"/>
+                                    <constraint firstItem="zfo-kh-bX6" firstAttribute="centerX" secondItem="IMu-S7-REF" secondAttribute="centerX" id="QWw-Sw-Yj9"/>
+                                    <constraint firstItem="zfo-kh-bX6" firstAttribute="centerY" secondItem="IMu-S7-REF" secondAttribute="centerY" id="WUD-9A-9WB"/>
+                                    <constraint firstAttribute="height" constant="44" id="YgI-NK-xfd"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B2m-UC-6kW">
+                                <rect key="frame" x="59" y="623" width="316" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.31372549020000001" green="0.74901960779999999" blue="0.76470588240000004" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="MuseoSans-500" family="Museo Sans" pointSize="18"/>
+                                <state key="normal" title="Confirm Match">
+                                    <color key="titleColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="triangle" translatesAutoresizingMaskIntoConstraints="NO" id="9Xp-cu-coR">
+                                <rect key="frame" x="177" y="437" width="20" height="10"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cQC-NL-uI3" firstAttribute="leading" secondItem="ftl-jj-DBu" secondAttribute="leading" id="61f-V2-Y0R"/>
+                            <constraint firstItem="J1K-kr-bWU" firstAttribute="leading" secondItem="ftl-jj-DBu" secondAttribute="leading" constant="20" id="B8l-u5-7BK"/>
+                            <constraint firstItem="J1K-kr-bWU" firstAttribute="top" secondItem="yWy-Vc-Rqt" secondAttribute="bottom" id="DTR-ye-AZM"/>
+                            <constraint firstItem="IMu-S7-REF" firstAttribute="leading" secondItem="ftl-jj-DBu" secondAttribute="leading" id="GoK-NH-jio"/>
+                            <constraint firstItem="X7f-uQ-lcf" firstAttribute="leading" secondItem="ftl-jj-DBu" secondAttribute="leading" id="JEy-4a-1Vu"/>
+                            <constraint firstItem="X7f-uQ-lcf" firstAttribute="top" secondItem="ftl-jj-DBu" secondAttribute="top" id="Pj6-EE-fWy"/>
+                            <constraint firstItem="7B2-jY-SLI" firstAttribute="top" secondItem="cQC-NL-uI3" secondAttribute="bottom" id="b3b-LU-uT5"/>
+                            <constraint firstItem="7B2-jY-SLI" firstAttribute="top" secondItem="IMu-S7-REF" secondAttribute="bottom" id="coa-SD-6an"/>
+                            <constraint firstAttribute="trailing" secondItem="X7f-uQ-lcf" secondAttribute="trailing" id="daO-sS-Bx2"/>
+                            <constraint firstItem="cFu-1X-Ra3" firstAttribute="top" secondItem="X7f-uQ-lcf" secondAttribute="bottom" id="e5N-AU-1TH"/>
+                            <constraint firstItem="9Xp-cu-coR" firstAttribute="top" secondItem="cFu-1X-Ra3" secondAttribute="bottom" id="eDu-wz-eX5"/>
+                            <constraint firstAttribute="trailing" secondItem="cFu-1X-Ra3" secondAttribute="trailing" id="fTp-CN-yJq"/>
+                            <constraint firstItem="cFu-1X-Ra3" firstAttribute="leading" secondItem="ftl-jj-DBu" secondAttribute="leading" id="hG5-mQ-hEf"/>
+                            <constraint firstItem="9Xp-cu-coR" firstAttribute="centerX" secondItem="ftl-jj-DBu" secondAttribute="centerX" id="kmx-Qg-ww7"/>
+                            <constraint firstAttribute="trailing" secondItem="cQC-NL-uI3" secondAttribute="trailing" id="rDO-9g-gPH"/>
+                            <constraint firstItem="cQC-NL-uI3" firstAttribute="top" secondItem="cFu-1X-Ra3" secondAttribute="bottom" id="zgp-aD-cyI"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="sharkResultsCollectionView" destination="cFu-1X-Ra3" id="bD6-t9-jkP"/>
+                        <outlet property="sharkResultsImageView" destination="cQC-NL-uI3" id="JSS-RL-DZz"/>
+                        <outlet property="sharkUploadImageView" destination="X7f-uQ-lcf" id="BQN-Nb-n6A"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AnR-zy-gXl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2246" y="-368"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="back-button" width="25" height="19"/>
+        <image name="cancel-button" width="22" height="22"/>
+        <image name="firstRefPoint" width="156" height="135"/>
+        <image name="shark1" width="375" height="250"/>
+        <image name="triangle" width="20" height="10"/>
+    </resources>
 </document>

@@ -8,8 +8,9 @@
 
 import UIKit
 import BetterSegmentedControl
-import BWWalkthrough
 import Fusuma
+import BWWalkthrough
+import Photos
 
 class StatsViewController: UIViewController, BWWalkthroughViewControllerDelegate, FusumaDelegate {
     
@@ -33,6 +34,8 @@ class StatsViewController: UIViewController, BWWalkthroughViewControllerDelegate
             
             userDefaults.set(true, forKey: "uploadInstructions")
             userDefaults.synchronize()
+            
+            //then showUploadPicture()
         } else {
             showUploadPicture()
         }
@@ -98,8 +101,8 @@ class StatsViewController: UIViewController, BWWalkthroughViewControllerDelegate
         fusuma.delegate = self
         fusuma.cropHeightRatio = 1
         fusuma.hasVideo = false
-//        fusumaTintColor = UIColor.black
-//        fusumaBackgroundColor = UIColor.black
+        fusumaTintColor = UIColor(red: 80.0/255.0, green: 191.0/255.0, blue: 195.0/255.0, alpha: 1)
+        fusumaBackgroundColor = UIColor(red: 66.0/255.0, green: 66.0/255.0, blue: 66.0/255.0, alpha: 1)
         self.present(fusuma, animated: true, completion: nil)
     }
     
@@ -122,6 +125,12 @@ class StatsViewController: UIViewController, BWWalkthroughViewControllerDelegate
     
     // Return the image which is selected from camera roll or is taken via the camera.
     func fusumaImageSelected(_ image: UIImage, source: FusumaMode) {
+
+        // Get image metadata
+        let opts = PHFetchOptions()
+        opts.fetchLimit = 1
+        let photoAssets = PHAsset.fetchAssets(with: .image, options: opts)
+        
         
         print("Image selected")
     }

@@ -48,8 +48,8 @@ public extension FusumaDelegate {
 }
 
 public var fusumaBaseTintColor   = UIColor.hex("#FFFFFF", alpha: 1.0)
-public var fusumaTintColor       = UIColor.hex("#F38181", alpha: 1.0)
-public var fusumaBackgroundColor = UIColor.hex("#3B3D45", alpha: 1.0)
+public var fusumaTintColor       = UIColor.hex("#50BFC3", alpha: 1.0)
+public var fusumaBackgroundColor = UIColor.hex("#424242", alpha: 1.0)
 
 public var fusumaAlbumImage : UIImage? = nil
 public var fusumaCameraImage : UIImage? = nil
@@ -250,7 +250,7 @@ public class FusumaViewController: UIViewController {
     
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        UIApplication.shared.isStatusBarHidden = true
     }
 
     override public func viewDidAppear(_ animated: Bool) {
@@ -275,6 +275,7 @@ public class FusumaViewController: UIViewController {
     
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        UIApplication.shared.isStatusBarHidden = false
         self.stopAll()
     }
 

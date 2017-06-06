@@ -14,11 +14,11 @@ target 'MaldivesWhaleSharkResearch' do
   pod 'BetterSegmentedControl'
   pod 'ILLoginKit'
   pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift3'
-  pod 'Fusuma'
   pod 'AlgoliaSearch-Client-Swift', '~> 4.0'
   pod 'InstantSearch-Core-Swift', '~> 1.0'
   pod 'SwiftyJSON'
   pod 'AFNetworking'
+  pod 'Fusuma'
   
   # Pods for MaldivesWhaleSharkResearch
 

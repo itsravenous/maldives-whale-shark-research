@@ -95,16 +95,16 @@
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="BFB-Yd-DD9">
-                                        <rect key="frame" x="24" y="315" width="252" height="64"/>
+                                        <rect key="frame" x="20" y="315" width="260" height="65.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seen a Whale Shark?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fD6-t8-Mgr">
-                                                <rect key="frame" x="30" y="0.0" width="192" height="23.5"/>
+                                                <rect key="frame" x="35" y="0.0" width="190.5" height="24"/>
                                                 <fontDescription key="fontDescription" name="MuseoSans-500" family="Museo Sans" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GzZ-rF-R6c">
-                                                <rect key="frame" x="0.0" y="26.5" width="252" height="37.5"/>
+                                                <rect key="frame" x="0.0" y="27" width="260" height="38.5"/>
                                                 <string key="text">Upload your photos to help identify
 individual sharks</string>
                                                 <fontDescription key="fontDescription" name="Museo-300" family="Museo" pointSize="16"/>
@@ -181,16 +181,16 @@ individual sharks</string>
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="FFd-sv-Q7e">
-                                        <rect key="frame" x="23" y="315" width="254.5" height="64"/>
+                                        <rect key="frame" x="21" y="315" width="258.5" height="65.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Position Yourself" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="coB-L0-Hhf">
-                                                <rect key="frame" x="53" y="0.0" width="149" height="23.5"/>
+                                                <rect key="frame" x="51.5" y="0.0" width="155.5" height="24"/>
                                                 <fontDescription key="fontDescription" name="MuseoSans-500" family="Museo Sans" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get to the same depth of the shark - perpendicular to its left flank" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="260" translatesAutoresizingMaskIntoConstraints="NO" id="FxP-KE-9Ci">
-                                                <rect key="frame" x="0.0" y="26.5" width="254.5" height="37.5"/>
+                                                <rect key="frame" x="0.0" y="27" width="258.5" height="38.5"/>
                                                 <fontDescription key="fontDescription" name="Museo-300" family="Museo" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -265,16 +265,16 @@ individual sharks</string>
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="nob-e1-9Uo">
-                                        <rect key="frame" x="25" y="315" width="251" height="64"/>
+                                        <rect key="frame" x="21" y="315" width="259" height="65.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get a Valid Photo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aIE-Yt-oKZ">
-                                                <rect key="frame" x="47.5" y="0.0" width="156" height="23.5"/>
+                                                <rect key="frame" x="49" y="0.0" width="161" height="24"/>
                                                 <fontDescription key="fontDescription" name="MuseoSans-500" family="Museo Sans" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aim for the area between the head and the first dorsal fin" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="260" translatesAutoresizingMaskIntoConstraints="NO" id="4cF-aw-jif">
-                                                <rect key="frame" x="0.0" y="26.5" width="251" height="37.5"/>
+                                                <rect key="frame" x="0.0" y="27" width="259" height="38.5"/>
                                                 <fontDescription key="fontDescription" name="Museo-300" family="Museo" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -349,12 +349,12 @@ individual sharks</string>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Take lots of photos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VqH-EN-8dO">
-                                        <rect key="frame" x="65" y="315" width="170" height="24"/>
+                                        <rect key="frame" x="62" y="315" width="176" height="24"/>
                                         <fontDescription key="fontDescription" name="MuseoSans-500" family="Museo Sans" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qvz-jo-kb8" userLabel="Close Button" customClass="DesignableButton" customModule="Spring">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qvz-jo-kb8" userLabel="Close Button" customClass="DesignableButton" customModule="Spring">
                                         <rect key="frame" x="40" y="358" width="220" height="40"/>
                                         <color key="backgroundColor" red="0.31372549020000001" green="0.74901960779999999" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>

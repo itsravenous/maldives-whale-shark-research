@@ -11,11 +11,14 @@ import BWWalkthrough
 import BTNavigationDropdownMenu
 import FirebaseDatabase
 import SDWebImage
+import Fusuma
 
-class EncountersTableViewController: UITableViewController, BWWalkthroughViewControllerDelegate  {
+class EncountersTableViewController: UITableViewController, BWWalkthroughViewControllerDelegate, FusumaDelegate  {
     
     // MARK: - Properties
     var encounters : [Encounter] = []
+    var uploadWalkthrough:BWWalkthroughViewController!
+    var selectedImage: UIImage!
     
     // MARK: - View Did load
     override func viewDidLoad() {
@@ -56,6 +59,13 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
             }
         }
         self.navigationItem.titleView = menuView
+        
+        // Create the Report Encounter VC and Present
+        if selectedImage != nil {
+            let stb = UIStoryboard(name: "UploadPicture", bundle: nil)
+            let photoInfo = stb.instantiateViewController(withIdentifier: "photoInfo") as! PhotoInformationViewController
+            self.present(photoInfo, animated: true, completion: nil)
+        }
     }
     
     // MARK: - View Did Appear
@@ -84,6 +94,8 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
             
             userDefaults.set(true, forKey: "uploadInstructions")
             userDefaults.synchronize()
+        } else {
+            showUploadPicture()
         }
         
     }
@@ -107,8 +119,36 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
         self.present(walkthrough, animated: true, completion: nil)
     }
     
+    func showUploadPicture() {
+        let fusuma = FusumaViewController()
+        
+        //        fusumaCropImage = false
+        fusuma.delegate = self
+        fusuma.cropHeightRatio = 1
+        fusuma.hasVideo = false
+        fusumaTintColor = UIColor(red: 80.0/255.0, green: 191.0/255.0, blue: 195.0/255.0, alpha: 1)
+        fusumaBackgroundColor = UIColor(red: 66.0/255.0, green: 66.0/255.0, blue: 66.0/255.0, alpha: 1)
+        self.present(fusuma, animated: true, completion: nil)
+    }
+    
     func showInstructions() {
-        // show instruction flow
+        let stb = UIStoryboard(name: "UploadWalkthrough", bundle: nil)
+        uploadWalkthrough = stb.instantiateViewController(withIdentifier: "container") as! BWWalkthroughViewController
+        
+        // Get view controllers and build the walkthrough
+        let page_one = stb.instantiateViewController(withIdentifier: "page_1")
+        let page_two = stb.instantiateViewController(withIdentifier: "page_2")
+        let page_three = stb.instantiateViewController(withIdentifier: "page_3")
+        let page_four = stb.instantiateViewController(withIdentifier: "page_4")
+        
+        // Attach the pages to the master
+        uploadWalkthrough.delegate = self
+        uploadWalkthrough.add(viewController:page_one)
+        uploadWalkthrough.add(viewController:page_two)
+        uploadWalkthrough.add(viewController:page_three)
+        uploadWalkthrough.add(viewController:page_four)
+        
+        self.present(uploadWalkthrough, animated: true, completion: nil)
     }
     
     // Convert date from date string and subtract from current date
@@ -168,10 +208,47 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
     // MARK: - Walkthrough delegate -
     func walkthroughPageDidChange(_ pageNumber: Int) {
         print("Current Page \(pageNumber)")
+        if (self.uploadWalkthrough.numberOfPages - 1) == pageNumber {
+            self.uploadWalkthrough.closeButton?.isHidden = false
+        } else {
+            self.uploadWalkthrough.closeButton?.isHidden = true
+        }
     }
     
     func walkthroughCloseButtonPressed() {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    // MARK: FusumaDelegate Protocol
+    // Return the image which is selected from camera roll or is taken via the camera.
+    func fusumaImageSelected(_ image: UIImage, source: FusumaMode) {
+        
+        self.selectedImage = image
+        
+        let stb = UIStoryboard(name: "UploadPicture", bundle: nil)
+        let photoInfo = stb.instantiateViewController(withIdentifier: "photoInfo") as! PhotoInformationViewController
+        self.dismiss(animated: true, completion: nil)
+        self.present(photoInfo, animated: true, completion: nil)
+        
+        print(image)
+        print("Image selected")
+    }
+    
+    // Return the image but called after is dismissed.
+    func fusumaDismissedWithImage(image: UIImage) {
+        
+        print("Called just after FusumaViewController is dismissed.")
+    }
+    
+    func fusumaVideoCompleted(withFileURL fileURL: URL) {
+        
+        print("Called just after a video has been selected.")
+    }
+    
+    // When camera roll is not authorized, this method is called.
+    func fusumaCameraRollUnauthorized() {
+        
+        print("Camera roll unauthorized")
     }
     
     // MARK: - Table view data source
