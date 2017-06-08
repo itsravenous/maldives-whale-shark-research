@@ -103,6 +103,7 @@ class LoginCoordinator: ILLoginKit.LoginCoordinator {
     override func enterWithFacebook(profile: FacebookProfile) {
         // Handle Facebook login/signup via your API
         print("Login/Signup via Facebook with: FB profile =\(profile)")
+        
         if (FBSDKAccessToken.current() != nil) {
             let userDefaults = UserDefaults.standard
             
@@ -126,8 +127,20 @@ class LoginCoordinator: ILLoginKit.LoginCoordinator {
                     let okayAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
                     alertController.addAction(okayAction)
                     return
+                } else {
+                    
                 }
             })
+            
+//            Auth.auth().addStateDidChangeListener({ (auth, user) in
+//                    if (user != nil) {
+//                        let uid = user!.uid as String!
+//                        
+//                        //WARNING - ERASES ALL OTHER USER INFO (LIKED ENCOUNTERS, MY ENCOUNTERS, ETC)
+//                        Database.database().reference().child("users/\(uid!)").setValue(["name": user!.displayName!, "email": user!.email!, "photoURL": String(describing: user!.photoURL!)])
+//                        
+//                    }
+//            })
             
             super.finish()
         }

@@ -51,6 +51,7 @@
 		04A7E5ED1EE6EB9A0069F6FB /* ComparisonResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A7E5EC1EE6EB9A0069F6FB /* ComparisonResultsViewController.swift */; };
 		04A7E5EF1EE721F00069F6FB /* SegueFromRight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A7E5EE1EE721F00069F6FB /* SegueFromRight.swift */; };
 		04A7E5F11EE724770069F6FB /* UnwindSegueFromRight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A7E5F01EE724770069F6FB /* UnwindSegueFromRight.swift */; };
+		04A7E5F31EE742830069F6FB /* Shark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A7E5F21EE742830069F6FB /* Shark.swift */; };
 		04AFC9491EB33513001C738F /* Walkthrough.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04AFC9481EB33513001C738F /* Walkthrough.storyboard */; };
 		04B95E9D1ED0987C00217DE4 /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B95E9C1ED0987C00217DE4 /* Stats.swift */; };
 		04CEF2F51EAB19550057A119 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEF2F41EAB19550057A119 /* AppDelegate.swift */; };
@@ -133,6 +134,7 @@
 		04A7E5EC1EE6EB9A0069F6FB /* ComparisonResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComparisonResultsViewController.swift; sourceTree = "<group>"; };
 		04A7E5EE1EE721F00069F6FB /* SegueFromRight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueFromRight.swift; sourceTree = "<group>"; };
 		04A7E5F01EE724770069F6FB /* UnwindSegueFromRight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnwindSegueFromRight.swift; sourceTree = "<group>"; };
+		04A7E5F21EE742830069F6FB /* Shark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shark.swift; sourceTree = "<group>"; };
 		04AFC9481EB33513001C738F /* Walkthrough.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Walkthrough.storyboard; sourceTree = "<group>"; };
 		04B95E9C1ED0987C00217DE4 /* Stats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stats.swift; sourceTree = "<group>"; };
 		04CEF2F11EAB19550057A119 /* MaldivesWhaleSharkResearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MaldivesWhaleSharkResearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -218,6 +220,7 @@
 				042776B61EB8B9FC00D505C5 /* Encounter.swift */,
 				042776B01EB8B1C900D505C5 /* User.swift */,
 				042776B41EB8B71100D505C5 /* WhaleShark.swift */,
+				04A7E5F21EE742830069F6FB /* Shark.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -760,6 +763,7 @@
 				042DBBFA1EC1956600DA93B6 /* SharkDescriptionTableViewCell.swift in Sources */,
 				042DBBDF1EBE9E9400DA93B6 /* BFNViewController.swift in Sources */,
 				042DBBD61EBE08BB00DA93B6 /* MonthViewController.swift in Sources */,
+				04A7E5F31EE742830069F6FB /* Shark.swift in Sources */,
 				04A7E5E71EE6A3FA0069F6FB /* ComparisonProgressViewController.swift in Sources */,
 				042DBBDD1EBE9E4800DA93B6 /* MWSRPViewController.swift in Sources */,
 				042776B11EB8B1C900D505C5 /* User.swift in Sources */,
