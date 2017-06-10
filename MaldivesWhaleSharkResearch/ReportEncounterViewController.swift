@@ -8,10 +8,24 @@
 
 import UIKit
 
-class ReportEncounterViewController: UIViewController {
+class ReportEncounterViewController: UIViewController, UIScrollViewDelegate {
 
     // MARK: - Outlets
     @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var sharkImage: UIImageView!
+    @IBOutlet weak var refPointTitle: UILabel!
+    @IBOutlet weak var refPointInstructions: UILabel!
+    @IBOutlet weak var refPointImage: UIImageView!
+    @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet weak var doneButton: UIBarButtonItem!
+
+    
+    // MARK: - Properties
+    var refs1 :[[Double]] = []
+    var spots1 :[[Double]] = []
+    var counter = 0
+    var pageCounter = 1
     
     // MARK: - View Did Load
     override func viewDidLoad() {
@@ -21,6 +35,17 @@ class ReportEncounterViewController: UIViewController {
             NSForegroundColorAttributeName: UIColor.white
         ]
         self.containerView.isHidden = true
+        
+        scrollView.minimumZoomScale = 1.0
+        scrollView.maximumZoomScale = 6.0
+        
+        scrollView.delegate = self
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapAction))
+        
+        self.sharkImage.isUserInteractionEnabled = true
+        self.sharkImage.addGestureRecognizer(tapGestureRecognizer)
+
     }
     
     // MARK: - Status Bar Hidden
@@ -35,6 +60,84 @@ class ReportEncounterViewController: UIViewController {
     override public var prefersStatusBarHidden : Bool {
         return true
     }
+    
+    // MARK: - Scroll View
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return sharkImage
+    }
+    
+    // MARK: - Functions
+    func tapAction(sender: UITapGestureRecognizer) {
+        // increase counter with +1 for each click
+        counter += 1
+        pageCounter += 1
+        
+        // Get points for the UIImageView
+        let touchPoint = sender.location(in: self.sharkImage)
+        let touchPointValue = [Double(touchPoint.x), Double(touchPoint.y)]
+        
+        // Get points from the image itself
+        //        let z1 = touchPoint.x * (sharkImage.image?.size.width)! / sharkImage.frame.width
+        //        let z2 = touchPoint.y * (sharkImage.image?.size.height)! / sharkImage.frame.height
+        //        print("Touched point (\(z1), \(z2)")
+        
+        // Add pin to center of touched point
+        let pin = UIImageView(frame: CGRect(x: touchPoint.x - 5, y: touchPoint.y - 5, width:10, height:10))
+        
+        // Add reference and spots to arrays
+        if counter <= 3 { // first 3 times add red
+            pin.image = UIImage(named: "photo-pin-red")
+            sharkImage.addSubview(pin)
+            refs1.append(touchPointValue)
+            print("Ref array: \(refs1)")
+        } else if counter <= 23 { // next 14 - 20 add green
+            pin.image = UIImage(named: "photo-pin-green")
+            sharkImage.addSubview(pin)
+            spots1.append(touchPointValue)
+            print("Spot array: \(spots1)")
+        } else if counter > 23 {
+            // Alert the user to run a comparison
+            let alert = UIAlertController(title: "Enough Spots Recorded", message: "You are ready to run a comparison.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            // Present the alert
+            self.present(alert, animated: true, completion: nil)
+        }
+        
+        // Change Footer Section
+        if pageCounter == 1 {
+            refPointTitle.text = "First Reference Point"
+            refPointInstructions.text = "Add the 1st reference point (top of the 5th gill slit)"
+            refPointImage.image = UIImage(named:"firstRefPoint")
+            pageControl.currentPage = 0
+        } else if pageCounter == 2 {
+            refPointTitle.text = "Second Reference Point"
+            refPointInstructions.text = "Add the 2nd reference point (edge of the pectoral fin)"
+            refPointImage.image = UIImage(named:"secondRefPoint")
+            pageControl.currentPage = 1
+        } else if pageCounter == 3 {
+            refPointTitle.text = "Third Reference Point"
+            refPointInstructions.text = "Add the 3rd reference point (bottom of the 5th gill slit)"
+            refPointImage.image = UIImage(named:"thirdRefPoint")
+            pageControl.currentPage = 2
+        } else {
+            refPointTitle.text = "Spot Annotations"
+            refPointInstructions.text = "Add 14 - 20 spots in the reference area on the shark"
+            refPointImage.image = UIImage(named:"spotAnnotations")
+            pageControl.currentPage = 3
+        }
+        
+        // Enable done (comparison) button after 14 spot annotations
+        if counter >= 17 {
+            doneButton.isEnabled = true
+        }
+        
+    }
+    
+    // MARK: - Actions
+    @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
+        print("Done button pushed: Run Comparison")
+    }
+    
     
 
     /*

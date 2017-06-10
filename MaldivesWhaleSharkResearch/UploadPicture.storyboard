@@ -325,16 +325,14 @@
                                                 <segue destination="ctD-k0-W7d" kind="unwind" unwindAction="cancelToPhotoInfoViewControllerWithSegue:" id="TcX-Xb-ytF"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="done" id="1aH-qd-0UK"/>
+                                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="done" id="1aH-qd-0UK">
+                                            <connections>
+                                                <action selector="doneButtonPressed:" destination="i2U-ok-jmi" id="bZs-io-gho"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shark1" translatesAutoresizingMaskIntoConstraints="NO" id="T8q-0J-x70">
-                                <rect key="frame" x="0.0" y="44" width="375" height="375"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="375" id="G7U-JS-ohG"/>
-                                </constraints>
-                            </imageView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="OkE-ve-tyx">
                                 <rect key="frame" x="160" y="615" width="55" height="37"/>
                                 <color key="pageIndicatorTintColor" red="0.67450980390000004" green="0.67450980390000004" blue="0.67450980390000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -367,42 +365,71 @@
                                     <segue destination="CHT-TN-lry" kind="embed" id="0NP-OR-ZlM"/>
                                 </connections>
                             </containerView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bmZ-pD-ZnL">
+                                <rect key="frame" x="0.0" y="44" width="375" height="375"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shark1" translatesAutoresizingMaskIntoConstraints="NO" id="T8q-0J-x70">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="375" id="G7U-JS-ohG"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="T8q-0J-x70" firstAttribute="centerY" secondItem="bmZ-pD-ZnL" secondAttribute="centerY" id="FcP-ry-mZ0"/>
+                                    <constraint firstAttribute="bottom" secondItem="T8q-0J-x70" secondAttribute="bottom" id="LSl-tY-ilm"/>
+                                    <constraint firstAttribute="trailing" secondItem="T8q-0J-x70" secondAttribute="trailing" id="Pes-fJ-nUY"/>
+                                    <constraint firstItem="T8q-0J-x70" firstAttribute="top" secondItem="bmZ-pD-ZnL" secondAttribute="top" id="PvM-ul-T7x"/>
+                                    <constraint firstItem="T8q-0J-x70" firstAttribute="leading" secondItem="bmZ-pD-ZnL" secondAttribute="leading" id="Zo1-EQ-SzU"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="UjP-mi-0yy" firstAttribute="top" secondItem="cDx-Ha-7zC" secondAttribute="top" id="03q-Ar-Qfv"/>
                             <constraint firstItem="OkE-ve-tyx" firstAttribute="centerX" secondItem="cDx-Ha-7zC" secondAttribute="centerX" id="4VD-we-KHl"/>
                             <constraint firstItem="LwR-4o-8rN" firstAttribute="top" secondItem="KTu-T8-TQV" secondAttribute="bottom" constant="58" id="5At-4x-EPR"/>
-                            <constraint firstItem="uqT-qO-zqS" firstAttribute="top" secondItem="T8q-0J-x70" secondAttribute="bottom" constant="15" id="8Xs-qB-Vy3"/>
                             <constraint firstItem="BFF-ij-SMP" firstAttribute="leading" secondItem="cDx-Ha-7zC" secondAttribute="leading" constant="15" id="BjR-f6-hUB"/>
                             <constraint firstAttribute="trailing" secondItem="UjP-mi-0yy" secondAttribute="trailing" id="J4j-6a-F4P"/>
-                            <constraint firstItem="T8q-0J-x70" firstAttribute="leading" secondItem="cDx-Ha-7zC" secondAttribute="leading" id="J8H-1h-RPq"/>
                             <constraint firstItem="LwR-4o-8rN" firstAttribute="top" secondItem="OkE-ve-tyx" secondAttribute="bottom" constant="15" id="N6l-4L-WSO"/>
                             <constraint firstAttribute="trailing" secondItem="KTu-T8-TQV" secondAttribute="trailing" constant="15" id="R6r-8c-rbQ"/>
-                            <constraint firstAttribute="trailing" secondItem="T8q-0J-x70" secondAttribute="trailing" id="XbD-Gx-FhF"/>
                             <constraint firstAttribute="trailing" secondItem="gX0-Un-BXz" secondAttribute="trailing" id="ahE-ud-Q0V"/>
+                            <constraint firstItem="bmZ-pD-ZnL" firstAttribute="top" secondItem="gX0-Un-BXz" secondAttribute="bottom" id="dYY-LK-MUz"/>
                             <constraint firstItem="uqT-qO-zqS" firstAttribute="leading" secondItem="cDx-Ha-7zC" secondAttribute="leading" constant="15" id="dyF-jk-4U8"/>
+                            <constraint firstItem="bmZ-pD-ZnL" firstAttribute="leading" secondItem="cDx-Ha-7zC" secondAttribute="leading" id="gPZ-1e-YuM"/>
                             <constraint firstItem="LwR-4o-8rN" firstAttribute="top" secondItem="UjP-mi-0yy" secondAttribute="bottom" id="lN0-7F-887"/>
+                            <constraint firstItem="uqT-qO-zqS" firstAttribute="top" secondItem="bmZ-pD-ZnL" secondAttribute="bottom" constant="15" id="mMs-l7-Egp"/>
                             <constraint firstItem="gX0-Un-BXz" firstAttribute="leading" secondItem="cDx-Ha-7zC" secondAttribute="leading" id="nnq-X7-WQN"/>
-                            <constraint firstItem="T8q-0J-x70" firstAttribute="top" secondItem="gX0-Un-BXz" secondAttribute="bottom" id="nrF-ts-HkQ"/>
                             <constraint firstItem="gX0-Un-BXz" firstAttribute="top" secondItem="cDx-Ha-7zC" secondAttribute="top" id="qgb-mv-Dlf"/>
                             <constraint firstItem="UjP-mi-0yy" firstAttribute="leading" secondItem="cDx-Ha-7zC" secondAttribute="leading" id="r1d-gs-9wZ"/>
+                            <constraint firstAttribute="trailing" secondItem="bmZ-pD-ZnL" secondAttribute="trailing" id="yGc-9G-4g0"/>
                             <constraint firstItem="BFF-ij-SMP" firstAttribute="top" secondItem="uqT-qO-zqS" secondAttribute="bottom" constant="30" id="zaN-Xr-cFw"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="containerView" destination="UjP-mi-0yy" id="UAv-7O-gvt"/>
+                        <outlet property="doneButton" destination="1aH-qd-0UK" id="Cjc-if-MoI"/>
+                        <outlet property="pageControl" destination="OkE-ve-tyx" id="zci-9V-ect"/>
+                        <outlet property="refPointImage" destination="KTu-T8-TQV" id="d4x-Mv-C2Y"/>
+                        <outlet property="refPointInstructions" destination="BFF-ij-SMP" id="S3Y-XG-eM5"/>
+                        <outlet property="refPointTitle" destination="uqT-qO-zqS" id="BBH-XF-EhZ"/>
+                        <outlet property="scrollView" destination="bmZ-pD-ZnL" id="4Ct-On-217"/>
+                        <outlet property="sharkImage" destination="T8q-0J-x70" id="zdd-YW-jFv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xBF-zi-aG9" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="ctD-k0-W7d" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="556" y="-368"/>
+            <point key="canvasLocation" x="556" y="-368.36581709145429"/>
         </scene>
         <!--Comparison Progress View Controller-->
         <scene sceneID="egT-Sr-Tvm">
             <objects>
                 <viewController id="CHT-TN-lry" customClass="ComparisonProgressViewController" customModule="MaldivesWhaleSharkResearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5l5-8S-xLd"/>
+                        <viewControllerLayoutGuide type="bottom" id="Kcf-RU-bSE"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="VjR-00-CI2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
