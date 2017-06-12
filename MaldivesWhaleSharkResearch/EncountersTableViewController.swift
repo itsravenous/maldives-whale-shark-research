@@ -10,9 +10,11 @@ import UIKit
 import BWWalkthrough
 import BTNavigationDropdownMenu
 import FirebaseDatabase
+import FirebaseAuth
 import SDWebImage
 import Fusuma
 import Firebase
+import Photos
 
 typealias EncounterCallback = ([String]) -> Void
 
@@ -21,10 +23,9 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
     // MARK: - Properties
     var encounters : [Encounter] = []
     var uploadWalkthrough:BWWalkthroughViewController!
-    var selectedImage: UIImage!
     var likedEncounters = [String]()
     var menuIndex = 0
-
+  
     // MARK: - View Did load
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,25 +60,16 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
             self.fetchEncounters()
         }
         self.navigationItem.titleView = menuView
-        
-        // Create the Report Encounter VC and Present
-        if selectedImage != nil {
-            let stb = UIStoryboard(name: "UploadPicture", bundle: nil)
-            let photoInfo = stb.instantiateViewController(withIdentifier: "photoInfo") as! PhotoInformationViewController
-            self.present(photoInfo, animated: true, completion: nil)
-        }
     }
     
     // MARK: - View Did Appear
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         let userDefaults = UserDefaults.standard
         
+        // Show app walkthrough on first load
         if !userDefaults.bool(forKey: "walkthroughPresented") {
-            
             showWalkthrough()
-            
             userDefaults.set(true, forKey: "walkthroughPresented")
             userDefaults.synchronize()
         }
@@ -88,10 +80,9 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
         
         let userDefaults = UserDefaults.standard
         
+        // Show photo upload
         if !userDefaults.bool(forKey: "uploadInstructions") {
-            
             showInstructions()
-            
             userDefaults.set(true, forKey: "uploadInstructions")
             userDefaults.synchronize()
         } else {
@@ -122,7 +113,7 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
     func showUploadPicture() {
         let fusuma = FusumaViewController()
         
-        //        fusumaCropImage = false
+        fusumaCropImage = true
         fusuma.delegate = self
         fusuma.cropHeightRatio = 1
         fusuma.hasVideo = false
@@ -167,10 +158,6 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
         
         return String(describing: components.day!)
     }
-    
-    
-    // MARK: - Name
-    var tabResults = [AnyObject]()
     
     // MARK: - Encounter filters
     func fetchEncounters() {
@@ -231,45 +218,49 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
                 self.tableView.reloadData()
             }
         })
+        getLikedEncounters()
     }
-    
-    func showLikedEncounters() {
-        self.tableView.reloadData()
-    }
-    
-    func showMyEncounters() {
-        self.tableView.reloadData()
-    }
-    
+   
     // MARK: - Walkthrough delegate -
     func walkthroughPageDidChange(_ pageNumber: Int) {
         print("Current Page \(pageNumber)")
         if (self.uploadWalkthrough != nil){
         if (self.uploadWalkthrough.numberOfPages - 1) == pageNumber {
             self.uploadWalkthrough.closeButton?.isHidden = false
+
         } else {
-            self.uploadWalkthrough.closeButton?.isHidden = true
+            print("no user signed in")
         }
         }
+
     }
     
     func walkthroughCloseButtonPressed() {
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true) {
+            self.showUploadPicture()
+        }
     }
     
     // MARK: FusumaDelegate Protocol
     // Return the image which is selected from camera roll or is taken via the camera.
     func fusumaImageSelected(_ image: UIImage, source: FusumaMode) {
         
-        self.selectedImage = image
+//        // Get image creationDate and location
+//        let asset = PHAsset()
+//        let location = asset.location
+//        let creationDate = asset.creationDate
         
         let stb = UIStoryboard(name: "UploadPicture", bundle: nil)
         let photoInfo = stb.instantiateViewController(withIdentifier: "photoInfo") as! PhotoInformationViewController
         self.dismiss(animated: true, completion: nil)
-        self.present(photoInfo, animated: true, completion: nil)
+        self.present(photoInfo, animated: true) { 
+            photoInfo.imageView.image = image
+            photoInfo.locationLabel.text = ""
+            photoInfo.timestampLabel.text = ""
+        }
         
-        print(image)
-        print("Image selected")
+        print("Image selected: \(image)")
+
     }
     
     // Return the image but called after is dismissed.

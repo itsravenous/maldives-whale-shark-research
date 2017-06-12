@@ -339,13 +339,13 @@
                                 <color key="currentPageIndicatorTintColor" red="0.31372549020000001" green="0.74901960779999999" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
                             </pageControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Reference Point" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uqT-qO-zqS">
-                                <rect key="frame" x="15" y="434" width="193" height="24"/>
+                                <rect key="frame" x="15" y="434" width="192.5" height="24"/>
                                 <fontDescription key="fontDescription" name="MuseoSans-500" family="Museo Sans" pointSize="20"/>
                                 <color key="textColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="174" translatesAutoresizingMaskIntoConstraints="NO" id="BFF-ij-SMP">
-                                <rect key="frame" x="15" y="488" width="154" height="87"/>
+                                <rect key="frame" x="15" y="488" width="154" height="86.5"/>
                                 <string key="text">Add the 1st reference point
 (top of the 5th gill slit)</string>
                                 <fontDescription key="fontDescription" name="MuseoSans-500" family="Museo Sans" pointSize="18"/>
