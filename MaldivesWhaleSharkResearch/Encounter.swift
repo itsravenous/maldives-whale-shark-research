@@ -10,6 +10,7 @@ import Foundation
 
 class Encounter {
     var sharkID = ""
+    var ID = ""
     var sharkName = ""
     var images: [String] = []
     var contributorName = ""

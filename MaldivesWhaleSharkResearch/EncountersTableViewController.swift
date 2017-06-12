@@ -12,6 +12,9 @@ import BTNavigationDropdownMenu
 import FirebaseDatabase
 import SDWebImage
 import Fusuma
+import Firebase
+
+typealias EncounterCallback = ([String]) -> Void
 
 class EncountersTableViewController: UITableViewController, BWWalkthroughViewControllerDelegate, FusumaDelegate  {
     
@@ -19,7 +22,9 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
     var encounters : [Encounter] = []
     var uploadWalkthrough:BWWalkthroughViewController!
     var selectedImage: UIImage!
-    
+    var likedEncounters = [String]()
+    var menuIndex = 0
+
     // MARK: - View Did load
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +32,10 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
         // Make back bar title blank after segue
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
-        showAllEncounters()
+        self.getEncounterIds(index:1, onCompletion: { (ids) in
+            self.likedEncounters = ids
+            self.getEncountersWith(ids: ids)
+        })
 
         // Create the menuview
         let items = ["All Encounters", "Liked Encounters", "My Encounters"]
@@ -47,16 +55,8 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
         menuView.maskBackgroundOpacity = 0.3
         menuView.didSelectItemAtIndexHandler = {(menuPath: Int) -> () in
             print("Did select item at index: \(menuPath)")
-            if menuPath == 0 {
-                self.showAllEncounters()
-                print("all")
-            } else if menuPath == 1 {
-                self.showLikedEncounters()
-                print("liked")
-            } else if menuPath == 2 {
-                self.showMyEncounters()
-                print("my")
-            }
+            self.menuIndex = menuPath
+            self.fetchEncounters()
         }
         self.navigationItem.titleView = menuView
         
@@ -173,25 +173,61 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
     var tabResults = [AnyObject]()
     
     // MARK: - Encounter filters
-    func showAllEncounters() {
+    func fetchEncounters() {
+        self.getEncounterIds(index:menuIndex, onCompletion: { (ids) in
+            if self.menuIndex == 1 {
+                self.likedEncounters = ids
+            }
+            self.getEncountersWith(ids: ids)
+        })
+    }
+    
+    func getEncounterIds(index:Int, onCompletion: @escaping EncounterCallback){
+        var type = ""
+        
+        if index == 0{
+            onCompletion([])
+            return
+        }else if index == 1 {
+            type = "liked_encounters"
+        }else if index == 2 {
+            type = "my_encounters"
+        }
+        
+        Database.database().reference().child("users").child(Auth.auth().currentUser!.providerID).child(type).observeSingleEvent(of: .value, with: { (snapshot) in
+            var myEncounters = [String]()
+            if let db = snapshot.value as? [String: Any]{
+                for rest in db {
+                    myEncounters.append(rest.key)
+                }
+            }
+            onCompletion(myEncounters)
+        })
+    }
+    
+    func getEncountersWith(ids:[String]){
         // Firebase tableview data
         Database.database().reference().child("encounters").observeSingleEvent(of: .value, with: { (snapshot) in
+            self.encounters = []
             for rest in snapshot.children.allObjects as! [DataSnapshot] {
                 guard let restDict = rest.value as? [String: Any] else { continue }
+                let enID = restDict["id"] as! String
                 
-                let encounter = Encounter()
-                encounter.sharkName = (restDict["shark_name"] as? String)!
-                encounter.date = (restDict["trip_date"] as? String)!
-                encounter.length = (restDict["length_est"] as? String)!
-                encounter.locationName = (restDict["location_name"] as? String)!
-                encounter.contributorName = (restDict["contributor"] as? String)!
-                encounter.contributorImage = (restDict["contributor_image"] as? String)!
-                
-                let mediaDict = restDict["media"] as! [[String:Any]]
-                encounter.images = mediaDict.flatMap { $0["thumb_url"] as? String }
-                
-                self.encounters.append(encounter)
-                
+                if (ids.contains(enID) || self.menuIndex == 0){
+                    let encounter = Encounter()
+                    encounter.ID = (restDict["id"] as? String)!
+                    encounter.sharkName = (restDict["shark_name"] as? String)!
+                    encounter.date = (restDict["trip_date"] as? String)!
+                    encounter.length = (restDict["length_est"] as? String)!
+                    encounter.locationName = (restDict["location_name"] as? String)!
+                    encounter.contributorName = (restDict["contributor"] as? String)!
+                    encounter.contributorImage = (restDict["contributor_image"] as? String)!
+                    
+                    let mediaDict = restDict["media"] as! [[String:Any]]
+                    encounter.images = mediaDict.flatMap { $0["thumb_url"] as? String }
+                    
+                    self.encounters.append(encounter)
+                }
                 self.tableView.reloadData()
             }
         })
@@ -208,10 +244,12 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
     // MARK: - Walkthrough delegate -
     func walkthroughPageDidChange(_ pageNumber: Int) {
         print("Current Page \(pageNumber)")
+        if (self.uploadWalkthrough != nil){
         if (self.uploadWalkthrough.numberOfPages - 1) == pageNumber {
             self.uploadWalkthrough.closeButton?.isHidden = false
         } else {
             self.uploadWalkthrough.closeButton?.isHidden = true
+        }
         }
     }
     
@@ -268,6 +306,9 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
         cell.dateSeenLabel.text = "Spotted " + convertDate(encounterDate: encounter.date) + " days ago"
         cell.sharkImageView.sd_setImage(with: URL(string: encounter.images.first!))
         cell.contributorImageView.sd_setImage(with: URL(string: encounter.contributorImage))
+        cell.likeButton.tag = indexPath.row
+        cell.likeButton.isSelected = self.likedEncounters.contains(encounter.ID)
+        cell.likeButton.addTarget(self, action: #selector(likeButtonPressed(_:)), for: .touchUpInside)
         
         return cell
     }
@@ -282,4 +323,46 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
         }
     }
 
+    
+    @IBAction func likeButtonPressed(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+        let encounter = encounters[sender.tag]
+        Database.database().reference().child("users").child(Auth.auth().currentUser!.providerID).child("liked_encounters").observeSingleEvent(of: .value, with: { (snapshot) in
+            var isExist = false
+            var i = 0
+            self.likedEncounters = [String]()
+            var likes = [String:Bool]()
+            
+            if let db = snapshot.value as? [String: Any]{
+                for rest in db {
+                    if rest.key == encounter.ID{
+                        isExist = true
+                    }else{
+                        likes[rest.key] = true
+                    }
+                    if !self.likedEncounters.contains(rest.key){
+                        self.likedEncounters.append(rest.key)
+                    }
+                    i += 1
+                }
+            }
+            if isExist == false{
+                likes[encounter.ID] = true
+            }else{
+                if let index = self.likedEncounters.index(of: encounter.ID) {
+                    self.likedEncounters.remove(at: index)
+                }
+            }
+            
+            Database.database().reference().child("users").child(Auth.auth().currentUser!.providerID).child("liked_encounters").setValue(likes, withCompletionBlock: { (error, db) in
+                if let error = error {
+                    print("Like error: \(error.localizedDescription)")
+                    let alertController = UIAlertController(title: "Like Error", message: error.localizedDescription, preferredStyle: .alert)
+                    let okayAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                    alertController.addAction(okayAction)
+                    self.tableView.reloadData()
+                }
+            })
+        })
+    }
 }
