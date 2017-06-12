@@ -807,6 +807,13 @@
                                                 <action selector="likeButtonPressed:" destination="fMk-Oj-0tR" eventType="touchUpInside" id="Vt7-yc-Lih"/>
                                             </connections>
                                         </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cWx-SN-FgW">
+                                            <rect key="frame" x="319" y="15" width="36" height="33"/>
+                                            <state key="normal" image="heart-icon-active"/>
+                                            <connections>
+                                                <action selector="dislikeButtonPressed:" destination="fMk-Oj-0tR" eventType="touchUpInside" id="kHz-kq-jaB"/>
+                                            </connections>
+                                        </button>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fd8-4H-7SP">
                                             <rect key="frame" x="0.0" y="179" width="375" height="71"/>
                                             <subviews>
@@ -842,11 +849,13 @@
                                         </view>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="cWx-SN-FgW" firstAttribute="top" secondItem="JVy-ii-L4P" secondAttribute="top" constant="15" id="12n-EZ-NoF"/>
                                         <constraint firstItem="GP2-GZ-1Bu" firstAttribute="top" secondItem="JVy-ii-L4P" secondAttribute="top" id="2vg-Ve-cQ4"/>
                                         <constraint firstAttribute="bottom" secondItem="fd8-4H-7SP" secondAttribute="bottom" id="BLG-QV-g1I"/>
                                         <constraint firstAttribute="trailing" secondItem="fd8-4H-7SP" secondAttribute="trailing" id="IMl-sI-dO7"/>
                                         <constraint firstItem="AtZ-cT-L5w" firstAttribute="top" secondItem="JVy-ii-L4P" secondAttribute="top" constant="15" id="LyG-N9-xCW"/>
                                         <constraint firstItem="GP2-GZ-1Bu" firstAttribute="leading" secondItem="JVy-ii-L4P" secondAttribute="leading" id="Pco-Qu-S2e"/>
+                                        <constraint firstAttribute="trailing" secondItem="cWx-SN-FgW" secondAttribute="trailing" constant="20" id="V3H-JJ-1Fs"/>
                                         <constraint firstAttribute="trailing" secondItem="GP2-GZ-1Bu" secondAttribute="trailing" id="Xe4-B7-8MH"/>
                                         <constraint firstAttribute="trailing" secondItem="AtZ-cT-L5w" secondAttribute="trailing" constant="20" id="YnB-ne-Mfy"/>
                                         <constraint firstAttribute="bottom" secondItem="GP2-GZ-1Bu" secondAttribute="bottom" id="pvX-42-DkQ"/>
@@ -857,6 +866,7 @@
                                 <connections>
                                     <outlet property="contributorImageView" destination="8d6-1N-U7S" id="zNg-Jt-grz"/>
                                     <outlet property="dateSeenLabel" destination="EIR-tR-fef" id="dhU-an-JA9"/>
+                                    <outlet property="dislikeButton" destination="cWx-SN-FgW" id="8w2-kR-Ugf"/>
                                     <outlet property="likeButton" destination="AtZ-cT-L5w" id="Fip-4W-aI6"/>
                                     <outlet property="sharkImageView" destination="GP2-GZ-1Bu" id="De1-v0-xXo"/>
                                     <outlet property="sharkNameLabel" destination="FQ1-4O-56D" id="136-q7-hxg"/>
