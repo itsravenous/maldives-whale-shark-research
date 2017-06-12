@@ -25,7 +25,7 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
     var uploadWalkthrough:BWWalkthroughViewController!
     var likedEncounters = [String]()
     var menuIndex = 0
-  
+    
     // MARK: - View Did load
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +37,7 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
             self.likedEncounters = ids
             self.getEncountersWith(ids: ids)
         })
-
+        
         // Create the menuview
         let items = ["All Encounters", "Liked Encounters", "My Encounters"]
         let menuView = BTNavigationDropdownMenu(title: items[0], items: items as [AnyObject])
@@ -146,7 +146,7 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
     func convertDate(encounterDate: String) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
-//        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        //        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let date = dateFormatter.date(from: encounterDate)
         
         let currentDate = Date()
@@ -175,21 +175,30 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
         if index == 0{
             onCompletion([])
             return
-        }else if index == 1 {
+        } else if index == 1 {
             type = "liked_encounters"
-        }else if index == 2 {
+        } else if index == 2 {
             type = "my_encounters"
         }
         
-        Database.database().reference().child("users").child(Auth.auth().currentUser!.providerID).child(type).observeSingleEvent(of: .value, with: { (snapshot) in
-            var myEncounters = [String]()
-            if let db = snapshot.value as? [String: Any]{
-                for rest in db {
-                    myEncounters.append(rest.key)
-                }
+        Auth.auth().addStateDidChangeListener { (auth, user) in
+            if user != nil {
+                // User is signed in. Show home screen
+                Database.database().reference().child("users").child(Auth.auth().currentUser!.uid).child(type).observeSingleEvent(of: .value, with: { (snapshot) in
+                    var myEncounters = [String]()
+                    if let db = snapshot.value as? [String: Any]{
+                        for rest in db {
+                            myEncounters.append(rest.key)
+                        }
+                    }
+                    onCompletion(myEncounters)
+                })
+            } else {
+                // No User is signed in. Show user the login screen
+                print("lo-ad-ding...no user yet...")
             }
-            onCompletion(myEncounters)
-        })
+        }
+        
     }
     
     func getEncountersWith(ids:[String]){
@@ -218,26 +227,29 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
                 self.tableView.reloadData()
             }
         })
-        getLikedEncounters()
     }
-   
+    
     // MARK: - Walkthrough delegate -
     func walkthroughPageDidChange(_ pageNumber: Int) {
         print("Current Page \(pageNumber)")
         if (self.uploadWalkthrough != nil){
-        if (self.uploadWalkthrough.numberOfPages - 1) == pageNumber {
-            self.uploadWalkthrough.closeButton?.isHidden = false
-
-        } else {
-            print("no user signed in")
+            if (self.uploadWalkthrough.numberOfPages - 1) == pageNumber {
+                self.uploadWalkthrough.closeButton?.isHidden = false
+            } else {
+                print("no user signed in")
+            }
         }
-        }
-
+        
     }
     
     func walkthroughCloseButtonPressed() {
-        self.dismiss(animated: true) {
-            self.showUploadPicture()
+        
+        if (self.uploadWalkthrough != nil) {
+            self.dismiss(animated: true, completion: { 
+                self.showUploadPicture()
+            })
+        } else {
+            self.dismiss(animated: true, completion: nil)
         }
     }
     
@@ -245,22 +257,22 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
     // Return the image which is selected from camera roll or is taken via the camera.
     func fusumaImageSelected(_ image: UIImage, source: FusumaMode) {
         
-//        // Get image creationDate and location
-//        let asset = PHAsset()
-//        let location = asset.location
-//        let creationDate = asset.creationDate
+        //        // Get image creationDate and location
+        //        let asset = PHAsset()
+        //        let location = asset.location
+        //        let creationDate = asset.creationDate
         
         let stb = UIStoryboard(name: "UploadPicture", bundle: nil)
         let photoInfo = stb.instantiateViewController(withIdentifier: "photoInfo") as! PhotoInformationViewController
         self.dismiss(animated: true, completion: nil)
-        self.present(photoInfo, animated: true) { 
+        self.present(photoInfo, animated: true) {
             photoInfo.imageView.image = image
             photoInfo.locationLabel.text = ""
             photoInfo.timestampLabel.text = ""
         }
         
         print("Image selected: \(image)")
-
+        
     }
     
     // Return the image but called after is dismissed.
@@ -284,11 +296,11 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return encounters.count
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "encounterCell", for: indexPath) as! EncounterTableViewCell
@@ -303,7 +315,7 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
         
         return cell
     }
-
+    
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueToEncounterCard" {
@@ -313,12 +325,12 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
             }
         }
     }
-
+    
     
     @IBAction func likeButtonPressed(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
         let encounter = encounters[sender.tag]
-        Database.database().reference().child("users").child(Auth.auth().currentUser!.providerID).child("liked_encounters").observeSingleEvent(of: .value, with: { (snapshot) in
+        Database.database().reference().child("users").child(Auth.auth().currentUser!.uid).child("liked_encounters").observeSingleEvent(of: .value, with: { (snapshot) in
             var isExist = false
             var i = 0
             self.likedEncounters = [String]()
@@ -345,7 +357,7 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
                 }
             }
             
-            Database.database().reference().child("users").child(Auth.auth().currentUser!.providerID).child("liked_encounters").setValue(likes, withCompletionBlock: { (error, db) in
+            Database.database().reference().child("users").child(Auth.auth().currentUser!.uid).child("liked_encounters").setValue(likes, withCompletionBlock: { (error, db) in
                 if let error = error {
                     print("Like error: \(error.localizedDescription)")
                     let alertController = UIAlertController(title: "Like Error", message: error.localizedDescription, preferredStyle: .alert)
