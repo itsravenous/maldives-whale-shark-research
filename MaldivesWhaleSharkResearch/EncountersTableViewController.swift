@@ -33,6 +33,11 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
         // Make back bar title blank after segue
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
+        // Set up the pull to refresh
+        refreshControl?.addTarget(self, action: #selector(EncountersTableViewController.onRefresh), for: .valueChanged)
+        refreshControl?.tintColor = UIColor.white
+        
+        // Get the encounters
         self.getEncounterIds(index:1, onCompletion: { (ids) in
             self.likedEncounters = ids
             self.getEncountersWith(ids: ids)
@@ -65,6 +70,7 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
     // MARK: - View Did Appear
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
         let userDefaults = UserDefaults.standard
         
         // Show app walkthrough on first load
@@ -75,23 +81,9 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
         }
     }
     
-    // MARK: - IBActions
-    @IBAction func uploadImageButtonPressed(_ sender: UIBarButtonItem) {
-        
-        let userDefaults = UserDefaults.standard
-        
-        // Show photo upload
-        if !userDefaults.bool(forKey: "uploadInstructions") {
-            showInstructions()
-            userDefaults.set(true, forKey: "uploadInstructions")
-            userDefaults.synchronize()
-        } else {
-            showUploadPicture()
-        }
-        
-    }
-    
     // MARK: - Functions
+    
+    // Show initial walkthrough for first time user
     func showWalkthrough() {
         let stb = UIStoryboard(name: "Walkthrough", bundle: nil)
         let walkthrough = stb.instantiateViewController(withIdentifier: "container") as! BWWalkthroughViewController
@@ -110,6 +102,7 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
         self.present(walkthrough, animated: true, completion: nil)
     }
     
+    // Present image picker for photo upload
     func showUploadPicture() {
         let fusuma = FusumaViewController()
         
@@ -122,6 +115,7 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
         self.present(fusuma, animated: true, completion: nil)
     }
     
+    // Show instructions for image upload
     func showInstructions() {
         let stb = UIStoryboard(name: "UploadWalkthrough", bundle: nil)
         uploadWalkthrough = stb.instantiateViewController(withIdentifier: "container") as! BWWalkthroughViewController
@@ -157,6 +151,16 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
         let components = calendar.dateComponents([.day], from: dayOfEncounter, to: today)
         
         return String(describing: components.day!)
+    }
+    
+    // Pull to refresh function
+    func onRefresh() {
+        self.fetchEncounters()
+        let delay = 2.0 * Double(NSEC_PER_SEC)
+        let time  = DispatchTime.now() + Double(Int64(delay)) / Double(NSEC_PER_SEC)
+        DispatchQueue.main.asyncAfter(deadline: time) {
+            self.refreshControl?.endRefreshing()
+        }
     }
     
     // MARK: - Encounter filters
@@ -203,7 +207,7 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
     
     func getEncountersWith(ids:[String]){
         // Firebase tableview data
-        Database.database().reference().child("encounters").observeSingleEvent(of: .value, with: { (snapshot) in
+        Database.database().reference().child("encounters").observe(.value, with: { (snapshot) in
             self.encounters = []
             for rest in snapshot.children.allObjects as! [DataSnapshot] {
                 guard let restDict = rest.value as? [String: Any] else { continue }
@@ -229,7 +233,7 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
         })
     }
     
-    // MARK: - Walkthrough delegate -
+    // MARK: - Walkthrough delegate
     func walkthroughPageDidChange(_ pageNumber: Int) {
         print("Current Page \(pageNumber)")
         if (self.uploadWalkthrough != nil){
@@ -239,11 +243,9 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
                 print("no user signed in")
             }
         }
-        
     }
     
     func walkthroughCloseButtonPressed() {
-        
         if (self.uploadWalkthrough != nil) {
             self.dismiss(animated: true, completion: { 
                 self.showUploadPicture()
@@ -253,7 +255,7 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
         }
     }
     
-    // MARK: FusumaDelegate Protocol
+    // MARK: - FusumaDelegate Protocol
     // Return the image which is selected from camera roll or is taken via the camera.
     func fusumaImageSelected(_ image: UIImage, source: FusumaMode) {
         
@@ -326,10 +328,25 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
         }
     }
     
+    // MARK: - Actions
+    @IBAction func uploadImageButtonPressed(_ sender: UIBarButtonItem) {
+        let userDefaults = UserDefaults.standard
+        
+        // Show photo upload
+        if !userDefaults.bool(forKey: "uploadInstructions") {
+            showInstructions()
+            userDefaults.set(true, forKey: "uploadInstructions")
+            userDefaults.synchronize()
+        } else {
+            showUploadPicture()
+        }
+        
+    }
     
     @IBAction func likeButtonPressed(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
         let encounter = encounters[sender.tag]
+        
         Database.database().reference().child("users").child(Auth.auth().currentUser!.uid).child("liked_encounters").observeSingleEvent(of: .value, with: { (snapshot) in
             var isExist = false
             var i = 0

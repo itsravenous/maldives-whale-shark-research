@@ -79,6 +79,7 @@ PODS:
     - SDWebImage/Core (= 4.0.0)
   - SDWebImage/Core (4.0.0)
   - Spring (1.0.3)
+  - SpringIndicator (1.5.0)
   - SwiftyJSON (3.1.4)
   - Validator (2.1.1)
 
@@ -97,6 +98,7 @@ DEPENDENCIES:
   - InstantSearch-Core-Swift (~> 1.0)
   - SDWebImage
   - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift3`)
+  - SpringIndicator
   - SwiftyJSON
 
 EXTERNAL SOURCES:
@@ -138,9 +140,10 @@ SPEC CHECKSUMS:
   InstantSearch-Core-Swift: 0cc37cfd832ab67c47907eafc2f9b2a96451ef70
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
+  SpringIndicator: 5ce3e1d8d52124fd4310f7bf32b4106e112b91e2
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   Validator: b1793fbfd0046097551d0edd18e2c30792d69ef5
 
-PODFILE CHECKSUM: 5d71d55d68dd79bc40812759473d9a33dc887bf7
+PODFILE CHECKSUM: 1a6b86ee5ac73a122f854747262f694438d20401
 
 COCOAPODS: 1.2.1
