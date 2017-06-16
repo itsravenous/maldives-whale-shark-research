@@ -14,12 +14,10 @@ class PhotoInformationViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var timestampLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
-
-
+    
     // MARK: - View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
     
     // MARK: - Status Bar Hidden
@@ -66,14 +64,20 @@ class PhotoInformationViewController: UIViewController {
     }
     
     
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "infoToEditSegue" {
+            let editPhotoVC = segue.destination as! EditPhotoInformationViewController
+            editPhotoVC.newImage = self.imageView.image
+        } else if segue.identifier == "infoToReportSegue" {
+            let reportPhotoVC = segue.destination as! ReportEncounterViewController
+            reportPhotoVC.selectedImage = self.imageView.image
+        }
+        
     }
-    */
 
 }

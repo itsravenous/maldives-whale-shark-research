@@ -37,13 +37,11 @@ class ComparisonProgressViewController: UIViewController {
     // MARK: - Actions
     @IBAction func cancelButtonPressed(_ sender: UIButton) {
         // Set up alert prior to cancel
-        let alert = UIAlertController(title: "Cancel Upload", message: "Are you sure you want to cancel your Whale Shark upload?", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "No, Continue Upload", style: UIAlertActionStyle.cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "Yes, Cancel Upload", style: UIAlertActionStyle.default, handler: { (action) in
-            
-            // If user has confirmed dismiss view
+        let alert = UIAlertController(title: "Cancel Comparison", message: "Are you sure you want to stop the comparison?", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Stop", style: UIAlertActionStyle.destructive, handler: { (action) in
             self.dismiss(animated: true, completion: nil)
         }))
+        alert.addAction(UIAlertAction(title: "Continue", style: UIAlertActionStyle.default, handler: nil))
         
         // Present the alert
         self.present(alert, animated: true, completion: nil)

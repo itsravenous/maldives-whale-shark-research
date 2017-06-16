@@ -24,6 +24,11 @@ PODS:
   - Bolts/Tasks (1.8.4)
   - BTNavigationDropdownMenu (0.4.1)
   - BWWalkthrough (2.1.0)
+  - DKImagePickerController (3.5.5):
+    - DKImagePickerController/Camera (= 3.5.5)
+    - DKImagePickerController/ImageManager (= 3.5.5)
+  - DKImagePickerController/Camera (3.5.5)
+  - DKImagePickerController/ImageManager (3.5.5)
   - FBSDKCoreKit (4.23.0):
     - Bolts (~> 1.7)
   - FBSDKLoginKit (4.18.0):
@@ -79,7 +84,6 @@ PODS:
     - SDWebImage/Core (= 4.0.0)
   - SDWebImage/Core (4.0.0)
   - Spring (1.0.3)
-  - SpringIndicator (1.5.0)
   - SwiftyJSON (3.1.4)
   - Validator (2.1.1)
 
@@ -89,6 +93,7 @@ DEPENDENCIES:
   - BetterSegmentedControl
   - BTNavigationDropdownMenu (from `https://github.com/PhamBaTho/BTNavigationDropdownMenu.git`, branch `swift-3.0`)
   - BWWalkthrough
+  - DKImagePickerController
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
@@ -98,7 +103,6 @@ DEPENDENCIES:
   - InstantSearch-Core-Swift (~> 1.0)
   - SDWebImage
   - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift3`)
-  - SpringIndicator
   - SwiftyJSON
 
 EXTERNAL SOURCES:
@@ -124,6 +128,7 @@ SPEC CHECKSUMS:
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   BTNavigationDropdownMenu: 093f3cbfad1572f2c222bdf8d17584d1e13380d4
   BWWalkthrough: 188408f55b951725ccfd4faa8dab5c577b57c7a9
+  DKImagePickerController: 16f28d10f4384d8c582aa05baab26fc75432a41d
   FBSDKCoreKit: d7829f5a69901cd7296105328e4c3c3fc7da6518
   FBSDKLoginKit: 6773073e970b2b15fb12e451ce7f11da0532b880
   Firebase: 284eea779b73fdff309791817da7c68bff8dd572
@@ -140,10 +145,9 @@ SPEC CHECKSUMS:
   InstantSearch-Core-Swift: 0cc37cfd832ab67c47907eafc2f9b2a96451ef70
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
-  SpringIndicator: 5ce3e1d8d52124fd4310f7bf32b4106e112b91e2
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   Validator: b1793fbfd0046097551d0edd18e2c30792d69ef5
 
-PODFILE CHECKSUM: 1a6b86ee5ac73a122f854747262f694438d20401
+PODFILE CHECKSUM: 127d8ff7c060fbd935a8988087cee2eb18493f93
 
 COCOAPODS: 1.2.1

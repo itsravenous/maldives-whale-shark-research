@@ -34,6 +34,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>DKImagePickerController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>FBSDKCoreKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -94,11 +99,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>SpringIndicator.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>SwiftyJSON.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -112,7 +112,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>004B8134356CB5D6BFB72CFCC93161C0</key>
+		<key>0016661F2D0B32C2F76059C2B9980224</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -122,17 +122,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>223AFF0B8C278AF8F43223A14E11CDA7</key>
+		<key>1CCE8C422380E843E71775B95967F312</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>2E13B5BED48305DAFCA2C71A8E98913B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>37B361D932BB46DB03B493D2A7BCC10E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -157,17 +152,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7B2BE0E02A64FC8AAFCEAE86506E7A8F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>9889562781163BF5CB84E06A985BCE44</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>A52524E727A97710A55D0EDA55BB7CFE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B379DEEE5A10D0E8B8CE875A39D0F3F8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B3C0EA1CD659EFF38489BB82969C2D1F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -197,7 +197,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D30D963A71A3E32481149EA39B066E69</key>
+		<key>D29ECE69EF439D1FF5B5E9EB40FDFFE0</key>
 		<dict>
 			<key>primary</key>
 			<true/>

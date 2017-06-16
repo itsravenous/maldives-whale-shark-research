@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Photos
+import DKImagePickerController
 
 class ComparisonResultsViewController: UIViewController {
 
@@ -39,6 +41,26 @@ class ComparisonResultsViewController: UIViewController {
         
     }
 
+    @IBAction func confirmMatchButtonPressed(_ sender: UIButton) {
+        // Set up alert prior to logout
+        let alert = UIAlertController(title: "Any more photos?", message: "Add more photos of your encounter to help identify the shark.", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "No photos", style: UIAlertActionStyle.cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Select Photos", style: UIAlertActionStyle.default, handler: { (action) in
+            
+            let pickerController = DKImagePickerController()
+            
+            pickerController.didSelectAssets = { (assets: [DKAsset]) in
+                print("didSelectAssets")
+                print(assets)
+            }
+            
+            self.present(pickerController, animated: true) {}
+            
+        }))
+        
+        // Present the alert
+        self.present(alert, animated: true, completion: nil)
+    }
     /*
     // MARK: - Navigation
 

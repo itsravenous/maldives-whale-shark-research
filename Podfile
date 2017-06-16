@@ -19,6 +19,7 @@ target 'MaldivesWhaleSharkResearch' do
   pod 'SwiftyJSON'
   pod 'AFNetworking'
   pod 'Fusuma'
+  pod 'DKImagePickerController'
   
   # Pods for MaldivesWhaleSharkResearch
 

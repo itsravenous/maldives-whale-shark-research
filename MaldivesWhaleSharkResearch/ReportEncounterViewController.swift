@@ -9,7 +9,7 @@
 import UIKit
 
 class ReportEncounterViewController: UIViewController, UIScrollViewDelegate {
-
+    
     // MARK: - Outlets
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -19,17 +19,19 @@ class ReportEncounterViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var refPointImage: UIImageView!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var doneButton: UIBarButtonItem!
-
+    
     
     // MARK: - Properties
     var refs1 :[[Double]] = []
     var spots1 :[[Double]] = []
     var counter = 0
     var pageCounter = 1
+    var selectedImage: UIImage!
     
     // MARK: - View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
+        sharkImage.image = selectedImage
         self.navigationController?.navigationBar.titleTextAttributes = [
             NSFontAttributeName: UIFont(name: "MuseoSans-500", size: 17)!,
             NSForegroundColorAttributeName: UIColor.white
@@ -45,6 +47,7 @@ class ReportEncounterViewController: UIViewController, UIScrollViewDelegate {
         
         self.sharkImage.isUserInteractionEnabled = true
         self.sharkImage.addGestureRecognizer(tapGestureRecognizer)
+        
 
     }
     
@@ -136,18 +139,20 @@ class ReportEncounterViewController: UIViewController, UIScrollViewDelegate {
     // MARK: - Actions
     @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
         print("Done button pushed: Run Comparison")
+        self.containerView.isHidden = false
+
     }
     
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

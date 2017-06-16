@@ -18,9 +18,13 @@ class EditPhotoInformationViewController: UIViewController {
     @IBOutlet weak var dateButton: UIButton!
     @IBOutlet weak var locationButton: UIButton!
     
+    // MARK: - Properties
+    var newImage: UIImage!
+        
     // MARK: - View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
+        imageView.image = newImage
         datePicker.setValue(UIColor.white, forKey: "textColor")
         dateButton.setTitleColor(UIColor(red: 80.0/255.0, green: 191.0/255.0, blue: 195.0/255.0, alpha: 1), for: .normal)
         mapView.isHidden = true
