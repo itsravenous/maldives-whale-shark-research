@@ -328,7 +328,7 @@
                                         <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="done" id="1aH-qd-0UK">
                                             <connections>
                                                 <action selector="doneButtonPressed:" destination="i2U-ok-jmi" id="bZs-io-gho"/>
-                                                <segue destination="CHT-TN-lry" kind="presentation" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="5f8-QN-mE7"/>
+                                                <segue destination="CHT-TN-lry" kind="presentation" identifier="reportToComparisonSegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="5f8-QN-mE7"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -441,7 +441,7 @@
                                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yCa-p3-iDY" customClass="DesignableView" customModule="Spring">
                                             <rect key="frame" x="37" y="179" width="300" height="310"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="yjg-Iu-2Yg" customClass="DesignableImageView" customModule="Spring">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="yjg-Iu-2Yg">
                                                     <rect key="frame" x="0.0" y="0.0" width="300" height="210"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="210" id="UU0-2J-uDL"/>
@@ -510,6 +510,8 @@
                     <connections>
                         <outlet property="blurView" destination="id1-92-zet" id="RUG-sy-i6V"/>
                         <outlet property="comparisonProgressBar" destination="cI3-3a-G6A" id="z2a-H4-s46"/>
+                        <outlet property="sharkImage" destination="yjg-Iu-2Yg" id="Tvi-KL-kAO"/>
+                        <segue destination="ILo-a1-6fC" kind="presentation" identifier="comparisonToResultsSegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="lpR-Ih-hU4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JE3-4M-6JV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -536,7 +538,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J1K-kr-bWU">
-                                <rect key="frame" x="20" y="20" width="22" height="22"/>
+                                <rect key="frame" x="20" y="40" width="22" height="22"/>
                                 <state key="normal" image="cancel-button"/>
                                 <connections>
                                     <action selector="cancelButtonPressed:" destination="ILo-a1-6fC" eventType="touchUpInside" id="i6H-UN-Der"/>
@@ -555,7 +557,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="bk3-aD-tjx">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="bk3-aD-tjx" customClass="SharkInfoCollectionViewCell" customModule="MaldivesWhaleSharkResearch" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="6" width="120" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -586,6 +588,10 @@
                                             <constraint firstItem="cMJ-ca-OjI" firstAttribute="centerY" secondItem="bk3-aD-tjx" secondAttribute="centerY" id="ZZn-lM-lT6"/>
                                             <constraint firstItem="cMJ-ca-OjI" firstAttribute="centerX" secondItem="bk3-aD-tjx" secondAttribute="centerX" id="xg2-1p-Xn1"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="sharkIDLabel" destination="OIX-S5-Sta" id="0L8-zE-8Cf"/>
+                                            <outlet property="sharkNameLabel" destination="5mp-Cq-wew" id="Qnf-As-RWI"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -630,7 +636,7 @@
                         <constraints>
                             <constraint firstItem="cQC-NL-uI3" firstAttribute="leading" secondItem="ftl-jj-DBu" secondAttribute="leading" id="61f-V2-Y0R"/>
                             <constraint firstItem="J1K-kr-bWU" firstAttribute="leading" secondItem="ftl-jj-DBu" secondAttribute="leading" constant="20" id="B8l-u5-7BK"/>
-                            <constraint firstItem="J1K-kr-bWU" firstAttribute="top" secondItem="yWy-Vc-Rqt" secondAttribute="bottom" id="DTR-ye-AZM"/>
+                            <constraint firstItem="J1K-kr-bWU" firstAttribute="top" secondItem="yWy-Vc-Rqt" secondAttribute="bottom" constant="20" id="DTR-ye-AZM"/>
                             <constraint firstItem="IMu-S7-REF" firstAttribute="leading" secondItem="ftl-jj-DBu" secondAttribute="leading" id="GoK-NH-jio"/>
                             <constraint firstItem="X7f-uQ-lcf" firstAttribute="leading" secondItem="ftl-jj-DBu" secondAttribute="leading" id="JEy-4a-1Vu"/>
                             <constraint firstItem="X7f-uQ-lcf" firstAttribute="top" secondItem="ftl-jj-DBu" secondAttribute="top" id="Pj6-EE-fWy"/>

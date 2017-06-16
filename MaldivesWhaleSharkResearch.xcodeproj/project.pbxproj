@@ -43,6 +43,7 @@
 		04660F8E1EDF2E9000E2A257 /* Cluster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04660F8A1EDF2E9000E2A257 /* Cluster.swift */; };
 		04660F8F1EDF2E9000E2A257 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04660F8B1EDF2E9000E2A257 /* Extensions.swift */; };
 		04660F901EDF2E9000E2A257 /* QuadTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04660F8C1EDF2E9000E2A257 /* QuadTree.swift */; };
+		0496F9191EF4793100E68F2F /* SharkInfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0496F9181EF4793100E68F2F /* SharkInfoCollectionViewCell.swift */; };
 		04A0D8A91EB882FE00B8EC63 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A0D8A81EB882FE00B8EC63 /* SignInViewController.swift */; };
 		04A7E5E51EE66F080069F6FB /* ReportEncounterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A7E5E41EE66F080069F6FB /* ReportEncounterViewController.swift */; };
 		04A7E5E71EE6A3FA0069F6FB /* ComparisonProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A7E5E61EE6A3FA0069F6FB /* ComparisonProgressViewController.swift */; };
@@ -126,6 +127,7 @@
 		04660F8A1EDF2E9000E2A257 /* Cluster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cluster.swift; sourceTree = "<group>"; };
 		04660F8B1EDF2E9000E2A257 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		04660F8C1EDF2E9000E2A257 /* QuadTree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuadTree.swift; sourceTree = "<group>"; };
+		0496F9181EF4793100E68F2F /* SharkInfoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharkInfoCollectionViewCell.swift; sourceTree = "<group>"; };
 		04A0D8A81EB882FE00B8EC63 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		04A7E5E41EE66F080069F6FB /* ReportEncounterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportEncounterViewController.swift; sourceTree = "<group>"; };
 		04A7E5E61EE6A3FA0069F6FB /* ComparisonProgressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComparisonProgressViewController.swift; sourceTree = "<group>"; };
@@ -317,6 +319,7 @@
 				04A7E5E41EE66F080069F6FB /* ReportEncounterViewController.swift */,
 				04A7E5E61EE6A3FA0069F6FB /* ComparisonProgressViewController.swift */,
 				04A7E5EC1EE6EB9A0069F6FB /* ComparisonResultsViewController.swift */,
+				0496F9181EF4793100E68F2F /* SharkInfoCollectionViewCell.swift */,
 			);
 			name = PhotoUpload;
 			sourceTree = "<group>";
@@ -757,6 +760,7 @@
 				04660F8F1EDF2E9000E2A257 /* Extensions.swift in Sources */,
 				04660F8D1EDF2E9000E2A257 /* Annotation.swift in Sources */,
 				042776B51EB8B71100D505C5 /* WhaleShark.swift in Sources */,
+				0496F9191EF4793100E68F2F /* SharkInfoCollectionViewCell.swift in Sources */,
 				04B95E9D1ED0987C00217DE4 /* Stats.swift in Sources */,
 				04CEF2FD1EAB19550057A119 /* MaldivesWhaleSharkResearch.xcdatamodeld in Sources */,
 				04A7E5EF1EE721F00069F6FB /* SegueFromRight.swift in Sources */,
