@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '7E578E146833132BE80B916DF4390314'
-               BlueprintName = 'CenteredCollectionView'
+               BlueprintIdentifier = 'D333807844B9146A9677BAAC7A2FC9D9'
+               BlueprintName = 'UPCarouselFlowLayout'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'CenteredCollectionView.framework'>
+               BuildableName = 'UPCarouselFlowLayout.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

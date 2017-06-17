@@ -11,8 +11,6 @@ import UIKit
 class SharkInfoCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Outlets
-    @IBOutlet weak var sharkNameLabel: UILabel!
-    @IBOutlet weak var sharkIDLabel: UILabel!
-    
+    @IBOutlet weak var sharkImage: UIImageView!
     
 }

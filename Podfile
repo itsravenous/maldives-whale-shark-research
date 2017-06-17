@@ -20,7 +20,7 @@ target 'MaldivesWhaleSharkResearch' do
   pod 'AFNetworking'
   pod 'Fusuma'
   pod 'DKImagePickerController'
-  pod 'CenteredCollectionView'
+  pod 'UPCarouselFlowLayout'
   
   # Pods for MaldivesWhaleSharkResearch
 

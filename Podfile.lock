@@ -24,7 +24,6 @@ PODS:
   - Bolts/Tasks (1.8.4)
   - BTNavigationDropdownMenu (0.4.1)
   - BWWalkthrough (2.1.0)
-  - CenteredCollectionView (0.9.9)
   - DKImagePickerController (3.5.5):
     - DKImagePickerController/Camera (= 3.5.5)
     - DKImagePickerController/ImageManager (= 3.5.5)
@@ -86,6 +85,7 @@ PODS:
   - SDWebImage/Core (4.0.0)
   - Spring (1.0.3)
   - SwiftyJSON (3.1.4)
+  - UPCarouselFlowLayout (1.1.1)
   - Validator (2.1.1)
 
 DEPENDENCIES:
@@ -94,7 +94,6 @@ DEPENDENCIES:
   - BetterSegmentedControl
   - BTNavigationDropdownMenu (from `https://github.com/PhamBaTho/BTNavigationDropdownMenu.git`, branch `swift-3.0`)
   - BWWalkthrough
-  - CenteredCollectionView
   - DKImagePickerController
   - Firebase/Auth
   - Firebase/Core
@@ -106,6 +105,7 @@ DEPENDENCIES:
   - SDWebImage
   - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift3`)
   - SwiftyJSON
+  - UPCarouselFlowLayout
 
 EXTERNAL SOURCES:
   BTNavigationDropdownMenu:
@@ -130,7 +130,6 @@ SPEC CHECKSUMS:
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   BTNavigationDropdownMenu: 093f3cbfad1572f2c222bdf8d17584d1e13380d4
   BWWalkthrough: 188408f55b951725ccfd4faa8dab5c577b57c7a9
-  CenteredCollectionView: 131a841da9fc7f783a24eea90fd361bc08699c5f
   DKImagePickerController: 16f28d10f4384d8c582aa05baab26fc75432a41d
   FBSDKCoreKit: d7829f5a69901cd7296105328e4c3c3fc7da6518
   FBSDKLoginKit: 6773073e970b2b15fb12e451ce7f11da0532b880
@@ -149,8 +148,9 @@ SPEC CHECKSUMS:
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+  UPCarouselFlowLayout: 02045c1505d63057fba3d9975be880a8d16bf17d
   Validator: b1793fbfd0046097551d0edd18e2c30792d69ef5
 
-PODFILE CHECKSUM: d79a034a5c0702127a0c059d8e033207eb5500a0
+PODFILE CHECKSUM: e12d361183387e72758506f7d3b51a4f98a551f1
 
 COCOAPODS: 1.2.1

@@ -34,11 +34,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>CenteredCollectionView.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>DKImagePickerController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -109,6 +104,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>UPCarouselFlowLayout.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Validator.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -117,17 +117,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0BB48FDF5B381815F9BBBF96858335E1</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>107A9565F9DF88517DFD3E28C05B2B96</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>185C7ABA697124D66CEF25E1FBE490DD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -152,7 +142,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6BB84D16130DAC83294170EA5281C0D8</key>
+		<key>5F4E70EB72ABD2F6FB68540E6E052433</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -162,17 +152,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7E578E146833132BE80B916DF4390314</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>9889562781163BF5CB84E06A985BCE44</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9F9E2ACFC8A291D80AD28AC9AC6D0611</key>
+		<key>9E951B4B336BE5E46F4AAE6E8BD5D1D3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -182,7 +167,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>A721F1D5242573ED144460786EA00D31</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>BC5000D645EEAF961C85907CDC796FE1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BD9ADBFDE71BD02D09E87CFA41A1B48D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -208,6 +203,11 @@
 			<true/>
 		</dict>
 		<key>D29ECE69EF439D1FF5B5E9EB40FDFFE0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D333807844B9146A9677BAAC7A2FC9D9</key>
 		<dict>
 			<key>primary</key>
 			<true/>

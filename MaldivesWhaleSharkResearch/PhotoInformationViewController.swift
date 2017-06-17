@@ -37,8 +37,8 @@ class PhotoInformationViewController: UIViewController {
     @IBAction func closeButtonPressed(_ sender: UIButton) {
         // Set up alert prior to cancel
         let alert = UIAlertController(title: "Cancel Upload", message: "Are you sure you want to cancel your Whale Shark upload?", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "No, Continue Upload", style: UIAlertActionStyle.cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "Yes, Cancel Upload", style: UIAlertActionStyle.default, handler: { (action) in
+        alert.addAction(UIAlertAction(title: "No, Continue Upload", style: UIAlertActionStyle.default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Yes, Cancel Upload", style: UIAlertActionStyle.destructive, handler: { (action) in
             
             // If user has confirmed dismiss view
             self.dismiss(animated: true, completion: nil)
