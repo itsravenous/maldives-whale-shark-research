@@ -110,16 +110,28 @@ class SharkProfileTableViewController: UITableViewController, UICollectionViewDe
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "firstEncounterCell", for: indexPath) as! SharkFirstEncounterTableViewCell
             cell.firstEncounterDateLabel.text = convertDate(encounterDate: shark.firstDate!)
-            cell.firstEncounterLengthLabel.text = shark.firstLength! + " meters"
+            if shark.firstLength == nil {
+                cell.firstEncounterLengthLabel.text = "Unknown"
+            } else {
+                cell.firstEncounterLengthLabel.text = shark.firstLength! + " meters"
+            }
             cell.firstEncounterSeenByLabel.text = shark.firstContributor
-            cell.firstEncounterMapView.setRegion(setLocation(encounterLocation: shark.firstLocation!), animated: false)
+            cell.firstEncounterMapView.setRegion(MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 4.265656, longitude: 72.989937), span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)), animated: false)
+            // Set to real location
+//            cell.firstEncounterMapView.setRegion(setLocation(encounterLocation: shark.firstLocation!), animated: false)
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "lastEncounterCell", for: indexPath) as! SharkLastEncounterTableViewCell
             cell.lastEncounterDateLabel.text = convertDate(encounterDate: shark.lastDate!)
-            cell.lastEncounterLengthLabel.text = shark.lastLength! + " meters"
+            if shark.lastLength == nil {
+                cell.lastEncounterLengthLabel.text = "Unknown"
+            } else {
+                cell.lastEncounterLengthLabel.text = shark.lastLength! + " meters"
+            }
             cell.lastEncounterSeenByLabel.text = shark.lastContributor
-            cell.lastEncounterMapView.setRegion(setLocation(encounterLocation: shark.lastLocation!), animated: false)
+            cell.lastEncounterMapView.setRegion(MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 4.265656, longitude: 72.989937), span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)), animated: false)
+            // Set to real location
+//            cell.lastEncounterMapView.setRegion(setLocation(encounterLocation: shark.lastLocation!), animated: false)
             return cell
         }
 

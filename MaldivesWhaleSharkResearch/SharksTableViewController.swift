@@ -87,7 +87,7 @@ class SharksTableViewController: UITableViewController, UISearchResultsUpdating,
         let shark = WhaleShark(json: sharkHits[indexPath.row])
         cell.sharkNameLabel.text = shark.name
         cell.sharkIDLabel.text = shark.id
-        cell.sharkImageView.sd_setImage(with: URL(string: (shark.media?[0])!))
+        cell.sharkImageView.sd_setImage(with: URL(string: ((shark.media?[0])?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)! ))
         
         cell.backgroundColor = originIsLocal ? AppDelegate.colorForLocalOrigin : UIColor.white
 
