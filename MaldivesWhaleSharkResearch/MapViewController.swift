@@ -50,17 +50,42 @@ class MapViewController: UIViewController {
                 let encounter = Encounter()
                 encounter.sharkName = (restDict["shark_name"] as? String)!
                 encounter.date = (restDict["trip_date"] as? String)!
-                encounter.length = (restDict["length_est"] as? String)!
-                encounter.locationName = (restDict["location_name"] as? String)!
+                encounter.sharkID = (restDict["shark_id"] as? String)!
                 encounter.contributorName = (restDict["contributor"] as? String)!
                 encounter.contributorImage = (restDict["contributor_image"] as? String)!
-                encounter.latitude = (restDict["northing"] as? String)!
-                encounter.longitude = (restDict["easting"] as? String)!
-                encounter.sharkID = (restDict["shark_id"] as? String)!
                 
-                let mediaDict = restDict["media"] as! [[String:Any]]
-                encounter.images = mediaDict.flatMap { $0["thumb_url"] as? String }
-                
+                // Length
+                if restDict["length_est"] != nil {
+                    encounter.length = (restDict["length_est"] as? String)!
+                } else {
+                    encounter.length = "Unknown"
+                }
+                // Location
+                if restDict["location_name"] != nil {
+                    encounter.locationName = (restDict["location_name"] as? String)!
+                } else {
+                    encounter.locationName = "Unknown"
+                }
+                // Northing default to 4.0
+                if restDict["northing"] != nil {
+                    encounter.latitude = (restDict["northing"] as? String)!
+                } else {
+                    encounter.latitude = "4.0"
+                }
+                // Easting default to 72.0
+                if restDict["easting"] != nil {
+                    encounter.longitude = (restDict["easting"] as? String)!
+                } else {
+                    encounter.longitude = "72.0"
+                }
+                // Media
+                if restDict["media"] != nil {
+                    let mediaDict = restDict["media"] as! [[String:Any]]
+                    encounter.images = mediaDict.flatMap { $0["thumb_url"] as? String }
+                } else {
+                    encounter.images = ["http://banqlkcn.baria-vungtau.gov.vn/article_summary-portlet/images/default_small_image.jpg"]
+                }
+
                 self.encounters.append(encounter)
             }
             self.addAnnotationsToMap()

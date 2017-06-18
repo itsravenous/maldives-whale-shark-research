@@ -218,13 +218,29 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
                     encounter.ID = (restDict["id"] as? String)!
                     encounter.sharkName = (restDict["shark_name"] as? String)!
                     encounter.date = (restDict["trip_date"] as? String)!
-                    encounter.length = (restDict["length_est"] as? String)!
-                    encounter.locationName = (restDict["location_name"] as? String)!
+                    if restDict["length_est"] != nil {
+                        encounter.length = (restDict["length_est"] as? String)!
+                    } else {
+                        encounter.length = "Unknown"
+                    }
+                    if restDict["location_name"] != nil {
+                        encounter.locationName = (restDict["location_name"] as? String)!
+                    } else {
+                        encounter.locationName = "Unknown"
+                    }
+//                    encounter.length = (restDict["length_est"] as? String)!
+//                    encounter.locationName = (restDict["location_name"] as? String)!
                     encounter.contributorName = (restDict["contributor"] as? String)!
                     encounter.contributorImage = (restDict["contributor_image"] as? String)!
                     
-                    let mediaDict = restDict["media"] as! [[String:Any]]
-                    encounter.images = mediaDict.flatMap { $0["thumb_url"] as? String }
+                    if restDict["media"] != nil {
+                        let mediaDict = restDict["media"] as! [[String:Any]]
+                        encounter.images = mediaDict.flatMap { $0["thumb_url"] as? String }
+                    } else {
+                        encounter.images = ["http://banqlkcn.baria-vungtau.gov.vn/article_summary-portlet/images/default_small_image.jpg"]
+                    }
+//                    let mediaDict = restDict["media"] as! [[String:Any]]
+//                    encounter.images = mediaDict.flatMap { $0["thumb_url"] as? String }
                     
                     self.encounters.append(encounter)
                 }
