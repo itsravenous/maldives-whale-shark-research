@@ -47,8 +47,18 @@ class ReportEncounterViewController: UIViewController, UIScrollViewDelegate {
         
         self.sharkImage.isUserInteractionEnabled = true
         self.sharkImage.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    func setZoomScale() {
         
-
+        var minZoom = min(scrollView.bounds.size.width / sharkImage!.bounds.size.width, scrollView.bounds.size.height / sharkImage!.bounds.size.height);
+        
+        if (minZoom > 1.0) {
+            minZoom = 1.0;
+        }
+        
+        scrollView.minimumZoomScale = minZoom;
+        scrollView.zoomScale = minZoom;
     }
     
     // MARK: - Status Bar Hidden

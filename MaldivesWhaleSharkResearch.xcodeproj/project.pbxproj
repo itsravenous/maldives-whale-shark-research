@@ -73,6 +73,23 @@
 		3E56C2B650CE78E75CF9C916 /* Pods_MaldivesWhaleSharkResearchUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3813DF1825C1F3F972FDC2F /* Pods_MaldivesWhaleSharkResearchUITests.framework */; };
 		4B567D847252AC37A414B93F /* Pods_MaldivesWhaleSharkResearchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21708BB94A1E1599C3046E70 /* Pods_MaldivesWhaleSharkResearchTests.framework */; };
 		DBA7A76AD185789770831CC2 /* Pods_MaldivesWhaleSharkResearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05069E331F56640F8E911B8D /* Pods_MaldivesWhaleSharkResearch.framework */; };
+		EAE707A41EF7CC8C00688247 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAE707961EF7CC8C00688247 /* Assets.xcassets */; };
+		EAE707A51EF7CC8C00688247 /* FSAlbumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE707971EF7CC8C00688247 /* FSAlbumView.swift */; };
+		EAE707A61EF7CC8C00688247 /* FSAlbumView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAE707981EF7CC8C00688247 /* FSAlbumView.xib */; };
+		EAE707A71EF7CC8C00688247 /* FSAlbumViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE707991EF7CC8C00688247 /* FSAlbumViewCell.swift */; };
+		EAE707A81EF7CC8C00688247 /* FSAlbumViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAE7079A1EF7CC8C00688247 /* FSAlbumViewCell.xib */; };
+		EAE707A91EF7CC8C00688247 /* FSCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE7079B1EF7CC8C00688247 /* FSCameraView.swift */; };
+		EAE707AA1EF7CC8C00688247 /* FSCameraView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAE7079C1EF7CC8C00688247 /* FSCameraView.xib */; };
+		EAE707AB1EF7CC8C00688247 /* FSConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE7079D1EF7CC8C00688247 /* FSConstants.swift */; };
+		EAE707AC1EF7CC8C00688247 /* FSImageCropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE7079E1EF7CC8C00688247 /* FSImageCropView.swift */; };
+		EAE707AD1EF7CC8C00688247 /* FSVideoCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE7079F1EF7CC8C00688247 /* FSVideoCameraView.swift */; };
+		EAE707AE1EF7CC8C00688247 /* FSVideoCameraView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAE707A01EF7CC8C00688247 /* FSVideoCameraView.xib */; };
+		EAE707AF1EF7CC8C00688247 /* FusumaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE707A11EF7CC8C00688247 /* FusumaViewController.swift */; };
+		EAE707B01EF7CC8C00688247 /* FusumaViewController.swift.orig in Resources */ = {isa = PBXBuildFile; fileRef = EAE707A21EF7CC8C00688247 /* FusumaViewController.swift.orig */; };
+		EAE707B11EF7CC8C00688247 /* FusumaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAE707A31EF7CC8C00688247 /* FusumaViewController.xib */; };
+		EAE707B31EF7E1D100688247 /* SharkInfoLabelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE707B21EF7E1D100688247 /* SharkInfoLabelCollectionViewCell.swift */; };
+		EAE707B81EF7E2AF00688247 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EAE707B51EF7E2AF00688247 /* Info.plist */; };
+		EAE707B91EF7E2AF00688247 /* UPCarouselFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE707B71EF7E2AF00688247 /* UPCarouselFlowLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -167,6 +184,24 @@
 		8DB22360E225F6EE928BBBDC /* Pods-MaldivesWhaleSharkResearchTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MaldivesWhaleSharkResearchTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MaldivesWhaleSharkResearchTests/Pods-MaldivesWhaleSharkResearchTests.release.xcconfig"; sourceTree = "<group>"; };
 		B6C2CF165336D275509E38FB /* Pods-MaldivesWhaleSharkResearchUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MaldivesWhaleSharkResearchUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MaldivesWhaleSharkResearchUITests/Pods-MaldivesWhaleSharkResearchUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C3813DF1825C1F3F972FDC2F /* Pods_MaldivesWhaleSharkResearchUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MaldivesWhaleSharkResearchUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EAE707961EF7CC8C00688247 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EAE707971EF7CC8C00688247 /* FSAlbumView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSAlbumView.swift; sourceTree = "<group>"; };
+		EAE707981EF7CC8C00688247 /* FSAlbumView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FSAlbumView.xib; sourceTree = "<group>"; };
+		EAE707991EF7CC8C00688247 /* FSAlbumViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSAlbumViewCell.swift; sourceTree = "<group>"; };
+		EAE7079A1EF7CC8C00688247 /* FSAlbumViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FSAlbumViewCell.xib; sourceTree = "<group>"; };
+		EAE7079B1EF7CC8C00688247 /* FSCameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSCameraView.swift; sourceTree = "<group>"; };
+		EAE7079C1EF7CC8C00688247 /* FSCameraView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FSCameraView.xib; sourceTree = "<group>"; };
+		EAE7079D1EF7CC8C00688247 /* FSConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSConstants.swift; sourceTree = "<group>"; };
+		EAE7079E1EF7CC8C00688247 /* FSImageCropView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSImageCropView.swift; sourceTree = "<group>"; };
+		EAE7079F1EF7CC8C00688247 /* FSVideoCameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSVideoCameraView.swift; sourceTree = "<group>"; };
+		EAE707A01EF7CC8C00688247 /* FSVideoCameraView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FSVideoCameraView.xib; sourceTree = "<group>"; };
+		EAE707A11EF7CC8C00688247 /* FusumaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FusumaViewController.swift; sourceTree = "<group>"; };
+		EAE707A21EF7CC8C00688247 /* FusumaViewController.swift.orig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FusumaViewController.swift.orig; sourceTree = "<group>"; };
+		EAE707A31EF7CC8C00688247 /* FusumaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FusumaViewController.xib; sourceTree = "<group>"; };
+		EAE707B21EF7E1D100688247 /* SharkInfoLabelCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharkInfoLabelCollectionViewCell.swift; sourceTree = "<group>"; };
+		EAE707B51EF7E2AF00688247 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EAE707B61EF7E2AF00688247 /* UPCarouselFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPCarouselFlowLayout.h; sourceTree = "<group>"; };
+		EAE707B71EF7E2AF00688247 /* UPCarouselFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UPCarouselFlowLayout.swift; sourceTree = "<group>"; };
 		EB5842BBE278F730E30579EA /* Pods-MaldivesWhaleSharkResearchTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MaldivesWhaleSharkResearchTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MaldivesWhaleSharkResearchTests/Pods-MaldivesWhaleSharkResearchTests.debug.xcconfig"; sourceTree = "<group>"; };
 		EE3C012FC0E5EF7D6D7639F1 /* Pods-MaldivesWhaleSharkResearchUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MaldivesWhaleSharkResearchUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MaldivesWhaleSharkResearchUITests/Pods-MaldivesWhaleSharkResearchUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -299,6 +334,8 @@
 		04660F7F1EDF2D8F00E2A257 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				EAE707B41EF7E2AF00688247 /* UPCarouselFlowLayout */,
+				EAE707951EF7CC8C00688247 /* Fusuma */,
 				04660F801EDF2DB100E2A257 /* Cluster */,
 			);
 			name = Libraries;
@@ -326,6 +363,7 @@
 				0496F9181EF4793100E68F2F /* SharkInfoCollectionViewCell.swift */,
 				0496F91A1EF56DA700E68F2F /* UploadResultsViewController.swift */,
 				0496F91C1EF5798E00E68F2F /* UploadConfirmationViewController.swift */,
+				EAE707B21EF7E1D100688247 /* SharkInfoLabelCollectionViewCell.swift */,
 			);
 			name = PhotoUpload;
 			sourceTree = "<group>";
@@ -444,6 +482,39 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		EAE707951EF7CC8C00688247 /* Fusuma */ = {
+			isa = PBXGroup;
+			children = (
+				EAE707961EF7CC8C00688247 /* Assets.xcassets */,
+				EAE707971EF7CC8C00688247 /* FSAlbumView.swift */,
+				EAE707981EF7CC8C00688247 /* FSAlbumView.xib */,
+				EAE707991EF7CC8C00688247 /* FSAlbumViewCell.swift */,
+				EAE7079A1EF7CC8C00688247 /* FSAlbumViewCell.xib */,
+				EAE7079B1EF7CC8C00688247 /* FSCameraView.swift */,
+				EAE7079C1EF7CC8C00688247 /* FSCameraView.xib */,
+				EAE7079D1EF7CC8C00688247 /* FSConstants.swift */,
+				EAE7079E1EF7CC8C00688247 /* FSImageCropView.swift */,
+				EAE7079F1EF7CC8C00688247 /* FSVideoCameraView.swift */,
+				EAE707A01EF7CC8C00688247 /* FSVideoCameraView.xib */,
+				EAE707A11EF7CC8C00688247 /* FusumaViewController.swift */,
+				EAE707A21EF7CC8C00688247 /* FusumaViewController.swift.orig */,
+				EAE707A31EF7CC8C00688247 /* FusumaViewController.xib */,
+			);
+			name = Fusuma;
+			path = Library/Fusuma;
+			sourceTree = "<group>";
+		};
+		EAE707B41EF7E2AF00688247 /* UPCarouselFlowLayout */ = {
+			isa = PBXGroup;
+			children = (
+				EAE707B51EF7E2AF00688247 /* Info.plist */,
+				EAE707B61EF7E2AF00688247 /* UPCarouselFlowLayout.h */,
+				EAE707B71EF7E2AF00688247 /* UPCarouselFlowLayout.swift */,
+			);
+			name = UPCarouselFlowLayout;
+			path = Library/UPCarouselFlowLayout;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -521,7 +592,7 @@
 				TargetAttributes = {
 					04CEF2F01EAB19550057A119 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = ERF7V8C7KW;
+						DevelopmentTeam = 3BGR2N5FX6;
 						ProvisioningStyle = Automatic;
 					};
 					04CEF3071EAB19550057A119 = {
@@ -563,10 +634,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAE707AE1EF7CC8C00688247 /* FSVideoCameraView.xib in Resources */,
 				041A467E1EB4750B00DF749C /* MuseoSans_500.otf in Resources */,
+				EAE707B81EF7E2AF00688247 /* Info.plist in Resources */,
+				EAE707A61EF7CC8C00688247 /* FSAlbumView.xib in Resources */,
+				EAE707AA1EF7CC8C00688247 /* FSCameraView.xib in Resources */,
 				041A46801EB4752600DF749C /* Museo300-Regular.otf in Resources */,
+				EAE707B11EF7CC8C00688247 /* FusumaViewController.xib in Resources */,
+				EAE707A41EF7CC8C00688247 /* Assets.xcassets in Resources */,
 				04CEF3021EAB19550057A119 /* LaunchScreen.storyboard in Resources */,
 				042DBBE31EBF434200DA93B6 /* whalesharkvideo.mp4 in Resources */,
+				EAE707A81EF7CC8C00688247 /* FSAlbumViewCell.xib in Resources */,
+				EAE707B01EF7CC8C00688247 /* FusumaViewController.swift.orig in Resources */,
 				042DBC061EC84FBF00DA93B6 /* UploadPicture.storyboard in Resources */,
 				04CEF3261EAB198F0057A119 /* GoogleService-Info.plist in Resources */,
 				04AFC9491EB33513001C738F /* Walkthrough.storyboard in Resources */,
@@ -607,7 +686,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		542F20B4AF5A3148EBF9F6DB /* [CP] Embed Pods Frameworks */ = {
@@ -667,7 +746,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		CF696D94D3C523F50385DC01 /* [CP] Embed Pods Frameworks */ = {
@@ -727,7 +806,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -738,15 +817,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				04A7E5ED1EE6EB9A0069F6FB /* ComparisonResultsViewController.swift in Sources */,
+				EAE707A51EF7CC8C00688247 /* FSAlbumView.swift in Sources */,
 				04660F901EDF2E9000E2A257 /* QuadTree.swift in Sources */,
 				042DBBD41EBE08AE00DA93B6 /* WeekViewController.swift in Sources */,
 				042776B71EB8B9FC00D505C5 /* Encounter.swift in Sources */,
 				04A7E5E91EE6B6CA0069F6FB /* PhotoInformationViewController.swift in Sources */,
+				EAE707B91EF7E2AF00688247 /* UPCarouselFlowLayout.swift in Sources */,
+				EAE707B31EF7E1D100688247 /* SharkInfoLabelCollectionViewCell.swift in Sources */,
 				042DBBF81EC1939600DA93B6 /* SharkImageCollectionViewCell.swift in Sources */,
 				04E19F191EDA9A4600E4BB22 /* AlgoliaManager.swift in Sources */,
 				042DBBE91EC0B7FA00DA93B6 /* SettingsViewController.swift in Sources */,
 				041A46861EB5CB7100DF749C /* EncounterDetailViewController.swift in Sources */,
 				04A7E5EB1EE6B6EB0069F6FB /* EditPhotoInformationViewController.swift in Sources */,
+				EAE707AC1EF7CC8C00688247 /* FSImageCropView.swift in Sources */,
 				041A46821EB4858E00DF749C /* EncounterTableViewCell.swift in Sources */,
 				042DBBEB1EC0C7AA00DA93B6 /* SharksTableViewController.swift in Sources */,
 				04EBB5611EB88A6A008D5B4C /* AboutViewController.swift in Sources */,
@@ -762,6 +845,7 @@
 				042DBC001EC1A0AD00DA93B6 /* SharkImagesTableViewCell.swift in Sources */,
 				04A0D8A91EB882FE00B8EC63 /* SignInViewController.swift in Sources */,
 				043C34301EB46A1F00D52BB8 /* EncountersTableViewController.swift in Sources */,
+				EAE707A91EF7CC8C00688247 /* FSCameraView.swift in Sources */,
 				042DBBFE1EC1958000DA93B6 /* SharkLastEncounterTableViewCell.swift in Sources */,
 				04660F8F1EDF2E9000E2A257 /* Extensions.swift in Sources */,
 				04660F8D1EDF2E9000E2A257 /* Annotation.swift in Sources */,
@@ -773,16 +857,20 @@
 				042DBBFA1EC1956600DA93B6 /* SharkDescriptionTableViewCell.swift in Sources */,
 				042DBBDF1EBE9E9400DA93B6 /* BFNViewController.swift in Sources */,
 				042DBBD61EBE08BB00DA93B6 /* MonthViewController.swift in Sources */,
+				EAE707AF1EF7CC8C00688247 /* FusumaViewController.swift in Sources */,
 				04A7E5F31EE742830069F6FB /* Shark.swift in Sources */,
 				04A7E5E71EE6A3FA0069F6FB /* ComparisonProgressViewController.swift in Sources */,
 				042DBBDD1EBE9E4800DA93B6 /* MWSRPViewController.swift in Sources */,
 				042776B11EB8B1C900D505C5 /* User.swift in Sources */,
+				EAE707AD1EF7CC8C00688247 /* FSVideoCameraView.swift in Sources */,
 				042DBBD81EBE08C700DA93B6 /* AllTimeViewController.swift in Sources */,
 				042FF0691EB9E2EE00C7E390 /* StatsViewController.swift in Sources */,
 				0496F91B1EF56DA700E68F2F /* UploadResultsViewController.swift in Sources */,
 				0496F91D1EF5798E00E68F2F /* UploadConfirmationViewController.swift in Sources */,
 				04CEF2F51EAB19550057A119 /* AppDelegate.swift in Sources */,
+				EAE707A71EF7CC8C00688247 /* FSAlbumViewCell.swift in Sources */,
 				042DBBDB1EBE11C600DA93B6 /* MapViewController.swift in Sources */,
+				EAE707AB1EF7CC8C00688247 /* FSConstants.swift in Sources */,
 				042DBBF01EC0C9C300DA93B6 /* SharkTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -938,10 +1026,11 @@
 			baseConfigurationReference = 64E6BF5ADE52B1D1E72C0A48 /* Pods-MaldivesWhaleSharkResearch.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = ERF7V8C7KW;
+				DEVELOPMENT_TEAM = 3BGR2N5FX6;
 				INFOPLIST_FILE = MaldivesWhaleSharkResearch/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dooddevelopments.MaldivesWhaleSharkResearch;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dooddevelopments.MaldivesWhaleSharkResearch.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -952,10 +1041,11 @@
 			baseConfigurationReference = 0E3ED0F2E41A9A04FA2C636F /* Pods-MaldivesWhaleSharkResearch.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = ERF7V8C7KW;
+				DEVELOPMENT_TEAM = 3BGR2N5FX6;
 				INFOPLIST_FILE = MaldivesWhaleSharkResearch/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dooddevelopments.MaldivesWhaleSharkResearch;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dooddevelopments.MaldivesWhaleSharkResearch.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

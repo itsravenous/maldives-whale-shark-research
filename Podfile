@@ -18,7 +18,6 @@ target 'MaldivesWhaleSharkResearch' do
   pod 'InstantSearch-Core-Swift', '~> 1.0'
   pod 'SwiftyJSON'
   pod 'AFNetworking'
-  pod 'Fusuma'
   pod 'DKImagePickerController'
   pod 'UPCarouselFlowLayout'
   

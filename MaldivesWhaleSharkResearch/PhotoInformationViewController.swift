@@ -7,14 +7,54 @@
 //
 
 import UIKit
+import CoreLocation
 
-class PhotoInformationViewController: UIViewController {
+class PhotoInformationViewController: UIViewController,EditPhotoDelegate {
     
     // MARK: - Outlets
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var timestampLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     
+    var location: CLLocation?{
+        didSet{
+            if let location = location{
+                let geocoder = CLGeocoder()
+                geocoder.reverseGeocodeLocation(location) { (placemarksArray, error) in
+                    if (placemarksArray?.count)! > 0 {
+                        
+                        let placemark = placemarksArray?.first
+                        var string = String()
+                        
+                        if let state = placemark!.administrativeArea{
+                            string.append(state)
+                        }
+                        if let city = placemark!.locality{
+                            string.append(": \(city)")
+                        }else{
+                            if let subcity = placemark!.subLocality{
+                                string.append(": \(subcity)")
+                            }
+                        }
+                        self.locationLabel.text = string
+                    }
+                }
+            }else{
+                locationLabel.text = ""
+            }
+        }
+    }
+    var photoDate: Date? {
+        didSet {
+            if let date = photoDate{
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-dd-MM"
+                let dateString = dateFormatter.string(from: date)
+                timestampLabel.text = dateString
+            }
+        }
+    }
+
     // MARK: - View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,6 +103,11 @@ class PhotoInformationViewController: UIViewController {
     @IBAction func savePhotoInfo(segue:UIStoryboardSegue) {
     }
     
+    // MARK: - Edit Info Delegate
+    func informationEdited(_ location: CLLocation?, photoDate: Date?) {
+        self.location = location
+        self.photoDate = photoDate
+    }
     
     // MARK: - Navigation
 
@@ -73,6 +118,9 @@ class PhotoInformationViewController: UIViewController {
         if segue.identifier == "infoToEditSegue" {
             let editPhotoVC = segue.destination as! EditPhotoInformationViewController
             editPhotoVC.newImage = self.imageView.image
+            editPhotoVC.location = location
+            editPhotoVC.photoDate = photoDate
+            editPhotoVC.delegate = self
         } else if segue.identifier == "infoToReportSegue" {
             let reportPhotoVC = segue.destination as! ReportEncounterViewController
             reportPhotoVC.selectedImage = self.imageView.image

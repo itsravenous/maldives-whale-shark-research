@@ -63,7 +63,6 @@ PODS:
     - FirebaseAnalytics (~> 4.0)
     - FirebaseCore (~> 4.0)
     - GTMSessionFetcher/Core (~> 1.1)
-  - Fusuma (1.0.3)
   - GoogleToolboxForMac/DebugUtils (2.1.1):
     - GoogleToolboxForMac/Defines (= 2.1.1)
   - GoogleToolboxForMac/Defines (2.1.1)
@@ -99,7 +98,6 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Database
   - Firebase/Storage
-  - Fusuma
   - ILLoginKit
   - InstantSearch-Core-Swift (~> 1.0)
   - SDWebImage
@@ -140,7 +138,6 @@ SPEC CHECKSUMS:
   FirebaseDatabase: d829b3a8c3e2ac7a16773c5df226966b0805dfc2
   FirebaseInstanceID: 9fbf536668f4d3f0880e7438456dabd1376e294b
   FirebaseStorage: 8110a1ed2034c8fbfd83890d2acc9cdbbd99afec
-  Fusuma: 60ed1dd51a3b3610960219df9862c83f03304ce1
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMSessionFetcher: 30d874b96d0d76028f61fbd122801e3f030d47db
   ILLoginKit: ff473712662d92448553967d412ba201e61fbad0
@@ -151,6 +148,6 @@ SPEC CHECKSUMS:
   UPCarouselFlowLayout: 02045c1505d63057fba3d9975be880a8d16bf17d
   Validator: b1793fbfd0046097551d0edd18e2c30792d69ef5
 
-PODFILE CHECKSUM: e12d361183387e72758506f7d3b51a4f98a551f1
+PODFILE CHECKSUM: b94b3b301859b6271dce7b277c1bc6f8fcfcfa1a
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.1.1
