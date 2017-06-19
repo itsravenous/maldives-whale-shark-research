@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>AlgoliaApiKey</key>
+	<string>db721e8c40670ece6c6e4e2f7fc6e427</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -38,14 +40,12 @@
 		<string>fbauth2</string>
 		<string>fbshareextension</string>
 	</array>
-	<key>AlgoliaApiKey</key>
-	<string>db721e8c40670ece6c6e4e2f7fc6e427</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Help tag Whale Sharks by uploading your photos.</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Use your camera to take pictures of Whale Sharks</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Help tag Whale Sharks by uploading your photos.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Museo300-Regular.otf</string>

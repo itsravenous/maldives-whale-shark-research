@@ -9,6 +9,10 @@
 import UIKit
 import MapKit
 
+public protocol EditPhotoDelegate: class {
+    func informationEdited(_ location: CLLocation?, photoDate: Date?)
+}
+
 class EditPhotoInformationViewController: UIViewController {
 
     // MARK: - Outlets
@@ -17,7 +21,10 @@ class EditPhotoInformationViewController: UIViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var dateButton: UIButton!
     @IBOutlet weak var locationButton: UIButton!
-    
+    var location: CLLocation?
+    var photoDate: Date?
+    public weak var delegate: EditPhotoDelegate? = nil
+
     // MARK: - Properties
     var newImage: UIImage!
         
@@ -28,6 +35,46 @@ class EditPhotoInformationViewController: UIViewController {
         datePicker.setValue(UIColor.white, forKey: "textColor")
         dateButton.setTitleColor(UIColor(red: 80.0/255.0, green: 191.0/255.0, blue: 195.0/255.0, alpha: 1), for: .normal)
         mapView.isHidden = true
+        if let date = photoDate{
+            datePicker.date = date
+        }
+        if let loc = location{
+            let span = MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1)
+            let region = MKCoordinateRegion(center: loc.coordinate, span: span)
+            mapView.setRegion(region, animated: true)
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = loc.coordinate            
+            mapView.addAnnotation(annotation)
+
+//            mapView.setCenter(loc.coordinate, animated: true)
+        }
+        
+        let tapPress = UITapGestureRecognizer(target: self, action: #selector(mapTapPress(_:))) // colon needs to pass through info
+        tapPress.numberOfTapsRequired = 1 // in seconds
+        //add gesture recognition
+        mapView.addGestureRecognizer(tapPress)
+    }
+    
+    func removeAllAnnotations() {
+        let annotations = mapView.annotations.filter {
+            $0 !== self.mapView.userLocation
+        }
+        mapView.removeAnnotations(annotations)
+    }
+    
+    func mapTapPress(_ recognizer: UIGestureRecognizer) {
+        
+        removeAllAnnotations()
+        print("A tap has been detected.")
+        
+        let touchedAt = recognizer.location(in: self.mapView) // adds the location on the view it was pressed
+        let touchedAtCoordinate : CLLocationCoordinate2D = self.mapView.convert(touchedAt, toCoordinateFrom: self.mapView) // will get coordinates
+        
+        location = CLLocation(latitude: touchedAtCoordinate.latitude, longitude: touchedAtCoordinate.longitude)
+                
+        let newPin = MKPointAnnotation()
+        newPin.coordinate = touchedAtCoordinate
+        self.mapView.addAnnotation(newPin)
     }
     
     // MARK: - Status Bar Hidden
@@ -49,7 +96,7 @@ class EditPhotoInformationViewController: UIViewController {
     }
     
     @IBAction func doneButtonPressed(_ sender: UIButton) {
-        
+        delegate?.informationEdited(location, photoDate: datePicker.date)
     }
     
     @IBAction func dateButtonPressed(_ sender: UIButton) {

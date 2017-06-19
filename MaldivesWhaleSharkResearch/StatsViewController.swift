@@ -8,7 +8,6 @@
 
 import UIKit
 import BetterSegmentedControl
-import Fusuma
 import BWWalkthrough
 import Photos
 
@@ -121,23 +120,15 @@ class StatsViewController: UIViewController, BWWalkthroughViewControllerDelegate
         }
     }
     
+    
     // MARK: FusumaDelegate Protocol
     
-    // Return the image which is selected from camera roll or is taken via the camera.
-    func fusumaImageSelected(_ image: UIImage, source: FusumaMode) {
-
-        // Get image metadata
-        let opts = PHFetchOptions()
-        opts.fetchLimit = 1
-        let photoAssets = PHAsset.fetchAssets(with: .image, options: opts)
-        
-        
-        print("Image selected")
+    func fusumaImageSelected(_ image: UIImage, source: FusumaMode, metaData: ImageMetadata) {
+        print("Image selected: \(image)")
     }
     
     // Return the image but called after is dismissed.
-    func fusumaDismissedWithImage(image: UIImage) {
-        
+    func fusumaDismissedWithImage(_ image: UIImage, source: FusumaMode) {
         print("Called just after FusumaViewController is dismissed.")
     }
     
@@ -146,10 +137,24 @@ class StatsViewController: UIViewController, BWWalkthroughViewControllerDelegate
         print("Called just after a video has been selected.")
     }
     
-    // When camera roll is not authorized, this method is called.
+    func fusumaMultipleImageSelected(_ images: [UIImage], source: FusumaMode) {
+        
+        print("Number of selection images: \(images.count)")
+    }
+    
     func fusumaCameraRollUnauthorized() {
         
         print("Camera roll unauthorized")
+    }
+    
+    func fusumaClosed() {
+        
+        print("Called when the FusumaViewController disappeared")
+    }
+    
+    func fusumaWillClosed() {
+        
+        print("Called when the close button is pressed")
     }
 
     // MARK: - Segmented Control Action handlers

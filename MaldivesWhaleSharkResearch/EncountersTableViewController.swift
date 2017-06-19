@@ -12,7 +12,6 @@ import BTNavigationDropdownMenu
 import FirebaseDatabase
 import FirebaseAuth
 import SDWebImage
-import Fusuma
 import Firebase
 import Photos
 
@@ -271,31 +270,34 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
         }
     }
     
-    // MARK: - FusumaDelegate Protocol
+    // MARK: FusumaDelegate Protocol
     // Return the image which is selected from camera roll or is taken via the camera.
-    func fusumaImageSelected(_ image: UIImage, source: FusumaMode) {
-        
-        //        // Get image creationDate and location
-        //        let asset = PHAsset()
-        //        let location = asset.location
-        //        let creationDate = asset.creationDate
-        
+    
+    func fusumaImageSelected(_ image: UIImage, source: FusumaMode, metaData: ImageMetadata) {
         let stb = UIStoryboard(name: "UploadPicture", bundle: nil)
         let photoInfo = stb.instantiateViewController(withIdentifier: "photoInfo") as! PhotoInformationViewController
-        self.dismiss(animated: true, completion: nil)
-        self.present(photoInfo, animated: true) {
-            photoInfo.imageView.image = image
-            photoInfo.locationLabel.text = ""
-            photoInfo.timestampLabel.text = ""
-        }
         
         print("Image selected: \(image)")
         
+        print("Image mediatype: \(metaData.mediaType)")
+        print("Source image size: \(metaData.pixelWidth)x\(metaData.pixelHeight)")
+        print("Creation date: \(String(describing: metaData.creationDate))")
+        print("Modification date: \(String(describing: metaData.modificationDate))")
+        print("Video duration: \(metaData.duration)")
+        print("Is favourite: \(metaData.isFavourite)")
+        print("Is hidden: \(metaData.isHidden)")
+        print("Location: \(String(describing: metaData.location))")
+        
+        self.dismiss(animated: true, completion: nil)
+        self.present(photoInfo, animated: true) {
+            photoInfo.imageView.image = image
+            photoInfo.photoDate = metaData.creationDate
+            photoInfo.location = metaData.location
+        }
     }
     
     // Return the image but called after is dismissed.
-    func fusumaDismissedWithImage(image: UIImage) {
-        
+    func fusumaDismissedWithImage(_ image: UIImage, source: FusumaMode) {
         print("Called just after FusumaViewController is dismissed.")
     }
     
@@ -304,10 +306,24 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
         print("Called just after a video has been selected.")
     }
     
-    // When camera roll is not authorized, this method is called.
+    func fusumaMultipleImageSelected(_ images: [UIImage], source: FusumaMode) {
+        
+        print("Number of selection images: \(images.count)")
+    }
+    
     func fusumaCameraRollUnauthorized() {
         
         print("Camera roll unauthorized")
+    }
+    
+    func fusumaClosed() {
+        
+        print("Called when the FusumaViewController disappeared")
+    }
+    
+    func fusumaWillClosed() {
+        
+        print("Called when the close button is pressed")
     }
     
     // MARK: - Table view data source
