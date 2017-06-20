@@ -278,6 +278,7 @@ public class FusumaViewController: UIViewController {
     
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        UIApplication.shared.isStatusBarHidden = true
     }
 
     override public func viewDidAppear(_ animated: Bool) {
@@ -302,8 +303,8 @@ public class FusumaViewController: UIViewController {
     }
     
     public override func viewWillDisappear(_ animated: Bool) {
-        
         super.viewWillDisappear(animated)
+        UIApplication.shared.isStatusBarHidden = false
         self.stopAll()
     }
 

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -342,13 +342,13 @@
                                 <color key="currentPageIndicatorTintColor" red="0.31372549020000001" green="0.74901960779999999" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
                             </pageControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Reference Point" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uqT-qO-zqS">
-                                <rect key="frame" x="15" y="434" width="193" height="24"/>
+                                <rect key="frame" x="15" y="434" width="192.5" height="24"/>
                                 <fontDescription key="fontDescription" name="MuseoSans-500" family="Museo Sans" pointSize="20"/>
                                 <color key="textColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="174" translatesAutoresizingMaskIntoConstraints="NO" id="BFF-ij-SMP">
-                                <rect key="frame" x="15" y="488" width="154" height="87"/>
+                                <rect key="frame" x="15" y="488" width="154" height="86.5"/>
                                 <string key="text">Add the 1st reference point
 (top of the 5th gill slit)</string>
                                 <fontDescription key="fontDescription" name="MuseoSans-500" family="Museo Sans" pointSize="18"/>
@@ -652,7 +652,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="sharkLabelCell" id="fkg-dg-NQ1" customClass="SharkInfoLabelCollectionViewCell" customModule="MaldivesWhaleSharkResearch" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="-1" width="130" height="56"/>
+                                        <rect key="frame" x="0.0" y="-0.5" width="130" height="56"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="130" height="56"/>
@@ -749,59 +749,55 @@
                                             <constraint firstAttribute="width" constant="300" id="gLe-EN-4jT"/>
                                         </constraints>
                                     </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="CqI-dD-aZt">
-                                        <rect key="frame" x="29.5" y="225" width="242.5" height="157.5"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Encounter Uploaded" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fc0-j5-OhG">
-                                                <rect key="frame" x="25.5" y="0.0" width="192" height="24"/>
-                                                <fontDescription key="fontDescription" name="MuseoSans-500" family="Museo Sans" pointSize="20"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thanks for uploading your encounter!  While we review the information - go check out the shark you just spotted!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="260" translatesAutoresizingMaskIntoConstraints="NO" id="3Ta-d2-zjP">
-                                                <rect key="frame" x="0.0" y="42" width="242.5" height="77"/>
-                                                <fontDescription key="fontDescription" name="Museo-300" family="Museo" pointSize="16"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shark Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cT9-do-Ygv">
-                                                <rect key="frame" x="73.5" y="137" width="95.5" height="20.5"/>
-                                                <fontDescription key="fontDescription" name="MuseoSans-500" family="Museo Sans" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="brb-cp-hiv" userLabel="Close Button" customClass="DesignableButton" customModule="Spring">
-                                                <rect key="frame" x="11.5" y="157.5" width="220" height="0.0"/>
-                                                <color key="backgroundColor" red="0.31372549020000001" green="0.74901960779999999" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="220" id="A6J-Ya-j95"/>
-                                                    <constraint firstAttribute="height" constant="47" id="Vnv-ft-xtV"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="MuseoSans-500" family="Museo Sans" pointSize="17"/>
-                                                <state key="normal" title="View Profile">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="4"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="viewProfileButtonPressed:" destination="6Bj-Ww-xb6" eventType="touchUpInside" id="cdA-Iy-GPU"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Encounter Uploaded" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fc0-j5-OhG">
+                                        <rect key="frame" x="54" y="225" width="192" height="24"/>
+                                        <fontDescription key="fontDescription" name="MuseoSans-500" family="Museo Sans" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thanks for uploading your encounter!  While we review the information - go check out the shark you just spotted!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="260" translatesAutoresizingMaskIntoConstraints="NO" id="3Ta-d2-zjP">
+                                        <rect key="frame" x="28" y="267" width="242.5" height="77"/>
+                                        <fontDescription key="fontDescription" name="Museo-300" family="Museo" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shark Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cT9-do-Ygv">
+                                        <rect key="frame" x="102" y="362" width="95.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" name="MuseoSans-500" family="Museo Sans" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Me7-uF-Tmq">
+                                        <rect key="frame" x="40" y="401" width="220" height="47"/>
+                                        <color key="backgroundColor" red="0.31372549020000001" green="0.74901960779999999" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="220" id="APB-EF-73J"/>
+                                            <constraint firstAttribute="height" constant="47" id="jRH-at-ybf"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="MuseoSans-500" family="Museo Sans" pointSize="17"/>
+                                        <state key="normal" title="View Profile">
+                                            <color key="titleColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="viewProfileButtonPressed:" destination="6Bj-Ww-xb6" eventType="touchUpInside" id="DNn-bj-Bug"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="fc0-j5-OhG" firstAttribute="centerX" secondItem="30O-6v-ebM" secondAttribute="centerX" id="0p5-1H-IrD"/>
                                     <constraint firstAttribute="width" constant="300" id="FBG-45-M8j"/>
-                                    <constraint firstItem="CqI-dD-aZt" firstAttribute="top" secondItem="0nT-bl-KHZ" secondAttribute="bottom" constant="15" id="QkD-9e-cxd"/>
+                                    <constraint firstItem="3Ta-d2-zjP" firstAttribute="top" secondItem="fc0-j5-OhG" secondAttribute="bottom" constant="18" id="IPe-a5-Zwo"/>
+                                    <constraint firstItem="Me7-uF-Tmq" firstAttribute="centerX" secondItem="30O-6v-ebM" secondAttribute="centerX" id="Iu9-ws-VSz"/>
+                                    <constraint firstItem="cT9-do-Ygv" firstAttribute="top" secondItem="3Ta-d2-zjP" secondAttribute="bottom" constant="18" id="KvB-MT-qeY"/>
                                     <constraint firstItem="0nT-bl-KHZ" firstAttribute="leading" secondItem="30O-6v-ebM" secondAttribute="leading" id="RjC-tJ-dxd"/>
-                                    <constraint firstItem="CqI-dD-aZt" firstAttribute="centerX" secondItem="30O-6v-ebM" secondAttribute="centerX" id="aVQ-XD-OGC"/>
+                                    <constraint firstItem="cT9-do-Ygv" firstAttribute="centerX" secondItem="30O-6v-ebM" secondAttribute="centerX" id="ms6-Fe-AVP"/>
                                     <constraint firstAttribute="trailing" secondItem="0nT-bl-KHZ" secondAttribute="trailing" id="nP2-Tl-ItR"/>
                                     <constraint firstItem="0nT-bl-KHZ" firstAttribute="top" secondItem="30O-6v-ebM" secondAttribute="top" id="ox4-3P-pef"/>
+                                    <constraint firstItem="3Ta-d2-zjP" firstAttribute="centerX" secondItem="30O-6v-ebM" secondAttribute="centerX" id="qYF-Uf-c3C"/>
+                                    <constraint firstItem="fc0-j5-OhG" firstAttribute="top" secondItem="0nT-bl-KHZ" secondAttribute="bottom" constant="15" id="qma-gO-pFy"/>
                                     <constraint firstAttribute="height" constant="490" id="wP6-Eo-4T6"/>
+                                    <constraint firstItem="Me7-uF-Tmq" firstAttribute="top" secondItem="cT9-do-Ygv" secondAttribute="bottom" constant="18.5" id="wly-QE-7xR"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -819,6 +815,7 @@
                     <connections>
                         <outlet property="sharkImage" destination="0nT-bl-KHZ" id="ChX-bw-fOH"/>
                         <outlet property="sharkNameLabel" destination="cT9-do-Ygv" id="spK-yk-Nfk"/>
+                        <outlet property="viewProfileButton" destination="Me7-uF-Tmq" id="2fZ-NF-YDR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BQN-yG-AQM" userLabel="First Responder" sceneMemberID="firstResponder"/>

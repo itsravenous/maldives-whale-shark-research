@@ -141,7 +141,6 @@ class ComparisonResultsViewController: UIViewController, UICollectionViewDelegat
     }
 
     // MARK: - UIScrollViewDelegate
-    
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         var pageSide:CGFloat = 0
         var offset:CGFloat = 0

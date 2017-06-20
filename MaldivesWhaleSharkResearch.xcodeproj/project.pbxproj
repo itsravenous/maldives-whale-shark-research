@@ -592,7 +592,7 @@
 				TargetAttributes = {
 					04CEF2F01EAB19550057A119 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = 3BGR2N5FX6;
+						DevelopmentTeam = ERF7V8C7KW;
 						ProvisioningStyle = Automatic;
 					};
 					04CEF3071EAB19550057A119 = {
@@ -1026,7 +1026,7 @@
 			baseConfigurationReference = 64E6BF5ADE52B1D1E72C0A48 /* Pods-MaldivesWhaleSharkResearch.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 3BGR2N5FX6;
+				DEVELOPMENT_TEAM = ERF7V8C7KW;
 				INFOPLIST_FILE = MaldivesWhaleSharkResearch/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1041,7 +1041,7 @@
 			baseConfigurationReference = 0E3ED0F2E41A9A04FA2C636F /* Pods-MaldivesWhaleSharkResearch.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 3BGR2N5FX6;
+				DEVELOPMENT_TEAM = ERF7V8C7KW;
 				INFOPLIST_FILE = MaldivesWhaleSharkResearch/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

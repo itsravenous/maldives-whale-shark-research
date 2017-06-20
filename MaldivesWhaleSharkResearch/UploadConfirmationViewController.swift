@@ -14,6 +14,7 @@ class UploadConfirmationViewController: UIViewController {
     // MARK: - Outlets
     @IBOutlet weak var sharkImage: UIImageView!
     @IBOutlet weak var sharkNameLabel: UILabel!
+    @IBOutlet weak var viewProfileButton: UIButton!
 
     // MARK: - Properties
     var selectedImage: UIImage!
@@ -26,8 +27,8 @@ class UploadConfirmationViewController: UIViewController {
     }
     
     // MARK: - Actions
-    @IBAction func viewProfileButtonPressed(_ sender: DesignableButton) {
-        
+    @IBAction func viewProfileButtonPressed(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
     }
 
     /*

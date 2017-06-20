@@ -255,7 +255,7 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
             if (self.uploadWalkthrough.numberOfPages - 1) == pageNumber {
                 self.uploadWalkthrough.closeButton?.isHidden = false
             } else {
-                print("no user signed in")
+                self.uploadWalkthrough.closeButton?.isHidden = true
             }
         }
     }
