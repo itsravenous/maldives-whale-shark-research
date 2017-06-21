@@ -68,10 +68,51 @@ class StatsViewController: UIViewController, BWWalkthroughViewControllerDelegate
 
     }
     
-    // MARK: - Functions
-
-    func showInstructions() {
+    // MARK: - Segmented Control Action handlers
+    func navigationSegmentedControlValueChanged(_ sender: BetterSegmentedControl) {
         
+        if sender.index == 0 {
+            print("Week")
+            weekView.isHidden = false
+            monthView.isHidden = true
+            allTimeView.isHidden = true
+        }
+        else if sender.index == 1 {
+            print("Month")
+            weekView.isHidden = true
+            monthView.isHidden = false
+            allTimeView.isHidden = true
+        } else {
+            print("All-time")
+            weekView.isHidden = true
+            monthView.isHidden = true
+            allTimeView.isHidden = false
+        }
+    }
+    
+    // MARK: - Functions
+    
+    // Show initial walkthrough for first time user
+    func showWalkthrough() {
+        let stb = UIStoryboard(name: "Walkthrough", bundle: nil)
+        let walkthrough = stb.instantiateViewController(withIdentifier: "container") as! BWWalkthroughViewController
+        
+        // Get view controllers and build the walkthrough
+        let page_one = stb.instantiateViewController(withIdentifier: "page_1")
+        let page_two = stb.instantiateViewController(withIdentifier: "page_2")
+        let page_three = stb.instantiateViewController(withIdentifier: "page_3")
+        
+        // Attach the pages to the master
+        walkthrough.delegate = self
+        walkthrough.add(viewController:page_one)
+        walkthrough.add(viewController:page_two)
+        walkthrough.add(viewController:page_three)
+        
+        self.present(walkthrough, animated: true, completion: nil)
+    }
+    
+    // Show instructions for image upload
+    func showInstructions() {
         let stb = UIStoryboard(name: "UploadWalkthrough", bundle: nil)
         uploadWalkthrough = stb.instantiateViewController(withIdentifier: "container") as! BWWalkthroughViewController
         
@@ -89,14 +130,13 @@ class StatsViewController: UIViewController, BWWalkthroughViewControllerDelegate
         uploadWalkthrough.add(viewController:page_four)
         
         self.present(uploadWalkthrough, animated: true, completion: nil)
-        
     }
     
+    // Present image picker for photo upload
     func showUploadPicture() {
-        print("Upload Picture Bro")
         let fusuma = FusumaViewController()
         
-//        fusumaCropImage = false
+        fusumaCropImage = true
         fusuma.delegate = self
         fusuma.cropHeightRatio = 1
         fusuma.hasVideo = false
@@ -105,26 +145,29 @@ class StatsViewController: UIViewController, BWWalkthroughViewControllerDelegate
         self.present(fusuma, animated: true, completion: nil)
     }
     
-    // MARK: - Walkthrough delegate
-    
-    func walkthroughCloseButtonPressed() {
-        self.dismiss(animated: false, completion: nil)
-    }
-    
-    func walkthroughPageDidChange(_ pageNumber: Int) {
-        print("Current Page \(pageNumber)")
-        if (self.uploadWalkthrough.numberOfPages - 1) == pageNumber {
-            self.uploadWalkthrough.closeButton?.isHidden = false
-        } else {
-            self.uploadWalkthrough.closeButton?.isHidden = true
-        }
-    }
-    
-    
-    // MARK: FusumaDelegate Protocol
-    
+    // MARK: - FusumaDelegate Protocol
+    // Return the image which is selected from camera roll or is taken via the camera.
     func fusumaImageSelected(_ image: UIImage, source: FusumaMode, metaData: ImageMetadata) {
+        let stb = UIStoryboard(name: "UploadPicture", bundle: nil)
+        let photoInfo = stb.instantiateViewController(withIdentifier: "photoInfo") as! PhotoInformationViewController
+        
         print("Image selected: \(image)")
+        
+        print("Image mediatype: \(metaData.mediaType)")
+        print("Source image size: \(metaData.pixelWidth)x\(metaData.pixelHeight)")
+        print("Creation date: \(String(describing: metaData.creationDate))")
+        print("Modification date: \(String(describing: metaData.modificationDate))")
+        print("Video duration: \(metaData.duration)")
+        print("Is favourite: \(metaData.isFavourite)")
+        print("Is hidden: \(metaData.isHidden)")
+        print("Location: \(String(describing: metaData.location))")
+        
+        self.dismiss(animated: true, completion: nil)
+        self.present(photoInfo, animated: true) {
+            photoInfo.imageView.image = image
+            photoInfo.photoDate = metaData.creationDate
+            photoInfo.location = metaData.location
+        }
     }
     
     // Return the image but called after is dismissed.
@@ -155,28 +198,6 @@ class StatsViewController: UIViewController, BWWalkthroughViewControllerDelegate
     func fusumaWillClosed() {
         
         print("Called when the close button is pressed")
-    }
-
-    // MARK: - Segmented Control Action handlers
-    func navigationSegmentedControlValueChanged(_ sender: BetterSegmentedControl) {
-        
-        if sender.index == 0 {
-            print("Week")
-            weekView.isHidden = false
-            monthView.isHidden = true
-            allTimeView.isHidden = true
-        }
-        else if sender.index == 1 {
-            print("Month")
-            weekView.isHidden = true
-            monthView.isHidden = false
-            allTimeView.isHidden = true
-        } else {
-            print("All-time")
-            weekView.isHidden = true
-            monthView.isHidden = true
-            allTimeView.isHidden = false
-        }
     }
     
 

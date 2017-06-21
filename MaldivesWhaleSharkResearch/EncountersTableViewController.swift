@@ -80,88 +80,6 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
         }
     }
     
-    // MARK: - Functions
-    
-    // Show initial walkthrough for first time user
-    func showWalkthrough() {
-        let stb = UIStoryboard(name: "Walkthrough", bundle: nil)
-        let walkthrough = stb.instantiateViewController(withIdentifier: "container") as! BWWalkthroughViewController
-        
-        // Get view controllers and build the walkthrough
-        let page_one = stb.instantiateViewController(withIdentifier: "page_1")
-        let page_two = stb.instantiateViewController(withIdentifier: "page_2")
-        let page_three = stb.instantiateViewController(withIdentifier: "page_3")
-        
-        // Attach the pages to the master
-        walkthrough.delegate = self
-        walkthrough.add(viewController:page_one)
-        walkthrough.add(viewController:page_two)
-        walkthrough.add(viewController:page_three)
-        
-        self.present(walkthrough, animated: true, completion: nil)
-    }
-    
-    // Present image picker for photo upload
-    func showUploadPicture() {
-        let fusuma = FusumaViewController()
-        
-        fusumaCropImage = true
-        fusuma.delegate = self
-        fusuma.cropHeightRatio = 1
-        fusuma.hasVideo = false
-        fusumaTintColor = UIColor(red: 80.0/255.0, green: 191.0/255.0, blue: 195.0/255.0, alpha: 1)
-        fusumaBackgroundColor = UIColor(red: 66.0/255.0, green: 66.0/255.0, blue: 66.0/255.0, alpha: 1)
-        self.present(fusuma, animated: true, completion: nil)
-    }
-    
-    // Show instructions for image upload
-    func showInstructions() {
-        let stb = UIStoryboard(name: "UploadWalkthrough", bundle: nil)
-        uploadWalkthrough = stb.instantiateViewController(withIdentifier: "container") as! BWWalkthroughViewController
-        
-        // Get view controllers and build the walkthrough
-        let page_one = stb.instantiateViewController(withIdentifier: "page_1")
-        let page_two = stb.instantiateViewController(withIdentifier: "page_2")
-        let page_three = stb.instantiateViewController(withIdentifier: "page_3")
-        let page_four = stb.instantiateViewController(withIdentifier: "page_4")
-        
-        // Attach the pages to the master
-        uploadWalkthrough.delegate = self
-        uploadWalkthrough.add(viewController:page_one)
-        uploadWalkthrough.add(viewController:page_two)
-        uploadWalkthrough.add(viewController:page_three)
-        uploadWalkthrough.add(viewController:page_four)
-        
-        self.present(uploadWalkthrough, animated: true, completion: nil)
-    }
-    
-    // Convert date from date string and subtract from current date
-    func convertDate(encounterDate: String) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        //        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        let date = dateFormatter.date(from: encounterDate)
-        
-        let currentDate = Date()
-        let calendar = NSCalendar.current
-        let dayOfEncounter = calendar.startOfDay(for: date!)
-        let today = calendar.startOfDay(for: currentDate)
-        
-        let components = calendar.dateComponents([.day], from: dayOfEncounter, to: today)
-        
-        return String(describing: components.day!)
-    }
-    
-    // Pull to refresh function
-    func onRefresh() {
-        self.fetchEncounters()
-        let delay = 2.0 * Double(NSEC_PER_SEC)
-        let time  = DispatchTime.now() + Double(Int64(delay)) / Double(NSEC_PER_SEC)
-        DispatchQueue.main.asyncAfter(deadline: time) {
-            self.refreshControl?.endRefreshing()
-        }
-    }
-    
     // MARK: - Encounter filters
     func fetchEncounters() {
         self.getEncounterIds(index:menuIndex, onCompletion: { (ids) in
@@ -270,9 +188,90 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
         }
     }
     
-    // MARK: FusumaDelegate Protocol
-    // Return the image which is selected from camera roll or is taken via the camera.
+    // MARK: - Functions
     
+    // Convert date from date string and subtract from current date
+    func convertDate(encounterDate: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        //        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let date = dateFormatter.date(from: encounterDate)
+        
+        let currentDate = Date()
+        let calendar = NSCalendar.current
+        let dayOfEncounter = calendar.startOfDay(for: date!)
+        let today = calendar.startOfDay(for: currentDate)
+        
+        let components = calendar.dateComponents([.day], from: dayOfEncounter, to: today)
+        
+        return String(describing: components.day!)
+    }
+    
+    // Pull to refresh function
+    func onRefresh() {
+        self.fetchEncounters()
+        let delay = 2.0 * Double(NSEC_PER_SEC)
+        let time  = DispatchTime.now() + Double(Int64(delay)) / Double(NSEC_PER_SEC)
+        DispatchQueue.main.asyncAfter(deadline: time) {
+            self.refreshControl?.endRefreshing()
+        }
+    }
+    
+    // Show initial walkthrough for first time user
+    func showWalkthrough() {
+        let stb = UIStoryboard(name: "Walkthrough", bundle: nil)
+        let walkthrough = stb.instantiateViewController(withIdentifier: "container") as! BWWalkthroughViewController
+        
+        // Get view controllers and build the walkthrough
+        let page_one = stb.instantiateViewController(withIdentifier: "page_1")
+        let page_two = stb.instantiateViewController(withIdentifier: "page_2")
+        let page_three = stb.instantiateViewController(withIdentifier: "page_3")
+        
+        // Attach the pages to the master
+        walkthrough.delegate = self
+        walkthrough.add(viewController:page_one)
+        walkthrough.add(viewController:page_two)
+        walkthrough.add(viewController:page_three)
+        
+        self.present(walkthrough, animated: true, completion: nil)
+    }
+    
+    // Show instructions for image upload
+    func showInstructions() {
+        let stb = UIStoryboard(name: "UploadWalkthrough", bundle: nil)
+        uploadWalkthrough = stb.instantiateViewController(withIdentifier: "container") as! BWWalkthroughViewController
+        
+        // Get view controllers and build the walkthrough
+        let page_one = stb.instantiateViewController(withIdentifier: "page_1")
+        let page_two = stb.instantiateViewController(withIdentifier: "page_2")
+        let page_three = stb.instantiateViewController(withIdentifier: "page_3")
+        let page_four = stb.instantiateViewController(withIdentifier: "page_4")
+        
+        // Attach the pages to the master
+        uploadWalkthrough.delegate = self
+        uploadWalkthrough.add(viewController:page_one)
+        uploadWalkthrough.add(viewController:page_two)
+        uploadWalkthrough.add(viewController:page_three)
+        uploadWalkthrough.add(viewController:page_four)
+        
+        self.present(uploadWalkthrough, animated: true, completion: nil)
+    }
+    
+    // Present image picker for photo upload
+    func showUploadPicture() {
+        let fusuma = FusumaViewController()
+        
+        fusumaCropImage = true
+        fusuma.delegate = self
+        fusuma.cropHeightRatio = 1
+        fusuma.hasVideo = false
+        fusumaTintColor = UIColor(red: 80.0/255.0, green: 191.0/255.0, blue: 195.0/255.0, alpha: 1)
+        fusumaBackgroundColor = UIColor(red: 66.0/255.0, green: 66.0/255.0, blue: 66.0/255.0, alpha: 1)
+        self.present(fusuma, animated: true, completion: nil)
+    }
+    
+    // MARK: - FusumaDelegate Protocol
+    // Return the image which is selected from camera roll or is taken via the camera.
     func fusumaImageSelected(_ image: UIImage, source: FusumaMode, metaData: ImageMetadata) {
         let stb = UIStoryboard(name: "UploadPicture", bundle: nil)
         let photoInfo = stb.instantiateViewController(withIdentifier: "photoInfo") as! PhotoInformationViewController

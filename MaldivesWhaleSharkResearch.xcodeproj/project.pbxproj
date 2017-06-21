@@ -393,8 +393,6 @@
 		04CEF2F31EAB19550057A119 /* MaldivesWhaleSharkResearch */ = {
 			isa = PBXGroup;
 			children = (
-				04CEF2F41EAB19550057A119 /* AppDelegate.swift */,
-				043C342D1EB44BA500D52BB8 /* TabBarViewController.swift */,
 				042DBBCF1EBC3BAB00DA93B6 /* Storyboards */,
 				042776B21EB8B27900D505C5 /* Login */,
 				04A7E5E31EE546A10069F6FB /* PhotoUpload */,
@@ -437,6 +435,8 @@
 		04E19F171EDA7F5900E4BB22 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				04CEF2F41EAB19550057A119 /* AppDelegate.swift */,
+				043C342D1EB44BA500D52BB8 /* TabBarViewController.swift */,
 				04A7E5EE1EE721F00069F6FB /* SegueFromRight.swift */,
 				04A7E5F01EE724770069F6FB /* UnwindSegueFromRight.swift */,
 				04E19F181EDA9A4600E4BB22 /* AlgoliaManager.swift */,

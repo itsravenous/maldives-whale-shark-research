@@ -143,6 +143,9 @@
                     <navigationItem key="navigationItem" title="Map" id="y4S-US-fk3">
                         <barButtonItem key="rightBarButtonItem" image="upload-image-icon" id="Cgo-oc-OtG">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="uploadImageButtonPressed:" destination="PsF-bC-lQ5" id="Rh5-7o-f1k"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -225,6 +228,9 @@
                     <navigationItem key="navigationItem" title="Sharks" id="deJ-Vt-feA">
                         <barButtonItem key="rightBarButtonItem" image="upload-image-icon" id="38G-sI-oh7">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="uploadImageButtonPressed:" destination="wXt-nx-U52" id="EZw-5g-BlQ"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
