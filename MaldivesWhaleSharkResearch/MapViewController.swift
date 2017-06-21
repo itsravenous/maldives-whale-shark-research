@@ -92,7 +92,7 @@ class MapViewController: UIViewController {
         })
     }
     
-    // MARK: - View Did Appear
+    // MARK: - View Will Appear
     override func viewWillAppear(_ animated: Bool) {
         DispatchQueue.main.async {
             for item in self.mapView.selectedAnnotations {
@@ -119,6 +119,7 @@ class MapViewController: UIViewController {
             return annotation
         }
         manager.add(annotations)
+        manager.reload(mapView, visibleMapRect: mapView.visibleMapRect)
     }
 
     // MARK: - Navigation

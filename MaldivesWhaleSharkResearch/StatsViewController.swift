@@ -105,7 +105,7 @@ class StatsViewController: UIViewController, BWWalkthroughViewControllerDelegate
         self.present(fusuma, animated: true, completion: nil)
     }
     
-    // MARK: - Walkthrough delegate -
+    // MARK: - Walkthrough delegate
     
     func walkthroughCloseButtonPressed() {
         self.dismiss(animated: false, completion: nil)
