@@ -28,7 +28,12 @@ class UploadConfirmationViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func viewProfileButtonPressed(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
+        self.performSegue(withIdentifier: "sharkResultSegue", sender: nil)
+//        let stb = UIStoryboard(name: "Main", bundle: nil)
+//        let sharkProfile = stb.instantiateViewController(withIdentifier: "sharkProfile") as! SharkProfileTableViewController
+//        self.present(sharkProfile, animated: true) { 
+//            
+//        }
     }
 
     /*

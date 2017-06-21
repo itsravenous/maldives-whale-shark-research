@@ -28,6 +28,7 @@ class SharkProfileTableViewController: UITableViewController, UICollectionViewDe
         
         // Close navigation gap
         tableView.contentInset = UIEdgeInsets(top: -64, left: 0, bottom: 0, right: 0)
+        
     }
     
     // MARK: - IBActions
@@ -156,6 +157,12 @@ class SharkProfileTableViewController: UITableViewController, UICollectionViewDe
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "sharkPictureCell", for: indexPath) as! SharkImageCollectionViewCell
         
         let shark = WhaleShark(json: selectedShark!)
+        
+        if indexPath.row == 0 {
+            cell.imageFilter.isHidden = false
+        } else {
+            cell.imageFilter.isHidden = true
+        }
         
         cell.imageView.sd_setImage(with: URL(string: (shark.media![indexPath.row]).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!))
 

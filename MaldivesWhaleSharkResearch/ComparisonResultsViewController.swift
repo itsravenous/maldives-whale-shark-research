@@ -20,6 +20,7 @@ class ComparisonResultsViewController: UIViewController, UICollectionViewDelegat
     
     // MARK: - Properties
     var selectedImage: UIImage!
+    let pickerController = DKImagePickerController()
     var shark = Shark()
     var currentPage: Int = 0
     
@@ -59,6 +60,12 @@ class ComparisonResultsViewController: UIViewController, UICollectionViewDelegat
         self.ratingLabel.text = dic.value(forKey: "rating") as! String?
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        if pickerController.selectedAssets.count >= 1 {
+            self.performSegue(withIdentifier: "uploadEncounterSegue", sender: nil)
+        }
+    }
+    
     // MARK: - Status Bar Hidden
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -74,7 +81,6 @@ class ComparisonResultsViewController: UIViewController, UICollectionViewDelegat
     
     // MARK: - Functions
     func presentImagePicker() {
-        let pickerController = DKImagePickerController()
         pickerController.maxSelectableCount = 8
         pickerController.showsEmptyAlbums = false
         pickerController.assetType = .allPhotos
