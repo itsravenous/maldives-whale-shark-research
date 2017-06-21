@@ -19,6 +19,9 @@ class UploadConfirmationViewController: UIViewController {
     // MARK: - Properties
     var selectedImage: UIImage!
     
+    // Dummy Content
+    let sharkID = "5348"
+    
     // MARK: - View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,12 +31,11 @@ class UploadConfirmationViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func viewProfileButtonPressed(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "sharkResultSegue", sender: nil)
-//        let stb = UIStoryboard(name: "Main", bundle: nil)
-//        let sharkProfile = stb.instantiateViewController(withIdentifier: "sharkProfile") as! SharkProfileTableViewController
-//        self.present(sharkProfile, animated: true) { 
-//            
-//        }
+        let stb = UIStoryboard(name: "Main", bundle: nil)
+        let sharkProfile = stb.instantiateViewController(withIdentifier: "sharkProfile") as! SharkProfileTableViewController
+        self.present(sharkProfile, animated: true) { 
+            
+        }
     }
 
     /*

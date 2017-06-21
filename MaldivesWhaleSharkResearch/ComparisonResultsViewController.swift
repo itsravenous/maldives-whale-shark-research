@@ -44,22 +44,23 @@ class ComparisonResultsViewController: UIViewController, UICollectionViewDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        UINavigationBar.appearance().titleTextAttributes = [
+            NSFontAttributeName: UIFont(name: "MuseoSans-500", size: 19)!,
+            NSForegroundColorAttributeName: UIColor.black
+        ]
+        UINavigationBar.appearance().tintColor = UIColor.black
+        
         self.setupLayout()
         
         self.currentPage = 0
 
         sharkUploadImageView.image = selectedImage
-        
-        UINavigationBar.appearance().titleTextAttributes = [
-            NSFontAttributeName: UIFont(name: "MuseoSans-500", size: 19)!,
-            NSForegroundColorAttributeName: UIColor.white
-        ]
-        UINavigationBar.appearance().barTintColor = UIColor(red: 80.0/255.0, green: 210.0/255.0, blue: 195.0, alpha: 1.0)
 
         let dic = self.shark.sharks[0] as NSDictionary
         self.ratingLabel.text = dic.value(forKey: "rating") as! String?
     }
     
+    // MARK: - ViewDidAppear
     override func viewDidAppear(_ animated: Bool) {
         if pickerController.selectedAssets.count >= 1 {
             self.performSegue(withIdentifier: "uploadEncounterSegue", sender: nil)
@@ -67,14 +68,6 @@ class ComparisonResultsViewController: UIViewController, UICollectionViewDelegat
     }
     
     // MARK: - Status Bar Hidden
-    override public func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        UIApplication.shared.isStatusBarHidden = true
-    }
-    public override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        UIApplication.shared.isStatusBarHidden = false
-    }
     override public var prefersStatusBarHidden : Bool {
         return true
     }

@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 
-class PhotoInformationViewController: UIViewController,EditPhotoDelegate {
+class PhotoInformationViewController: UIViewController, EditPhotoDelegate {
     
     // MARK: - Outlets
     @IBOutlet weak var imageView: UIImageView!
@@ -25,16 +25,22 @@ class PhotoInformationViewController: UIViewController,EditPhotoDelegate {
                         
                         let placemark = placemarksArray?.first
                         var string = String()
-                        
-                        if let state = placemark!.administrativeArea{
-                            string.append(state)
+                        // Tell city, state, locale of pin
+//                        if let state = placemark!.administrativeArea{
+//                            string.append(state)
+//                        }
+//                        if let city = placemark!.locality{
+//                            string.append(": \(city)")
+//                        }else{
+//                            if let subcity = placemark!.subLocality{
+//                                string.append(": \(subcity)")
+//                            }
+//                        }
+                        if let latitude = placemark!.location?.coordinate.latitude {
+                            string.append(String(latitude))
                         }
-                        if let city = placemark!.locality{
-                            string.append(": \(city)")
-                        }else{
-                            if let subcity = placemark!.subLocality{
-                                string.append(": \(subcity)")
-                            }
+                        if let longitude = placemark!.location?.coordinate.longitude {
+                            string.append(", \(String(longitude))")
                         }
                         self.locationLabel.text = string
                     }
