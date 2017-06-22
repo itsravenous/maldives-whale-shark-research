@@ -126,7 +126,7 @@ class ComparisonResultsViewController: UIViewController, UICollectionViewDelegat
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "sharkCell", for: indexPath) as! SharkInfoCollectionViewCell
             cell.sharkImage.image = UIImage(named: (dic.value(forKey: "image") as! String?)!)
             return cell
-        }else{
+        } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "sharkLabelCell", for: indexPath) as! SharkInfoLabelCollectionViewCell
             cell.lblID.text = dic.value(forKey: "id") as! String?
             cell.lblName.text = dic.value(forKey: "name") as! String?

@@ -160,7 +160,7 @@
         <!--Sharks-->
         <scene sceneID="VGW-Nt-tsN">
             <objects>
-                <tableViewController id="wXt-nx-U52" customClass="SharksTableViewController" customModule="MaldivesWhaleSharkResearch" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="sharkTableView" id="wXt-nx-U52" customClass="SharksTableViewController" customModule="MaldivesWhaleSharkResearch" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="CAo-WO-t7p">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1124,7 +1124,7 @@
         <!--Tab Bar View Controller-->
         <scene sceneID="Izq-pz-lc0">
             <objects>
-                <tabBarController id="N8d-a7-WOh" customClass="TabBarViewController" customModule="MaldivesWhaleSharkResearch" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabBar" id="N8d-a7-WOh" customClass="TabBarViewController" customModule="MaldivesWhaleSharkResearch" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="grI-Ag-c5y">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
