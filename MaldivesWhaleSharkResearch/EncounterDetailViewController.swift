@@ -34,7 +34,7 @@ class EncounterDetailViewController: UIViewController, UICollectionViewDataSourc
         self.title = selectedEncounter?.sharkName
         self.encounterDateLabel.text = selectedEncounter?.date
         self.locationLabel.text = selectedEncounter?.locationName
-        self.lengthLabel.text = String(describing: selectedEncounter!.length) + "m"
+        self.lengthLabel.text = selectedEncounter!.length == "Unknown" ? String(describing: selectedEncounter!.length) : String(describing: selectedEncounter!.length) + "m"
         self.contributorNameLabel.text = selectedEncounter?.contributorName
         self.contributorImageView.sd_setImage(with: URL(string: (selectedEncounter?.contributorImage)!))
         
