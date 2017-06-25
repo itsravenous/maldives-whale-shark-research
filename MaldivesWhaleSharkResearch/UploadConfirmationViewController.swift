@@ -48,19 +48,19 @@ class UploadConfirmationViewController: UIViewController {
         tabBar.selectedIndex = 3
         let shark =
             [
-                "id" : "WS001",
-                "name": "Hoadhun",
-                "sighting_count": "1",
-                "sex": "U",
-                "first_datetime": "2003-12-12 09:20:00",
-                "first_length": "6",
-                "first_contributor": "Manta Trust",
+                "id" : "WS004",
+                "name": "Nathan",
+                "sighting_count": "5",
+                "sex": "M",
+                "first_datetime": "2008-05-18 14:10:00",
+                "first_length": "7",
+                "first_contributor": "MWSRP",
                 "first_location": "3.465500, 72.838256",
-                "last_datetime": "2003-12-12 09:20:00",
-                "last_length": "6",
-                "last_contributor": "Manta Trust",
-                "last_location": "3.465500, 72.838256",
-                "media": [["thumb_url": "https://mwsrp-network.org/uploads/sharks/thumbs/WS001/WS001_Hoadhum_RIGHT.jpg"]]
+                "last_datetime": "2012-12-22 15:35:00",
+                "last_length": "7",
+                "last_contributor": "MWSRP",
+                "last_location": "3.565500, 72.938256",
+                "media": [["thumb_url": "https://mwsrp-network.org/uploads/sharks/thumbs/WS004/WS004%20R%20PECT.JPG"]]
                 ] as [String : Any]
         sharkProfile.selectedShark = shark as JSONObject
         self.present(tabBar, animated: true) {

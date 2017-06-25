@@ -30,13 +30,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gjw-Zu-bgN" userLabel="Close Button" customClass="DesignableButton" customModule="Spring">
-                                <rect key="frame" x="77" y="466" width="220" height="40"/>
+                                <rect key="frame" x="77.5" y="466" width="220" height="40"/>
                                 <color key="backgroundColor" red="0.31372549020000001" green="0.74901960779999999" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="220" id="4KI-0c-4rD"/>
-                                    <constraint firstAttribute="height" constant="40" id="v9W-0U-tEl"/>
+                                    <constraint firstAttribute="height" constant="40" id="v9W-0U-tEl">
+                                        <variation key="heightClass=regular" constant="40"/>
+                                    </constraint>
                                 </constraints>
-                                <state key="normal" title="Ok, let's ID my shark!">
+                                <state key="normal" title="OK, Let's ID my shark!">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -52,7 +54,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="gjw-Zu-bgN" firstAttribute="top" secondItem="XOq-d1-VER" secondAttribute="bottom" constant="446" id="QsG-ou-sOY"/>
-                            <constraint firstItem="gjw-Zu-bgN" firstAttribute="leading" secondItem="39e-fr-yAc" secondAttribute="leading" constant="77" id="oRa-fE-nfr"/>
+                            <constraint firstItem="gjw-Zu-bgN" firstAttribute="centerX" secondItem="39e-fr-yAc" secondAttribute="centerX" id="iu5-Cp-Irt"/>
                         </constraints>
                     </view>
                     <connections>
@@ -75,17 +77,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UC8-ak-sGn">
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UC8-ak-sGn">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="ZPv-Aj-btt">
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ZPv-Aj-btt">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
                                 <blurEffect style="dark"/>
                             </visualEffectView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MpW-SG-7w9" customClass="DesignableView" customModule="Spring">
-                                <rect key="frame" x="37" y="108" width="300" height="450"/>
+                                <rect key="frame" x="37.5" y="108.5" width="300" height="450"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uploadPhoto1" translatesAutoresizingMaskIntoConstraints="NO" id="IhH-3I-rQC">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
@@ -140,8 +141,12 @@ individual sharks</string>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="UC8-ak-sGn" firstAttribute="top" secondItem="rPq-GF-cYw" secondAttribute="top" id="3Wo-EZ-Gnb"/>
+                            <constraint firstItem="7f5-T7-yMh" firstAttribute="top" secondItem="UC8-ak-sGn" secondAttribute="bottom" id="Ivm-cP-dJM"/>
+                            <constraint firstAttribute="trailing" secondItem="UC8-ak-sGn" secondAttribute="trailing" id="Tht-lm-nTg"/>
                             <constraint firstItem="MpW-SG-7w9" firstAttribute="centerX" secondItem="rPq-GF-cYw" secondAttribute="centerX" id="mse-c1-xDh"/>
                             <constraint firstItem="MpW-SG-7w9" firstAttribute="centerY" secondItem="rPq-GF-cYw" secondAttribute="centerY" id="r1A-KI-paB"/>
+                            <constraint firstItem="UC8-ak-sGn" firstAttribute="leading" secondItem="rPq-GF-cYw" secondAttribute="leading" id="xYD-fB-gmJ"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -161,17 +166,16 @@ individual sharks</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tE5-4R-j7z">
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tE5-4R-j7z">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="Q2W-KB-K8n">
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Q2W-KB-K8n">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
                                 <blurEffect style="dark"/>
                             </visualEffectView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GJv-R9-8xe" customClass="DesignableView" customModule="Spring">
-                                <rect key="frame" x="37" y="108.5" width="300" height="450"/>
+                                <rect key="frame" x="37.5" y="108.5" width="300" height="450"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uploadPhoto2" translatesAutoresizingMaskIntoConstraints="NO" id="7hY-2U-TKE">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
@@ -224,8 +228,12 @@ individual sharks</string>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="zQ4-5C-ihn" firstAttribute="top" secondItem="tE5-4R-j7z" secondAttribute="bottom" id="5iv-uG-Axq"/>
+                            <constraint firstItem="tE5-4R-j7z" firstAttribute="leading" secondItem="cac-Ec-Amp" secondAttribute="leading" id="CBv-N4-4k3"/>
                             <constraint firstItem="GJv-R9-8xe" firstAttribute="centerY" secondItem="cac-Ec-Amp" secondAttribute="centerY" id="Ltb-CX-G0Q"/>
+                            <constraint firstItem="tE5-4R-j7z" firstAttribute="top" secondItem="cac-Ec-Amp" secondAttribute="top" id="bzW-kB-e33"/>
                             <constraint firstItem="GJv-R9-8xe" firstAttribute="centerX" secondItem="cac-Ec-Amp" secondAttribute="centerX" id="sTT-Fr-fva"/>
+                            <constraint firstAttribute="trailing" secondItem="tE5-4R-j7z" secondAttribute="trailing" id="vzh-13-Jn9"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -245,17 +253,16 @@ individual sharks</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="81o-VC-rbz">
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="81o-VC-rbz">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="6xH-y6-n58">
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="6xH-y6-n58">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
                                 <blurEffect style="dark"/>
                             </visualEffectView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4xx-7n-OdN" customClass="DesignableView" customModule="Spring">
-                                <rect key="frame" x="37" y="109" width="300" height="450"/>
+                                <rect key="frame" x="37.5" y="108.5" width="300" height="450"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uploadPhoto3" translatesAutoresizingMaskIntoConstraints="NO" id="gZB-qh-zJe">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
@@ -308,8 +315,12 @@ individual sharks</string>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="81o-VC-rbz" firstAttribute="leading" secondItem="kf3-Qw-bbs" secondAttribute="leading" id="Hv7-tp-yOa"/>
+                            <constraint firstItem="81o-VC-rbz" firstAttribute="top" secondItem="kf3-Qw-bbs" secondAttribute="top" id="JDy-by-Zm0"/>
                             <constraint firstItem="4xx-7n-OdN" firstAttribute="centerY" secondItem="kf3-Qw-bbs" secondAttribute="centerY" id="KkM-HD-AbY"/>
+                            <constraint firstAttribute="trailing" secondItem="81o-VC-rbz" secondAttribute="trailing" id="QXU-Su-BRp"/>
                             <constraint firstItem="4xx-7n-OdN" firstAttribute="centerX" secondItem="kf3-Qw-bbs" secondAttribute="centerX" id="W05-Cf-AqV"/>
+                            <constraint firstItem="nXO-T7-HzR" firstAttribute="top" secondItem="81o-VC-rbz" secondAttribute="bottom" id="y84-Ev-apV"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -329,17 +340,16 @@ individual sharks</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="krC-yB-YjW">
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="krC-yB-YjW">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="xRg-Gf-tZJ">
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="xRg-Gf-tZJ">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
                                 <blurEffect style="dark"/>
                             </visualEffectView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KEx-Pt-xtC" customClass="DesignableView" customModule="Spring">
-                                <rect key="frame" x="37" y="108" width="300" height="450"/>
+                                <rect key="frame" x="37.5" y="108.5" width="300" height="450"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uploadPhoto4" translatesAutoresizingMaskIntoConstraints="NO" id="bkw-Au-adr">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
@@ -393,6 +403,10 @@ individual sharks</string>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="KEx-Pt-xtC" firstAttribute="centerX" secondItem="akl-Jz-VVt" secondAttribute="centerX" id="96g-kw-TMU"/>
+                            <constraint firstItem="4MX-5i-Jg6" firstAttribute="top" secondItem="krC-yB-YjW" secondAttribute="bottom" id="Fc1-M5-txf"/>
+                            <constraint firstItem="krC-yB-YjW" firstAttribute="top" secondItem="akl-Jz-VVt" secondAttribute="top" id="aYq-y5-rm1"/>
+                            <constraint firstItem="krC-yB-YjW" firstAttribute="leading" secondItem="akl-Jz-VVt" secondAttribute="leading" id="sJh-ma-4Vo"/>
+                            <constraint firstAttribute="trailing" secondItem="krC-yB-YjW" secondAttribute="trailing" id="x7x-ae-cvv"/>
                             <constraint firstItem="KEx-Pt-xtC" firstAttribute="centerY" secondItem="akl-Jz-VVt" secondAttribute="centerY" id="xFw-sA-4tR"/>
                         </constraints>
                     </view>
