@@ -95,7 +95,7 @@ class ReportEncounterViewController: UIViewController, UIScrollViewDelegate {
         //        print("Touched point (\(z1), \(z2)")
         
         // Add pin to center of touched point
-        let pin = UIImageView(frame: CGRect(x: touchPoint.x - 5, y: touchPoint.y - 5, width:10, height:10))
+        let pin = UIImageView(frame: CGRect(x: touchPoint.x - 3, y: touchPoint.y - 3, width:6, height:6))
         
         // Add reference and spots to arrays
         if counter <= 3 { // first 3 times add red

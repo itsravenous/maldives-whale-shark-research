@@ -49,11 +49,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Fusuma.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>GTMSessionFetcher.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -104,11 +99,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>UPCarouselFlowLayout.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Validator.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -117,6 +107,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>0C91A15F1CA975CB7434CBCF80F7C45C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>107A9565F9DF88517DFD3E28C05B2B96</key>
 		<dict>
 			<key>primary</key>
@@ -127,12 +122,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3E0D8640A124012AB6F0A9F775A38285</key>
+		<key>44CAD6CE523055ED339E87154473A254</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>44CAD6CE523055ED339E87154473A254</key>
+		<key>484577D7B5E172C047634C00D26B18C2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -142,17 +137,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4E4949C68083138D2E87099D90C256AE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>5DE3F2BC075291E9FC66016CCC7CB5AF</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>5F4E70EB72ABD2F6FB68540E6E052433</key>
+		<key>536A513A8310E457457EC21F20E22523</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -167,27 +152,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9E951B4B336BE5E46F4AAE6E8BD5D1D3</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>A52524E727A97710A55D0EDA55BB7CFE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A721F1D5242573ED144460786EA00D31</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>BC5000D645EEAF961C85907CDC796FE1</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>BD9ADBFDE71BD02D09E87CFA41A1B48D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -207,11 +177,6 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C6695F5E1AB4E39AF8C74C8189D8C46B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>CF671F7E57B92905F1CC91D036D6B4A7</key>
 		<dict>
 			<key>primary</key>
@@ -222,22 +187,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D333807844B9146A9677BAAC7A2FC9D9</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D8B11171C567B1CA8D1CB986D7A82B74</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>DBEF467E4712E81925F735D9215E572B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DFFFC26B59551E7FC869886CF14BC7E7</key>
+		<key>DD766D5DDA6492897531DEF4F0669BCD</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -22,6 +22,7 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
     // MARK: - Properties
     var encounters : [Encounter] = []
     var uploadWalkthrough:BWWalkthroughViewController!
+    let screenSize: CGRect = UIScreen.main.bounds
     var likedEncounters = [String]()
     var menuIndex = 0
     
@@ -41,6 +42,15 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
             self.likedEncounters = ids
             self.getEncountersWith(ids: ids)
         })
+        
+        // Set Walkthrough button y constraint
+        if (uploadWalkthrough != nil) {
+            if screenSize.height > 700 {
+                uploadWalkthrough.closeButton?.frame.origin.y = 500
+            } else {
+                uploadWalkthrough.closeButton?.frame.origin.y = 446
+            }
+        }
         
         // Create the menuview
         let items = ["All Encounters", "Liked Encounters", "My Encounters"]

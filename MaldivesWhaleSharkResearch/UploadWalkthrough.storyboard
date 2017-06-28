@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -30,7 +31,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gjw-Zu-bgN" userLabel="Close Button" customClass="DesignableButton" customModule="Spring">
-                                <rect key="frame" x="77.5" y="466" width="220" height="40"/>
+                                <rect key="frame" x="77.5" y="466.5" width="220" height="40"/>
                                 <color key="backgroundColor" red="0.31372549020000001" green="0.74901960779999999" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="220" id="4KI-0c-4rD"/>
@@ -38,7 +39,7 @@
                                         <variation key="heightClass=regular" constant="40"/>
                                     </constraint>
                                 </constraints>
-                                <state key="normal" title="OK, Let's ID my shark!">
+                                <state key="normal" title="OK, let's ID my shark!">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -53,8 +54,8 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="gjw-Zu-bgN" firstAttribute="top" secondItem="XOq-d1-VER" secondAttribute="bottom" constant="446" id="QsG-ou-sOY"/>
                             <constraint firstItem="gjw-Zu-bgN" firstAttribute="centerX" secondItem="39e-fr-yAc" secondAttribute="centerX" id="iu5-Cp-Irt"/>
+                            <constraint firstItem="oPt-QK-4uJ" firstAttribute="top" secondItem="gjw-Zu-bgN" secondAttribute="bottom" multiplier="1.1" constant="110" id="zgV-n2-uJp"/>
                         </constraints>
                     </view>
                     <connections>

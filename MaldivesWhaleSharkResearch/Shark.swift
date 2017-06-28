@@ -12,28 +12,28 @@ struct Shark {
     
     let sharks = [
         [
-            "name": "Nathan",
-            "id": "WS004",
-            "image": "shark1",
+            "name": "Fernando",
+            "id": "WS071",
+            "image": "fernando",
             "rating": "8.8"
         ],
         [
-            "name": "Elvis",
-            "id": "WS037",
-            "image": "shark2",
+            "name": "Dai",
+            "id": "WS069",
+            "image": "dai",
             "rating": "20.9"
         ],
         [
             "name": "Will",
             "id": "WS058",
-            "image": "shark3",
-            "rating": "30.8"
+            "image": "will",
+            "rating": "32.8"
         ],
         [
-            "name": "Dai",
-            "id": "WS069",
-            "image": "shark1",
-            "rating": "40.2"
+            "name": "Elvis",
+            "id": "WS037",
+            "image": "elvis",
+            "rating": "44.9"
         ]
     ]
 

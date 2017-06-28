@@ -19,7 +19,6 @@ target 'MaldivesWhaleSharkResearch' do
   pod 'SwiftyJSON'
   pod 'AFNetworking'
   pod 'DKImagePickerController'
-  pod 'UPCarouselFlowLayout'
   
   # Pods for MaldivesWhaleSharkResearch
 

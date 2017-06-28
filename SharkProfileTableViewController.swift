@@ -130,7 +130,7 @@ class SharkProfileTableViewController: UITableViewController, UICollectionViewDe
                 cell.lastEncounterLengthLabel.text = shark.lastLength! + " meters"
             }
             cell.lastEncounterSeenByLabel.text = shark.lastContributor
-            cell.lastEncounterMapView.setRegion(MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 4.265656, longitude: 72.989937), span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)), animated: false)
+            cell.lastEncounterMapView.setRegion(MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 3.503414, longitude: 72.904709), span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)), animated: false)
             // Set to real location
 //            cell.lastEncounterMapView.setRegion(setLocation(encounterLocation: shark.lastLocation!), animated: false)
             return cell

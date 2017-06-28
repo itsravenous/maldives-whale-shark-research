@@ -84,7 +84,6 @@ PODS:
   - SDWebImage/Core (4.0.0)
   - Spring (1.0.3)
   - SwiftyJSON (3.1.4)
-  - UPCarouselFlowLayout (1.1.1)
   - Validator (2.1.1)
 
 DEPENDENCIES:
@@ -103,7 +102,6 @@ DEPENDENCIES:
   - SDWebImage
   - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift3`)
   - SwiftyJSON
-  - UPCarouselFlowLayout
 
 EXTERNAL SOURCES:
   BTNavigationDropdownMenu:
@@ -145,9 +143,8 @@ SPEC CHECKSUMS:
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
-  UPCarouselFlowLayout: 02045c1505d63057fba3d9975be880a8d16bf17d
   Validator: b1793fbfd0046097551d0edd18e2c30792d69ef5
 
-PODFILE CHECKSUM: b94b3b301859b6271dce7b277c1bc6f8fcfcfa1a
+PODFILE CHECKSUM: 100f160a1322cf809ea2a956248e6b5fb902d8e5
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.2.1
