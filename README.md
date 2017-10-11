@@ -9,6 +9,8 @@ Nothing unusual here, just `pod install` and remember to open `MaldivesWhaleShar
 ### Install Swift Package Manager dependencies
 Swift Package Manager isn't yet fully integrated for Xcode iOS projects. We use an approach based on https://github.com/j-channings/swift-package-manager-ios.
 
-Run `ruby generate-dependencies-project.rb` to generate the dependencies Xcode project. No other steps should be necessary. If you add new dependencies to `Package.swift` (or update the existing ones), regenerate this project.
+- Generate the dependencies Xcode project: `ruby generate-dependencies-project.rb` 
+- Drag the generated `Dependencies.xcodeproj` into your project (at the top level).
+- If you add new dependencies to `Package.swift` (or update the existing ones), regenerate this project (and drag it back in).
 
 
