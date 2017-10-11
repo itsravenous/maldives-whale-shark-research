@@ -130,20 +130,6 @@
 			remoteGlobalIDString = "i3s::i3s::Product";
 			remoteInfo = i3s;
 		};
-		356D10EC1F8E46C200244C05 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 356D10D91F8E46C200244C05 /* Dependencies.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = "MySwift4Package::MySwift4Package::Product";
-			remoteInfo = MySwift4Package;
-		};
-		356D10EE1F8E46C200244C05 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 356D10D91F8E46C200244C05 /* Dependencies.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = "MySwift3Package::MySwift3Package::Product";
-			remoteInfo = MySwift3Package;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -504,8 +490,6 @@
 				356D10E71F8E46C200244C05 /* Dependencies.framework */,
 				356D10E91F8E46C200244C05 /* i3s_swift.framework */,
 				356D10EB1F8E46C200244C05 /* i3s.framework */,
-				356D10ED1F8E46C200244C05 /* MySwift4Package.framework */,
-				356D10EF1F8E46C200244C05 /* MySwift3Package.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -645,7 +629,7 @@
 				TargetAttributes = {
 					04CEF2F01EAB19550057A119 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = ERF7V8C7KW;
+						DevelopmentTeam = C94Z46D27H;
 						ProvisioningStyle = Automatic;
 					};
 					04CEF3071EAB19550057A119 = {
@@ -708,20 +692,6 @@
 			fileType = wrapper.framework;
 			path = i3s.framework;
 			remoteRef = 356D10EA1F8E46C200244C05 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		356D10ED1F8E46C200244C05 /* MySwift4Package.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = MySwift4Package.framework;
-			remoteRef = 356D10EC1F8E46C200244C05 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		356D10EF1F8E46C200244C05 /* MySwift3Package.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = MySwift3Package.framework;
-			remoteRef = 356D10EE1F8E46C200244C05 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -1123,7 +1093,7 @@
 			baseConfigurationReference = 64E6BF5ADE52B1D1E72C0A48 /* Pods-MaldivesWhaleSharkResearch.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = ERF7V8C7KW;
+				DEVELOPMENT_TEAM = C94Z46D27H;
 				INFOPLIST_FILE = MaldivesWhaleSharkResearch/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1138,7 +1108,7 @@
 			baseConfigurationReference = 0E3ED0F2E41A9A04FA2C636F /* Pods-MaldivesWhaleSharkResearch.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = ERF7V8C7KW;
+				DEVELOPMENT_TEAM = C94Z46D27H;
 				INFOPLIST_FILE = MaldivesWhaleSharkResearch/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

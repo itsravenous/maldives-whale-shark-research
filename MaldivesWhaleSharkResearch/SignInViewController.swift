@@ -10,7 +10,6 @@ import UIKit
 import ILLoginKit
 import FBSDKCoreKit
 import FBSDKLoginKit
-import i3s_swift
 
 class SignInViewController: UIViewController {
 
