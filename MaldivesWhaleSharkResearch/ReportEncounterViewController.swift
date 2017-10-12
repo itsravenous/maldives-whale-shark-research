@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import i3s_swift
 
 class ReportEncounterViewController: UIViewController, UIScrollViewDelegate {
     
@@ -22,8 +23,8 @@ class ReportEncounterViewController: UIViewController, UIScrollViewDelegate {
     
     
     // MARK: - Properties
-    var refs1 :[[Double]] = []
-    var spots1 :[[Double]] = []
+    var refs1 :[Double] = []
+    var spots1 :[Double] = []
     var counter = 0
     var pageCounter = 1
     var selectedImage: UIImage!
@@ -101,12 +102,12 @@ class ReportEncounterViewController: UIViewController, UIScrollViewDelegate {
         if counter <= 3 { // first 3 times add red
             pin.image = UIImage(named: "photo-pin-red")
             sharkImage.addSubview(pin)
-            refs1.append(touchPointValue)
+            refs1 += touchPointValue
             print("Ref array: \(refs1)")
         } else if counter <= 23 { // next 14 - 20 add green
             pin.image = UIImage(named: "photo-pin-green")
             sharkImage.addSubview(pin)
-            spots1.append(touchPointValue)
+            spots1 += touchPointValue
             print("Spot array: \(spots1)")
         } else if counter > 23 {
             // Alert the user to run a comparison
@@ -150,7 +151,20 @@ class ReportEncounterViewController: UIViewController, UIScrollViewDelegate {
     @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
         print("Done button pushed: Run Comparison")
         self.containerView.isHidden = false
+        // Create FingerPrint from marked refs and spots
+        let fgp = FingerPrint(ref: refs1, data: spots1, nr: spots1.count / 8)
 
+        // Create dummy comparison fingerprint
+        let refs2 : [Double] = [ 0.0, 0.0, 100.0, 100.0, 0.0, 100.0 ]
+        let spots2 : [Double] = [
+            15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0,
+            20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0,
+            37.0, 37.0, 37.0, 37.0, 37.0, 37.0, 37.0, 37.0,
+            40.0, 40.0, 40.0, 40.0, 40.0, 40.0, 40.0, 40.0
+        ]
+
+        let fgp2 = FingerPrint(ref: refs2, data: spots2, nr: 4)
+        print(fgp.compare(fgp2))
     }
     
     
