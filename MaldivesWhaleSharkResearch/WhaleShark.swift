@@ -9,6 +9,7 @@
 import AlgoliaSearch
 import InstantSearchCore
 import Foundation
+import i3s_swift
 
 struct WhaleShark {
     private let json: JSONObject
@@ -75,4 +76,17 @@ struct WhaleShark {
         return dict
     }
     
+    var fingerPrints: [FingerPrint]? {
+        let refs : [Double] = [ 0.0, 0.0, 100.0, 100.0, 0.0, 100.0 ]
+        let spots : [Double] = [
+            10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0,
+            20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0,
+            30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0,
+            40.0, 40.0, 40.0, 40.0, 40.0, 40.0, 40.0, 40.0
+        ]
+        return [
+            FingerPrint(ref: refs, data: spots, nr: 4)
+        ]
+    }
+
 }
