@@ -8,6 +8,9 @@
 
 import UIKit
 import i3s_swift
+import AlgoliaSearch
+import InstantSearchCore
+import Firebase
 
 class ReportEncounterViewController: UIViewController, UIScrollViewDelegate {
     
@@ -24,7 +27,7 @@ class ReportEncounterViewController: UIViewController, UIScrollViewDelegate {
     
     // MARK: - Properties
     var refs1 :[Double] = []
-    var spots1 :[Double] = []
+    var spots1 :[[Double]] = []
     var counter = 0
     var pageCounter = 1
     var selectedImage: UIImage!
@@ -107,7 +110,7 @@ class ReportEncounterViewController: UIViewController, UIScrollViewDelegate {
         } else if counter <= 23 { // next 14 - 20 add green
             pin.image = UIImage(named: "photo-pin-green")
             sharkImage.addSubview(pin)
-            spots1 += touchPointValue
+            spots1.append(touchPointValue)
             print("Spot array: \(spots1)")
         } else if counter > 23 {
             // Alert the user to run a comparison
@@ -151,20 +154,36 @@ class ReportEncounterViewController: UIViewController, UIScrollViewDelegate {
     @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
         print("Done button pushed: Run Comparison")
         self.containerView.isHidden = false
+        doComparison()
+    }
+
+    func doComparison() {
         // Create FingerPrint from marked refs and spots
-        let fgp = FingerPrint(ref: refs1, data: spots1, nr: spots1.count / 8)
+        let spots1AsQuads = spots1
+            .map {Array(repeating: [$0[0], $0[1]], count: 4).reduce([], +)}
+            .reduce([], +)
+        let fgp = FingerPrint(ref: refs1, data: spots1AsQuads, nr: spots1AsQuads.count / 8)
 
-        // Create dummy comparison fingerprint
-        let refs2 : [Double] = [ 0.0, 0.0, 100.0, 100.0, 0.0, 100.0 ]
-        let spots2 : [Double] = [
-            15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0,
-            20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0,
-            37.0, 37.0, 37.0, 37.0, 37.0, 37.0, 37.0, 37.0,
-            40.0, 40.0, 40.0, 40.0, 40.0, 40.0, 40.0, 40.0
-        ]
+        // Get all shark fingerprints
+        var scores = [String]()
+        Database.database().reference().child("fingerprints").observeSingleEvent(of: .value, with: { (snapshot) in
+            for rest in snapshot.children.allObjects as! [DataSnapshot] {
+                guard let restDict = rest.value as? [String: Any] else { continue }
+                let refs = restDict["refs"] as? [[Double]]
+                let refsFlat = refs?.reduce([], +)
+                let keypoints = restDict["keypoints"] as? [[Double]]
+                let keypointsAsQuads = keypoints!
+                    .map {Array(repeating: [$0[0], $0[1]], count: 4).reduce([], +)}
+                    .reduce([], +)
 
-        let fgp2 = FingerPrint(ref: refs2, data: spots2, nr: 4)
-        print(fgp.compare(fgp2))
+                let fingerprint = FingerPrint(ref: refsFlat!, data: keypointsAsQuads, nr: keypoints!.count)
+                let score: Double = fingerprint.compare(fgp)
+                let animalId = restDict["animal_id"] as! String
+                let result = "\(score) for \(animalId)"
+                scores.append(result)
+            }
+            print(scores.sorted  {Double($0.split(separator: " ")[0])! < Double($1.split(separator: " ")[0])!})
+        })
     }
     
     
