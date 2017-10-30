@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import i3s_swift
 
 class ComparisonProgressViewController: UIViewController {
 
@@ -17,6 +19,8 @@ class ComparisonProgressViewController: UIViewController {
     
     // MARK: - Properties
     var selectedImage: UIImage!
+    var fgp: FingerPrint!
+    var scores = [String]()
     var timer = Timer()
     
     // MARK: - View Did Load
@@ -29,15 +33,31 @@ class ComparisonProgressViewController: UIViewController {
     // MARK: - View Did Appear
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        timer.invalidate() // just in case this button is tapped multiple times
-        
-        // start the timer
-        timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(timerAction), userInfo: nil, repeats: false)
-        
-        UIView.animate(withDuration: 5) { 
-            self.comparisonProgressBar.setProgress(1.0, animated: true)
-        }
-    
+
+        // Get all fingerprints and compare against each
+        var index: Float = 0.0
+        Database.database().reference().child("fingerprints").observeSingleEvent(of: .value, with: { (snapshot) in
+            let total = Float(snapshot.children.allObjects.count)
+            for rest in snapshot.children.allObjects as! [DataSnapshot] {
+                guard let restDict = rest.value as? [String: Any] else { continue }
+                let refs = restDict["refs"] as? [[Double]]
+                let refsFlat = refs?.reduce([], +)
+                let keypoints = restDict["keypoints"] as? [[Double]]
+                let keypointsAsQuads = keypoints!
+                    .map {Array(repeating: [$0[0], $0[1]], count: 4).reduce([], +)}
+                    .reduce([], +)
+
+                let fingerprint = FingerPrint(ref: refsFlat!, data: keypointsAsQuads, nr: keypoints!.count)
+                let score: Double = fingerprint.compare(self.fgp)
+                let animalId = restDict["animal_id"] as! String
+                let result = "\(score) for \(animalId)"
+                self.scores.append(result)
+                index += 1
+                print("progress", index, index / total)
+                self.comparisonProgressBar.setProgress(index / total, animated: false)
+            }
+            print(self.scores.sorted  {Double($0.split(separator: " ")[0])! < Double($1.split(separator: " ")[0])!})
+        })
     }
     
     // MARK: - Status Bar Hidden

@@ -154,49 +154,23 @@ class ReportEncounterViewController: UIViewController, UIScrollViewDelegate {
     @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
         print("Done button pushed: Run Comparison")
         self.containerView.isHidden = false
-        doComparison()
     }
 
-    func doComparison() {
-        // Create FingerPrint from marked refs and spots
-        let spots1AsQuads = spots1
-            .map {Array(repeating: [$0[0], $0[1]], count: 4).reduce([], +)}
-            .reduce([], +)
-        let fgp = FingerPrint(ref: refs1, data: spots1AsQuads, nr: spots1AsQuads.count / 8)
-
-        // Get all shark fingerprints
-        var scores = [String]()
-        Database.database().reference().child("fingerprints").observeSingleEvent(of: .value, with: { (snapshot) in
-            for rest in snapshot.children.allObjects as! [DataSnapshot] {
-                guard let restDict = rest.value as? [String: Any] else { continue }
-                let refs = restDict["refs"] as? [[Double]]
-                let refsFlat = refs?.reduce([], +)
-                let keypoints = restDict["keypoints"] as? [[Double]]
-                let keypointsAsQuads = keypoints!
-                    .map {Array(repeating: [$0[0], $0[1]], count: 4).reduce([], +)}
-                    .reduce([], +)
-
-                let fingerprint = FingerPrint(ref: refsFlat!, data: keypointsAsQuads, nr: keypoints!.count)
-                let score: Double = fingerprint.compare(fgp)
-                let animalId = restDict["animal_id"] as! String
-                let result = "\(score) for \(animalId)"
-                scores.append(result)
-            }
-            print(scores.sorted  {Double($0.split(separator: " ")[0])! < Double($1.split(separator: " ")[0])!})
-        })
-    }
-    
-    
      // MARK: - Navigation
-     
+
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "reportToComparisonSegue" {
+            // Get progress view controller
             let destinationVC = segue.destination as! ComparisonProgressViewController
+            // Set image
             destinationVC.selectedImage = self.sharkImage.image
+            // Create and set FingerPrint from marked refs and spots
+            let spots1AsQuads = spots1
+                .map {Array(repeating: [$0[0], $0[1]], count: 4).reduce([], +)}
+                .reduce([], +)
+            destinationVC.fgp = FingerPrint(ref: refs1, data: spots1AsQuads, nr: spots1AsQuads.count / 8)
         }
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
      }
     
     

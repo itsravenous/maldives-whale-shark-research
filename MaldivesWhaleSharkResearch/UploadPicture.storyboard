@@ -330,6 +330,7 @@
                                         <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="done" id="1aH-qd-0UK">
                                             <connections>
                                                 <action selector="doneButtonPressed:" destination="i2U-ok-jmi" id="bZs-io-gho"/>
+                                                <segue destination="CHT-TN-lry" kind="presentation" identifier="reportToComparisonSegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="5f8-QN-mE7"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
