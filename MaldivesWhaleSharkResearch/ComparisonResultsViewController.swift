@@ -20,6 +20,7 @@ class ComparisonResultsViewController: UIViewController, UICollectionViewDelegat
     
     // MARK: - Properties
     var selectedImage: UIImage!
+    var results: [ComparisonResult] = []
     let pickerController = DKImagePickerController()
     var shark = Shark()
     var currentPage: Int = 0
@@ -121,15 +122,15 @@ class ComparisonResultsViewController: UIViewController, UICollectionViewDelegat
     
     // MARK: - CollectionViewDelegate/Datasource
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let dic = self.shark.sharks[indexPath.row] as NSDictionary
+        let result = self.results[indexPath.row]
         if collectionView == self.collectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "sharkCell", for: indexPath) as! SharkInfoCollectionViewCell
-            cell.sharkImage.image = UIImage(named: (dic.value(forKey: "image") as! String?)!)
+            cell.sharkImage.image = UIImage(named: result.image)
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "sharkLabelCell", for: indexPath) as! SharkInfoLabelCollectionViewCell
-            cell.lblID.text = dic.value(forKey: "id") as! String?
-            cell.lblName.text = dic.value(forKey: "name") as! String?
+            cell.lblID.text = result.id
+            cell.lblName.text = result.name
             
             return cell
         }
@@ -158,8 +159,9 @@ class ComparisonResultsViewController: UIViewController, UICollectionViewDelegat
             self.collectionViewLabel.setContentOffset(CGPoint(x: (CGFloat(cPage) * self.pageSize.width), y:0), animated: true)
         }
         
-        let dic = self.shark.sharks[cPage] as NSDictionary
-        self.ratingLabel.text = dic.value(forKey: "rating") as! String?
+        let result = self.results[cPage]
+        let score2dp = (result.score * 100).rounded() / 100
+        self.ratingLabel.text = String(score2dp)
     }
     
     // MARK: - Navigation

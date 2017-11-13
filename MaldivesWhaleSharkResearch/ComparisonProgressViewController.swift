@@ -20,7 +20,7 @@ class ComparisonProgressViewController: UIViewController {
     // MARK: - Properties
     var selectedImage: UIImage!
     var fgp: FingerPrint!
-    var scores = [String]()
+    var results = [ComparisonResult]()
     var timer = Timer()
     
     // MARK: - View Did Load
@@ -50,13 +50,12 @@ class ComparisonProgressViewController: UIViewController {
                 let fingerprint = FingerPrint(ref: refsFlat!, data: keypointsAsQuads, nr: keypoints!.count)
                 let score: Double = fingerprint.compare(self.fgp)
                 let animalId = restDict["animal_id"] as! String
-                let result = "\(score) for \(animalId)"
-                self.scores.append(result)
+                let result = ComparisonResult(id: animalId, name: "Fernando", score: score, image: "fernando")
+                self.results.append(result)
                 index += 1
-                print("progress", index, index / total)
                 self.comparisonProgressBar.setProgress(index / total, animated: false)
             }
-            print(self.scores.sorted  {Double($0.split(separator: " ")[0])! < Double($1.split(separator: " ")[0])!})
+            self.goToResults()
         })
     }
     
@@ -88,7 +87,7 @@ class ComparisonProgressViewController: UIViewController {
     }
     
     // MARK: - Functions
-    func timerAction() {
+    func goToResults() {
         self.performSegue(withIdentifier: "comparisonToResultsSegue", sender: nil)
     }
 
@@ -100,6 +99,7 @@ class ComparisonProgressViewController: UIViewController {
         if segue.identifier == "comparisonToResultsSegue" {
             let destinationVC = segue.destination as! ComparisonResultsViewController
             destinationVC.selectedImage = sharkImage.image
+            destinationVC.results = self.results
         }
 
         // Get the new view controller using segue.destinationViewController.
