@@ -8,6 +8,7 @@
 
 import UIKit
 import Photos
+import Firebase
 import DKImagePickerController
 
 class ComparisonResultsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
@@ -24,6 +25,7 @@ class ComparisonResultsViewController: UIViewController, UICollectionViewDelegat
     let pickerController = DKImagePickerController()
     var shark = Shark()
     var currentPage: Int = 0
+    var currentResult: ComparisonResult!;
     
     fileprivate var pageSize: CGSize {
         let layout = self.collectionViewLabel.collectionViewLayout as! UPCarouselFlowLayout
@@ -54,11 +56,11 @@ class ComparisonResultsViewController: UIViewController, UICollectionViewDelegat
         self.setupLayout()
         
         self.currentPage = 0
+        self.currentResult = self.results[0]
+        let score2dp = (self.currentResult.score * 100).rounded() / 100
+        self.ratingLabel.text = String(score2dp)
 
         sharkUploadImageView.image = selectedImage
-
-        let dic = self.shark.sharks[0] as NSDictionary
-        self.ratingLabel.text = dic.value(forKey: "rating") as! String?
     }
     
     // MARK: - ViewDidAppear
@@ -137,7 +139,7 @@ class ComparisonResultsViewController: UIViewController, UICollectionViewDelegat
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return shark.sharks.count
+        return self.results.count
     }
 
     // MARK: - UIScrollViewDelegate
@@ -159,8 +161,8 @@ class ComparisonResultsViewController: UIViewController, UICollectionViewDelegat
             self.collectionViewLabel.setContentOffset(CGPoint(x: (CGFloat(cPage) * self.pageSize.width), y:0), animated: true)
         }
         
-        let result = self.results[cPage]
-        let score2dp = (result.score * 100).rounded() / 100
+        self.currentResult = self.results[cPage]
+        let score2dp = (self.currentResult.score * 100).rounded() / 100
         self.ratingLabel.text = String(score2dp)
     }
     

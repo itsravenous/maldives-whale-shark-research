@@ -70,6 +70,7 @@
 		04E19F191EDA9A4600E4BB22 /* AlgoliaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E19F181EDA9A4600E4BB22 /* AlgoliaManager.swift */; };
 		04E19F1B1EDBF6C600E4BB22 /* EncounterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E19F1A1EDBF6C600E4BB22 /* EncounterCollectionViewCell.swift */; };
 		04EBB5611EB88A6A008D5B4C /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EBB5601EB88A6A008D5B4C /* AboutViewController.swift */; };
+		2D681E551FC33356002023ED /* ComparisonResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D681E541FC33356002023ED /* ComparisonResult.swift */; };
 		356D10F01F8E46CA00244C05 /* i3s_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 356D10E91F8E46C200244C05 /* i3s_swift.framework */; };
 		356D10F11F8E46CF00244C05 /* i3s.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 356D10EB1F8E46C200244C05 /* i3s.framework */; };
 		3E56C2B650CE78E75CF9C916 /* Pods_MaldivesWhaleSharkResearchUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3813DF1825C1F3F972FDC2F /* Pods_MaldivesWhaleSharkResearchUITests.framework */; };
@@ -203,6 +204,7 @@
 		05069E331F56640F8E911B8D /* Pods_MaldivesWhaleSharkResearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MaldivesWhaleSharkResearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E3ED0F2E41A9A04FA2C636F /* Pods-MaldivesWhaleSharkResearch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MaldivesWhaleSharkResearch.release.xcconfig"; path = "Pods/Target Support Files/Pods-MaldivesWhaleSharkResearch/Pods-MaldivesWhaleSharkResearch.release.xcconfig"; sourceTree = "<group>"; };
 		21708BB94A1E1599C3046E70 /* Pods_MaldivesWhaleSharkResearchTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MaldivesWhaleSharkResearchTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D681E541FC33356002023ED /* ComparisonResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComparisonResult.swift; sourceTree = "<group>"; };
 		356D10D91F8E46C200244C05 /* Dependencies.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Dependencies.xcodeproj; sourceTree = "<group>"; };
 		64E6BF5ADE52B1D1E72C0A48 /* Pods-MaldivesWhaleSharkResearch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MaldivesWhaleSharkResearch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MaldivesWhaleSharkResearch/Pods-MaldivesWhaleSharkResearch.debug.xcconfig"; sourceTree = "<group>"; };
 		8DB22360E225F6EE928BBBDC /* Pods-MaldivesWhaleSharkResearchTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MaldivesWhaleSharkResearchTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MaldivesWhaleSharkResearchTests/Pods-MaldivesWhaleSharkResearchTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 				042776B01EB8B1C900D505C5 /* User.swift */,
 				042776B41EB8B71100D505C5 /* WhaleShark.swift */,
 				04A7E5F21EE742830069F6FB /* Shark.swift */,
+				2D681E541FC33356002023ED /* ComparisonResult.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -898,6 +901,7 @@
 				04A7E5EB1EE6B6EB0069F6FB /* EditPhotoInformationViewController.swift in Sources */,
 				EAE707AC1EF7CC8C00688247 /* FSImageCropView.swift in Sources */,
 				041A46821EB4858E00DF749C /* EncounterTableViewCell.swift in Sources */,
+				2D681E551FC33356002023ED /* ComparisonResult.swift in Sources */,
 				042DBBEB1EC0C7AA00DA93B6 /* SharksTableViewController.swift in Sources */,
 				04EBB5611EB88A6A008D5B4C /* AboutViewController.swift in Sources */,
 				04A7E5E51EE66F080069F6FB /* ReportEncounterViewController.swift in Sources */,

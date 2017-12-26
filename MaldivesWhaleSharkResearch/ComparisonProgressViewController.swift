@@ -35,10 +35,12 @@ class ComparisonProgressViewController: UIViewController {
         super.viewDidAppear(animated)
 
         // Get all fingerprints and compare against each
-        var index: Float = 0.0
-        Database.database().reference().child("fingerprints").observeSingleEvent(of: .value, with: { (snapshot) in
-            let total = Float(snapshot.children.allObjects.count)
-            for rest in snapshot.children.allObjects as! [DataSnapshot] {
+        var progress: Float = 0.0
+        let db = Database.database().reference();
+        db.child("fingerprints").observeSingleEvent(of: .value, with: { (snapshot) in
+            let fingerprints = snapshot.children.allObjects
+            let total = Float(fingerprints.count)
+            for rest in fingerprints as! [DataSnapshot] {
                 guard let restDict = rest.value as? [String: Any] else { continue }
                 let refs = restDict["refs"] as? [[Double]]
                 let refsFlat = refs?.reduce([], +)
@@ -50,13 +52,24 @@ class ComparisonProgressViewController: UIViewController {
                 let fingerprint = FingerPrint(ref: refsFlat!, data: keypointsAsQuads, nr: keypoints!.count)
                 let score: Double = fingerprint.compare(self.fgp)
                 let animalId = restDict["animal_id"] as! String
-                let result = ComparisonResult(id: animalId, name: "Fernando", score: score, image: "fernando")
-                self.results.append(result)
-                index += 1
-                self.comparisonProgressBar.setProgress(index / total, animated: false)
+                // TODO: fetch image from URL or figure out how to use Firebase bucket instead
+                var result = ComparisonResult(id: animalId, name: "Fernando", score: score, image: "fernando")
+                let animalRef = db.child("sharks").child(animalId);
+                // "Join" animal to get name
+                animalRef.observeSingleEvent(of: .value, with: { (snapshot) in
+                    let value = snapshot.value as? NSDictionary
+                    let animalName = value?["name"] as? String ?? ""
+                    result.name = animalName
+                    self.results.append(result)
+                    self.comparisonProgressBar.setProgress(progress / total, animated: false)
+                    if (progress == total - 1) {
+                        self.goToResults()
+                    }
+                    progress += 1
+                })
             }
-            self.goToResults()
         })
+        
     }
     
     // MARK: - Status Bar Hidden
