@@ -113,7 +113,7 @@ class ComparisonProgressViewController: UIViewController {
         if segue.identifier == "comparisonToResultsSegue" {
             let destinationVC = segue.destination as! ComparisonResultsViewController
             destinationVC.selectedImage = sharkImage.image
-            destinationVC.results = self.results
+            destinationVC.results = self.results.sorted()
         }
 
         // Get the new view controller using segue.destinationViewController.
