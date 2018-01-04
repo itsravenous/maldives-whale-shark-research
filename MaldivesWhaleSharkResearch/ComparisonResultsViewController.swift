@@ -128,7 +128,10 @@ class ComparisonResultsViewController: UIViewController, UICollectionViewDelegat
         if collectionView == self.collectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "sharkCell", for: indexPath) as! SharkInfoCollectionViewCell
             cell.sharkImage.image = UIImage()
-            cell.sharkImage.sd_setImage(with: URL(string: result.image), placeholderImage: UIImage(named: "fernando"))
+            let url = URL(string: result.image.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)
+            cell.sharkImage.sd_setShowActivityIndicatorView(true)
+            cell.sharkImage.sd_setIndicatorStyle(.gray)
+            cell.sharkImage.sd_setImage(with: url)
 
             return cell
         } else {

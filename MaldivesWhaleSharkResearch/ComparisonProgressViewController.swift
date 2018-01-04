@@ -53,7 +53,7 @@ class ComparisonProgressViewController: UIViewController {
                 let score: Double = fingerprint.compare(self.fgp)
                 let animalId = restDict["animal_id"] as! String
                 // Firebase fgps don't have images yet - TODO add them!
-                let image = "https://maldiveswhalesharkresearch.org/wp-content/uploads/2013/07/DSC03036-330x219.jpg"
+                let image = restDict["image_thumb"] as! String
                 var result = ComparisonResult(id: animalId, name: "", score: score, image: image)
                 let animalRef = db.child("sharks").child(animalId);
                 // "Join" animal to get name
