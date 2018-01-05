@@ -170,6 +170,7 @@ class ReportEncounterViewController: UIViewController, UIScrollViewDelegate {
                 .map {Array(repeating: [$0[0], $0[1]], count: 4).reduce([], +)}
                 .reduce([], +)
             destinationVC.fgp = FingerPrint(ref: refs1, data: spots1AsQuads, nr: spots1AsQuads.count / 8)
+            destinationVC.sideToCheck = refs1[0] < refs1[2] ? AnimalSide.left : AnimalSide.right
         }
      }
     

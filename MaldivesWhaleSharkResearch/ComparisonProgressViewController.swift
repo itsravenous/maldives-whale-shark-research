@@ -20,6 +20,7 @@ class ComparisonProgressViewController: UIViewController {
     // MARK: - Properties
     var selectedImage: UIImage!
     var fgp: FingerPrint!
+    var sideToCheck: AnimalSide!
     var results = [ComparisonResult]()
     var timer = Timer()
     
@@ -37,7 +38,8 @@ class ComparisonProgressViewController: UIViewController {
         // Get all fingerprints and compare against each
         var progress: Float = 0.0
         let db = Database.database().reference();
-        db.child("fingerprints").observeSingleEvent(of: .value, with: { (snapshot) in
+        let side = sideToCheck == AnimalSide.left ? "LEFT" : "RIGHT"
+        db.child("fingerprints").queryOrdered(byChild: "side").queryEqual(toValue: side).observeSingleEvent(of: .value, with: { (snapshot) in
             let fingerprints = snapshot.children.allObjects
             let total = Float(fingerprints.count)
             for rest in fingerprints as! [DataSnapshot] {
