@@ -82,10 +82,10 @@ class MapViewController: UIViewController, BWWalkthroughViewControllerDelegate, 
                 }
                 // Media
                 if restDict["media"] != nil {
-                    let mediaDict = restDict["media"] as! [[String:Any]]
-                    encounter.images = mediaDict.flatMap { $0["thumb_url"] as? String }
+                    let mediaDict = restDict["media"] as? [String: [String: Any]]
+                    encounter.images = mediaDict?.values.flatMap {$0["url"] as? String} ?? []
                 } else {
-                    encounter.images = ["http://banqlkcn.baria-vungtau.gov.vn/article_summary-portlet/images/default_small_image.jpg"]
+                    encounter.images = ["https://mwsrp-network.org/uploads/encounters/thumbs/5346/P5145120.JPG"]
                 }
 
                 self.encounters.append(encounter)

@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import CoreLocation
 import Photos
 import Firebase
 import DKImagePickerController
+import i3s_swift
 
 class ComparisonResultsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
@@ -21,11 +23,18 @@ class ComparisonResultsViewController: UIViewController, UICollectionViewDelegat
     
     // MARK: - Properties
     var selectedImage: UIImage!
+    var fgp: FingerPrint!
     var results: [ComparisonResult] = []
     let pickerController = DKImagePickerController()
     var shark = Shark()
     var currentPage: Int = 0
-    var currentResult: ComparisonResult!;
+    var currentResult: ComparisonResult!
+    var location: CLLocation!
+    var date: Date!
+    var annotationRefs :[Double] = []
+    var annotationKeypoints :[[Double]] = []
+    var animalId: String!
+    var side: AnimalSide!
     
     fileprivate var pageSize: CGSize {
         let layout = self.collectionViewLabel.collectionViewLayout as! UPCarouselFlowLayout
@@ -90,6 +99,7 @@ class ComparisonResultsViewController: UIViewController, UICollectionViewDelegat
         pickerController.didSelectAssets = { (assets: [DKAsset]) in
             print("didSelectAssets")
             print(assets)
+            // TODO add to selected images to pass to next VC
         }
         
         self.present(pickerController, animated: true) {}
@@ -109,6 +119,8 @@ class ComparisonResultsViewController: UIViewController, UICollectionViewDelegat
     }
 
     @IBAction func confirmMatchButtonPressed(_ sender: UIButton) {
+        animalId = results[currentPage].id
+
         // Set up alert prior to logout
         let alert = UIAlertController(title: "Any more photos?", message: "Add more photos of your encounter to help confirm your shark.", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "No photos", style: .destructive, handler: { (action) in
@@ -176,6 +188,13 @@ class ComparisonResultsViewController: UIViewController, UICollectionViewDelegat
         if segue.identifier == "uploadEncounterSegue" {
             let destinationVC = segue.destination as! UploadResultsViewController
             destinationVC.selectedImage = sharkUploadImageView.image
+            destinationVC.fgp = fgp
+            destinationVC.location = location
+            destinationVC.annotationRefs = annotationRefs
+            destinationVC.annotationKeypoints = annotationKeypoints
+            destinationVC.animalId = animalId
+            destinationVC.side = side
+            destinationVC.date = date
         }
     }
 

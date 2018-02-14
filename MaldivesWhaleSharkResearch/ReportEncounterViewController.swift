@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 import i3s_swift
 import AlgoliaSearch
 import InstantSearchCore
@@ -31,6 +32,8 @@ class ReportEncounterViewController: UIViewController, UIScrollViewDelegate {
     var counter = 0
     var pageCounter = 1
     var selectedImage: UIImage!
+    var location: CLLocation!
+    var date: Date!
     
     // MARK: - View Did Load
     override func viewDidLoad() {
@@ -170,7 +173,11 @@ class ReportEncounterViewController: UIViewController, UIScrollViewDelegate {
                 .map {Array(repeating: [$0[0], $0[1]], count: 4).reduce([], +)}
                 .reduce([], +)
             destinationVC.fgp = FingerPrint(ref: refs1, data: spots1AsQuads, nr: spots1AsQuads.count / 8)
+            destinationVC.annotationRefs = refs1
+            destinationVC.annotationKeypoints = spots1
             destinationVC.sideToCheck = refs1[0] < refs1[2] ? AnimalSide.left : AnimalSide.right
+            destinationVC.location = location
+            destinationVC.date = date
         }
      }
     

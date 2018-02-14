@@ -134,43 +134,38 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
     
     func getEncountersWith(ids:[String]){
         // Firebase tableview data
-        Database.database().reference().child("encounters").observe(.value, with: { (snapshot) in
+        Database.database().reference().child("encounters").queryOrdered(byChild: "trip_date").observe(.value, with: { (snapshot) in
             self.encounters = []
             for rest in snapshot.children.allObjects as! [DataSnapshot] {
                 guard let restDict = rest.value as? [String: Any] else { continue }
-                let enID = restDict["id"] as! String
-                
+                let enID = rest.key
                 if (ids.contains(enID) || self.menuIndex == 0){
                     let encounter = Encounter()
-                    encounter.ID = (restDict["id"] as? String)!
-                    encounter.sharkName = (restDict["shark_name"] as? String)!
-                    encounter.date = (restDict["trip_date"] as? String)!
+                    encounter.sharkName = (restDict["shark_name"] as? String) ?? ""
+                    encounter.date = (restDict["trip_date"] as? String) ?? ""
                     if restDict["length_est"] != nil {
                         encounter.length = (restDict["length_est"] as? String)!
                     } else {
                         encounter.length = "Unknown"
                     }
                     if restDict["location_name"] != nil {
-                        encounter.locationName = (restDict["location_name"] as? String)!
+                        encounter.locationName = (restDict["location_name"] as? String) ?? ""
                     } else {
                         encounter.locationName = "Unknown"
                     }
-//                    encounter.length = (restDict["length_est"] as? String)!
-//                    encounter.locationName = (restDict["location_name"] as? String)!
-                    encounter.contributorName = (restDict["contributor"] as? String)!
-                    encounter.contributorImage = (restDict["contributor_image"] as? String)!
+                    encounter.contributorName = (restDict["contributor"] as? String) ?? ""
+                    encounter.contributorImage = (restDict["contributor_image"] as? String) ?? ""
                     
                     if restDict["media"] != nil {
-                        let mediaDict = restDict["media"] as! [[String:Any]]
-                        encounter.images = mediaDict.flatMap { $0["thumb_url"] as? String }
+                        let mediaDict = restDict["media"] as? [String: [String: Any]]
+                        encounter.images = mediaDict?.values.flatMap {$0["url"] as? String} ?? []
                     } else {
-                        encounter.images = ["http://banqlkcn.baria-vungtau.gov.vn/article_summary-portlet/images/default_small_image.jpg"]
+                        encounter.images = ["https://mwsrp-network.org/uploads/encounters/thumbs/5346/P5145120.JPG"]
                     }
-//                    let mediaDict = restDict["media"] as! [[String:Any]]
-//                    encounter.images = mediaDict.flatMap { $0["thumb_url"] as? String }
                     
                     self.encounters.append(encounter)
                 }
+                self.encounters.reverse()
                 self.tableView.reloadData()
             }
         })
@@ -203,8 +198,7 @@ class EncountersTableViewController: UITableViewController, BWWalkthroughViewCon
     // Convert date from date string and subtract from current date
     func convertDate(encounterDate: String) -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        //        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         let date = dateFormatter.date(from: encounterDate)
         
         let currentDate = Date()

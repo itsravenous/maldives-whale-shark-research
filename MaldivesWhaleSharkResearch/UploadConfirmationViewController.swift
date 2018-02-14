@@ -9,6 +9,7 @@
 import UIKit
 import Spring
 import AlgoliaSearch
+import FirebaseDatabase
 
 class UploadConfirmationViewController: UIViewController {
     
@@ -19,13 +20,21 @@ class UploadConfirmationViewController: UIViewController {
 
     // MARK: - Properties
     var selectedImage: UIImage!
+    var animalId: String!
+    var animal: JSONObject!
     
     // MARK: - View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
         sharkImage.image = selectedImage
+        let db = Database.database().reference()
+        db.child("sharks").child(animalId).observeSingleEvent(of: .value, with: { (snapshot) in
+            self.animal = snapshot.value as? JSONObject
+            let id = self.animal["id"] as! String
+            let name = self.animal["name"] as! String
+            self.sharkNameLabel.text = "\(id) - \(name)"
+        })
         viewProfileButton.layer.cornerRadius = 4
-
     }
     
     // MARK: - Navigation Bar Stuff
@@ -46,26 +55,31 @@ class UploadConfirmationViewController: UIViewController {
         let nav = tabBar.viewControllers?[3] as! UINavigationController
         let sharkProfile = stb.instantiateViewController(withIdentifier: "sharkProfile") as! SharkProfileTableViewController
         tabBar.selectedIndex = 3
-        let shark =
-            [
-                "id" : "WS071",
-                "name": "Fernando",
-                "sighting_count": "212",
-                "sex": "M",
-                "first_datetime": "2008-04-30 14:10:00",
-                "first_length": "3",
-                "first_contributor": "MWSRP",
-                "first_location": "3.465500, 72.838256",
-                "last_datetime": "2017-06-27 15:35:00",
-                "last_length": "7",
-                "last_contributor": "MWSRP",
-                "last_location": "3.503414, 72.904709",
-                "media": [["thumb_url": "https://mwsrp-network.org/uploads/sharks/thumbs/WS071/WS071 Nice pic (2).JPG"], ["thumb_url": "https://mwsrp-network.org/uploads/sharks/thumbs/WS071/WS071 scar (4).JPG"], ["thumb_url": "https://mwsrp-network.org/uploads/sharks/thumbs/WS071 - Fernando/WS071_LEFT 7.jpg"]]
-                ] as [String : Any]
-        sharkProfile.selectedShark = shark as JSONObject
+        sharkProfile.selectedShark = animal
         self.present(tabBar, animated: true) {
             nav.pushViewController(sharkProfile, animated: false)
         }
+        
+//        let shark =
+//            [
+//                "id" : "WS071",
+//                "name": "Fernando",
+//                "sighting_count": "212",
+//                "sex": "M",
+//                "first_datetime": "2008-04-30 14:10:00",
+//                "first_length": "3",
+//                "first_contributor": "MWSRP",
+//                "first_location": "3.465500, 72.838256",
+//                "last_datetime": "2017-06-27 15:35:00",
+//                "last_length": "7",
+//                "last_contributor": "MWSRP",
+//                "last_location": "3.503414, 72.904709",
+//                "media": [["thumb_url": "https://mwsrp-network.org/uploads/sharks/thumbs/WS071/WS071 Nice pic (2).JPG"], ["thumb_url": "https://mwsrp-network.org/uploads/sharks/thumbs/WS071/WS071 scar (4).JPG"], ["thumb_url": "https://mwsrp-network.org/uploads/sharks/thumbs/WS071 - Fernando/WS071_LEFT 7.jpg"]]
+//                ] as [String : Any]
+//        sharkProfile.selectedShark = shark as JSONObject
+//        self.present(tabBar, animated: true) {
+//            nav.pushViewController(sharkProfile, animated: false)
+//        }
         
     }
 

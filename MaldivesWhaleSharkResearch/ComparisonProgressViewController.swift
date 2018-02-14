@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 import Firebase
 import i3s_swift
 
@@ -23,6 +24,10 @@ class ComparisonProgressViewController: UIViewController {
     var sideToCheck: AnimalSide!
     var results = [ComparisonResult]()
     var timer = Timer()
+    var location: CLLocation!
+    var date: Date!
+    var annotationRefs :[Double] = []
+    var annotationKeypoints :[[Double]] = []
     
     // MARK: - View Did Load
     override func viewDidLoad() {
@@ -64,6 +69,7 @@ class ComparisonProgressViewController: UIViewController {
                     result.name = animalName
                     self.results.append(result)
                     self.comparisonProgressBar.setProgress(progress / total, animated: false)
+                    print(animalId, score)
                     if (progress == total - 1) {
                         self.goToResults()
                     }
@@ -114,7 +120,13 @@ class ComparisonProgressViewController: UIViewController {
         if segue.identifier == "comparisonToResultsSegue" {
             let destinationVC = segue.destination as! ComparisonResultsViewController
             destinationVC.selectedImage = sharkImage.image
+            destinationVC.fgp = fgp
             destinationVC.results = self.results.sorted()
+            destinationVC.location = location
+            destinationVC.annotationRefs = annotationRefs
+            destinationVC.annotationKeypoints = annotationKeypoints
+            destinationVC.side = sideToCheck
+            destinationVC.date = date
         }
 
         // Get the new view controller using segue.destinationViewController.

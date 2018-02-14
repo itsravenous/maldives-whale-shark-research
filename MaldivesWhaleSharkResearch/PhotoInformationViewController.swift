@@ -130,6 +130,8 @@ class PhotoInformationViewController: UIViewController, EditPhotoDelegate {
         } else if segue.identifier == "infoToReportSegue" {
             let reportPhotoVC = segue.destination as! ReportEncounterViewController
             reportPhotoVC.selectedImage = self.imageView.image
+            reportPhotoVC.location = location
+            reportPhotoVC.date = photoDate
         }
         
     }
