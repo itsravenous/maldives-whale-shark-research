@@ -44,16 +44,22 @@ class EncounterDetailViewController: UIViewController, UICollectionViewDataSourc
     
     // MARK: - IBActions
     @IBAction func shareButtonPressed(_ sender: UIBarButtonItem) {
-        // image to share
-        let image = UIImage(named: "shark1")
-        
-        // set up activity view controller
-        let imageToShare = [ image! ]
+        let url = selectedEncounter?.images[0].addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
+        let imageFromCache = SDImageCache.shared().imageFromCache(forKey: url!)
+        if (imageFromCache != nil) {
+            presentShareImage(imageToShare: [ imageFromCache! ])
+        } else {
+            SDWebImageDownloader.shared().downloadImage(with: URL(string: url!), options: [], progress: nil) { (image: UIImage?, data: Data?, error: Error?, finished: Bool) in
+                if (!finished || error != nil) { return }
+                // set up activity view controller
+                self.presentShareImage(imageToShare: [ image! ])
+            }
+        }
+    }
+
+    func presentShareImage(imageToShare: [UIImage]) {
         let activityViewController = UIActivityViewController(activityItems: imageToShare, applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
-        
-        // exclude some activity types from the list (optional)
-        // activityViewController.excludedActivityTypes = [ UIActivityType.postToFacebook ]
         
         // present the view controller
         self.present(activityViewController, animated: true, completion: nil)

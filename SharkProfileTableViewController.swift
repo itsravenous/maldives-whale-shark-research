@@ -9,6 +9,7 @@
 import UIKit
 import AlgoliaSearch
 import MapKit
+import SDWebImage
 
 class SharkProfileTableViewController: UITableViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -34,10 +35,21 @@ class SharkProfileTableViewController: UITableViewController, UICollectionViewDe
     // MARK: - IBActions
     @IBAction func shareButtonPressed(_ sender: UIBarButtonItem) {
         // image to share
-        let image = UIImage(named: "shark1")
-        
-        // set up activity view controller
-        let imageToShare = [ image! ]
+        let shark = WhaleShark(json: selectedShark!)
+        let url = shark.media?.first?.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
+        let imageFromCache = SDImageCache.shared().imageFromCache(forKey: url!)
+        if (imageFromCache != nil) {
+            presentShareImage(imageToShare: [ imageFromCache! ])
+        } else {
+            SDWebImageDownloader.shared().downloadImage(with: URL(string: url!), options: [], progress: nil) { (image: UIImage?, data: Data?, error: Error?, finished: Bool) in
+                if (!finished || error != nil) { return }
+                // set up activity view controller
+                self.presentShareImage(imageToShare: [ image! ])
+            }
+        }
+    }
+
+    func presentShareImage(imageToShare: [UIImage]) {
         let activityViewController = UIActivityViewController(activityItems: imageToShare, applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
         
@@ -165,8 +177,6 @@ class SharkProfileTableViewController: UITableViewController, UICollectionViewDe
         }
         
         cell.imageView.sd_setImage(with: URL(string: (shark.media![indexPath.row]).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!))
-
-        print(shark.media?[indexPath.row].addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed))
         return cell
     }
     
